@@ -21,6 +21,8 @@ export class AppComponent implements OnInit {
   }
 
   showCreatures() {
-    this.creatureService.getCreatures();
+    this.creatureService.getCreatures().subscribe(creatures => {
+      this.creatures = creatures;
+    });
   }
 }

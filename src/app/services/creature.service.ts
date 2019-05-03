@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class CreatureService {
-    private creaturesUrl = "assets/creatures.json";
+    //private creaturesUrl = "assets/creatures.json";
+    private creaturesUrl = "api/creatures";
 
     constructor(private http: HttpClient){
 
