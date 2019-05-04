@@ -1,3 +1,14 @@
-<div *ngFor="let spell of spells">
-    <p>{{ spell.description }}</p>
+<div class="row spell">
+    <div class="container">
+        <div style="display: flex; justify-content: space-around;" *ngFor="let spell of spells">
+            <button type="button" class="btn btn-default col-xs-12" (click)="summon()">{{ spell.level }}</button>
+            <select class="form-control">
+                <option></option>
+                <option *ngFor="let creature of spell.creatures" [ngValue]="creature">{{creature}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="container">
+        <creature></creature>
+    </div>
 </div>

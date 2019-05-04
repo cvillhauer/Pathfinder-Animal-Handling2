@@ -20,8 +20,13 @@ export class SpellComponent implements OnInit {
   }
 
   showSpells() {
-    this.spellService.getSpells().subscribe(spells => {
+    this.spellService.getSpellsByGroup("summonnaturesally").subscribe(spells => {
       this.spells = spells;
     });
   }
+
+  summon(){
+    console.log("Summoning");
+  }
+
 }

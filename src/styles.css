@@ -6,3 +6,25 @@ body
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #A7C68B;
 }
+
+a
+{
+    color: #6C7F5A;
+}
+
+a:hover
+{
+    color: #36402D;
+}
+
+.spell
+{
+    border: solid 3px #36402D;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    color: #36402D;
+}

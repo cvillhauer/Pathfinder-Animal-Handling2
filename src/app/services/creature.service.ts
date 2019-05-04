@@ -16,4 +16,8 @@ export class CreatureService {
     getCreatures(): Observable<Creature[]> {
         return this.http.get<Creature[]>(this.creaturesUrl);
     }
+
+    getCreatureById(id: string): Observable<Creature> {
+        return this.http.get<Creature>(this.creaturesUrl + "/" + id);
+    }
 }
