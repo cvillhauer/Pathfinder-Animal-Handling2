@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Creature } from '../model/creature';
+import { Spell } from '../model/spell';
 
 @Injectable( {
     providedIn: 'root'
 })
-export class CreatureService {
-    private creaturesUrl = "api/creatures";
+export class SpellService {
+    private spellsUrl = "api/spells";
 
     constructor(private http: HttpClient){
 
     }
 
-    getCreatures(): Observable<Creature[]> {
-        return this.http.get<Creature[]>(this.creaturesUrl);
+    getSpells(): Observable<Spell[]> {
+        return this.http.get<Spell[]>(this.spellsUrl);
     }
 }
