@@ -11,20 +11,21 @@ import { CreatureService } from 'src/app/services/creature.service';
 })
 export class SpellComponent implements OnInit {
   title = 'Pathfinder-Animal-Handling2';
+  spellGroup: string;
   spells: Spell[] = [];
   creatures: Creature[] = [];
   selectedCreature: Creature;
 
   constructor(private spellService: SpellService, private creatureService: CreatureService) {
-
+    this.spellGroup = "summonnaturesally";
   }
 
   ngOnInit() {
-    this.showSpells();
+    this.showSpells(this.spellGroup);
   }
 
-  showSpells() {
-    this.spellService.getSpellsByGroup("summonnaturesally").subscribe(spells => {
+  showSpells(spellGroup: string) {
+    this.spellService.getSpellsByGroup(spellGroup).subscribe(spells => {
       this.spells = spells;
       this.getSpellCreatures();
     });
