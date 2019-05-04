@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Spell } from '../model/spell';
+import { Creature } from '../model/creature';
 
 @Injectable({
     providedIn: 'root'

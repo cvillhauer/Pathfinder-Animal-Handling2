@@ -10,6 +10,7 @@ import { CreatureService } from '../../services/creature.service';
 export class CreatureComponent implements OnInit {
   title = 'Pathfinder-Animal-Handling2';
   creatures: Creature[] = [];
+  creature: Creature;
 
   constructor(private creatureService: CreatureService) {
 

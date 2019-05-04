@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Creature } from '../model/creature';
 
-@Injectable( {
+@Injectable({
     providedIn: 'root'
 })
 export class CreatureService {
     private creaturesUrl = "api/creatures";
 
-    constructor(private http: HttpClient){
+    constructor(private http: HttpClient) {
 
     }
 
@@ -17,7 +17,7 @@ export class CreatureService {
         return this.http.get<Creature[]>(this.creaturesUrl);
     }
 
-    getCreatureById(id: string): Observable<Creature> {
+    getCreature(id: string): Observable<Creature> {
         return this.http.get<Creature>(this.creaturesUrl + "/" + id);
     }
 }

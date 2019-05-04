@@ -5,5 +5,5 @@ export class Spell {
     description: string;
 
     classes: string[];
-    creatures: Creature[];
+    creatures: string[];
 }
