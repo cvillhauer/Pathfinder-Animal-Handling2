@@ -1,8 +1,8 @@
 <div class="row spell">
     <div class="container">
         <div style="display: flex; justify-content: space-around;" *ngFor="let spell of spells">
-            <button type="button" class="btn btn-default col-xs-12" (click)="summon()">{{ spell.level }}</button>
-            <select class="form-control" [(ngModel)]="selectedCreature">
+            <button type="button" class="btn btn-default col-xs-6" (click)="summon()">{{ spell.description }}</button>
+            <select class="form-control col-xs-6" [(ngModel)]="selectedCreature">
                 <option></option>
                 <option *ngFor="let creature of spell.creatures" [ngValue]="creature">{{ creature.description }}</option>
             </select>
