@@ -20,4 +20,9 @@ export class SpellService {
     getSpellsByGroup(group: string): Observable<Spell[]> {
         return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group);
     }
+
+    getSpellsByGroupAndLevel(group: string, level: number): Observable<Spell[]> {
+        //return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group + "/?level=" + level); //TODO level here is not working at all
+        return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group);
+    }
 }

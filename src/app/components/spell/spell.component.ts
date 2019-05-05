@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
-import { SpellService } from '../../services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 
 @Component({
@@ -10,25 +9,20 @@ import { CreatureService } from 'src/app/services/creature.service';
   templateUrl: './spell.component.html'
 })
 export class SpellComponent implements OnInit {
-  @Input() spellGroup: string;
-  spells: Spell[] = [];
+  @Input() spells: Spell[];
   selectedCreature: Creature;
 
-  constructor(private spellService: SpellService, private creatureService: CreatureService) {
+  constructor(private creatureService: CreatureService) {
   }
 
   ngOnInit() {
-    this.showSpells(this.spellGroup);
-  }
-
-  showSpells(spellGroup: string) {
-    this.spellService.getSpellsByGroup(spellGroup).subscribe(spells => {
-      this.spells = spells;
+    if(this.spells){
       this.getSpellCreatures();
-    });
+    }
   }
 
   getSpellCreatures() {
+    console.log("Getting spell creatures");
     this.spells.map(s => {
       s.creatures = [];
       if (s.creatureList) {
@@ -43,7 +37,12 @@ export class SpellComponent implements OnInit {
   }
 
   summon() {
-    console.log("Summoning");
+    if(this.selectedCreature){
+      console.log("Summoning " + this.selectedCreature.description);
+    }
+    else {
+      console.log("No creature selected");
+    }
   }
 
 }
