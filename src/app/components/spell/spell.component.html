@@ -4,7 +4,7 @@
             <button type="button" class="btn btn-default col-xs-12" (click)="summon()">{{ spell.level }}</button>
             <select class="form-control" [(ngModel)]="selectedCreature">
                 <option></option>
-                <option *ngFor="let creature of creatures" [ngValue]="creature">{{ creature.description }}</option>
+                <option *ngFor="let creature of spell.creatures" [ngValue]="creature">{{ creature.description }}</option>
             </select>
         </div>
     </div>

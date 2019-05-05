@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
         group: "summonnaturesally",
         level: 1,
         classes: ["druid1", "ranger1", "shaman1"],
-        creatures: [
+        creatureList: [
           "direrat",
           "dog",
           "dolphin"
@@ -25,63 +25,72 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally II",
         group: "summonnaturesally",
         level: 2,
-        classes: ["druid2", "ranger2", "shaman2"]
+        classes: ["druid2", "ranger2", "shaman2"],
+        creatureList: []
       },
       {
         id: "summonnaturesally3",
         description: "Summon Nature's Ally III",
         group: "summonnaturesally",
         level: 3,
-        classes: ["druid3", "ranger3", "shaman3"]
+        classes: ["druid3", "ranger3", "shaman3"],
+        creatureList: []
       },
       {
         id: "summonnaturesally4",
         description: "Summon Nature's Ally IV",
         group: "summonnaturesally",
         level: 4,
-        classes: ["druid4", "ranger4", "shaman4"]
+        classes: ["druid4", "ranger4", "shaman4"],
+        creatureList: []
       },
       {
         id: "summonnaturesally5",
         description: "Summon Nature's Ally V",
         group: "summonnaturesally",
         level: 5,
-        classes: ["druid5", "shaman5"]
+        classes: ["druid5", "shaman5"],
+        creatureList: []
       },
       {
         id: "summonnaturesally6",
         description: "Summon Nature's Ally VI",
         group: "summonnaturesally",
         level: 6,
-        classes: ["druid6", "shaman6"]
+        classes: ["druid6", "shaman6"],
+        creatureList: []
       },
       {
         id: "summonnaturesally7",
         description: "Summon Nature's Ally VII",
         group: "summonnaturesally",
         level: 7,
-        classes: ["druid7", "shaman7"]
+        classes: ["druid7", "shaman7"],
+        creatureList: []
       },
       {
         id: "summonnaturesally8",
         description: "Summon Nature's Ally VIII",
         group: "summonnaturesally",
         level: 8,
-        classes: ["druid8", "shaman8"]
+        classes: ["druid8", "shaman8"],
+        creatureList: []
       },
       {
         id: "summonnaturesally9",
         description: "Summon Nature's Ally IX",
         group: "summonnaturesally",
         level: 9,
-        classes: ["druid9", "shaman9"]
+        classes: ["druid9", "shaman9"],
+        creatureList: []
       },
       {
         id: "summonmonster1",
         description: "Summon Monster I",
         group: "summonmonster",
         level: 1,
-        classes: ["druid1", "shaman1"]
+        classes: ["druid1", "shaman1"],
+        creatureList: []
       }
     ];
     const creatures = [

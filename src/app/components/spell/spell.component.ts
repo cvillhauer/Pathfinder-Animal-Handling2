@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
@@ -11,13 +11,11 @@ import { CreatureService } from 'src/app/services/creature.service';
 })
 export class SpellComponent implements OnInit {
   title = 'Pathfinder-Animal-Handling2';
-  spellGroup: string;
+  @Input() spellGroup: string;
   spells: Spell[] = [];
-  creatures: Creature[] = [];
   selectedCreature: Creature;
 
   constructor(private spellService: SpellService, private creatureService: CreatureService) {
-    this.spellGroup = "summonnaturesally";
   }
 
   ngOnInit() {
@@ -33,11 +31,12 @@ export class SpellComponent implements OnInit {
 
   getSpellCreatures() {
     this.spells.map(s => {
-      if (s.creatures) {
-        for (let i = 0; i < s.creatures.length; i++) {
-          let creatureId = s.creatures[i];
+      s.creatures = [];
+      if (s.creatureList) {
+        for (let i = 0; i < s.creatureList.length; i++) {
+          let creatureId = s.creatureList[i];
           this.creatureService.getCreature(creatureId).subscribe(c => {
-            this.creatures.push(c);
+            s.creatures.push(c);
           });
         }
       }

@@ -7,5 +7,5 @@
   <input class="form-control" *ngIf="editName" [(ngModel)]="characterName" (focusout)="toggleEditCharacterName()" />
   <h4>{{ characterClass }} - {{ characterLevel }}</h4>
   <br /><br />
-  <spell></spell>
+  <spell [spellGroup]="calculateSpellGroup()"></spell>
 </div>

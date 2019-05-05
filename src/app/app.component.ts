@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,16 @@ export class AppComponent {
 
   toggleEditCharacterName() {
     this.editName = !this.editName;
+  }
+
+  calculateSpellGroup(){
+    let spellGroup = "";
+    if(this.characterClass === "Druid"){
+      spellGroup = "summonnaturesally"
+    }
+    else if (this.characterClass){
+      spellGroup = "summonmonster"
+    }
+    return spellGroup;
   }
 }
