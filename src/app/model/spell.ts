@@ -10,10 +10,9 @@ export class Spell {
     creatureList: string[];
     creatures: Creature[];
 
-    getLevelList(){
+    getLevelList() {
         this.levelList = [];
-        for(let i = 1; i <= this.level; i++)
-        {
+        for (let i = 1; i <= this.level; i++) {
             this.levelList.push(i);
         }
     }

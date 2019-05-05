@@ -7,6 +7,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
 import { SpellComponent } from './components/spell/spell.component';
 
@@ -14,6 +15,7 @@ import { SpellComponent } from './components/spell/spell.component';
 @NgModule({
   declarations: [
     AppComponent,
+    CharacterComponent,
     CreatureComponent,
     SpellComponent
   ],

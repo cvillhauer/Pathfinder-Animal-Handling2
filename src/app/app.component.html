@@ -1,11 +1,4 @@
 <div class="container">
   <h1>Pathfinder Animal Handling</h1>
-  <h3 *ngIf="!editName" (ngModel)="characterName" (click)="toggleEditCharacterName()">
-    <span>{{ characterName }}</span>
-    <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
-  </h3>
-  <input class="form-control" *ngIf="editName" [(ngModel)]="characterName" (focusout)="toggleEditCharacterName()" />
-  <h4>{{ characterClass }} - {{ characterLevel }}</h4>
-  <br /><br />
-  <spell [spellGroup]="calculateSpellGroup()"></spell>
+  <character [characters]="characters"></character>
 </div>

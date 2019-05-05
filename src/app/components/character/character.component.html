@@ -1,0 +1,11 @@
+<div *ngFor="let character of characters">
+    <h3 *ngIf="!editName" (ngModel)="character.characterName" (click)="character.toggleEditCharacterName()">
+        <span>{{ character.characterName }}</span> &nbsp;
+        <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
+    </h3>
+    <input class="form-control" *ngIf="editName" [(ngModel)]="character.characterName"
+        (focusout)="character.toggleEditCharacterName()" />
+    <h4>{{ character.characterClass }} - {{ character.characterLevel }}</h4>
+    <br /><br />
+    <spell [spellGroup]="character.calculateSpellGroup()"></spell>
+</div>

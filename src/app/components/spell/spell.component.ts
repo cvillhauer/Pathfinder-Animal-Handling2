@@ -10,7 +10,6 @@ import { CreatureService } from 'src/app/services/creature.service';
   templateUrl: './spell.component.html'
 })
 export class SpellComponent implements OnInit {
-  title = 'Pathfinder-Animal-Handling2';
   @Input() spellGroup: string;
   spells: Spell[] = [];
   selectedCreature: Creature;

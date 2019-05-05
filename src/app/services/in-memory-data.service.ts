@@ -94,7 +94,11 @@ export class InMemoryDataService implements InMemoryDbService {
         group: "summonmonster",
         level: 1,
         classes: ["bard1", "cleric1", "oracle1", "sorcerer1", "summoner1", "witch1", "wizard1"],
-        creatureList: []
+        creatureList: [
+          "direrat",
+          "dog",
+          "dolphin"
+        ]
       },
       {
         id: "summonmonster2",
@@ -102,7 +106,11 @@ export class InMemoryDataService implements InMemoryDbService {
         group: "summonmonster",
         level: 2,
         classes: ["bard2", "cleric2", "oracle2", "sorcerer2", "summoner2", "witch2", "wizard2"],
-        creatureList: []
+        creatureList: [
+          "horse",
+          "octopus",
+          "wolf"
+        ]
       },
       {
         id: "summonmonster3",
