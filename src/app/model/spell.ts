@@ -6,7 +6,6 @@ export class Spell {
     group: string;
     level: number;
     levelList: number[];
-    classes: string[];
     creatureList: string[];
     creatures: Creature[];
 

@@ -13,7 +13,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally I",
         group: "summonnaturesally",
         level: 1,
-        classes: ["druid1", "ranger1", "shaman1"],
         creatureList: [
           "direrat",
           "dog",
@@ -25,7 +24,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally II",
         group: "summonnaturesally",
         level: 2,
-        classes: ["druid2", "ranger2", "shaman2"],
         creatureList: [
           "horse",
           "octopus",
@@ -37,7 +35,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally III",
         group: "summonnaturesally",
         level: 3,
-        classes: ["druid3", "ranger3", "shaman3"],
         creatureList: []
       },
       {
@@ -45,7 +42,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally IV",
         group: "summonnaturesally",
         level: 4,
-        classes: ["druid4", "ranger4", "shaman4"],
         creatureList: []
       },
       {
@@ -53,7 +49,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally V",
         group: "summonnaturesally",
         level: 5,
-        classes: ["druid5", "shaman5"],
         creatureList: []
       },
       {
@@ -61,7 +56,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally VI",
         group: "summonnaturesally",
         level: 6,
-        classes: ["druid6", "shaman6"],
         creatureList: []
       },
       {
@@ -69,7 +63,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally VII",
         group: "summonnaturesally",
         level: 7,
-        classes: ["druid7", "shaman7"],
         creatureList: []
       },
       {
@@ -77,7 +70,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally VIII",
         group: "summonnaturesally",
         level: 8,
-        classes: ["druid8", "shaman8"],
         creatureList: []
       },
       {
@@ -85,7 +77,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally IX",
         group: "summonnaturesally",
         level: 9,
-        classes: ["druid9", "shaman9"],
         creatureList: []
       },
       {
@@ -93,7 +84,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster I",
         group: "summonmonster",
         level: 1,
-        classes: ["bard1", "cleric1", "oracle1", "sorcerer1", "summoner1", "witch1", "wizard1"],
         creatureList: [
           "direrat",
           "dog",
@@ -105,7 +95,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster II",
         group: "summonmonster",
         level: 2,
-        classes: ["bard2", "cleric2", "oracle2", "sorcerer2", "summoner2", "witch2", "wizard2"],
         creatureList: [
           "horse",
           "octopus",
@@ -117,7 +106,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster III",
         group: "summonmonster",
         level: 3,
-        classes: ["bard3", "cleric3", "oracle3", "sorcerer3", "summoner3", "witch3", "wizard3"],
         creatureList: []
       },
       {
@@ -125,7 +113,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster IV",
         group: "summonmonster",
         level: 4,
-        classes: ["bard4", "cleric4", "oracle4", "sorcerer4", "summoner3", "witch4", "wizard4"],
         creatureList: []
       },
       {
@@ -133,7 +120,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster V",
         group: "summonmonster",
         level: 5,
-        classes: ["bard5", "cleric5", "oracle5", "sorcerer5", "summoner4", "witch5", "wizard5"],
         creatureList: []
       },
       {
@@ -141,7 +127,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster VI",
         group: "summonmonster",
         level: 6,
-        classes: ["bard6", "cleric6", "oracle6", "sorcerer6", "summoner5", "witch6", "wizard6"],
         creatureList: []
       },
       {
@@ -149,7 +134,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster VII",
         group: "summonmonster",
         level: 7,
-        classes: ["cleric7", "oracle7", "sorcerer7", "summoner5", "witch7", "wizard7"],
         creatureList: []
       },
       {
@@ -157,7 +141,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster VIII",
         group: "summonmonster",
         level: 8,
-        classes: ["cleric8", "oracle8", "sorcerer8", "summoner6", "witch8", "wizard8"],
         creatureList: []
       },
       {
@@ -165,7 +148,6 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster IX",
         group: "summonmonster",
         level: 9,
-        classes: ["cleric9", "oracle9", "sorcerer9", "witch9", "wizard9"],
         creatureList: []
       }
     ];

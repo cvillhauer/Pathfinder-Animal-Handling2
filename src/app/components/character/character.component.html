@@ -7,5 +7,5 @@
         (focusout)="character.toggleEditCharacterName()" />
     <h4>{{ character.characterClass }} - {{ character.characterLevel }}</h4>
     <br /><br />
-    <spell [spellGroup]="character.calculateSpellGroup()"></spell>
+    <spell [spellGroup]="character.spellGroup"></spell>
 </div>
