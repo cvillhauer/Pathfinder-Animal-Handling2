@@ -6,6 +6,7 @@
     <input class="form-control" *ngIf="character.editName" [(ngModel)]="character.characterName"
         (focusout)="character.toggleEditCharacterName()" />
     <h4>{{ character.characterClass }} - {{ character.characterLevel }}</h4>
-    <br /><br />
-    <spell [spells]="character.validSpells"></spell>
+    <div class="row spell">
+        <spell [spell]="spell" *ngFor="let spell of character.validSpells"></spell>
+    </div>
 </div>

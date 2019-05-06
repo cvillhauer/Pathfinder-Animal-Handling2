@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
@@ -9,35 +9,32 @@ import { CreatureService } from 'src/app/services/creature.service';
   templateUrl: './spell.component.html'
 })
 export class SpellComponent implements OnInit {
-  @Input() spells: Spell[];
+  @Input() spell: Spell;
   selectedCreature: Creature;
 
   constructor(private creatureService: CreatureService) {
   }
 
   ngOnInit() {
-    if(this.spells){
+    if (this.spell) {
       this.getSpellCreatures();
     }
   }
 
   getSpellCreatures() {
-    console.log("Getting spell creatures");
-    this.spells.map(s => {
-      s.creatures = [];
-      if (s.creatureList) {
-        for (let i = 0; i < s.creatureList.length; i++) {
-          let creatureId = s.creatureList[i];
-          this.creatureService.getCreature(creatureId).subscribe(c => {
-            s.creatures.push(c);
-          });
-        }
+    this.spell.creatures = [];
+    if (this.spell.creatureList) {
+      for (let i = 0; i < this.spell.creatureList.length; i++) {
+        let creatureId = this.spell.creatureList[i];
+        this.creatureService.getCreature(creatureId).subscribe(c => {
+          this.spell.creatures.push(c);
+        });
       }
-    });
+    }
   }
 
   summon() {
-    if(this.selectedCreature){
+    if (this.selectedCreature) {
       console.log("Summoning " + this.selectedCreature.description);
     }
     else {
