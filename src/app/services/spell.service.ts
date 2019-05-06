@@ -22,7 +22,6 @@ export class SpellService {
     }
 
     getSpellsByGroupAndLevel(group: string, level: number): Observable<Spell[]> {
-        //return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group + "/?level=" + level); //TODO level here is not working at all
-        return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group);
+        return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group + "&level=" + level);
     }
 }
