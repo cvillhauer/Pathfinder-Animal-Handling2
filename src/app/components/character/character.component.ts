@@ -21,11 +21,9 @@ export class CharacterComponent implements OnInit {
 
   getValidSpells(character: Character) {
     character.validSpells = [];
-    for (let i = 1; i <= character.spellLevel; i++) {
-      this.spellService.getSpellsByGroupAndLevel(character.spellGroup, i).subscribe(spells => {
-        character.validSpells.push(...spells);
-      });
-    }
+    this.spellService.getSpellsByGroupAndLevel(character.spellGroup, character.spellLevel).subscribe(spells => {
+      character.validSpells = spells;
+    });
   }
 
   calculateValidSpells(character: Character) {

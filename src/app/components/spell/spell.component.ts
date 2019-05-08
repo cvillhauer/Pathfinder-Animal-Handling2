@@ -24,12 +24,9 @@ export class SpellComponent implements OnInit {
   getSpellCreatures() {
     this.spell.creatures = [];
     if (this.spell.creatureList) {
-      for (let i = 0; i < this.spell.creatureList.length; i++) {
-        let creatureId = this.spell.creatureList[i];
-        this.creatureService.getCreature(creatureId).subscribe(c => {
-          this.spell.creatures.push(c);
-        });
-      }
+      this.creatureService.getSpellCreatures(this.spell.creatureList).subscribe(creatures => {
+        this.spell.creatures = creatures;
+      });
     }
   }
 
