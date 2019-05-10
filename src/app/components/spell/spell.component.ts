@@ -51,6 +51,8 @@ export class SpellComponent implements OnInit {
       //TODO: Selected Level should affect what creature list I get
       console.log("Summoning " + numberOfCreatures + " " + this.selectedCreature.description);
       if (this.castingCharacter.feats.indexOf("Augmented Summoning") >= 0) {
+        this.selectedCreature.strength += 4;
+        this.selectedCreature.constitution += 4;
         console.log("with +4 Strength and +4 Constitution");
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
