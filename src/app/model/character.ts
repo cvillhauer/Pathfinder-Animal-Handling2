@@ -1,4 +1,5 @@
 import { Spell } from './spell';
+import { Creature } from './creature';
 
 export class Character {
     id: string;
@@ -10,6 +11,7 @@ export class Character {
     spellGroup: string;
     spellLevel: number;
     feats: string[];
+    summonedCreatures: Creature[];
 
     constructor(id: string, name: string, characterClass: string, level: number) {
         this.id = id;
@@ -17,7 +19,7 @@ export class Character {
         this.characterClass = characterClass;
         this.characterLevel = level;
         this.feats = [];
-
+        this.summonedCreatures = [];
     }
 
     toggleEditCharacterName() {

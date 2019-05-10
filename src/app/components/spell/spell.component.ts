@@ -14,7 +14,7 @@ export class SpellComponent implements OnInit {
   @Input() castingCharacter: Character;
   selectedLevel: number;
   selectedCreature: Creature;
-  @Output() summon: EventEmitter<Creature[]> = new EventEmitter<Creature[]>();
+  @Output() summon: EventEmitter<Object> = new EventEmitter<Object>(); //TODO: Can I better Type this?
 
   constructor(private creatureService: CreatureService) {
   }
@@ -60,7 +60,7 @@ export class SpellComponent implements OnInit {
     else {
       console.log("Not enough input");
     }
-    this.summon.emit(summonedCreatures);
+    this.summon.emit({ id: this.castingCharacter.id, creatures: summonedCreatures });
   }
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {
