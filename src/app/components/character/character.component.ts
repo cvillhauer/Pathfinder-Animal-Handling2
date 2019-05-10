@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Character } from 'src/app/model/character';
 import { SpellService } from 'src/app/services/spell.service';
+import { Creature } from 'src/app/model/creature';
 
 @Component({
   selector: 'character',
@@ -197,6 +198,12 @@ export class CharacterComponent implements OnInit {
       default:
         return 0;
     }
+  }
+
+  summon($event) {
+    let creature: Creature;
+    creature = $event;
+    console.log(creature);
   }
 
 }

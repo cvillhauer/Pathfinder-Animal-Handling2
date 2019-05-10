@@ -8,11 +8,4 @@ export class Spell {
     levelList: number[];
     creatureList: string[];
     creatures: Creature[];
-
-    getLevelList() {
-        this.levelList = [];
-        for (let i = 1; i <= this.level; i++) {
-            this.levelList.push(i);
-        }
-    }
 }
