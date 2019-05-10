@@ -2,7 +2,7 @@
     <div class="container">
         <h4 class="col-xs-4">{{ spell.description }}</h4>
         <div style="display: flex; justify-content: space-around;">
-            <select class="form-control col-xs-3" [(ngModel)]="selectedLevel">
+            <select class="form-control col-xs-3" [(ngModel)]="selectedLevel" (change)="levelChange()">
                 <option></option>
                 <option *ngFor="let level of spell.levelList">{{ level }}</option>
             </select>

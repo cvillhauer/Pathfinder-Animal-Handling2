@@ -23,10 +23,10 @@ export class CreatureService {
         return this.http.get<Creature>(this.creaturesUrl + "/" + id);
     }
 
-    getSpellCreatures(creatureList: string[]): Observable<Creature[]> {
+    getCreaturesFromCreatureList(creatureList: string[]): Observable<Creature[]> {
         return this.http.get<Creature[]>(this.creaturesUrl).pipe(
-            map(items => {
-                return items.filter(c => creatureList.indexOf(c.id) > -1);
+            map(creatures => {
+                return creatures.filter(creature => creatureList.indexOf(creature.id) > -1);
             })
         );
     }

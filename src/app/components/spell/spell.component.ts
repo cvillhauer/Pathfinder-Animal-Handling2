@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
+import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 
@@ -16,13 +17,12 @@ export class SpellComponent implements OnInit {
   selectedCreature: Creature;
   @Output() summon: EventEmitter<Object> = new EventEmitter<Object>(); //TODO: Can I better Type this?
 
-  constructor(private creatureService: CreatureService) {
+  constructor(private spellService: SpellService, private creatureService: CreatureService) {
   }
 
   ngOnInit() {
     if (this.spell) {
       this.getSpellLevelList();
-      this.getSpellCreatures();
     }
   }
 
@@ -33,13 +33,21 @@ export class SpellComponent implements OnInit {
     }
   }
 
-  getSpellCreatures() {
+  getSpellCreatures(creatureLevel: number) {
     this.spell.creatures = [];
-    if (this.spell.creatureList) {
-      this.creatureService.getSpellCreatures(this.spell.creatureList).subscribe(creatures => {
-        this.spell.creatures = creatures;
+    if (creatureLevel && creatureLevel <= this.spell.level) {
+      let creatureListSpellId = this.spell.group + creatureLevel;
+      this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
+        this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
+          this.spell.creatures = creatures;
+        });
       });
     }
+  }
+
+  levelChange() {
+    this.spell.creatures = [];
+    this.getSpellCreatures(this.selectedLevel);
   }
 
   onSummon() {
@@ -48,7 +56,6 @@ export class SpellComponent implements OnInit {
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       console.log("Casting " + this.spell.description + " at level " + this.selectedLevel);
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      //TODO: Selected Level should affect what creature list I get
       console.log("Summoning " + numberOfCreatures + " " + this.selectedCreature.description);
       if (this.castingCharacter.feats.indexOf("Augmented Summoning") >= 0) {
         this.selectedCreature.strength += 4;

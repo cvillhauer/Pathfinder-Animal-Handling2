@@ -22,7 +22,7 @@ export class CharacterComponent implements OnInit {
 
   getValidSpells(character: Character) {
     character.validSpells = [];
-    this.spellService.getSpellsByGroupAndLevel(character.spellGroup, character.spellLevel).subscribe(spells => {
+    this.spellService.getSpellsByCharacterGroupAndLevel(character.spellGroup, character.spellLevel).subscribe(spells => {
       character.validSpells = spells;
     });
   }

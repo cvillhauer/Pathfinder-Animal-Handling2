@@ -23,10 +23,18 @@ export class SpellService {
         return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group);
     }
 
-    getSpellsByGroupAndLevel(group: string, level: number): Observable<Spell[]> {
+    getSpellsByCharacterGroupAndLevel(group: string, level: number): Observable<Spell[]> {
         return this.http.get<Spell[]>((this.spellsUrl) + "/?group=" + group).pipe(
-            map(items => {
-                return items.filter(s => s.level <= level);
+            map(spells => {
+                return spells.filter(spell => spell.level <= level);
+            })
+        );
+    }
+
+    getSpellCreatureListBySpellId(spellId: string): Observable<string[]> {
+        return this.http.get<Spell>((this.spellsUrl) + "/" + spellId).pipe(
+            map(spell => {
+                return spell.creatureList;
             })
         );
     }
