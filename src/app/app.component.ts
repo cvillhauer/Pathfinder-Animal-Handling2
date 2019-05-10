@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let courtney: Character = new Character("courtney", "Courtney", "Druid", 6);
+    courtney.feats.push("Augmented Summoning");
     let richard: Character = new Character("richard", "Richard", "Wizard", 1);
     this.characters.push(courtney);
     this.characters.push(richard);

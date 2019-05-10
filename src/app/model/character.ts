@@ -9,12 +9,15 @@ export class Character {
     validSpells: Spell[];
     spellGroup: string;
     spellLevel: number;
+    feats: string[];
 
     constructor(id: string, name: string, characterClass: string, level: number) {
         this.id = id;
-        this.characterName = name,
-            this.characterClass = characterClass,
-            this.characterLevel = level
+        this.characterName = name;
+        this.characterClass = characterClass;
+        this.characterLevel = level;
+        this.feats = [];
+
     }
 
     toggleEditCharacterName() {

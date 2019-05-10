@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
 import { CreatureService } from 'src/app/services/creature.service';
+import { Character } from 'src/app/model/character';
 
 @Component({
   selector: 'spell',
@@ -10,6 +11,7 @@ import { CreatureService } from 'src/app/services/creature.service';
 })
 export class SpellComponent implements OnInit {
   @Input() spell: Spell;
+  @Input() castingCharacter: Character;
   selectedCreature: Creature;
 
   constructor(private creatureService: CreatureService) {
@@ -33,6 +35,9 @@ export class SpellComponent implements OnInit {
   summon() {
     if (this.selectedCreature) {
       console.log("Summoning " + this.selectedCreature.description);
+      if (this.castingCharacter && this.castingCharacter.feats.indexOf("Augmented Summoning") >= 0) {
+        console.log("with +4 Strength and +4 Constitution");
+      }
     }
     else {
       console.log("No creature selected");
