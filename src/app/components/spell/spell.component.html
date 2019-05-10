@@ -4,7 +4,7 @@
         <div style="display: flex; justify-content: space-around;">
             <select class="form-control col-xs-3" [(ngModel)]="selectedLevel" (change)="levelChange()">
                 <option></option>
-                <option *ngFor="let level of spell.levelList">{{ level }}</option>
+                <option *ngFor="let level of spell.levelList" [ngValue]="level">{{ level }}</option>
             </select>
             <select class="form-control col-xs-3" [(ngModel)]="selectedCreature">
                 <option></option>

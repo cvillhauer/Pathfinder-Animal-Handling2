@@ -74,11 +74,11 @@ export class SpellComponent implements OnInit {
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {
     let numberOfCreatures: number = 0;
-    if (spellLevel == creatureLevel) {
+    if (spellLevel === creatureLevel) {
       numberOfCreatures = 1;
     }
     else if (spellLevel > creatureLevel) {
-      if (spellLevel == creatureLevel + 1) {
+      if (spellLevel === creatureLevel + 1) {
         //Summon 1d3 creatures of this level
         numberOfCreatures = this.rollDice(1, 3);
       }
