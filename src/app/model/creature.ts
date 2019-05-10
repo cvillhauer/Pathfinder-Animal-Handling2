@@ -1,3 +1,5 @@
+import { Skill } from './skill';
+
 export class Creature {
     id: string;
     description: string;
@@ -8,4 +10,6 @@ export class Creature {
     intelligence: number;
     wisdom: number;
     charisma: number;
+
+    skills: Skill[];
 }
