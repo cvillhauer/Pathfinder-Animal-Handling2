@@ -35,7 +35,11 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Nature's Ally III",
         group: "summonnaturesally",
         level: 3,
-        creatureList: []
+        creatureList: [
+          "cheetah",
+          "crocodile",
+          "shark"
+        ]
       },
       {
         id: "summonnaturesally4",
@@ -106,7 +110,11 @@ export class InMemoryDataService implements InMemoryDbService {
         description: "Summon Monster III",
         group: "summonmonster",
         level: 3,
-        creatureList: []
+        creatureList: [
+          "cheetah",
+          "crocodile",
+          "shark"
+        ]
       },
       {
         id: "summonmonster4",
@@ -211,6 +219,36 @@ export class InMemoryDataService implements InMemoryDbService {
         intelligence: 2,
         wisdom: 12,
         charisma: 6
+      },
+      {
+        id: "cheetah",
+        description: "Cheetah",
+        strength: 17,
+        dexterity: 19,
+        constitution: 15,
+        intelligence: 2,
+        wisdom: 12,
+        charisma: 6
+      },
+      {
+        id: "crocodile",
+        description: "Crocodile",
+        strength: 19,
+        dexterity: 12,
+        constitution: 17,
+        intelligence: 1,
+        wisdom: 12,
+        charisma: 2
+      },
+      {
+        id: "shark",
+        description: "Shark",
+        strength: 17,
+        dexterity: 12,
+        constitution: 13,
+        intelligence: 1,
+        wisdom: 12,
+        charisma: 2
       }
     ];
     return { creatures, spells };

@@ -10,6 +10,7 @@ import { Creature } from 'src/app/model/creature';
 })
 export class CharacterComponent implements OnInit {
   @Input() characters: Character[];
+  creatures: Creature[];
 
   constructor(private spellService: SpellService, ) {
   }
@@ -18,6 +19,7 @@ export class CharacterComponent implements OnInit {
     for (let i = 0; i < this.characters.length; i++) {
       this.calculateValidSpells(this.characters[i]);
     }
+    this.creatures = [];
   }
 
   getValidSpells(character: Character) {
@@ -201,9 +203,11 @@ export class CharacterComponent implements OnInit {
   }
 
   summon($event) {
-    let creature: Creature;
-    creature = $event;
-    console.log(creature);
+    let summonedCreatures: Creature[];
+    summonedCreatures = $event;
+    console.log(summonedCreatures);
+    this.creatures = summonedCreatures;
+    console.log(this.creatures);
   }
 
 }

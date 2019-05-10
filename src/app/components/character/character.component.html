@@ -11,3 +11,7 @@
             *ngFor="let spell of character.validSpells"></spell>
     </div>
 </div>
+<div class="container">
+    <h3>Summoned Creatures</h3>
+    <creature *ngFor="let creature of creatures" [creature]="creature"></creature>
+</div>
