@@ -15,7 +15,7 @@ export class SpellComponent implements OnInit {
   @Input() castingCharacter: Character;
   selectedLevel: number;
   selectedCreature: Creature;
-  @Output() summon: EventEmitter<Object> = new EventEmitter<Object>(); //TODO: Can I better Type this?
+  @Output() summon: EventEmitter<any> = new EventEmitter<any>(); // TODO: Can I better Type this? Yes! :)
 
   constructor(private spellService: SpellService, private creatureService: CreatureService) {
   }
@@ -36,7 +36,7 @@ export class SpellComponent implements OnInit {
   getSpellCreatures(creatureLevel: number) {
     this.spell.creatures = [];
     if (creatureLevel && creatureLevel <= this.spell.level) {
-      let creatureListSpellId = this.spell.group + creatureLevel;
+      const creatureListSpellId = this.spell.group + creatureLevel;
       this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
           this.spell.creatures = creatures;
@@ -51,55 +51,52 @@ export class SpellComponent implements OnInit {
   }
 
   onSummon() {
-    let summonedCreatures: Creature[] = [];
+    const summonedCreatures: Creature[] = [];
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
-      console.log("Casting " + this.spell.description + " at level " + this.selectedLevel);
+      console.log('Casting ' + this.spell.description + ' at level ' + this.selectedLevel);
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      console.log("Summoning " + numberOfCreatures + " " + this.selectedCreature.description);
-      if (this.castingCharacter.feats.indexOf("Augmented Summoning") >= 0) {
+      console.log('Summoning ' + numberOfCreatures + ' ' + this.selectedCreature.description);
+      if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
         this.selectedCreature.strength += 4;
         this.selectedCreature.constitution += 4;
-        console.log("with +4 Strength and +4 Constitution");
+        console.log('with +4 Strength and +4 Constitution');
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
         summonedCreatures.push(this.selectedCreature);
       }
-    }
-    else {
-      console.log("Not enough input");
+    } else {
+      console.log('Not enough input');
     }
     this.summon.emit({ id: this.castingCharacter.id, creatures: summonedCreatures });
   }
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {
-    let numberOfCreatures: number = 0;
+    let numberOfCreatures = 0;
     if (spellLevel === creatureLevel) {
       numberOfCreatures = 1;
-    }
-    else if (spellLevel > creatureLevel) {
+    } else if (spellLevel > creatureLevel) {
       if (spellLevel === creatureLevel + 1) {
-        //Summon 1d3 creatures of this level
+        // Summon 1d3 creatures of this level
         numberOfCreatures = this.rollDice(1, 3);
-      }
-      else {
-        //Summon 1d4+1 creatures of this level
+      } else {
+        // Summon 1d4+1 creatures of this level
         numberOfCreatures = this.rollDice(1, 4) + 1;
       }
     }
     return numberOfCreatures;
   }
 
-  //TODO: Move RollDice somewhere other classes can use it?
+  // TODO: Move RollDice somewhere other classes can use it?
   rollDice(numberOfDice: number, typeOfDice: number) {
-    let result: number = 0;
-    console.log("Rolling " + numberOfDice + "d" + typeOfDice);
-    for (let i: number = 0; i < numberOfDice; i++) {
-      let roll: number = Math.floor(Math.random() * typeOfDice) + 1;
+    let result = 0;
+    console.log('Rolling ' + numberOfDice + 'd' + typeOfDice);
+    for (let i = 0; i < numberOfDice; i++) {
+      const roll: number = Math.floor(Math.random() * typeOfDice) + 1;
       result += roll;
-      console.log("Rolled a " + roll);
+      console.log('Rolled a ' + roll);
     }
-    console.log("Total of dice rolls is a " + result);
+    console.log('Total of dice rolls is a ' + result);
     return result;
   }
 
