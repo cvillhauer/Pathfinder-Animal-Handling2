@@ -19,4 +19,19 @@ describe('ModifierService', () => {
     (service: SpellService, httpClient: HttpTestingController) => {
       expect(service).toBeTruthy();
   })));
+
+  it(`can get a spells list`, async(inject([SpellService, HttpTestingController],
+    (service: SpellService, httpClient: HttpTestingController) => {
+      expect(service.getSpells()).toBeTruthy();
+  })));
+
+  it(`can get a spell by group`, async(inject([SpellService, HttpTestingController],
+    (service: SpellService, httpClient: HttpTestingController) => {
+      expect(service.getSpellsByGroup('summonnaturesally')).toBeTruthy();
+  })));
+
+  it(`can get a spell by group`, async(inject([SpellService, HttpTestingController],
+    (service: SpellService, httpClient: HttpTestingController) => {
+      expect(service.getSpellsByCharacterGroupAndLevel('summonnaturesally', 1)).toBeTruthy();
+  })));
 });

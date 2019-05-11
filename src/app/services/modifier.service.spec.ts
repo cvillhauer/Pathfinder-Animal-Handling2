@@ -19,4 +19,14 @@ describe('ModifierService', () => {
     (service: ModifierService, httpClient: HttpTestingController) => {
       expect(service).toBeTruthy();
   })));
+
+  it(`can get a modifiers list`, async(inject([ModifierService, HttpTestingController],
+    (service: ModifierService, httpClient: HttpTestingController) => {
+      expect(service.getModifiers()).toBeTruthy();
+  })));
+
+  it(`can get a modifier`, async(inject([ModifierService, HttpTestingController],
+    (service: ModifierService, httpClient: HttpTestingController) => {
+      expect(service.getModifier('dex')).toBeTruthy();
+  })));
 });

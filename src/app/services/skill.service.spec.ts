@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { SkillService } from './skill.service';
 
-describe('ModifierService', () => {
+describe('SkillService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule ],
@@ -18,5 +18,15 @@ describe('ModifierService', () => {
   it(`should create`, async(inject([SkillService, HttpTestingController],
     (service: SkillService, httpClient: HttpTestingController) => {
       expect(service).toBeTruthy();
+  })));
+
+  it(`can get a skills list`, async(inject([SkillService, HttpTestingController],
+    (service: SkillService, httpClient: HttpTestingController) => {
+      expect(service.getSkills()).toBeTruthy();
+  })));
+
+  it(`can get a skill`, async(inject([SkillService, HttpTestingController],
+    (service: SkillService, httpClient: HttpTestingController) => {
+      expect(service.getSkill('bluff')).toBeTruthy();
   })));
 });

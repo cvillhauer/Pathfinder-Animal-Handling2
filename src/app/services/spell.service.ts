@@ -9,7 +9,7 @@ import { Spell } from '../model/spell';
     providedIn: 'root'
 })
 export class SpellService {
-    private spellsUrl = "api/spells";
+    private spellsUrl = 'api/spells';
 
     constructor(private http: HttpClient) {
 
@@ -20,11 +20,11 @@ export class SpellService {
     }
 
     getSpellsByGroup(group: string): Observable<Spell[]> {
-        return this.http.get<Spell[]>(this.spellsUrl + "/?group=" + group);
+        return this.http.get<Spell[]>(this.spellsUrl + '/?group=' + group);
     }
 
     getSpellsByCharacterGroupAndLevel(group: string, level: number): Observable<Spell[]> {
-        return this.http.get<Spell[]>((this.spellsUrl) + "/?group=" + group).pipe(
+        return this.http.get<Spell[]>((this.spellsUrl) + '/?group=' + group).pipe(
             map(spells => {
                 return spells.filter(spell => spell.level <= level);
             })
@@ -32,7 +32,7 @@ export class SpellService {
     }
 
     getSpellCreatureListBySpellId(spellId: string): Observable<string[]> {
-        return this.http.get<Spell>((this.spellsUrl) + "/" + spellId).pipe(
+        return this.http.get<Spell>((this.spellsUrl) + '/' + spellId).pipe(
             map(spell => {
                 return spell.creatureList;
             })
