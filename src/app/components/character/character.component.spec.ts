@@ -159,4 +159,57 @@ describe('CharacterComponent', () => {
     const character = new Character('test', 'test', 'Other', 1);
     expect(component.calculateValidSpells(character)).toBeFalsy();
   });
+
+  it('calculateSpellLevelSorcerer should return 1', () => {
+    expect(component.calculateSpellLevelSorcerer(1)).toBe(1);
+  });
+
+  it('calculateSpellLevelSorcerer should return 2', () => {
+    expect(component.calculateSpellLevelSorcerer(4)).toBe(2);
+  });
+
+  it('calculateSpellLevelSorcerer should return 3', () => {
+    expect(component.calculateSpellLevelSorcerer(6)).toBe(3);
+  });
+
+  it('calculateSpellLevelSorcerer should return 4', () => {
+    expect(component.calculateSpellLevelSorcerer(8)).toBe(4);
+  });
+
+  it('calculateSpellLevelSorcerer should return 5', () => {
+    expect(component.calculateSpellLevelSorcerer(10)).toBe(5);
+  });
+
+  it('calculateSpellLevelSorcerer should return 6', () => {
+    expect(component.calculateSpellLevelSorcerer(12)).toBe(6);
+  });
+
+  it('calculateSpellLevelSorcerer should return 7', () => {
+    expect(component.calculateSpellLevelSorcerer(14)).toBe(7);
+  });
+
+  it('calculateSpellLevelSorcerer should return 8', () => {
+    expect(component.calculateSpellLevelSorcerer(16)).toBe(8);
+  });
+
+  it('calculateSpellLevelSorcerer should return 9', () => {
+    expect(component.calculateSpellLevelSorcerer(18)).toBe(9);
+  });
+
+  it('calculateSpellLevelSorcerer should return 0', () => {
+    expect(component.calculateSpellLevelSorcerer(111)).toBe(0);
+  });
+
+  it('calculateSpellLevelSorcerer should return ', () => {
+    expect(component.calculateSpellLevelRanger(111)).toBe(0);
+  });
+
+  it('getCharacterById "" should return nothing', () => {
+    expect(component.getCharacterById('test')).toBeFalsy();
+  });
+
+  it('summon should return nothing', () => {
+    component.characters = [new Character('1', 'test', 'test', 1)]
+    expect(component.summon({ creatures: [], id: '1' })).toBeUndefined();
+  });
 });
