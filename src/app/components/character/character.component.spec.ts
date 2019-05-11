@@ -28,4 +28,32 @@ describe('CharacterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('calculateSpellLevel should return 1', () => {
+    expect(component.calculateSpellLevel('test', 1)).toBe(1);
+  });
+
+  it('calculateSpellLevel Bard should return 1', () => {
+    expect(component.calculateSpellLevel('Bard', 1)).toBe(1);
+  });
+
+  it('calculateSpellLevel Summoner should return 1', () => {
+    expect(component.calculateSpellLevel('Summoner', 1)).toBe(1);
+  });
+
+  it('calculateSpellLevel Ranger should return 0', () => {
+    expect(component.calculateSpellLevel('Ranger', 1)).toBe(0);
+  });
+
+  it('calculateSpellLevel Sorcerer should return 1', () => {
+    expect(component.calculateSpellLevel('Sorcerer', 1)).toBe(1);
+  });
+
+  it('calculateSpellLevelBardOrSummoner should return 1', () => {
+    expect(component.calculateSpellLevelBardOrSummoner(1)).toBe(1);
+  });
+
+  it('getCharacterById "" should return nothing', () => {
+    expect(component.getCharacterById('test')).toBeFalsy();
+  });
 });

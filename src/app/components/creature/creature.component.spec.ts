@@ -26,4 +26,8 @@ describe('CreatureComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('showCreatures should return void', () => {
+    expect(component.showCreatures()).toBeUndefined();
+  });
 });
