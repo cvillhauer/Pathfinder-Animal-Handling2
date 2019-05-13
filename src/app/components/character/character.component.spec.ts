@@ -200,10 +200,6 @@ describe('CharacterComponent', () => {
     expect(component.calculateSpellLevelSorcerer(111)).toBe(0);
   });
 
-  it('calculateSpellLevelSorcerer should return ', () => {
-    expect(component.calculateSpellLevelRanger(111)).toBe(0);
-  });
-
   it('getCharacterById "" should return nothing', () => {
     expect(component.getCharacterById('test')).toBeFalsy();
   });
