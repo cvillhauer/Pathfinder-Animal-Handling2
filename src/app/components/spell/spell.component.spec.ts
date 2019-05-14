@@ -13,10 +13,10 @@ describe('SpellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpellComponent ],
-      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule ]
+      declarations: [SpellComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -74,7 +74,4 @@ describe('SpellComponent', () => {
     expect(component.calculateNumberOfCreatures(1, 1)).toBe(1);
   });
 
-  it('rollDice should return void', () => {
-    expect(component.rollDice(1, 1)).toBe(1);
-  });
 });

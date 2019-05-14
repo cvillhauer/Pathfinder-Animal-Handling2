@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { DiceService } from 'src/app/services/dice.service';
 import { Spell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
@@ -17,7 +18,7 @@ export class SpellComponent implements OnInit {
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>(); // TODO: Can I better Type this? Yes! :)
 
-  constructor(private spellService: SpellService, private creatureService: CreatureService) {
+  constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
   }
 
   ngOnInit() {
@@ -78,26 +79,13 @@ export class SpellComponent implements OnInit {
     } else if (spellLevel > creatureLevel) {
       if (spellLevel === creatureLevel + 1) {
         // Summon 1d3 creatures of this level
-        numberOfCreatures = this.rollDice(1, 3);
+        numberOfCreatures = this.diceService.rollDice(1, 3);
       } else {
         // Summon 1d4+1 creatures of this level
-        numberOfCreatures = this.rollDice(1, 4) + 1;
+        numberOfCreatures = this.diceService.rollDice(1, 4) + 1;
       }
     }
     return numberOfCreatures;
-  }
-
-  // TODO: Move RollDice somewhere other classes can use it?
-  rollDice(numberOfDice: number, typeOfDice: number) {
-    let result = 0;
-    console.log('Rolling ' + numberOfDice + 'd' + typeOfDice);
-    for (let i = 0; i < numberOfDice; i++) {
-      const roll: number = Math.floor(Math.random() * typeOfDice) + 1;
-      result += roll;
-      console.log('Rolled a ' + roll);
-    }
-    console.log('Total of dice rolls is a ' + result);
-    return result;
   }
 
 }
