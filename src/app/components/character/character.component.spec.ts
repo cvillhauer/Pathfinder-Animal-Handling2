@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SpellComponent } from '../spell/spell.component';
 import { CreatureComponent } from '../creature/creature.component';
 import { Character } from 'src/app/model/character';
+import { AbilityScores } from 'src/app/model/abilityscores';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -30,61 +31,56 @@ describe('CharacterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('calculateSpellLevel should return 1', () => {
-    expect(component.calculateSpellLevel('test', 1)).toBe(1);
-  });
-
   it('calculateSpellLevel Bard should return 1', () => {
-    expect(component.calculateSpellLevel('Bard', 1)).toBe(1);
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Bard', 1, new AbilityScores(10, 10, 10, 10, 10, 11)))).toBe(1);
   });
 
   it('calculateSpellLevel Summoner should return 1', () => {
-    expect(component.calculateSpellLevel('Summoner', 1)).toBe(1);
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Summoner', 1, new AbilityScores(10, 10, 10, 10, 10, 11)))).toBe(1);
   });
 
   it('calculateSpellLevel Ranger should return 0', () => {
-    expect(component.calculateSpellLevel('Ranger', 1)).toBe(0);
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Ranger', 1, new AbilityScores(10, 10, 10, 10, 11, 10)))).toBe(0);
   });
 
   it('calculateSpellLevel Sorcerer should return 1', () => {
-    expect(component.calculateSpellLevel('Sorcerer', 1)).toBe(1);
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Sorcerer', 1, new AbilityScores(10, 10, 10, 10, 10, 11)))).toBe(1);
   });
 
-  it('calculateSpellLevel Other 3 should return 2', () => {
-    expect(component.calculateSpellLevel('Other', 3)).toBe(2);
+  it('calculateSpellLevel Druid 3 should return 2', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 3, new AbilityScores(10, 10, 10, 10, 12, 10)))).toBe(2);
   });
 
-  it('calculateSpellLevel Other 5 should return 3', () => {
-    expect(component.calculateSpellLevel('Other', 5)).toBe(3);
+  it('calculateSpellLevel Druid 5 should return 3', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 5, new AbilityScores(10, 10, 10, 10, 13, 10)))).toBe(3);
   });
 
-  it('calculateSpellLevel Other 7 should return 4', () => {
-    expect(component.calculateSpellLevel('Other', 7)).toBe(4);
+  it('calculateSpellLevel Druid 7 should return 4', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 7, new AbilityScores(10, 10, 10, 10, 14, 10)))).toBe(4);
   });
 
-
-  it('calculateSpellLevel Other 9 should return 5', () => {
-    expect(component.calculateSpellLevel('Other', 9)).toBe(5);
+  it('calculateSpellLevel Druid 9 should return 5', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 9, new AbilityScores(10, 10, 10, 10, 15, 10)))).toBe(5);
   });
 
-  it('calculateSpellLevel Other 11 should return 6', () => {
-    expect(component.calculateSpellLevel('Other', 11)).toBe(6);
+  it('calculateSpellLevel Druid 11 should return 6', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 11, new AbilityScores(10, 10, 10, 10, 16, 10)))).toBe(6);
   });
 
-  it('calculateSpellLevel Other 13 should return 7', () => {
-    expect(component.calculateSpellLevel('Other', 13)).toBe(7);
+  it('calculateSpellLevel Druid 13 should return 7', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 13, new AbilityScores(10, 10, 10, 10, 17, 10)))).toBe(7);
   });
 
-  it('calculateSpellLevel Other 15 should return 8', () => {
-    expect(component.calculateSpellLevel('Other', 15)).toBe(8);
+  it('calculateSpellLevel Druid 15 should return 8', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 15, new AbilityScores(10, 10, 10, 10, 18, 10)))).toBe(8);
   });
 
-  it('calculateSpellLevel Other 17 should return 9', () => {
-    expect(component.calculateSpellLevel('Other', 17)).toBe(9);
+  it('calculateSpellLevel Druid 17 should return 9', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 17, new AbilityScores(10, 10, 10, 10, 19, 10)))).toBe(9);
   });
 
-  it('calculateSpellLevel Other 33 should return 0', () => {
-    expect(component.calculateSpellLevel('Other', 33)).toBe(0);
+  it('calculateSpellLevel Druid 33 should return 0', () => {
+    expect(component.calculateSpellLevel(new Character('1', 'test', 'Druid', 33, new AbilityScores(10, 10, 10, 10, 10, 10)))).toBe(0);
   });
 
 
@@ -146,17 +142,12 @@ describe('CharacterComponent', () => {
   });
 
   it('calculateValidSpells "Druid" should cover', () => {
-    const character = new Character('test', 'test', 'Druid', 1);
+    const character = new Character('test', 'test', 'Druid', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
     expect(component.calculateValidSpells(character)).toBeFalsy();
   });
 
   it('calculateValidSpells "Bard" should cover', () => {
-    const character = new Character('test', 'test', 'Bard', 1);
-    expect(component.calculateValidSpells(character)).toBeFalsy();
-  });
-
-  it('calculateValidSpells "Other" should cover', () => {
-    const character = new Character('test', 'test', 'Other', 1);
+    const character = new Character('test', 'test', 'Bard', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
     expect(component.calculateValidSpells(character)).toBeFalsy();
   });
 
@@ -205,7 +196,7 @@ describe('CharacterComponent', () => {
   });
 
   it('summon should return nothing', () => {
-    component.characters = [new Character('1', 'test', 'test', 1)]
+    component.characters = [new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10))];
     expect(component.summon({ creatures: [], id: '1' })).toBeUndefined();
   });
 });

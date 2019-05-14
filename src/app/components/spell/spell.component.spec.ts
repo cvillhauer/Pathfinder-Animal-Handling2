@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SpellComponent } from './spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
+import { AbilityScores } from 'src/app/model/abilityscores';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -30,7 +31,7 @@ describe('SpellComponent', () => {
       creatureList: [],
       creatures: []
     };
-    component.castingCharacter = new Character('test', 'test', 'test', 1);
+    component.castingCharacter = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
     component.selectedCreature = {
       id: 'test',
       description: 'test',
