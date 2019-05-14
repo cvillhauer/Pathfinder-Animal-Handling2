@@ -9,7 +9,7 @@ import { Creature } from '../model/creature';
     providedIn: 'root'
 })
 export class CreatureService {
-    private creaturesUrl = "api/creatures";
+    private creaturesUrl = 'api/creatures';
 
     constructor(private http: HttpClient) {
 
@@ -20,7 +20,7 @@ export class CreatureService {
     }
 
     getCreature(id: string): Observable<Creature> {
-        return this.http.get<Creature>(this.creaturesUrl + "/" + id);
+        return this.http.get<Creature>(this.creaturesUrl + '/' + id);
     }
 
     getCreaturesFromCreatureList(creatureList: string[]): Observable<Creature[]> {

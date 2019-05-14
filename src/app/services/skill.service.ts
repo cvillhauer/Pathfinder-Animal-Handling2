@@ -8,17 +8,17 @@ import { Skill } from '../model/skill';
     providedIn: 'root'
 })
 export class SkillService {
-    private skillsUrl = "api/skills";
+    private skillsUrl = 'api/skills';
 
     constructor(private http: HttpClient) {
 
     }
 
-    getCreatures(): Observable<Skill[]> {
+    getSkills(): Observable<Skill[]> {
         return this.http.get<Skill[]>(this.skillsUrl);
     }
 
-    getCreature(id: string): Observable<Skill> {
-        return this.http.get<Skill>(this.skillsUrl + "/" + id);
+    getSkill(id: string): Observable<Skill> {
+        return this.http.get<Skill>(this.skillsUrl + '/' + id);
     }
 }

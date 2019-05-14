@@ -16,7 +16,7 @@ export class CreatureComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.showCreatures();
+    // this.showCreatures();
   }
 
   showCreatures() {
