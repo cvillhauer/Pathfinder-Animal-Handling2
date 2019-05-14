@@ -9,9 +9,9 @@ export class AppComponent implements OnInit {
   characters: Character[] = [];
 
   ngOnInit() {
-    let courtney: Character = new Character("courtney", "Courtney", "Druid", 6);
-    courtney.feats.push("Augmented Summoning");
-    let richard: Character = new Character("richard", "Richard", "Wizard", 1);
+    const courtney: Character = new Character('courtney', 'Courtney', 'Druid', 6);
+    courtney.feats.push('Augmented Summoning');
+    const richard: Character = new Character('richard', 'Richard', 'Wizard', 1);
     this.characters.push(courtney);
     this.characters.push(richard);
   }

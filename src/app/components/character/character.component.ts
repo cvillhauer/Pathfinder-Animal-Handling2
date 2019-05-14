@@ -9,15 +9,13 @@ import { Creature } from 'src/app/model/creature';
   templateUrl: './character.component.html'
 })
 export class CharacterComponent implements OnInit {
-  @Input() characters: Character[];
+  @Input() characters: Character[] = [];
 
   constructor(private spellService: SpellService, ) {
   }
 
   ngOnInit() {
-    for (let i = 0; i < this.characters.length; i++) {
-      this.calculateValidSpells(this.characters[i]);
-    }
+    this.characters.map(character => { this.calculateValidSpells(character); });
   }
 
   getValidSpells(character: Character) {
@@ -28,21 +26,21 @@ export class CharacterComponent implements OnInit {
   }
 
   calculateValidSpells(character: Character) {
-    let spellGroup = "";
+    let spellGroup = '';
     switch (character.characterClass) {
-      case "Druid":
-      case "Ranger":
-      case "Shaman":
-        spellGroup = "summonnaturesally";
+      case 'Druid':
+      case 'Ranger':
+      case 'Shaman':
+        spellGroup = 'summonnaturesally';
         break;
-      case "Bard":
-      case "Cleric":
-      case "Oracle":
-      case "Sorcerer":
-      case "Summoner":
-      case "Witch":
-      case "Wizard":
-        spellGroup = "summonmonster";
+      case 'Bard':
+      case 'Cleric':
+      case 'Oracle':
+      case 'Sorcerer':
+      case 'Summoner':
+      case 'Witch':
+      case 'Wizard':
+        spellGroup = 'summonmonster';
         break;
       default:
         break;
@@ -53,16 +51,13 @@ export class CharacterComponent implements OnInit {
   }
 
   calculateSpellLevel(characterClass: string, characterLevel: number) {
-    if (characterClass === "Bard" || characterClass === "Summoner") {
+    if (characterClass === 'Bard' || characterClass === 'Summoner') {
       return this.calculateSpellLevelBardOrSummoner(characterLevel);
-    }
-    else if (characterClass === "Ranger") {
+    } else if (characterClass === 'Ranger') {
       return this.calculateSpellLevelRanger(characterLevel);
-    }
-    else if (characterClass === "Sorcerer") {
+    } else if (characterClass === 'Sorcerer') {
       return this.calculateSpellLevelSorcerer(characterLevel);
-    }
-    else {
+    } else {
       switch (characterLevel) {
         case 1:
         case 2:
@@ -205,8 +200,8 @@ export class CharacterComponent implements OnInit {
   }
 
   summon($event) {
-    let summonedCreatures: Creature[] = $event.creatures;
-    let characterId: string = $event.id;
+    const summonedCreatures: Creature[] = $event.creatures;
+    const characterId: string = $event.id;
     this.getCharacterById(characterId).summonedCreatures.push(...summonedCreatures);
   }
 
