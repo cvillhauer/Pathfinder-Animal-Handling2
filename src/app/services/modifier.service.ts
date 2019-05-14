@@ -8,7 +8,7 @@ import { Modifier } from '../model/modifier';
     providedIn: 'root'
 })
 export class ModifierService {
-    private modifiersUrl = "api/modifiers";
+    private modifiersUrl = 'api/modifiers';
 
     constructor(private http: HttpClient) {
 
@@ -19,6 +19,6 @@ export class ModifierService {
     }
 
     getModifier(id: string): Observable<Modifier> {
-        return this.http.get<Modifier>(this.modifiersUrl + "/" + id);
+        return this.http.get<Modifier>(this.modifiersUrl + '/' + id);
     }
 }

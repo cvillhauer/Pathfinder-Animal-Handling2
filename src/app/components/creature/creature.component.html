@@ -1,9 +1,9 @@
 <h4 *ngIf="creature">{{ creature.description }}</h4>
 <ul>
-    <li>Strength: {{ creature.strength }}</li>
-    <li>Dexterity: {{ creature.dexterity }}</li>
-    <li>Constitution: {{ creature.constitution }}</li>
-    <li>Intelligence: {{ creature.intelligence }}</li>
-    <li>Wisdom: {{ creature.wisdom }}</li>
-    <li>Charisma: {{ creature.charisma }}</li>
+    <li>Strength: {{ creature?.strength }}</li>
+    <li>Dexterity: {{ creature?.dexterity }}</li>
+    <li>Constitution: {{ creature?.constitution }}</li>
+    <li>Intelligence: {{ creature?.intelligence }}</li>
+    <li>Wisdom: {{ creature?.wisdom }}</li>
+    <li>Charisma: {{ creature?.charisma }}</li>
 </ul>
