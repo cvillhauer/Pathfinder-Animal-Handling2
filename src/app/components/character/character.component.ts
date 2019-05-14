@@ -26,6 +26,11 @@ export class CharacterComponent implements OnInit {
   }
 
   calculateValidSpells(character: Character) {
+    character.spellLevel = this.calculateSpellLevel(character);
+    this.getValidSpells(character);
+  }
+
+  calculateSpellGroup(character: Character) {
     let spellGroup = '';
     switch (character.characterClass) {
       case 'Druid':
@@ -33,8 +38,8 @@ export class CharacterComponent implements OnInit {
       case 'Shaman':
         spellGroup = 'summonnaturesally';
         break;
-      case 'Bard':
       case 'Cleric':
+      case 'Bard':
       case 'Oracle':
       case 'Sorcerer':
       case 'Summoner':
@@ -46,51 +51,69 @@ export class CharacterComponent implements OnInit {
         break;
     }
     character.spellGroup = spellGroup;
-    character.spellLevel = this.calculateSpellLevel(character.characterClass, character.characterLevel);
-    this.getValidSpells(character);
   }
 
-  calculateSpellLevel(characterClass: string, characterLevel: number) {
+  calculateSpellLevel(character: Character) {
+    const characterClass = character.characterClass;
+    const characterLevel = character.characterLevel;
+    const spellAbilityScore = character.getAbilityScore(character.spellAbilityModifier.id);
+    let spellLevel = 0;
+    this.calculateSpellGroup(character);
     if (characterClass === 'Bard' || characterClass === 'Summoner') {
-      return this.calculateSpellLevelBardOrSummoner(characterLevel);
+      spellLevel = this.calculateSpellLevelBardOrSummoner(characterLevel);
     } else if (characterClass === 'Ranger') {
-      return this.calculateSpellLevelRanger(characterLevel);
+      spellLevel = this.calculateSpellLevelRanger(characterLevel);
     } else if (characterClass === 'Sorcerer') {
-      return this.calculateSpellLevelSorcerer(characterLevel);
+      spellLevel = this.calculateSpellLevelSorcerer(characterLevel);
     } else {
       switch (characterLevel) {
         case 1:
         case 2:
-          return 1;
+          spellLevel = 1;
+          break;
         case 3:
         case 4:
-          return 2;
+          spellLevel = 2;
+          break;
         case 5:
         case 6:
-          return 3;
+          spellLevel = 3;
+          break;
         case 7:
         case 8:
-          return 4;
+          spellLevel = 4;
+          break;
         case 9:
         case 10:
-          return 5;
+          spellLevel = 5;
+          break;
         case 11:
         case 12:
-          return 6;
+          spellLevel = 6;
+          break;
         case 13:
         case 14:
-          return 7;
+          spellLevel = 7;
+          break;
         case 15:
         case 16:
-          return 8;
+          spellLevel = 8;
+          break;
         case 17:
         case 18:
         case 19:
         case 20:
-          return 9;
+          spellLevel = 9;
+          break;
         default:
-          return 0;
+          spellLevel = 0;
+          break;
       }
+    }
+    if (spellLevel > (spellAbilityScore - 10)) {
+      return spellAbilityScore - 10;
+    } else {
+      return spellLevel;
     }
   }
 
