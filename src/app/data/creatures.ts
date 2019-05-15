@@ -1,9 +1,11 @@
+import { Size, CreatureType } from '../model/enums';
+
 export const creatures = [
   {
     id: 'direrat',
     description: 'Dire Rat',
-    size: 'Small',
-    type: 'Animal',
+    size: Size.Small,
+    type: CreatureType.Animal,
     strength: 10,
     dexterity: 17,
     constitution: 12,
@@ -14,8 +16,8 @@ export const creatures = [
   {
     id: 'dog',
     description: 'Dog',
-    size: 'Small',
-    type: 'Animal',
+    size: Size.Small,
+    type: CreatureType.Animal,
     strength: 13,
     dexterity: 13,
     constitution: 15,
@@ -26,8 +28,8 @@ export const creatures = [
   {
     id: 'dolphin',
     description: 'Dolphin',
-    size: 'Medium',
-    type: 'Animal',
+    size: Size.Medium,
+    type: CreatureType.Animal,
     strength: 12,
     dexterity: 15,
     constitution: 13,
@@ -38,8 +40,8 @@ export const creatures = [
   {
     id: 'horse',
     description: 'Horse',
-    size: 'Large',
-    type: 'Animal',
+    size: Size.Large,
+    type: CreatureType.Animal,
     strength: 16,
     dexterity: 14,
     constitution: 17,
@@ -50,8 +52,8 @@ export const creatures = [
   {
     id: 'octopus',
     description: 'Octopus',
-    size: 'Small',
-    type: 'Animal',
+    size: Size.Small,
+    type: CreatureType.Animal,
     strength: 12,
     dexterity: 17,
     constitution: 14,
@@ -62,8 +64,8 @@ export const creatures = [
   {
     id: 'wolf',
     description: 'Wolf',
-    size: 'Medium',
-    type: 'Animal',
+    size: Size.Medium,
+    type: CreatureType.Animal,
     strength: 13,
     dexterity: 15,
     constitution: 15,
@@ -74,8 +76,8 @@ export const creatures = [
   {
     id: 'cheetah',
     description: 'Cheetah',
-    size: 'Medium',
-    type: 'Animal',
+    size: Size.Medium,
+    type: CreatureType.Animal,
     strength: 17,
     dexterity: 19,
     constitution: 15,
@@ -86,8 +88,8 @@ export const creatures = [
   {
     id: 'crocodile',
     description: 'Crocodile',
-    size: 'Large',
-    type: 'Animal',
+    size: Size.Large,
+    type: CreatureType.Animal,
     strength: 19,
     dexterity: 12,
     constitution: 17,
@@ -98,8 +100,8 @@ export const creatures = [
   {
     id: 'shark',
     description: 'Shark',
-    size: 'Large',
-    type: 'Animal',
+    size: Size.Large,
+    type: CreatureType.Animal,
     strength: 17,
     dexterity: 12,
     constitution: 13,
