@@ -1,9 +1,12 @@
-<h4 *ngIf="creature">{{ creature.description }}</h4>
-<ul>
+<div *ngIf="creature">
+  <h4>{{ creature.description }}</h4>
+  <h5>{{ creature.size }} {{ creature.type }}</h5>
+  <ul>
     <li>Strength: {{ creature?.strength }}</li>
     <li>Dexterity: {{ creature?.dexterity }}</li>
     <li>Constitution: {{ creature?.constitution }}</li>
     <li>Intelligence: {{ creature?.intelligence }}</li>
     <li>Wisdom: {{ creature?.wisdom }}</li>
     <li>Charisma: {{ creature?.charisma }}</li>
-</ul>
+  </ul>
+</div>
