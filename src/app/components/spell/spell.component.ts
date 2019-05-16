@@ -6,6 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
+import { Modifier } from 'src/app/model/enums';
 
 @Component({
   selector: 'spell',
@@ -59,8 +60,7 @@ export class SpellComponent implements OnInit {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       console.log('Summoning ' + numberOfCreatures + ' ' + this.selectedCreature.description);
       if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
-        this.selectedCreature.abilityScores.strength += 4;
-        this.selectedCreature.abilityScores.constitution += 4;
+        this.augmentSummoning(this.selectedCreature);
         console.log('with +4 Strength and +4 Constitution');
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
@@ -70,6 +70,17 @@ export class SpellComponent implements OnInit {
       console.log('Not enough input');
     }
     this.summon.emit({ id: this.castingCharacter.id, creatures: summonedCreatures });
+  }
+
+  augmentSummoning(creature: Creature) {
+    creature.abilityScores.strength += 4;
+    creature.abilityScores.constitution += 4;
+    // TODO: Will also need to augment HP and attacks once those are implemented
+    for (const skill of creature.skills) {
+      if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
+        skill.bonus += 2;
+      }
+    }
   }
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {
