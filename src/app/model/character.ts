@@ -1,7 +1,7 @@
 import { Spell } from './spell';
 import { Creature } from './creature';
 import { AbilityScores } from './abilityscores';
-import { Modifier } from './modifier';
+import { Modifier } from './enums';
 
 export class Character {
   id: string;
@@ -29,19 +29,19 @@ export class Character {
     this.summonedCreatures = [];
   }
 
-  getAbilityScore(abilityScoreId: string) {
-    switch (abilityScoreId) {
-      case 'str':
+  getAbilityScore(abilityScore: Modifier) {
+    switch (abilityScore) {
+      case Modifier.Strength:
         return this.abilityScores.strength;
-      case 'dex':
+      case Modifier.Dexterity:
         return this.abilityScores.dexterity;
-      case 'con':
+      case Modifier.Constitution:
         return this.abilityScores.constitution;
-      case 'int':
+      case Modifier.Intelligence:
         return this.abilityScores.intelligence;
-      case 'wis':
+      case Modifier.Wisdom:
         return this.abilityScores.wisdom;
-      case 'cha':
+      case Modifier.Charisma:
         return this.abilityScores.charisma;
       default:
         return 0;
@@ -54,20 +54,20 @@ export class Character {
       case 'Druid':
       case 'Ranger':
       case 'Shaman':
-        spellAbilityModifier = { id: 'wis', description: 'Wisdom' }; // TODO: These should be enums somewhere
+        spellAbilityModifier = Modifier.Wisdom;
         break;
       case 'Cleric':
-        spellAbilityModifier = { id: 'wis', description: 'Wisdom' };
+        spellAbilityModifier = Modifier.Wisdom;
         break;
       case 'Bard':
       case 'Oracle':
       case 'Sorcerer':
       case 'Summoner':
-        spellAbilityModifier = { id: 'cha', description: 'Charisma' };
+        spellAbilityModifier = Modifier.Charisma;
         break;
       case 'Witch':
       case 'Wizard':
-        spellAbilityModifier = { id: 'int', description: 'Intelligence' };
+        spellAbilityModifier = Modifier.Intelligence;
         break;
       default:
         break;

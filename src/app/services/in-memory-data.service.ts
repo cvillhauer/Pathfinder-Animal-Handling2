@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { spells, creatures, modifiers, skills } from '../data';
+import { spells, creatures } from '../data';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,6 @@ import { spells, creatures, modifiers, skills } from '../data';
 export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
-    return { creatures, spells, modifiers, skills };
+    return { creatures, spells };
   }
 }

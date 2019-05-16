@@ -1,6 +1,6 @@
-import { Skill } from './skill';
 import { Size, CreatureType } from './enums';
 import { AbilityScores } from './abilityscores';
+import { SkillBonus } from './skillbonus';
 
 export class Creature {
   id: string;
@@ -11,5 +11,5 @@ export class Creature {
 
   abilityScores: AbilityScores;
 
-  skills: Skill[];
+  skills: SkillBonus[];
 }

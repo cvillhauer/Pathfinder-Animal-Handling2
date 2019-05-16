@@ -1,4 +1,4 @@
 export class Modifier {
-    id: string;
-    description: string;
+  id: string;
+  description: string;
 }

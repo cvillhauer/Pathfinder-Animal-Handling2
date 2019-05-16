@@ -56,7 +56,7 @@ export class CharacterComponent implements OnInit {
   calculateSpellLevel(character: Character) {
     const characterClass = character.characterClass;
     const characterLevel = character.characterLevel;
-    const spellAbilityScore = character.getAbilityScore(character.spellAbilityModifier.id);
+    const spellAbilityScore = character.getAbilityScore(character.spellAbilityModifier);
     let spellLevel = 0;
     this.calculateSpellGroup(character);
     if (characterClass === 'Bard' || characterClass === 'Summoner') {
