@@ -6,6 +6,8 @@ import { SpellComponent } from './spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
+import { Size, CreatureType } from 'src/app/model/enums';
+import { Creature } from 'src/app/model/creature';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -35,12 +37,9 @@ describe('SpellComponent', () => {
     component.selectedCreature = {
       id: 'test',
       description: 'test',
-      strength: 1,
-      dexterity: 1,
-      constitution: 1,
-      intelligence: 1,
-      wisdom: 1,
-      charisma: 1,
+      size: Size.Small,
+      type: CreatureType.Animal,
+      abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
       skills: []
     };
     fixture.detectChanges();
