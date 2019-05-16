@@ -212,5 +212,3 @@ export class Skill {
     modifier: Modifier.Charisma
   };
 }
-
-export const skills = [Skill.acrobatics, Skill.perception];

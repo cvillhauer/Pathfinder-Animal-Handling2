@@ -16,7 +16,7 @@ export class SpellComponent implements OnInit {
   @Input() castingCharacter: Character;
   selectedLevel: number;
   selectedCreature: Creature;
-  @Output() summon: EventEmitter<any> = new EventEmitter<any>(); // TODO: Can I better Type this? Yes! :)
+  @Output() summon: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
   }

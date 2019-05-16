@@ -9,12 +9,15 @@ export class Character {
   characterClass: string;
   characterLevel: number;
   editName: boolean;
+
+  abilityScores: AbilityScores;
+
   validSpells: Spell[];
   spellGroup: string;
   spellLevel: number;
   spellAbilityModifier: Modifier;
+
   feats: string[];
-  abilityScores: AbilityScores;
 
   summonedCreatures: Creature[];
 
