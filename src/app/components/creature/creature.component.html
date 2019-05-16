@@ -2,11 +2,11 @@
   <h4>{{ creature.description }}</h4>
   <h5>{{ creature.size }} {{ creature.type }}</h5>
   <ul>
-    <li>Strength: {{ creature?.strength }}</li>
-    <li>Dexterity: {{ creature?.dexterity }}</li>
-    <li>Constitution: {{ creature?.constitution }}</li>
-    <li>Intelligence: {{ creature?.intelligence }}</li>
-    <li>Wisdom: {{ creature?.wisdom }}</li>
-    <li>Charisma: {{ creature?.charisma }}</li>
+    <li>Strength: {{ creature.abilityScores.strength }}</li>
+    <li>Dexterity: {{ creature.abilityScores.dexterity }}</li>
+    <li>Constitution: {{ creature.abilityScores.constitution }}</li>
+    <li>Intelligence: {{ creature.abilityScores.intelligence }}</li>
+    <li>Wisdom: {{ creature.abilityScores.wisdom }}</li>
+    <li>Charisma: {{ creature.abilityScores.charisma }}</li>
   </ul>
 </div>

@@ -59,8 +59,8 @@ export class SpellComponent implements OnInit {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       console.log('Summoning ' + numberOfCreatures + ' ' + this.selectedCreature.description);
       if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
-        this.selectedCreature.strength += 4;
-        this.selectedCreature.constitution += 4;
+        this.selectedCreature.abilityScores.strength += 4;
+        this.selectedCreature.abilityScores.constitution += 4;
         console.log('with +4 Strength and +4 Constitution');
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
