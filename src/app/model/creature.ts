@@ -1,15 +1,15 @@
-import { Skill } from './skill';
+import { Size, CreatureType } from './enums';
+import { AbilityScores } from './abilityscores';
+import { SkillBonus } from './skillbonus';
 
 export class Creature {
-    id: string;
-    description: string;
+  id: string;
+  description: string;
 
-    strength: number;
-    dexterity: number;
-    constitution: number;
-    intelligence: number;
-    wisdom: number;
-    charisma: number;
+  size: Size;
+  type: CreatureType;
 
-    skills: Skill[];
+  abilityScores: AbilityScores;
+
+  skills: SkillBonus[];
 }

@@ -1,92 +1,110 @@
+import { Size, CreatureType, Skill } from '../model/enums';
+import { AbilityScores } from '../model/abilityscores';
+
 export const creatures = [
   {
     id: 'direrat',
     description: 'Dire Rat',
-    strength: 10,
-    dexterity: 17,
-    constitution: 12,
-    intelligence: 2,
-    wisdom: 12,
-    charisma: 4
+    size: Size.Small,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(10, 17, 12, 2, 12, 4),
+    skills: [
+      { skill: Skill.climb, bonus: 11 },
+      { skill: Skill.perception, bonus: 4 },
+      { skill: Skill.stealth, bonus: 11 },
+      { skill: Skill.swim, bonus: 11 }
+    ]
   },
   {
     id: 'dog',
     description: 'Dog',
-    strength: 13,
-    dexterity: 13,
-    constitution: 15,
-    intelligence: 2,
-    wisdom: 12,
-    charisma: 6
+    size: Size.Small,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(13, 13, 15, 2, 12, 6),
+    skills: [
+      { skill: Skill.acrobatics, bonus: 1 },
+      { skill: Skill.perception, bonus: 8 },
+      { skill: Skill.survival, bonus: 1 }
+    ]
   },
   {
     id: 'dolphin',
     description: 'Dolphin',
-    strength: 12,
-    dexterity: 15,
-    constitution: 13,
-    intelligence: 2,
-    wisdom: 12,
-    charisma: 6
+    size: Size.Medium,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(12, 15, 13, 2, 12, 6),
+    skills: [
+      { skill: Skill.perception, bonus: 9 },
+      { skill: Skill.swim, bonus: 13 }
+    ]
   },
   {
     id: 'horse',
     description: 'Horse',
-    strength: 16,
-    dexterity: 14,
-    constitution: 17,
-    intelligence: 2,
-    wisdom: 13,
-    charisma: 7
+    size: Size.Large,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(16, 14, 17, 2, 13, 7),
+    skills: [
+      { skill: Skill.perception, bonus: 6 }
+    ]
   },
   {
     id: 'octopus',
     description: 'Octopus',
-    strength: 12,
-    dexterity: 17,
-    constitution: 14,
-    intelligence: 2,
-    wisdom: 13,
-    charisma: 3
+    size: Size.Small,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(12, 17, 14, 2, 13, 3),
+    skills: [
+      { skill: Skill.climb, bonus: 13 },
+      { skill: Skill.stealth, bonus: 20 },
+      { skill: Skill.swim, bonus: 9 }
+    ]
   },
   {
     id: 'wolf',
     description: 'Wolf',
-    strength: 13,
-    dexterity: 15,
-    constitution: 15,
-    intelligence: 2,
-    wisdom: 12,
-    charisma: 6
+    size: Size.Medium,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(13, 15, 15, 2, 12, 6),
+    skills: [
+      { skill: Skill.perception, bonus: 8 },
+      { skill: Skill.stealth, bonus: 6 },
+      { skill: Skill.survival, bonus: 1 }
+    ]
   },
   {
     id: 'cheetah',
     description: 'Cheetah',
-    strength: 17,
-    dexterity: 19,
-    constitution: 15,
-    intelligence: 2,
-    wisdom: 12,
-    charisma: 6
+    size: Size.Medium,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(17, 19, 15, 2, 12, 6),
+    skills: [
+      { skill: Skill.acrobatics, bonus: 8 },
+      { skill: Skill.perception, bonus: 5 },
+      { skill: Skill.stealth, bonus: 8 }
+    ]
   },
   {
     id: 'crocodile',
     description: 'Crocodile',
-    strength: 19,
-    dexterity: 12,
-    constitution: 17,
-    intelligence: 1,
-    wisdom: 12,
-    charisma: 2
+    size: Size.Large,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(19, 12, 17, 1, 12, 2),
+    skills: [
+      { skill: Skill.perception, bonus: 8 },
+      { skill: Skill.stealth, bonus: 5 },
+      { skill: Skill.swim, bonus: 12 }
+    ]
   },
   {
     id: 'shark',
     description: 'Shark',
-    strength: 17,
-    dexterity: 12,
-    constitution: 13,
-    intelligence: 1,
-    wisdom: 12,
-    charisma: 2
+    size: Size.Large,
+    type: CreatureType.Animal,
+    abilityScores: new AbilityScores(17, 12, 13, 1, 12, 2),
+    skills: [
+      { skill: Skill.perception, bonus: 8 },
+      { skill: Skill.swim, bonus: 11 }
+    ]
   }
 ];
