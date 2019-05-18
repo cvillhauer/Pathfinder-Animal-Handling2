@@ -56,12 +56,10 @@ export class SpellComponent implements OnInit {
     const summonedCreatures: Creature[] = [];
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
-      console.log('Casting ' + this.spell.description + ' at level ' + this.selectedLevel);
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      console.log('Summoning ' + numberOfCreatures + ' ' + this.selectedCreature.description);
+      this.selectedCreature.level = this.selectedLevel;
       if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
         this.augmentSummoning(this.selectedCreature);
-        console.log('with +4 Strength and +4 Constitution');
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
         summonedCreatures.push(this.selectedCreature);
@@ -75,7 +73,7 @@ export class SpellComponent implements OnInit {
   augmentSummoning(creature: Creature) {
     creature.abilityScores.strength += 4;
     creature.abilityScores.constitution += 4;
-    // TODO: Will also need to augment HP and attacks once those are implemented
+    creature.hitPoints += (2 * creature.level);
     for (const skill of creature.skills) {
       if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
         skill.bonus += 2;
