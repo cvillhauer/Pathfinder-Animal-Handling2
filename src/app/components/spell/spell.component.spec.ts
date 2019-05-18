@@ -37,6 +37,8 @@ describe('SpellComponent', () => {
     component.selectedCreature = {
       id: 'test',
       description: 'test',
+      level: 1,
+      hitPoints: 5,
       size: Size.Small,
       type: CreatureType.Animal,
       abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
@@ -71,6 +73,43 @@ describe('SpellComponent', () => {
 
   it('calculateNumberOfCreatures should return void', () => {
     expect(component.calculateNumberOfCreatures(1, 1)).toBe(1);
+  });
+
+  it('onSummon should emit a creature without augmented summoning', () => {
+    component.selectedLevel = 1;
+    spyOn(component.summon, 'emit');
+    component.onSummon();
+    expect(component.summon.emit).toHaveBeenCalledWith({
+      id: '1', creatures: [{
+        id: 'test',
+        description: 'test',
+        level: 1,
+        hitPoints: 5,
+        size: Size.Small,
+        type: CreatureType.Animal,
+        abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
+        skills: []
+      }]
+    });
+  });
+
+  it('onSummon should emit a creature with augmented summoning', () => {
+    component.castingCharacter.feats.push('Augmented Summoning'); // +4 to str, +4 to con, +2 HP
+    component.selectedLevel = 1;
+    spyOn(component.summon, 'emit');
+    component.onSummon();
+    expect(component.summon.emit).toHaveBeenCalledWith({
+      id: '1', creatures: [{
+        id: 'test',
+        description: 'test',
+        level: 1,
+        hitPoints: 7,
+        size: Size.Small,
+        type: CreatureType.Animal,
+        abilityScores: { strength: 5, dexterity: 1, constitution: 5, intelligence: 1, wisdom: 1, charisma: 1 },
+        skills: []
+      }]
+    });
   });
 
 });

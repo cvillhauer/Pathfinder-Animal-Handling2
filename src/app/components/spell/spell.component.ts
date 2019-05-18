@@ -18,6 +18,7 @@ export class SpellComponent implements OnInit {
   selectedLevel: number;
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
+  readonly augmentSummonFeat = 'Augmented Summoning';
 
   constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
   }
@@ -58,7 +59,7 @@ export class SpellComponent implements OnInit {
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       this.selectedCreature.level = this.selectedLevel;
-      if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
+      if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
         this.augmentSummoning(this.selectedCreature);
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
