@@ -1,5 +1,6 @@
 import { Size, CreatureType, Skill } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
+import { Saves } from '../model/saves';
 
 export const creatures = [
   {
@@ -12,6 +13,7 @@ export const creatures = [
     armorClass: 14,
     combatManeuverBonus: -1,
     combatManeuverDefense: 12,
+    saves: new Saves(3, 5, 1),
     skills: [
       { skill: Skill.climb, bonus: 11 },
       { skill: Skill.perception, bonus: 4 },
@@ -29,6 +31,7 @@ export const creatures = [
     armorClass: 13,
     combatManeuverBonus: 0,
     combatManeuverDefense: 11,
+    saves: new Saves(4, 3, 1),
     skills: [
       { skill: Skill.acrobatics, bonus: 1 },
       { skill: Skill.perception, bonus: 8 },
@@ -45,6 +48,7 @@ export const creatures = [
     armorClass: 13,
     combatManeuverBonus: 2,
     combatManeuverDefense: 14,
+    saves: new Saves(4, 5, 1),
     skills: [
       { skill: Skill.perception, bonus: 9 },
       { skill: Skill.swim, bonus: 13 }
@@ -60,6 +64,7 @@ export const creatures = [
     armorClass: 11,
     combatManeuverBonus: 5,
     combatManeuverDefense: 17,
+    saves: new Saves(6, 5, 1),
     skills: [
       { skill: Skill.perception, bonus: 6 }
     ]
@@ -74,6 +79,7 @@ export const creatures = [
     armorClass: 15,
     combatManeuverBonus: 1,
     combatManeuverDefense: 14,
+    saves: new Saves(5, 6, 1),
     skills: [
       { skill: Skill.climb, bonus: 13 },
       { skill: Skill.stealth, bonus: 20 },
@@ -90,6 +96,7 @@ export const creatures = [
     armorClass: 14,
     combatManeuverBonus: 2,
     combatManeuverDefense: 14,
+    saves: new Saves(5, 5, 1),
     skills: [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 6 },
@@ -106,6 +113,7 @@ export const creatures = [
     armorClass: 15,
     combatManeuverBonus: 5,
     combatManeuverDefense: 19,
+    saves: new Saves(5, 7, 2),
     skills: [
       { skill: Skill.acrobatics, bonus: 8 },
       { skill: Skill.perception, bonus: 5 },
@@ -122,6 +130,7 @@ export const creatures = [
     armorClass: 14,
     combatManeuverBonus: 7,
     combatManeuverDefense: 18,
+    saves: new Saves(6, 4, 2),
     skills: [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 5 },
@@ -138,6 +147,7 @@ export const creatures = [
     armorClass: 14,
     combatManeuverBonus: 7,
     combatManeuverDefense: 18,
+    saves: new Saves(7, 5, 2),
     skills: [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.swim, bonus: 11 }

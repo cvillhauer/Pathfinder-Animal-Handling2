@@ -77,6 +77,7 @@ export class SpellComponent implements OnInit {
     creature.hitPoints += (2 * creature.level);
     creature.combatManeuverBonus += 2;
     creature.combatManeuverDefense += 2;
+    creature.saves.fortitude += 2;
     for (const skill of creature.skills) {
       if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
         skill.bonus += 2;

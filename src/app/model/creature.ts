@@ -1,6 +1,7 @@
 import { Size, CreatureType } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
+import { Saves } from './saves';
 
 export class Creature {
   id: string;
@@ -16,6 +17,8 @@ export class Creature {
   armorClass: number;
   combatManeuverBonus: number; // BAB + Str + size
   combatManeuverDefense: number; // 10 + BAB + Str + Dex + size + dodge
+
+  saves: Saves;
 
   skills: SkillBonus[];
 }

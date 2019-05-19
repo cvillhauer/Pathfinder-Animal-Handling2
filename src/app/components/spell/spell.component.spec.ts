@@ -8,6 +8,7 @@ import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Size, CreatureType } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
+import { Saves } from 'src/app/model/saves';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -42,6 +43,7 @@ describe('SpellComponent', () => {
       armorClass: 5,
       combatManeuverBonus: 5,
       combatManeuverDefense: 15,
+      saves: new Saves(1, 2, 3),
       size: Size.Small,
       type: CreatureType.Animal,
       abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
@@ -91,6 +93,7 @@ describe('SpellComponent', () => {
         armorClass: 5,
         combatManeuverBonus: 5,
         combatManeuverDefense: 15,
+        saves: new Saves(1, 2, 3),
         size: Size.Small,
         type: CreatureType.Animal,
         abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
@@ -113,6 +116,7 @@ describe('SpellComponent', () => {
         armorClass: 5,
         combatManeuverBonus: 7,
         combatManeuverDefense: 17,
+        saves: new Saves(3, 2, 3),
         size: Size.Small,
         type: CreatureType.Animal,
         abilityScores: { strength: 5, dexterity: 1, constitution: 5, intelligence: 1, wisdom: 1, charisma: 1 },

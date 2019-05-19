@@ -16,6 +16,13 @@
     <li>Intelligence: {{ creature.abilityScores.intelligence }}</li>
     <li>Wisdom: {{ creature.abilityScores.wisdom }}</li>
     <li>Charisma: {{ creature.abilityScores.charisma }}</li>
+    <li>Saves:
+      <ul>
+        <li>Fortitude: +{{ creature.saves.fortitude }}</li>
+        <li>Reflex: +{{ creature.saves.reflex }}</li>
+        <li>Wisdom: +{{ creature.saves.will }}</li>
+      </ul>
+    </li>
     <li>Skills:
       <ul>
         <li *ngFor="let skill of creature.skills">{{ skill.skill.description }} +{{ skill.bonus }}</li>
