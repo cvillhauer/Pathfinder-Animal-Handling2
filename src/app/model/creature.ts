@@ -13,6 +13,9 @@ export class Creature {
   abilityScores: AbilityScores;
 
   hitPoints: number;
+  armorClass: number;
+  combatManeuverBonus: number; // BAB + Str + size
+  combatManeuverDefense: number; // 10 + BAB + Str + Dex + size + dodge
 
   skills: SkillBonus[];
 }
