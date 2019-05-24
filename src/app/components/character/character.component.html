@@ -1,18 +1,18 @@
 <div *ngFor="let character of characters">
-    <h2 *ngIf="!character.editName" (ngModel)="character.characterName" (click)="character.toggleEditCharacterName()">
-        <span>{{ character.characterName }}</span> &nbsp;
-        <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
-    </h2>
-    <input class="form-control" *ngIf="character.editName" [(ngModel)]="character.characterName"
-        (focusout)="character.toggleEditCharacterName()" />
-    <h3>{{ character.characterClass }} - {{ character.characterLevel }}</h3>
-    <div class="row spell">
-        <spell [spell]="spell" [castingCharacter]="character" (summon)="summon($event)"
-            *ngFor="let spell of character.validSpells"></spell>
-    </div>
-    <div class="container">
-        <h3>Summoned Creatures</h3>
-        <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"></creature>
-    </div>
-    <hr />
+  <h2 *ngIf="!character.editName" (ngModel)="character.characterName" (click)="character.toggleEditCharacterName()">
+    <span>{{ character.characterName }}</span> &nbsp;
+    <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
+  </h2>
+  <input class="form-control" *ngIf="character.editName" [(ngModel)]="character.characterName"
+    (focusout)="character.toggleEditCharacterName()" />
+  <h3>{{ character.characterClass }} - {{ character.characterLevel }}</h3>
+  <div class="row spell">
+    <spell [spell]="spell" [castingCharacter]="character" (summon)="summon($event)"
+      *ngFor="let spell of character.validSpells"></spell>
+  </div>
+  <div>
+    <h3>Summoned Creatures</h3>
+    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"></creature>
+  </div>
+  <hr />
 </div>

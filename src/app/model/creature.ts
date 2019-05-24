@@ -6,10 +6,14 @@ import { Saves } from './saves';
 export class Creature {
   id: string;
   description: string;
+  name: string;
+  link: string;
+  image: string;
   level: number;
 
   size: Size;
   type: CreatureType;
+  speed: number;
 
   abilityScores: AbilityScores;
 
