@@ -68,3 +68,9 @@ a:hover
 {
     padding-left: 15px;
 }
+
+.button-holder
+{
+    margin-top: 17px;
+    width: 100%;
+}

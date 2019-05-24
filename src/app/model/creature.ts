@@ -6,7 +6,9 @@ import { Saves } from './saves';
 export class Creature {
   id: string;
   description: string;
-  name: string;
+  creatureName: string;
+  //editName: boolean;
+
   link: string;
   image: string;
   level: number;
@@ -25,4 +27,8 @@ export class Creature {
   saves: Saves;
 
   skills: SkillBonus[];
+
+  //toggleEditCreatureName() {
+  //  this.editName = !this.editName;
+  //}
 }

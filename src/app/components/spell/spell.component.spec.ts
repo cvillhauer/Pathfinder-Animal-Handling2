@@ -38,6 +38,9 @@ describe('SpellComponent', () => {
     component.selectedCreature = {
       id: 'test',
       description: 'test',
+      creatureName: 'Wash',
+      link: '',
+      image: '',
       level: 1,
       hitPoints: 5,
       armorClass: 5,
@@ -46,6 +49,7 @@ describe('SpellComponent', () => {
       saves: new Saves(1, 2, 3),
       size: Size.Small,
       type: CreatureType.Animal,
+      speed: 20,
       abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
       skills: []
     };
@@ -88,6 +92,9 @@ describe('SpellComponent', () => {
       id: '1', creatures: [{
         id: 'test',
         description: 'test',
+        creatureName: 'Squeaky',
+        link: '',
+        image: '',
         level: 1,
         hitPoints: 5,
         armorClass: 5,
@@ -96,6 +103,7 @@ describe('SpellComponent', () => {
         saves: new Saves(1, 2, 3),
         size: Size.Small,
         type: CreatureType.Animal,
+        speed: 20,
         abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
         skills: []
       }]
@@ -111,6 +119,9 @@ describe('SpellComponent', () => {
       id: '1', creatures: [{
         id: 'test',
         description: 'test',
+        creatureName: 'Squeaky',
+        link: '',
+        image: '',
         level: 1,
         hitPoints: 7,
         armorClass: 5,
@@ -119,6 +130,7 @@ describe('SpellComponent', () => {
         saves: new Saves(3, 2, 3),
         size: Size.Small,
         type: CreatureType.Animal,
+        speed: 20,
         abilityScores: { strength: 5, dexterity: 1, constitution: 5, intelligence: 1, wisdom: 1, charisma: 1 },
         skills: []
       }]

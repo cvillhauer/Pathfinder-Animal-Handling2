@@ -59,6 +59,7 @@ export class SpellComponent implements OnInit {
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       this.selectedCreature.level = this.selectedLevel;
+      this.selectedCreature.creatureName = 'Squeaky'; // TODO: This should be in the data section?
       if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
         this.augmentSummoning(this.selectedCreature);
       }
