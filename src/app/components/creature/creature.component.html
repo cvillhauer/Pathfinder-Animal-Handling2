@@ -17,13 +17,13 @@
       </div>
       <div class="row">
         <div class="col-xs-4">
-          Rounds Left: <input class="form-control" type="number" />
+          Rounds Left: <input class="form-control" type="number" [(ngModel)]="creature.roundsLeft" />
         </div>
         <div class="col-xs-4">
           Hit Points: <input class="form-control" type="number" [(ngModel)]="creature.hitPoints" />
         </div>
         <div class="col-xs-4">
-          <button type="button" class="btn btn-default button-holder">Delete</button>
+          <button type="button" class="btn btn-default button-holder" (click)="onDelete()">Delete</button>
         </div>
       </div>
       <div class="row">

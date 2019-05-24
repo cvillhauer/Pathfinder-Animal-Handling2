@@ -228,4 +228,9 @@ export class CharacterComponent implements OnInit {
     this.getCharacterById(characterId).summonedCreatures.push(...summonedCreatures);
   }
 
+  delete(character: Character, creature: Creature) {
+    const creatureIndex = character.summonedCreatures.indexOf(creature);
+    character.summonedCreatures.splice(creatureIndex, 1);
+  }
+
 }

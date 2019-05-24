@@ -12,7 +12,7 @@
   </div>
   <div>
     <h3>Summoned Creatures</h3>
-    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"></creature>
+    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature" (delete)="delete(character, creature)"></creature>
   </div>
   <hr />
 </div>

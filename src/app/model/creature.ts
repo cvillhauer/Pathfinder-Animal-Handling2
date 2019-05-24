@@ -8,6 +8,7 @@ export class Creature {
   description: string;
   creatureName: string;
   //editName: boolean;
+  roundsLeft: number;
 
   link: string;
   image: string;
