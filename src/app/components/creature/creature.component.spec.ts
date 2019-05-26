@@ -30,4 +30,8 @@ describe('CreatureComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('onDelete should return void', () => {
+    expect(component.onDelete()).toBeUndefined();
+  });
 });

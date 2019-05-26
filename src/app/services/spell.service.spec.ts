@@ -34,4 +34,9 @@ describe('SpellService', () => {
     (service: SpellService, httpClient: HttpTestingController) => {
       expect(service.getSpellsByCharacterGroupAndLevel('summonnaturesally', 1)).toBeTruthy();
   })));
+
+  it(`can get a spell by spell id`, async(inject([SpellService, HttpTestingController],
+    (service: SpellService, httpClient: HttpTestingController) => {
+      expect(service.getSpellCreatureListBySpellId('summonnaturesally')).toBeTruthy();
+  })));
 });
