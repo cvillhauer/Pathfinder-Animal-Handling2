@@ -23,11 +23,11 @@ describe('CreatureComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  afterEach(() => {
+    fixture.destroy();
   });
 
-  it('showCreatures should return void', () => {
-    expect(component.showCreatures()).toBeUndefined();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

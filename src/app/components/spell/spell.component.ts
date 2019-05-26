@@ -7,6 +7,8 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Modifier } from 'src/app/model/enums';
+import { AbilityScores } from 'src/app/model/abilityscores';
+import { Saves } from 'src/app/model/saves';
 
 @Component({
   selector: 'spell',
@@ -58,33 +60,47 @@ export class SpellComponent implements OnInit {
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      this.selectedCreature.level = this.selectedLevel;
-      this.selectedCreature.creatureName = 'Squeaky'; // TODO: This should be in the data section?
-      this.selectedCreature.roundsLeft = this.castingCharacter.characterLevel;
-      if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
-        this.augmentSummoning(this.selectedCreature);
-      }
       for (let i = 1; i <= numberOfCreatures; i++) {
-        summonedCreatures.push(this.selectedCreature);
+        const newCreature = new Creature(
+          this.selectedCreature.id,
+          this.selectedCreature.description,
+          this.selectedCreature.link,
+          this.selectedCreature.image,
+          this.selectedCreature.size,
+          this.selectedCreature.type,
+          this.selectedCreature.speed,
+          // this.selectedCreature.abilityScores, // This copies by reference... ugh.
+          new AbilityScores(
+            this.selectedCreature.abilityScores.strength,
+            this.selectedCreature.abilityScores.dexterity,
+            this.selectedCreature.abilityScores.constitution,
+            this.selectedCreature.abilityScores.intelligence,
+            this.selectedCreature.abilityScores.wisdom,
+            this.selectedCreature.abilityScores.charisma),
+          this.selectedCreature.hitPoints,
+          this.selectedCreature.armorClass,
+          this.selectedCreature.combatManeuverBonus,
+          this.selectedCreature.combatManeuverDefense,
+          // this.selectedCreature.saves,
+          new Saves(
+            this.selectedCreature.saves.fortitude,
+            this.selectedCreature.saves.reflex,
+            this.selectedCreature.saves.will),
+          this.selectedCreature.skills
+        );
+        newCreature.level = this.selectedLevel;
+        newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
+        newCreature.editName = false;
+        newCreature.roundsLeft = this.castingCharacter.characterLevel;
+        if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
+          newCreature.augmentSummoning();
+        }
+        summonedCreatures.push(newCreature);
       }
     } else {
       console.log('Not enough input');
     }
     this.summon.emit({ id: this.castingCharacter.id, creatures: summonedCreatures });
-  }
-
-  augmentSummoning(creature: Creature) {
-    creature.abilityScores.strength += 4;
-    creature.abilityScores.constitution += 4;
-    creature.hitPoints += (2 * creature.level);
-    creature.combatManeuverBonus += 2;
-    creature.combatManeuverDefense += 2;
-    creature.saves.fortitude += 2;
-    for (const skill of creature.skills) {
-      if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
-        skill.bonus += 2;
-      }
-    }
   }
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {

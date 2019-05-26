@@ -35,26 +35,27 @@ describe('SpellComponent', () => {
       creatures: []
     };
     component.castingCharacter = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
-    component.selectedCreature = {
-      id: 'test',
-      description: 'test',
-      creatureName: 'Wash',
-      link: '',
-      image: '',
-      level: 1,
-      roundsLeft: 10,
-      hitPoints: 5,
-      armorClass: 5,
-      combatManeuverBonus: 5,
-      combatManeuverDefense: 15,
-      saves: new Saves(1, 2, 3),
-      size: Size.Small,
-      type: CreatureType.Animal,
-      speed: 20,
-      abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
-      skills: []
-    };
+    component.selectedCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      15,
+      15,
+      5,
+      15,
+      new Saves(1, 2, 3),
+      []
+    );
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create', () => {
@@ -89,26 +90,28 @@ describe('SpellComponent', () => {
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
+    const testCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      15,
+      15,
+      5,
+      15,
+      new Saves(1, 2, 3),
+      []
+    );
+    testCreature.level = 1;
+    testCreature.creatureName = 'Squeaky 1',
+      testCreature.editName = false;
+    testCreature.roundsLeft = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [{
-        id: 'test',
-        description: 'test',
-        creatureName: 'Squeaky',
-        link: '',
-        image: '',
-        level: 1,
-        roundsLeft: 1,
-        hitPoints: 5,
-        armorClass: 5,
-        combatManeuverBonus: 5,
-        combatManeuverDefense: 15,
-        saves: new Saves(1, 2, 3),
-        size: Size.Small,
-        type: CreatureType.Animal,
-        speed: 20,
-        abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
-        skills: []
-      }]
+      id: '1', creatures: [testCreature]
     });
   });
 
@@ -117,26 +120,28 @@ describe('SpellComponent', () => {
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
+    const testCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(14, 10, 14, 10, 10, 10),
+      17,
+      15,
+      7,
+      17,
+      new Saves(3, 2, 3),
+      []
+    );
+    testCreature.level = 1;
+    testCreature.creatureName = 'Squeaky 1',
+      testCreature.editName = false;
+    testCreature.roundsLeft = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [{
-        id: 'test',
-        description: 'test',
-        creatureName: 'Squeaky',
-        link: '',
-        image: '',
-        level: 1,
-        roundsLeft: 1,
-        hitPoints: 7,
-        armorClass: 5,
-        combatManeuverBonus: 7,
-        combatManeuverDefense: 17,
-        saves: new Saves(3, 2, 3),
-        size: Size.Small,
-        type: CreatureType.Animal,
-        speed: 20,
-        abilityScores: { strength: 5, dexterity: 1, constitution: 5, intelligence: 1, wisdom: 1, charisma: 1 },
-        skills: []
-      }]
+      id: '1', creatures: [testCreature]
     });
   });
 

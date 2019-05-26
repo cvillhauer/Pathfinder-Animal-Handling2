@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Creature } from 'src/app/model/creature';
-import { CreatureService } from '../../services/creature.service';
 
 @Component({
   selector: 'creature',
@@ -12,18 +11,12 @@ export class CreatureComponent implements OnInit {
   @Input() creature: Creature;
   @Output() delete: EventEmitter<void> = new EventEmitter();
 
-  constructor(private creatureService: CreatureService) {
+  constructor() {
 
   }
 
   ngOnInit() {
-    // this.showCreatures();
-  }
 
-  showCreatures() {
-    this.creatureService.getCreatures().subscribe(creatures => {
-      this.creatures = creatures;
-    });
   }
 
   onDelete() {
