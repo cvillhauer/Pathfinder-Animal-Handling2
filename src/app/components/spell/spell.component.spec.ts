@@ -8,6 +8,7 @@ import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Size, CreatureType } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
+import { Saves } from 'src/app/model/saves';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -34,15 +35,27 @@ describe('SpellComponent', () => {
       creatures: []
     };
     component.castingCharacter = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
-    component.selectedCreature = {
-      id: 'test',
-      description: 'test',
-      size: Size.Small,
-      type: CreatureType.Animal,
-      abilityScores: { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 },
-      skills: []
-    };
+    component.selectedCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      15,
+      15,
+      5,
+      15,
+      new Saves(1, 2, 3),
+      []
+    );
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create', () => {
@@ -71,6 +84,65 @@ describe('SpellComponent', () => {
 
   it('calculateNumberOfCreatures should return void', () => {
     expect(component.calculateNumberOfCreatures(1, 1)).toBe(1);
+  });
+
+  it('onSummon should emit a creature without augmented summoning', () => {
+    component.selectedLevel = 1;
+    spyOn(component.summon, 'emit');
+    component.onSummon();
+    const testCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      15,
+      15,
+      5,
+      15,
+      new Saves(1, 2, 3),
+      []
+    );
+    testCreature.level = 1;
+    testCreature.creatureName = 'Squeaky 1',
+      testCreature.editName = false;
+    testCreature.roundsLeft = 1;
+    expect(component.summon.emit).toHaveBeenCalledWith({
+      id: '1', creatures: [testCreature]
+    });
+  });
+
+  it('onSummon should emit a creature with augmented summoning', () => {
+    component.castingCharacter.feats.push('Augmented Summoning'); // +4 to str, +4 to con, +2 HP
+    component.selectedLevel = 1;
+    spyOn(component.summon, 'emit');
+    component.onSummon();
+    const testCreature = new Creature(
+      'test',
+      'test',
+      '',
+      '',
+      Size.Small,
+      CreatureType.Animal,
+      20,
+      new AbilityScores(14, 10, 14, 10, 10, 10),
+      17,
+      15,
+      7,
+      17,
+      new Saves(3, 2, 3),
+      []
+    );
+    testCreature.level = 1;
+    testCreature.creatureName = 'Squeaky 1',
+      testCreature.editName = false;
+    testCreature.roundsLeft = 1;
+    expect(component.summon.emit).toHaveBeenCalledWith({
+      id: '1', creatures: [testCreature]
+    });
   });
 
 });

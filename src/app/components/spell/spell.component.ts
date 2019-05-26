@@ -7,6 +7,8 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Modifier } from 'src/app/model/enums';
+import { AbilityScores } from 'src/app/model/abilityscores';
+import { Saves } from 'src/app/model/saves';
 
 @Component({
   selector: 'spell',
@@ -18,6 +20,7 @@ export class SpellComponent implements OnInit {
   selectedLevel: number;
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
+  readonly augmentSummonFeat = 'Augmented Summoning';
 
   constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
   }
@@ -56,31 +59,48 @@ export class SpellComponent implements OnInit {
     const summonedCreatures: Creature[] = [];
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
-      console.log('Casting ' + this.spell.description + ' at level ' + this.selectedLevel);
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      console.log('Summoning ' + numberOfCreatures + ' ' + this.selectedCreature.description);
-      if (this.castingCharacter.feats.indexOf('Augmented Summoning') >= 0) {
-        this.augmentSummoning(this.selectedCreature);
-        console.log('with +4 Strength and +4 Constitution');
-      }
       for (let i = 1; i <= numberOfCreatures; i++) {
-        summonedCreatures.push(this.selectedCreature);
+        const newCreature = new Creature(
+          this.selectedCreature.id,
+          this.selectedCreature.description,
+          this.selectedCreature.link,
+          this.selectedCreature.image,
+          this.selectedCreature.size,
+          this.selectedCreature.type,
+          this.selectedCreature.speed,
+          // this.selectedCreature.abilityScores, // This copies by reference... ugh.
+          new AbilityScores(
+            this.selectedCreature.abilityScores.strength,
+            this.selectedCreature.abilityScores.dexterity,
+            this.selectedCreature.abilityScores.constitution,
+            this.selectedCreature.abilityScores.intelligence,
+            this.selectedCreature.abilityScores.wisdom,
+            this.selectedCreature.abilityScores.charisma),
+          this.selectedCreature.hitPoints,
+          this.selectedCreature.armorClass,
+          this.selectedCreature.combatManeuverBonus,
+          this.selectedCreature.combatManeuverDefense,
+          // this.selectedCreature.saves,
+          new Saves(
+            this.selectedCreature.saves.fortitude,
+            this.selectedCreature.saves.reflex,
+            this.selectedCreature.saves.will),
+          this.selectedCreature.skills
+        );
+        newCreature.level = this.selectedLevel;
+        newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
+        newCreature.editName = false;
+        newCreature.roundsLeft = this.castingCharacter.characterLevel;
+        if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
+          newCreature.augmentSummoning();
+        }
+        summonedCreatures.push(newCreature);
       }
     } else {
       console.log('Not enough input');
     }
     this.summon.emit({ id: this.castingCharacter.id, creatures: summonedCreatures });
-  }
-
-  augmentSummoning(creature: Creature) {
-    creature.abilityScores.strength += 4;
-    creature.abilityScores.constitution += 4;
-    // TODO: Will also need to augment HP and attacks once those are implemented
-    for (const skill of creature.skills) {
-      if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
-        skill.bonus += 2;
-      }
-    }
   }
 
   calculateNumberOfCreatures(spellLevel: number, creatureLevel: number) {

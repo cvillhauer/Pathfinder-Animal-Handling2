@@ -1,17 +1,82 @@
-<div *ngIf="creature">
-  <h4>{{ creature.description }}</h4>
-  <h5>{{ creature.size }} {{ creature.type }}</h5>
-  <ul>
-    <li>Strength: {{ creature.abilityScores.strength }}</li>
-    <li>Dexterity: {{ creature.abilityScores.dexterity }}</li>
-    <li>Constitution: {{ creature.abilityScores.constitution }}</li>
-    <li>Intelligence: {{ creature.abilityScores.intelligence }}</li>
-    <li>Wisdom: {{ creature.abilityScores.wisdom }}</li>
-    <li>Charisma: {{ creature.abilityScores.charisma }}</li>
-    <li>Skills:
-      <ul>
-        <li *ngFor="let skill of creature.skills">{{ skill.skill.description }} +{{ skill.bonus }}</li>
-      </ul>
-    </li>
-  </ul>
+<div *ngIf="creature" class="container creature">
+  <div class="row">
+    <div class="col-xs-7">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1 *ngIf="!creature.editName" (ngModel)="creature.creatureName" (click)="creature.toggleEditCreatureName()">
+            <span>{{ creature.creatureName }}</span> &nbsp;
+            <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
+          </h1>
+          <input class="form-control" *ngIf="creature.editName || !creature.creatureName"
+            [(ngModel)]="creature.creatureName" (focusout)="creature.toggleEditCreatureName()" />
+        </div>
+        <div class="col-xs-6">
+          <h2><a target="_blank" href="{{ creature.link }}">{{ creature.description }}</a></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          Rounds Left: <input class="form-control" type="number" [(ngModel)]="creature.roundsLeft" />
+        </div>
+        <div class="col-xs-4">
+          Hit Points: <input class="form-control" type="number" [(ngModel)]="creature.hitPoints" />
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-default button-holder" (click)="onDelete()">Delete</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          Status:
+          <input class="form-control" type="text" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <h3>Armor Class: <strong>{{ creature.armorClass }}</strong></h3>
+        </div>
+        <div class="col-xs-4">
+          <h4>{{ creature.size }} {{ creature.type }}</h4>
+        </div>
+        <div class="col-xs-4">
+          <h4>Speed: {{ creature.speed }} feet</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Attacks:</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">
+          <h5>Abilities:</h5>
+        </div>
+        <div class="col-xs-3">
+          <h5>Skills:</h5>
+          <ul>
+            <li *ngFor="let skill of creature.skills">{{ skill.skill.description }} +{{ skill.bonus }}</li>
+          </ul>
+        </div>
+        <div class="col-xs-3" style="text-align: right;">
+          Strength: {{ creature.abilityScores.strength }}<br />
+          Dexterity: {{ creature.abilityScores.dexterity }}<br />
+          Constitution: {{ creature.abilityScores.constitution }}<br />
+          Intelligence: {{ creature.abilityScores.intelligence }}<br />
+          Wisdom: {{ creature.abilityScores.wisdom }}<br />
+          Charisma: {{ creature.abilityScores.charisma }}<br />
+        </div>
+        <div class="col-xs-3" style="text-align: right;">
+          Fortitude: +{{ creature.saves.fortitude }}<br />
+          Reflex: +{{ creature.saves.reflex }}<br />
+          Will: +{{ creature.saves.will }}<br />
+          <br />
+          CMB: +{{ creature.combatManeuverBonus }}<br />
+          CMD: +{{ creature.combatManeuverDefense }}<br />
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-5">
+      <img class="col-xs-12" src="{{ creature.image }}" />
+    </div>
+  </div>
 </div>
