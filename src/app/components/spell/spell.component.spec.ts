@@ -9,15 +9,28 @@ import { AbilityScores } from 'src/app/model/abilityscores';
 import { Size, CreatureType } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
 import { Saves } from 'src/app/model/saves';
+import { DiceService } from 'src/app/services/dice.service';
+import { SpellService } from 'src/app/services/spell.service';
+import { CreatureService } from 'src/app/services/creature.service';
+import { of } from 'rxjs';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
   let fixture: ComponentFixture<SpellComponent>;
+  const mockCreatureCodes: string[] = [];
+  const mockCreatures: Creature[] = [];
 
   beforeEach(async(() => {
+    const spellService = jasmine.createSpyObj('SpellService', ['getSpellCreatureListBySpellId']);
+    spellService.getSpellCreatureListBySpellId.and.returnValue(of(mockCreatureCodes));
+    const creatureService = jasmine.createSpyObj('CreatureService', ['getCreaturesFromCreatureList']);
+    creatureService.getCreaturesFromCreatureList.and.returnValue(of(mockCreatures));
     TestBed.configureTestingModule({
       declarations: [SpellComponent],
-      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule]
+      imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
+      providers: [DiceService,
+        { provide: SpellService, useValue: spellService},
+        { provide: CreatureService, useValue: creatureService}]
     })
       .compileComponents();
   }));
@@ -82,8 +95,16 @@ describe('SpellComponent', () => {
     expect(component.onSummon()).toBeUndefined();
   });
 
-  it('calculateNumberOfCreatures should return void', () => {
+  it('calculateNumberOfCreatures should return 1', () => {
     expect(component.calculateNumberOfCreatures(1, 1)).toBe(1);
+  });
+
+  it('calculateNumberOfCreatures should return 3', () => {
+    expect(component.calculateNumberOfCreatures(1, 2)).toBe(0);
+  });
+
+  it('calculateNumberOfCreatures should return 0', () => {
+    expect(component.calculateNumberOfCreatures(4, 3)).toBeTruthy(1);
   });
 
   it('onSummon should emit a creature without augmented summoning', () => {

@@ -8,15 +8,23 @@ import { SpellComponent } from '../spell/spell.component';
 import { CreatureComponent } from '../creature/creature.component';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
+import { Creature } from 'src/app/model/creature';
+import { SpellService } from 'src/app/services/spell.service';
+import { Spell } from 'src/app/model/spell';
+import { of } from 'rxjs';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
   let fixture: ComponentFixture<CharacterComponent>;
+  const mockSpells: Spell[] = [];
 
   beforeEach(async(() => {
+    const spellService = jasmine.createSpyObj('SpellService', ['getSpellsByCharacterGroupAndLevel']);
+    spellService.getSpellsByCharacterGroupAndLevel.and.returnValue(of(mockSpells));
     TestBed.configureTestingModule({
       declarations: [ CharacterComponent, SpellComponent, CreatureComponent ],
-      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule ]
+      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule ],
+      providers: [{ provide: SpellService, useValue: spellService}]
     })
     .compileComponents();
   }));
@@ -202,5 +210,30 @@ describe('CharacterComponent', () => {
   it('summon should return nothing', () => {
     component.characters = [new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10))];
     expect(component.summon({ creatures: [], id: '1' })).toBeUndefined();
+  });
+
+  it('delete should return nothing', () => {
+    const char = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    const creature = new Creature('1', 'test');
+    component.characters = [char];
+    expect(component.delete(char, creature)).toBeUndefined();
+  });
+
+  it('calculateSpellGroup default should return nothing', () => {
+    const char = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.characters = [char];
+    expect(component.calculateSpellGroup(char)).toBeUndefined();
+  });
+
+  it('calculateSpellGroup Cleric should return nothing', () => {
+    const char = new Character('1', 'test', 'Cleric', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.characters = [char];
+    expect(component.calculateSpellGroup(char)).toBeUndefined();
+  });
+
+  it('getValidSpells should return nothing', () => {
+    const char = new Character('1', 'test', 'Cleric', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.characters = [char];
+    expect(component.getValidSpells(char)).toBeUndefined();
   });
 });
