@@ -68,6 +68,7 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.image,
           this.selectedCreature.size,
           this.selectedCreature.type,
+          this.castingCharacter.alignment,
           this.selectedCreature.speed,
           // this.selectedCreature.abilityScores, // This copies by reference... ugh.
           new AbilityScores(

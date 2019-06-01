@@ -2,6 +2,7 @@ import { Size, CreatureType, Modifier } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
+import { Alignment } from './alignment';
 
 export class Creature {
   level: number;
@@ -16,6 +17,7 @@ export class Creature {
     public image?: string,
     public size?: Size,
     public type?: CreatureType,
+    public alignment?: Alignment,
     public speed?: number,
     public abilityScores?: AbilityScores,
     public hitPoints?: number,

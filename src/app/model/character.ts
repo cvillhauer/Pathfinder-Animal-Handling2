@@ -2,10 +2,12 @@ import { Spell } from './spell';
 import { Creature } from './creature';
 import { AbilityScores } from './abilityscores';
 import { Modifier } from './enums';
+import { Alignment } from './alignment';
 
 export class Character {
   id: string;
   characterName: string;
+  alignment: Alignment;
   characterClass: string;
   characterLevel: number;
   editName: boolean;
@@ -21,9 +23,10 @@ export class Character {
 
   summonedCreatures: Creature[];
 
-  constructor(id: string, name: string, characterClass: string, level: number, scores: AbilityScores) {
+  constructor(id: string, name: string, alignment: Alignment, characterClass: string, level: number, scores: AbilityScores) {
     this.id = id;
     this.characterName = name;
+    this.alignment = alignment;
     this.characterClass = characterClass;
     this.characterLevel = level;
     this.feats = [];

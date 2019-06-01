@@ -5,14 +5,15 @@
   </h2>
   <input class="form-control" *ngIf="character.editName" [(ngModel)]="character.characterName"
     (focusout)="character.toggleEditCharacterName()" />
-  <h3>{{ character.characterClass }} - {{ character.characterLevel }}</h3>
+  <h3>{{ character.alignment.description }} {{ character.characterClass }} - {{ character.characterLevel }}</h3>
   <div class="row spell">
     <spell [spell]="spell" [castingCharacter]="character" (summon)="summon($event)"
       *ngFor="let spell of character.validSpells"></spell>
   </div>
   <div>
     <h3>Summoned Creatures</h3>
-    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature" (delete)="delete(character, creature)"></creature>
+    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"
+      (delete)="delete(character, creature)"></creature>
   </div>
   <hr />
 </div>
