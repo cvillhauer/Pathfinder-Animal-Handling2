@@ -81,6 +81,17 @@ export class Character {
     this.spellAbilityModifier = spellAbilityModifier;
   }
 
+  compareAlignment(otherAlignment: Alignment) {
+    // This function will return 0 if it is the exact same alignment, 1 if it is an adjacement alignment, -1 if it is an opposed alignment
+    if (this.alignment.sociology === otherAlignment.sociology && this.alignment.morality === otherAlignment.morality) {
+      return 0;
+    } else if (this.alignment.sociology === otherAlignment.sociology || this.alignment.morality === otherAlignment.morality) {
+      return 1;
+    } else {
+      return -1;
+    }
+  }
+
   toggleEditCharacterName() {
     this.editName = !this.editName;
   }

@@ -6,7 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
-import { Modifier } from 'src/app/model/enums';
+import { Sociology, Morality } from 'src/app/model/enums';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Saves } from 'src/app/model/saves';
 
@@ -40,11 +40,19 @@ export class SpellComponent implements OnInit {
 
   getSpellCreatures(creatureLevel: number) {
     this.spell.creatures = [];
+    let possibleValidCreatures = [];
     if (creatureLevel && creatureLevel <= this.spell.level) {
       const creatureListSpellId = this.spell.group + creatureLevel;
       this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
-          this.spell.creatures = creatures;
+          possibleValidCreatures = creatures;
+          possibleValidCreatures.forEach(creature => {
+            // A creature must be True Neutral, or else be adjacent to the casting character's alignment, to be a valid summon
+            if ((creature.alignment.sociology === Sociology.Neutral && creature.alignment.morality === Morality.Neutral)
+              || this.castingCharacter.compareAlignment(creature.alignment) > -1) {
+              this.spell.creatures.push(creature);
+            }
+          });
         });
       });
     }
