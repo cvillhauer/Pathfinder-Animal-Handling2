@@ -11,7 +11,8 @@ export const creatures: Creature[] = [
     'https://pathfinderwiki.com/mediawiki/images/1/12/Dire_rat.jpg',
     Size.Small,
     CreatureType.Animal,
-    Alignment.trueNeutral,
+    // Alignment.trueNeutral,
+    Alignment.neutralEvil, // TODO: Rats aren't REALLY evil, I just need to test getSpellCreatures with something that isn't True Neutral
     40,
     new AbilityScores(10, 17, 12, 2, 12, 4),
     5,

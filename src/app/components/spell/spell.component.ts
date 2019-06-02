@@ -46,12 +46,11 @@ export class SpellComponent implements OnInit {
       this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
           possibleValidCreatures = creatures;
-          possibleValidCreatures.forEach(creature => {
-            // A creature must be True Neutral, or else be adjacent to the casting character's alignment, to be a valid summon
+          for (const creature of possibleValidCreatures) {
             if (creature.isTrueNeutral() || this.castingCharacter.compareAlignment(creature.alignment) > -1) {
               this.spell.creatures.push(creature);
             }
-          });
+          }
         });
       });
     }
