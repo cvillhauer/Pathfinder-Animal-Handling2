@@ -1,4 +1,4 @@
-import { Size, CreatureType, Skill } from '../model/enums';
+import { Size, CreatureType, Skill, Alignment } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -11,6 +11,8 @@ export const creatures: Creature[] = [
     'https://pathfinderwiki.com/mediawiki/images/1/12/Dire_rat.jpg',
     Size.Small,
     CreatureType.Animal,
+    // Alignment.trueNeutral,
+    Alignment.neutralEvil, // TODO: Rats aren't REALLY evil, I just need to test getSpellCreatures with something that isn't True Neutral
     40,
     new AbilityScores(10, 17, 12, 2, 12, 4),
     5,
@@ -31,6 +33,7 @@ export const creatures: Creature[] = [
     'https://images.beastsofwar.com/2014/10/Guard-Dog.png',
     Size.Small,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     40,
     new AbilityScores(13, 13, 15, 2, 12, 6),
     6,
@@ -50,6 +53,7 @@ export const creatures: Creature[] = [
     'http://d2ydh70d4b5xgv.cloudfront.net/images/f/5/safari-ltd-monterey-bay-aquarium-sea-life-collection-bottlenose-dolphin-f2383e6f99e01e61cd2371b00314e98c.jpg',
     Size.Medium,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     80,
     new AbilityScores(12, 15, 13, 2, 12, 6),
     11,
@@ -68,6 +72,7 @@ export const creatures: Creature[] = [
     'http://darkfienix.com/wp-content/uploads/2018/01/horse1.png',
     Size.Large,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     50,
     new AbilityScores(16, 14, 17, 2, 13, 7),
     15,
@@ -86,6 +91,7 @@ export const creatures: Creature[] = [
     'https://s-media-cache-ak0.pinimg.com/originals/20/29/38/202938767c7a7befba2974ff753e8ba5.jpg',
     Size.Small,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     20,
     new AbilityScores(12, 17, 14, 2, 13, 3),
     13,
@@ -105,6 +111,7 @@ export const creatures: Creature[] = [
     'https://vignette.wikia.nocookie.net/rollplaywestmarches/images/3/35/Worg.jpg/revision/latest?cb=20150210055421',
     Size.Medium,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     50,
     new AbilityScores(13, 15, 15, 2, 12, 6),
     13,
@@ -124,6 +131,7 @@ export const creatures: Creature[] = [
     'https://img00.deviantart.net/bf17/i/2012/238/a/0/cheetah_running_by_prodigyduck-d5chize.jpg',
     Size.Medium,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     50,
     new AbilityScores(17, 19, 15, 2, 12, 6),
     19,
@@ -144,6 +152,7 @@ export const creatures: Creature[] = [
     'https://78.media.tumblr.com/864cd2f022509d7f566ca9c4fd60cd4a/tumblr_o0n2mahH761uqhshmo1_1280.png',
     Size.Large,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     20,
     new AbilityScores(19, 12, 17, 1, 12, 2),
     22,
@@ -164,6 +173,7 @@ export const creatures: Creature[] = [
     'https://www.tribality.com/wp-content/uploads/2015/03/safariltd-tiger-shark-211702-0.jpg',
     Size.Large,
     CreatureType.Animal,
+    Alignment.trueNeutral,
     60,
     new AbilityScores(17, 12, 13, 1, 12, 2),
     22,

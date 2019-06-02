@@ -2,13 +2,14 @@ import { Spell } from './spell';
 import { Creature } from './creature';
 import { AbilityScores } from './abilityscores';
 import { Modifier } from './enums';
+import { Alignment } from './alignment';
 
 export class Character {
   id: string;
   characterName: string;
+  alignment: Alignment;
   characterClass: string;
   characterLevel: number;
-  editName: boolean;
 
   abilityScores: AbilityScores;
 
@@ -21,9 +22,10 @@ export class Character {
 
   summonedCreatures: Creature[];
 
-  constructor(id: string, name: string, characterClass: string, level: number, scores: AbilityScores) {
+  constructor(id: string, name: string, alignment: Alignment, characterClass: string, level: number, scores: AbilityScores) {
     this.id = id;
     this.characterName = name;
+    this.alignment = alignment;
     this.characterClass = characterClass;
     this.characterLevel = level;
     this.feats = [];
@@ -78,7 +80,14 @@ export class Character {
     this.spellAbilityModifier = spellAbilityModifier;
   }
 
-  toggleEditCharacterName() {
-    this.editName = !this.editName;
+  compareAlignment(otherAlignment: Alignment) {
+    // This function will return 0 if it is the exact same alignment, 1 if it is an adjacement alignment, -1 if it is an opposed alignment
+    if (this.alignment.sociology === otherAlignment.sociology && this.alignment.morality === otherAlignment.morality) {
+      return 0;
+    } else if (this.alignment.sociology === otherAlignment.sociology || this.alignment.morality === otherAlignment.morality) {
+      return 1;
+    } else {
+      return -1;
+    }
   }
 }

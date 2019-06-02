@@ -6,7 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
-import { Modifier } from 'src/app/model/enums';
+import { Morality } from 'src/app/model/enums';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Saves } from 'src/app/model/saves';
 
@@ -40,11 +40,17 @@ export class SpellComponent implements OnInit {
 
   getSpellCreatures(creatureLevel: number) {
     this.spell.creatures = [];
+    let possibleValidCreatures = [];
     if (creatureLevel && creatureLevel <= this.spell.level) {
       const creatureListSpellId = this.spell.group + creatureLevel;
       this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
-          this.spell.creatures = creatures;
+          possibleValidCreatures = creatures;
+          for (const creature of possibleValidCreatures) {
+            if (creature.isTrueNeutral() || this.castingCharacter.compareAlignment(creature.alignment) > -1) {
+              this.spell.creatures.push(creature);
+            }
+          }
         });
       });
     }
@@ -68,8 +74,8 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.image,
           this.selectedCreature.size,
           this.selectedCreature.type,
+          this.determineAlignment(),
           this.selectedCreature.speed,
-          // this.selectedCreature.abilityScores, // This copies by reference... ugh.
           new AbilityScores(
             this.selectedCreature.abilityScores.strength,
             this.selectedCreature.abilityScores.dexterity,
@@ -81,7 +87,6 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.armorClass,
           this.selectedCreature.combatManeuverBonus,
           this.selectedCreature.combatManeuverDefense,
-          // this.selectedCreature.saves,
           new Saves(
             this.selectedCreature.saves.fortitude,
             this.selectedCreature.saves.reflex,
@@ -92,6 +97,16 @@ export class SpellComponent implements OnInit {
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;
         newCreature.roundsLeft = this.castingCharacter.characterLevel;
+        // Add Celestial/Fiendish template
+        if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()) {
+          if (this.castingCharacter.alignment.morality === Morality.Good) {
+            newCreature.applyCelestialTemplate();
+          } else if (this.castingCharacter.alignment.morality === Morality.Evil) {
+            newCreature.applyFiendishTemplate();
+          } else {
+            // TODO: Let the user choose
+          }
+        }
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
           newCreature.augmentSummoning();
         }
@@ -117,6 +132,15 @@ export class SpellComponent implements OnInit {
       }
     }
     return numberOfCreatures;
+  }
+
+  determineAlignment() {
+    // True Neutral creatures will use the summoning character's alignment
+    if (this.selectedCreature.isTrueNeutral()) {
+      return this.castingCharacter.alignment;
+    } else {
+      return this.selectedCreature.alignment;
+    }
   }
 
 }

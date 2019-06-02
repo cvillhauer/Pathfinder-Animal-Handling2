@@ -6,7 +6,7 @@ import { SpellComponent } from './spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
-import { Size, CreatureType } from 'src/app/model/enums';
+import { Size, CreatureType, Alignment } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
 import { Saves } from 'src/app/model/saves';
 import { DiceService } from 'src/app/services/dice.service';
@@ -29,8 +29,8 @@ describe('SpellComponent', () => {
       declarations: [SpellComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [DiceService,
-        { provide: SpellService, useValue: spellService},
-        { provide: CreatureService, useValue: creatureService}]
+        { provide: SpellService, useValue: spellService },
+        { provide: CreatureService, useValue: creatureService }]
     })
       .compileComponents();
   }));
@@ -47,7 +47,7 @@ describe('SpellComponent', () => {
       creatureList: [],
       creatures: []
     };
-    component.castingCharacter = new Character('1', 'test', 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.castingCharacter = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
     component.selectedCreature = new Creature(
       'test',
       'test',
@@ -55,6 +55,7 @@ describe('SpellComponent', () => {
       '',
       Size.Small,
       CreatureType.Animal,
+      Alignment.trueNeutral,
       20,
       new AbilityScores(10, 10, 10, 10, 10, 10),
       15,
@@ -118,6 +119,7 @@ describe('SpellComponent', () => {
       '',
       Size.Small,
       CreatureType.Animal,
+      Alignment.trueNeutral,
       20,
       new AbilityScores(10, 10, 10, 10, 10, 10),
       15,
@@ -148,6 +150,7 @@ describe('SpellComponent', () => {
       '',
       Size.Small,
       CreatureType.Animal,
+      Alignment.trueNeutral,
       20,
       new AbilityScores(14, 10, 14, 10, 10, 10),
       17,

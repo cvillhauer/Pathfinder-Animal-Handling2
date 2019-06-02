@@ -1,7 +1,8 @@
-import { Size, CreatureType, Modifier } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
+import { Alignment } from './alignment';
 
 export class Creature {
   level: number;
@@ -16,6 +17,7 @@ export class Creature {
     public image?: string,
     public size?: Size,
     public type?: CreatureType,
+    public alignment?: Alignment,
     public speed?: number,
     public abilityScores?: AbilityScores,
     public hitPoints?: number,
@@ -28,6 +30,24 @@ export class Creature {
 
   toggleEditCreatureName() {
     this.editName = !this.editName;
+  }
+
+  isTrueNeutral() {
+    if (this.alignment.sociology === Sociology.Neutral && this.alignment.morality === Morality.Neutral) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  applyCelestialTemplate() {
+    this.description = 'Celestial ' + this.description;
+    // TODO: Actually add in the Celestial abilities
+  }
+
+  applyFiendishTemplate() {
+    this.description = 'Fiendish ' + this.description;
+    // TODO: Actually add in the Fiendish abilities
   }
 
   augmentSummoning() {
