@@ -6,7 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
-import { Sociology, Morality } from 'src/app/model/enums';
+import { Sociology, Morality, Alignment } from 'src/app/model/enums';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Saves } from 'src/app/model/saves';
 
@@ -76,9 +76,8 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.image,
           this.selectedCreature.size,
           this.selectedCreature.type,
-          this.castingCharacter.alignment,
+          this.determineAlignment(),
           this.selectedCreature.speed,
-          // this.selectedCreature.abilityScores, // This copies by reference... ugh.
           new AbilityScores(
             this.selectedCreature.abilityScores.strength,
             this.selectedCreature.abilityScores.dexterity,
@@ -90,7 +89,6 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.armorClass,
           this.selectedCreature.combatManeuverBonus,
           this.selectedCreature.combatManeuverDefense,
-          // this.selectedCreature.saves,
           new Saves(
             this.selectedCreature.saves.fortitude,
             this.selectedCreature.saves.reflex,
@@ -126,6 +124,15 @@ export class SpellComponent implements OnInit {
       }
     }
     return numberOfCreatures;
+  }
+
+  determineAlignment() {
+    // True Neutral creatures will use the summoning character's alignment
+    if (this.selectedCreature.alignment.sociology === Sociology.Neutral && this.selectedCreature.alignment.morality === Morality.Neutral) {
+      return this.castingCharacter.alignment;
+    } else {
+      return this.selectedCreature.alignment;
+    }
   }
 
 }
