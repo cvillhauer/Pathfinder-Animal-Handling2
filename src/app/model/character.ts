@@ -10,7 +10,6 @@ export class Character {
   alignment: Alignment;
   characterClass: string;
   characterLevel: number;
-  editName: boolean;
 
   abilityScores: AbilityScores;
 
@@ -90,9 +89,5 @@ export class Character {
     } else {
       return -1;
     }
-  }
-
-  toggleEditCharacterName() {
-    this.editName = !this.editName;
   }
 }
