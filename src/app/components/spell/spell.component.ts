@@ -6,7 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
-import { Sociology, Morality, Alignment } from 'src/app/model/enums';
+import { Morality } from 'src/app/model/enums';
 import { AbilityScores } from 'src/app/model/abilityscores';
 import { Saves } from 'src/app/model/saves';
 
@@ -48,8 +48,7 @@ export class SpellComponent implements OnInit {
           possibleValidCreatures = creatures;
           possibleValidCreatures.forEach(creature => {
             // A creature must be True Neutral, or else be adjacent to the casting character's alignment, to be a valid summon
-            if ((creature.alignment.sociology === Sociology.Neutral && creature.alignment.morality === Morality.Neutral)
-              || this.castingCharacter.compareAlignment(creature.alignment) > -1) {
+            if (creature.isTrueNeutral() || this.castingCharacter.compareAlignment(creature.alignment) > -1) {
               this.spell.creatures.push(creature);
             }
           });
@@ -99,6 +98,16 @@ export class SpellComponent implements OnInit {
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;
         newCreature.roundsLeft = this.castingCharacter.characterLevel;
+        // Add Celestial/Fiendish template
+        if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()) {
+          if (this.castingCharacter.alignment.morality === Morality.Good) {
+            newCreature.applyCelestialTemplate();
+          } else if (this.castingCharacter.alignment.morality === Morality.Evil) {
+            newCreature.applyFiendishTemplate();
+          } else {
+            // TODO: Let the user choose
+          }
+        }
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
           newCreature.augmentSummoning();
         }
@@ -128,7 +137,7 @@ export class SpellComponent implements OnInit {
 
   determineAlignment() {
     // True Neutral creatures will use the summoning character's alignment
-    if (this.selectedCreature.alignment.sociology === Sociology.Neutral && this.selectedCreature.alignment.morality === Morality.Neutral) {
+    if (this.selectedCreature.isTrueNeutral()) {
       return this.castingCharacter.alignment;
     } else {
       return this.selectedCreature.alignment;
