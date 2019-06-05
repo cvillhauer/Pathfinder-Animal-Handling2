@@ -30,7 +30,7 @@ export class CreatureService {
         const returnCreatures: Creature[] = [];
         filteredCreatures.map(c => returnCreatures.push(new Creature(c.id, c.description, c.link, c.image,
           c.size, c.type, c.alignment, c.speed, c.abilityScores, c.hitPoints, c.armorClass,
-          c.combatManeuverBonus, c.combatManeuverDefense, c.saves, c.skills)));
+          c.combatManeuverBonus, c.combatManeuverDefense, c.saves, c.skills, c.attacks)));
         return returnCreatures;
       })
     );

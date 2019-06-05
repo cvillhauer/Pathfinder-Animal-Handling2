@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CreatureComponent } from './creature.component';
 import { FormsModule } from '@angular/forms';
+import { AttackComponent } from '../attack/attack.component';
 
 describe('CreatureComponent', () => {
   let component: CreatureComponent;
@@ -11,7 +12,7 @@ describe('CreatureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreatureComponent ],
+      declarations: [ CreatureComponent, AttackComponent ],
       imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule ]
     })
     .compileComponents();

@@ -13,6 +13,7 @@ import { SpellService } from 'src/app/services/spell.service';
 import { Spell } from 'src/app/model/spell';
 import { of } from 'rxjs';
 import { Alignment } from 'src/app/model/enums';
+import { AttackComponent } from '../attack/attack.component';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -23,7 +24,7 @@ describe('CharacterComponent', () => {
     const spellService = jasmine.createSpyObj('SpellService', ['getSpellsByCharacterGroupAndLevel']);
     spellService.getSpellsByCharacterGroupAndLevel.and.returnValue(of(mockSpells));
     TestBed.configureTestingModule({
-      declarations: [CharacterComponent, SpellComponent, CreatureComponent],
+      declarations: [CharacterComponent, SpellComponent, CreatureComponent, AttackComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [{ provide: SpellService, useValue: spellService }]
     })

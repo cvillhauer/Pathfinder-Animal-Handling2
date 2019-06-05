@@ -280,3 +280,21 @@ export class Skill {
     modifier: Modifier.Charisma
   };
 }
+
+export enum AttackType {
+  Melee = 'Melee',
+  Ranged = 'Ranged'
+}
+
+export enum DamageType {
+  Bludgeoning = 'Bludgeoning',
+  Piercing = 'Piercing',
+  Slashing = 'Slashing',
+  Nonlethal = 'Nonlethal',
+  Acid = 'Acid',
+  Cold = 'Cold',
+  Electricity = 'Electricity',
+  Fire = 'Fire',
+  Force = 'Force',
+  Sonic = 'Sonic'
+}

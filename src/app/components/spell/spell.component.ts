@@ -91,7 +91,8 @@ export class SpellComponent implements OnInit {
             this.selectedCreature.saves.fortitude,
             this.selectedCreature.saves.reflex,
             this.selectedCreature.saves.will),
-          this.selectedCreature.skills
+          this.selectedCreature.skills,
+          this.selectedCreature.attacks
         );
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?

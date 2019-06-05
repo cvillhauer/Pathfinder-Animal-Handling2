@@ -1,0 +1,14 @@
+<div>
+  <h4>
+    <span style='font-weight: bold'>
+      <span>{{ attack.description }} &nbsp;</span>
+      <span *ngIf='(attack.attackBonus >= 0)'>+</span>
+      <span>{{ attack.attackBonus }} </span>
+      <span *ngIf='(attack.touchAttack)'> touch</span>
+      <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
+      <span *ngIf='attack.damageDice && (attack.damageBonus >= 0)'>+</span>
+      <span *ngIf='attack.damageDice'>{{ attack.damageBonus }} &nbsp;</span>
+    </span>
+    <span *ngFor='let damageType of attack.damageTypes'>{{ damageType }} &nbsp;</span>
+  </h4>
+</div>

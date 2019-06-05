@@ -48,9 +48,11 @@
       <div class="row">
         <div class="col-xs-12">
           <h3>Attacks:</h3>
+          <attack *ngFor="let creatureAttack of creature.attacks" [attack]="creatureAttack"></attack>
         </div>
       </div>
       <div class="row">
+        <br />
         <div class="col-xs-3">
           <h5>Abilities:</h5>
         </div>

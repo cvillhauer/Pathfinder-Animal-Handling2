@@ -3,6 +3,7 @@ import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
+import { Attack } from './attack';
 
 export class Creature {
   level: number;
@@ -25,7 +26,8 @@ export class Creature {
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
-    public skills?: SkillBonus[]) {
+    public skills?: SkillBonus[],
+    public attacks?: Attack[]) {
   }
 
   toggleEditCreatureName() {
