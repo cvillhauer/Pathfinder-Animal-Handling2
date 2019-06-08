@@ -104,6 +104,18 @@ export enum Modifier {
   Charisma = 'Charisma'
 }
 
+export enum Save {
+  Fortitude = 'Fortitude',
+  Reflex = 'Reflex',
+  Will = 'Will'
+}
+
+export enum AbilityEffectType {
+  Damage = 'Damage',
+  Drain = 'Drain',
+  Enhancement = 'Enhancement'
+}
+
 export class Skill {
   static acrobatics = {
     description: 'Acrobatics',

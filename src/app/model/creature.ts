@@ -1,4 +1,4 @@
-import { Size, CreatureType, Modifier, Morality, Sociology } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, AttackType } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
@@ -26,8 +26,8 @@ export class Creature {
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
-    public skills?: SkillBonus[],
-    public attacks?: Attack[]) {
+    public skills: SkillBonus[] = [],
+    public attacks: Attack[] = []) {
   }
 
   toggleEditCreatureName() {
@@ -62,6 +62,23 @@ export class Creature {
     for (const skill of this.skills) {
       if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
         skill.bonus += 2;
+      }
+    }
+    for (const attack of this.attacks) {
+      if (attack.modifier === Modifier.Strength) {
+        attack.attackBonus += 2;
+        // TODO: If creature has a melee attack with Weapon Finesse that uses Dex modifier,
+        // it's possible their attack would be more powerful if they used strength.
+        // If that happens, the attack should switch to using strength, subtract dex bonus, add str bonus.
+      }
+      if (attack.attackType === AttackType.Melee) {
+        attack.damageBonus += 2;
+      }
+      if (attack.attackEffects) {
+        for (const attackEffect of attack.attackEffects) {
+          // attackEffect.applyAugmentSummoning();
+          // TODO: The attackEffects coming from my creature service only have properties, not functions... ugh.
+        }
       }
     }
   }

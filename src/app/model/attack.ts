@@ -1,8 +1,8 @@
 import { Modifier, DamageType, AttackType } from './enums';
+import { IAttackEffect } from './attackeffect';
 
 export class Attack {
   additionalDamage: string[]; // TODO: This should be an object with damageDice, damageBonus, and damageTypes
-  attackEffect: string[]; // TODO: This should be its own object with properties etc.
 
   constructor(
     public description: string,
@@ -12,6 +12,7 @@ export class Attack {
     public touchAttack: boolean,
     public attackType: AttackType,
     public modifier: Modifier,
-    public damageTypes: DamageType[]) {
+    public damageTypes: DamageType[],
+    public attackEffects: IAttackEffect[] = []) {
   }
 }

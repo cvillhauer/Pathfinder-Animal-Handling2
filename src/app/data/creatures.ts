@@ -1,8 +1,12 @@
-import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType } from '../model/enums';
+import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
 import { Attack } from '../model/attack';
+import { Poison } from '../model/poison';
+import { SavingThrow } from '../model/savingThrow';
+import { AbilityEffect } from '../model/abilityEffect';
+import { Disease } from '../model/disease';
 
 export const creatures: Creature[] = [
   new Creature(
@@ -28,7 +32,12 @@ export const creatures: Creature[] = [
       { skill: Skill.swim, bonus: 11 }
     ],
     [
-      new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+      new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Disease('Filth Fever', new SavingThrow(Save.Fortitude, 11), '1d3 days', 'once per day',
+          [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage),
+          new AbilityEffect('1d3', Modifier.Constitution, AbilityEffectType.Damage)], 2)]
+      )
     ]
   ),
   new Creature(
@@ -120,7 +129,10 @@ export const creatures: Creature[] = [
       { skill: Skill.swim, bonus: 9 }
     ],
     [
-      new Attack('Bite', 5, '1d3', 1, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Bite', 5, '1d3', 1, false, AttackType.Melee, Modifier.Dexterity,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Poison(new SavingThrow(Save.Fortitude, 13), 'once per round for 6 rounds',
+          [new AbilityEffect('1', Modifier.Strength, AbilityEffectType.Damage)], 1)]),
       new Attack('Tentacles', 3, '', 0, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning])
     ]
   ),
