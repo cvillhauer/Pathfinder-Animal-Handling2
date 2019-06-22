@@ -209,7 +209,8 @@ export const creatures: Creature[] = [
     [
       new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
       new Attack('Tail Slap', 0, '1d12', 2, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning])
-    ]
+    ],
+    ['Death Roll']
   ),
   new Creature(
     'shark',

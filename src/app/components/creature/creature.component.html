@@ -55,6 +55,9 @@
         <br />
         <div class="col-xs-3">
           <h5>Abilities:</h5>
+          <ul>
+            <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
+          </ul>
         </div>
         <div class="col-xs-3">
           <h5>Skills:</h5>

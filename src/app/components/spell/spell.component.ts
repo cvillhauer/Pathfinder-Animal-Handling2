@@ -92,7 +92,9 @@ export class SpellComponent implements OnInit {
             this.selectedCreature.saves.reflex,
             this.selectedCreature.saves.will),
           this.selectedCreature.skills,
-          this.selectedCreature.attacks
+          this.selectedCreature.attacks,
+          this.selectedCreature.abilities
+          // TODO: Every time I add anything to creature, I need to add it here too
         );
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?

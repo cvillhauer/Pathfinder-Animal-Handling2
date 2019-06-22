@@ -27,7 +27,8 @@ export class Creature {
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
     public skills: SkillBonus[] = [],
-    public attacks: Attack[] = []) {
+    public attacks: Attack[] = [],
+    public abilities: string[] = []) {
   }
 
   toggleEditCreatureName() {
