@@ -77,8 +77,7 @@ export class Creature {
       }
       if (attack.attackEffects) {
         for (const attackEffect of attack.attackEffects) {
-          // attackEffect.applyAugmentSummoning();
-          // TODO: The attackEffects coming from my creature service only have properties, not functions... ugh.
+          attackEffect.applyAugmentSummoning();
         }
       }
     }

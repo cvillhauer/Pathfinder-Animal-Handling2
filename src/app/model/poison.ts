@@ -16,6 +16,7 @@ export class Poison implements IAttackEffect {
 
   getSummary() {
     let summary: string = this.description + ': ' + this.savingThrow.getSummary() + ', ';
+    console.log(this.effects);
     this.effects.forEach(effect => {
       summary += effect.getSummary() + ', ';
     });
