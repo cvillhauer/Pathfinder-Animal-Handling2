@@ -4,8 +4,8 @@ import { AbilityEffect } from './abilityEffect';
 
 export class Disease implements IAttackEffect {
   description = 'Disease';
-  summary: string = this.getSummary();
-  details: string = this.getDetails();
+  summary = ''; // : string = this.getSummary();
+  details = ''; // : string = this.getDetails();
 
   constructor(
     public diseaseName: string,
@@ -13,9 +13,11 @@ export class Disease implements IAttackEffect {
     public onset: string,
     public frequency: string,
     public effects: AbilityEffect[],
-    public cureSaves: number) {
+    public cureSaves: number) { }
+  static fromObject(disease: any): Disease {
+    const {diseaseName, savingThrow, onset, frequency, effects, cureSaves} = disease;
+    return new this(diseaseName, SavingThrow.fromObject(savingThrow), onset, frequency, effects, cureSaves);
   }
-
   getSummary() {
     let summary: string = this.description + ' - ' + this.diseaseName + ': ' + this.savingThrow.getSummary() + ', ';
     this.effects.forEach(effect => {

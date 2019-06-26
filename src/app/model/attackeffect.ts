@@ -1,4 +1,4 @@
-export interface IAttackEffect {
+export abstract class IAttackEffect {
   description: string;
   summary: string;
   details: string;

@@ -30,7 +30,12 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: string[] = []) {
   }
-
+  static fromObject(creature: Creature): Creature {
+    const {id, description, link, image, size, type, alignment, speed, abilityScores,
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills, attacks, abilities} = creature;
+    return new this(id, description, link, image, size, type, alignment, speed, abilityScores,
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills);
+  }
   toggleEditCreatureName() {
     this.editName = !this.editName;
   }

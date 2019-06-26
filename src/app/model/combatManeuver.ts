@@ -1,8 +1,8 @@
 import { IAttackEffect } from './attackeffect';
 
 export class CombatManeuver implements IAttackEffect {
-  summary: string = this.getSummary();
-  details: string = this.getDetails();
+  summary = '';
+  details = '';
 
   constructor(
     public description: string,
@@ -10,6 +10,10 @@ export class CombatManeuver implements IAttackEffect {
     public combatManeuverBonus: number,
     public creatureBecomesGrappled: boolean) { }
 
+  static fromObject(combatManeuver: CombatManeuver): CombatManeuver {
+    const {description, resultText, combatManeuverBonus, creatureBecomesGrappled} = combatManeuver;
+    return new this(description, resultText, combatManeuverBonus, creatureBecomesGrappled);
+  }
   getSummary() {
     let summary: string = this.description + ': ';
     if (this.combatManeuverBonus >= 0) {
