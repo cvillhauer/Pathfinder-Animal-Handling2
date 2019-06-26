@@ -1,14 +1,17 @@
 import { IAttackEffect } from './attackeffect';
 
 export class CombatManeuver implements IAttackEffect {
-  summary: string = this.getSummary();
-  details: string = this.getDetails();
+  summary: string;
+  details: string;
 
   constructor(
     public description: string,
     public resultText: string,
     public combatManeuverBonus: number,
-    public creatureBecomesGrappled: boolean) { }
+    public creatureBecomesGrappled: boolean) {
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
 
   getSummary() {
     let summary: string = this.description + ': ';
@@ -27,5 +30,7 @@ export class CombatManeuver implements IAttackEffect {
 
   applyAugmentSummoning() {
     this.combatManeuverBonus += 2;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 }

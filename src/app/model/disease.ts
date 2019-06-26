@@ -4,8 +4,8 @@ import { AbilityEffect } from './abilityEffect';
 
 export class Disease implements IAttackEffect {
   description = 'Disease';
-  summary: string = this.getSummary();
-  details: string = this.getDetails();
+  summary: string;
+  details: string;
 
   constructor(
     public diseaseName: string,
@@ -14,6 +14,8 @@ export class Disease implements IAttackEffect {
     public frequency: string,
     public effects: AbilityEffect[],
     public cureSaves: number) {
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 
   getSummary() {
@@ -35,5 +37,7 @@ export class Disease implements IAttackEffect {
 
   applyAugmentSummoning() {
     this.savingThrow.difficultyCheck += 2;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 }
