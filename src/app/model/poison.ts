@@ -13,19 +13,19 @@ export class Poison implements IAttackEffect {
     public effects: AbilityEffect[],
     public cureSaves: number) { }
   static fromObject(poison: any): Poison {
-    console.log('EVER???', poison);
+    // console.log('EVER???', poison);
     const {savingThrow, frequency, effects, cureSaves} = poison;
     const newPoison = new this(SavingThrow.fromObject(savingThrow), frequency, effects, cureSaves);
     newPoison.effects = newPoison.effects.map(e => AbilityEffect.fromObject(e));
     newPoison.summary = newPoison.getSummary();
     newPoison.details = newPoison.getDetails();
-    console.log('Poison newPoison.effects', newPoison.effects);
+    // console.log('Poison newPoison.effects', newPoison.effects);
     return newPoison;
   }
   getSummary() {
-    console.log('Poison savingThrow', this.savingThrow);
+    // console.log('Poison savingThrow', this.savingThrow);
     let summary: string = this.description + ': ' + this.savingThrow.getSummary() + ', ';
-    console.log('Poison effects', this.effects);
+    // console.log('Poison effects', this.effects);
     this.effects.forEach(effect => {
       summary += effect.getSummary() + ', ';
     });
@@ -42,5 +42,7 @@ export class Poison implements IAttackEffect {
 
   applyAugmentSummoning() {
     this.savingThrow.difficultyCheck += 2;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 }

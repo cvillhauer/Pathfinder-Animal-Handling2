@@ -8,7 +8,10 @@ export class CombatManeuver implements IAttackEffect {
     public description: string,
     public resultText: string,
     public combatManeuverBonus: number,
-    public creatureBecomesGrappled: boolean) { }
+    public creatureBecomesGrappled: boolean) {
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
 
   static fromObject(combatManeuver: CombatManeuver): CombatManeuver {
     const {description, resultText, combatManeuverBonus, creatureBecomesGrappled} = combatManeuver;
@@ -31,5 +34,7 @@ export class CombatManeuver implements IAttackEffect {
 
   applyAugmentSummoning() {
     this.combatManeuverBonus += 2;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 }

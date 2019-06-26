@@ -37,5 +37,7 @@ export class Disease implements IAttackEffect {
 
   applyAugmentSummoning() {
     this.savingThrow.difficultyCheck += 2;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 }
