@@ -35,9 +35,9 @@ export class CreatureService {
         const filteredCreatures = creatures.filter(creature => creatureList.indexOf(creature.id) > -1);
         const returnCreatures: Creature[] = [];
         filteredCreatures.map(c => {
-          const nc = Creature.fromObject(c);
-          nc.attacks = this.buildAttacks(c.attacks);
-          returnCreatures.push(nc);
+          const newCreature = Creature.fromObject(c);
+          newCreature.attacks = this.buildAttacks(c.attacks);
+          returnCreatures.push(newCreature);
         });
         // TODO: Every time I add anything to creature, I need to add it here too
         return returnCreatures;
@@ -48,9 +48,9 @@ export class CreatureService {
   private buildAttacks(creatureAttacks: Attack[]): Attack[] {
     const attacks: Attack[] = [];
     creatureAttacks.map(a => {
-      const na = Attack.fromObject(a);
-      na.attackEffects = this.buildAttackEffects(a.attackEffects);
-      attacks.push(na);
+      const newAttack = Attack.fromObject(a);
+      newAttack.attackEffects = this.buildAttackEffects(a.attackEffects);
+      attacks.push(newAttack);
     });
     return attacks;
   }
@@ -59,8 +59,6 @@ export class CreatureService {
     const effects: IAttackEffect[] = [];
     attackEffects.map(ae => {
       switch (ae.description) {
-        // TODO: This is literally the stupidest code I've ever seen
-        // Richard please do something!! HELP ME
         case 'Disease':
           const disease = Disease.fromObject(ae); // ae as Disease;
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));

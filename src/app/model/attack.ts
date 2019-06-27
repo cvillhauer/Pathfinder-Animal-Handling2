@@ -15,10 +15,11 @@ export class Attack {
     public damageTypes: DamageType[],
     public attackEffects: IAttackEffect[] = []) {
   }
+
   static fromObject(attack: Attack): Attack {
-    const {description, attackBonus, damageDice, damageBonus, touchAttack, attackType, modifier, damageTypes, attackEffects} = attack;
+    const { description, attackBonus, damageDice, damageBonus, touchAttack, attackType, modifier, damageTypes, attackEffects } = attack;
     const newAttack = new this(description, attackBonus, damageDice, damageBonus, touchAttack, attackType, modifier, damageTypes);
-    newAttack.attackEffects = [];
+    newAttack.attackEffects = attackEffects;
     return newAttack;
   }
 }

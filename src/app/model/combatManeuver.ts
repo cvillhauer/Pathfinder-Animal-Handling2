@@ -14,9 +14,10 @@ export class CombatManeuver implements IAttackEffect {
   }
 
   static fromObject(combatManeuver: CombatManeuver): CombatManeuver {
-    const {description, resultText, combatManeuverBonus, creatureBecomesGrappled} = combatManeuver;
+    const { description, resultText, combatManeuverBonus, creatureBecomesGrappled } = combatManeuver;
     return new this(description, resultText, combatManeuverBonus, creatureBecomesGrappled);
   }
+
   getSummary() {
     let summary: string = this.description + ': ';
     if (this.combatManeuverBonus >= 0) {
