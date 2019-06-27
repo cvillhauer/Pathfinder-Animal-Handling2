@@ -1,8 +1,9 @@
-import { Size, CreatureType, Modifier, Morality, Sociology } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, AttackType } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
+import { Attack } from './attack';
 
 export class Creature {
   level: number;
@@ -25,7 +26,16 @@ export class Creature {
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
-    public skills?: SkillBonus[]) {
+    public skills: SkillBonus[] = [],
+    public attacks: Attack[] = [],
+    public abilities: string[] = []) {
+  }
+
+  static fromObject(creature: Creature): Creature {
+    const { id, description, link, image, size, type, alignment, speed, abilityScores,
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills, attacks, abilities } = creature;
+    return new this(id, description, link, image, size, type, alignment, speed, abilityScores,
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills);
   }
 
   toggleEditCreatureName() {
@@ -60,6 +70,22 @@ export class Creature {
     for (const skill of this.skills) {
       if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
         skill.bonus += 2;
+      }
+    }
+    for (const attack of this.attacks) {
+      if (attack.modifier === Modifier.Strength) {
+        attack.attackBonus += 2;
+        // TODO: If creature has a melee attack with Weapon Finesse that uses Dex modifier,
+        // it's possible their attack would be more powerful if they used strength.
+        // If that happens, the attack should switch to using strength, subtract dex bonus, add str bonus.
+      }
+      if (attack.attackType === AttackType.Melee) {
+        attack.damageBonus += 2;
+      }
+      if (attack.attackEffects) {
+        for (const attackEffect of attack.attackEffects) {
+          attackEffect.applyAugmentSummoning();
+        }
       }
     }
   }

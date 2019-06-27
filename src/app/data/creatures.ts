@@ -1,7 +1,13 @@
-import { Size, CreatureType, Skill, Alignment } from '../model/enums';
+import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
+import { Attack } from '../model/attack';
+import { SavingThrow } from '../model/savingThrow';
+import { AbilityEffect } from '../model/abilityEffect';
+import { Grab, Trip } from '../model/combatManeuvers';
+import { Disease } from '../model/disease';
+import { Poison } from '../model/poison';
 
 export const creatures: Creature[] = [
   new Creature(
@@ -25,7 +31,16 @@ export const creatures: Creature[] = [
       { skill: Skill.perception, bonus: 4 },
       { skill: Skill.stealth, bonus: 11 },
       { skill: Skill.swim, bonus: 11 }
-    ]),
+    ],
+    [
+      new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Disease('Filth Fever', new SavingThrow(Save.Fortitude, 11), '1d3 days', 'once per day',
+          [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage),
+          new AbilityEffect('1d3', Modifier.Constitution, AbilityEffectType.Damage)], 2)]
+      )
+    ]
+  ),
   new Creature(
     'dog',
     'Dog',
@@ -45,7 +60,12 @@ export const creatures: Creature[] = [
       { skill: Skill.acrobatics, bonus: 1 },
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.survival, bonus: 1 }
-    ]),
+    ],
+    [
+      new Attack('Bite', 2, '1d4', 1, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ]
+  ),
   new Creature(
     'dolphin',
     'Dolphin',
@@ -64,7 +84,9 @@ export const creatures: Creature[] = [
     [
       { skill: Skill.perception, bonus: 9 },
       { skill: Skill.swim, bonus: 13 }
-    ]),
+    ],
+    [new Attack('Slam', 3, '1d4', 1, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning])]
+  ),
   new Creature(
     'horse',
     'Horse',
@@ -82,6 +104,10 @@ export const creatures: Creature[] = [
     new Saves(6, 5, 1),
     [
       { skill: Skill.perception, bonus: 6 }
+    ],
+    [
+      new Attack('Hoof', -2, '1d4', 1, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning]),
+      new Attack('Hoof', -2, '1d4', 1, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning])
     ]
   ),
   new Creature(
@@ -103,7 +129,16 @@ export const creatures: Creature[] = [
       { skill: Skill.climb, bonus: 13 },
       { skill: Skill.stealth, bonus: 20 },
       { skill: Skill.swim, bonus: 9 }
-    ]),
+    ],
+    [
+      new Attack('Bite', 5, '1d3', 1, false, AttackType.Melee, Modifier.Dexterity,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Poison(new SavingThrow(Save.Fortitude, 13), 'once per round for 6 rounds',
+          [new AbilityEffect('1', Modifier.Strength, AbilityEffectType.Damage)], 1)]),
+      new Attack('Tentacles', 3, '', 0, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning],
+        [new Grab(5)])
+    ]
+  ),
   new Creature(
     'wolf',
     'Wolf',
@@ -123,7 +158,13 @@ export const creatures: Creature[] = [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 6 },
       { skill: Skill.survival, bonus: 1 }
-    ]),
+    ],
+    [
+      new Attack('Bite', 2, '1d6', 1, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Trip(2)])
+    ]
+  ),
   new Creature(
     'cheetah',
     'Cheetah',
@@ -143,6 +184,12 @@ export const creatures: Creature[] = [
       { skill: Skill.acrobatics, bonus: 8 },
       { skill: Skill.perception, bonus: 5 },
       { skill: Skill.stealth, bonus: 8 }
+    ],
+    [
+      new Attack('Bite', 6, '1d6', 3, false, AttackType.Melee, Modifier.Dexterity,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning, DamageType.Slashing])
     ]
   ),
   new Creature(
@@ -164,7 +211,14 @@ export const creatures: Creature[] = [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 5 },
       { skill: Skill.swim, bonus: 12 }
-    ]
+    ],
+    [
+      new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Grab(11)]),
+      new Attack('Tail Slap', 0, '1d12', 2, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning])
+    ],
+    ['Death Roll'] // TODO: Should DeathRoll be a CombatManeuver?
   ),
   new Creature(
     'shark',
@@ -184,5 +238,10 @@ export const creatures: Creature[] = [
     [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.swim, bonus: 11 }
-    ])
+    ],
+    [
+      new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, Modifier.Strength,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ]
+  )
 ];

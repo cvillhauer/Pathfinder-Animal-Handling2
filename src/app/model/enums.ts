@@ -104,6 +104,18 @@ export enum Modifier {
   Charisma = 'Charisma'
 }
 
+export enum Save {
+  Fortitude = 'Fortitude',
+  Reflex = 'Reflex',
+  Will = 'Will'
+}
+
+export enum AbilityEffectType {
+  Damage = 'Damage',
+  Drain = 'Drain',
+  Enhancement = 'Enhancement'
+}
+
 export class Skill {
   static acrobatics = {
     description: 'Acrobatics',
@@ -279,4 +291,22 @@ export class Skill {
     description: 'Use Magic Device',
     modifier: Modifier.Charisma
   };
+}
+
+export enum AttackType {
+  Melee = 'Melee',
+  Ranged = 'Ranged'
+}
+
+export enum DamageType {
+  Bludgeoning = 'Bludgeoning',
+  Piercing = 'Piercing',
+  Slashing = 'Slashing',
+  Nonlethal = 'Nonlethal',
+  Acid = 'Acid',
+  Cold = 'Cold',
+  Electricity = 'Electricity',
+  Fire = 'Fire',
+  Force = 'Force',
+  Sonic = 'Sonic'
 }

@@ -1,0 +1,19 @@
+<div>
+  <h4>
+    <span style='font-weight: bold'>
+      <span>{{ attack.description }} &nbsp;</span>
+      <span *ngIf='(attack.attackBonus >= 0)'>+</span>
+      <span>{{ attack.attackBonus }} </span>
+      <span *ngIf='(attack.touchAttack)'> touch</span>
+      <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
+      <span *ngIf='attack.damageDice && (attack.damageBonus >= 0)'>+</span>
+      <span *ngIf='attack.damageDice'>{{ attack.damageBonus }} &nbsp;</span>
+    </span>
+    <!-- TODO Why is attack.attackEffects truthy when length = 0 ? -->
+    <span *ngIf='attack.attackEffects.length > 0'>plus <span *ngFor='let attackEffect of attack.attackEffects' title='{{ attackEffect.details }}'>{{ attackEffect.summary }}</span></span>
+  </h4>
+  <!-- TODO I hate the amount of screen real estate this takes up -->
+  <!-- 99% of the time I don't care about damage type unless it's elemental -->
+  <!-- And if it IS elemental, I care about it maybe 15% of the time? -->
+  <p><span *ngFor='let damageType of attack.damageTypes'>{{ damageType }} &nbsp;</span></p>
+</div>

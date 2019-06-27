@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SpellComponent } from './components/spell/spell.component';
 import { CreatureComponent } from './components/creature/creature.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AttackComponent } from './components/attack/attack.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -16,7 +17,7 @@ describe('AppComponent', () => {
         RouterTestingModule, FormsModule, HttpClientModule
       ],
       declarations: [
-        AppComponent, CharacterComponent, SpellComponent, CreatureComponent
+        AppComponent, AttackComponent, CharacterComponent, SpellComponent, CreatureComponent
       ],
     }).compileComponents();
   }));
