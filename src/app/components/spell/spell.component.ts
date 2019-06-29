@@ -76,6 +76,7 @@ export class SpellComponent implements OnInit {
           this.selectedCreature.type,
           this.determineAlignment(),
           this.selectedCreature.speed,
+          this.selectedCreature.reach,
           new AbilityScores(
             this.selectedCreature.abilityScores.strength,
             this.selectedCreature.abilityScores.dexterity,

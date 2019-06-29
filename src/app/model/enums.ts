@@ -116,6 +116,17 @@ export enum AbilityEffectType {
   Enhancement = 'Enhancement'
 }
 
+export enum SpecialAbility {
+  Blindsense = 'Blindsense',
+  Blindsight = 'Blindsight',
+  InkCloud = 'Ink cloud',
+  Jet = 'Jet',
+  KeenScent = 'Keen scent',
+  LowLightVision = 'Low-light vision',
+  Scent = 'Scent',
+  Sprint = 'Sprint'
+}
+
 export enum Feat {
   Endurance = 'Endurance',
   GreatFortitude = 'Great Fortitude',

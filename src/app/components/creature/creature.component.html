@@ -43,6 +43,7 @@
         </div>
         <div class="col-xs-3">
           <h4>Speed: {{ creature.speed }} feet</h4>
+          <h4>Reach: {{ creature.reach }} feet</h4>
         </div>
       </div>
       <div class="row">
@@ -54,7 +55,7 @@
       <div class="row">
         <br />
         <div class="col-xs-4">
-          <h5 *ngIf="creature.abilities.length > 0">Abilities:</h5>
+          <h5>Abilities:</h5>
           <ul>
             <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
           </ul>

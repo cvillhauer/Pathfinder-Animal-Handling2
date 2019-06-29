@@ -3,6 +3,7 @@ import { IAttackEffect } from './attackeffect';
 
 export class Attack {
   additionalDamage: string[]; // TODO: This should be an object with damageDice, damageBonus, and damageTypes, or an abilityEffect
+  damageTypeDescription = '';
 
   constructor(
     public description: string,
@@ -14,6 +15,7 @@ export class Attack {
     public modifier: Modifier,
     public damageTypes: DamageType[],
     public attackEffects: IAttackEffect[] = []) {
+      this.damageTypeDescription = this.getDamageTypeDescription();
   }
 
   static fromObject(attack: Attack): Attack {
@@ -22,4 +24,13 @@ export class Attack {
     newAttack.attackEffects = attackEffects;
     return newAttack;
   }
+
+  getDamageTypeDescription(){
+    let description = '';
+    this.damageTypes.forEach(dt => {
+      description += dt + ' ';
+    });
+    return description;
+  }
+
 }

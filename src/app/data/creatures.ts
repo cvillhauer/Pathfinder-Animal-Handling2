@@ -1,4 +1,4 @@
-import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save, Feat } from '../model/enums';
+import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save, Feat, SpecialAbility } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -20,6 +20,7 @@ export const creatures: Creature[] = [
     // Alignment.trueNeutral,
     Alignment.neutralEvil, // TODO: Rats aren't REALLY evil, I just need to test getSpellCreatures with something that isn't True Neutral
     40,
+    5,
     new AbilityScores(10, 17, 12, 2, 12, 4),
     5,
     14,
@@ -40,7 +41,8 @@ export const creatures: Creature[] = [
           [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage),
           new AbilityEffect('1d3', Modifier.Constitution, AbilityEffectType.Damage)], 2)]
       )
-    ]
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'dog',
@@ -51,6 +53,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     40,
+    5,
     new AbilityScores(13, 13, 15, 2, 12, 6),
     6,
     13,
@@ -66,7 +69,8 @@ export const creatures: Creature[] = [
     [
       new Attack('Bite', 2, '1d4', 1, false, AttackType.Melee, Modifier.Strength,
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
-    ]
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'dolphin',
@@ -77,6 +81,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     80,
+    5,
     new AbilityScores(12, 15, 13, 2, 12, 6),
     11,
     13,
@@ -88,7 +93,8 @@ export const creatures: Creature[] = [
       { skill: Skill.perception, bonus: 9 },
       { skill: Skill.swim, bonus: 13 }
     ],
-    [new Attack('Slam', 3, '1d4', 1, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning])]
+    [new Attack('Slam', 3, '1d4', 1, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning])],
+    [SpecialAbility.Blindsight, SpecialAbility.LowLightVision]
   ),
   new Creature(
     'horse',
@@ -99,6 +105,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     50,
+    5,
     new AbilityScores(16, 14, 17, 2, 13, 7),
     15,
     11,
@@ -112,7 +119,8 @@ export const creatures: Creature[] = [
     [
       new Attack('Hoof', -2, '1d4', 1, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning]),
       new Attack('Hoof', -2, '1d4', 1, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning])
-    ]
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'octopus',
@@ -123,6 +131,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     20,
+    5,
     new AbilityScores(12, 17, 14, 2, 13, 3),
     13,
     15,
@@ -142,7 +151,8 @@ export const creatures: Creature[] = [
           [new AbilityEffect('1', Modifier.Strength, AbilityEffectType.Damage)], 1)]),
       new Attack('Tentacles', 3, '', 0, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning],
         [new Grab(5)])
-    ]
+    ],
+    [SpecialAbility.InkCloud, SpecialAbility.Jet, SpecialAbility.LowLightVision]
   ),
   new Creature(
     'wolf',
@@ -153,6 +163,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     50,
+    5,
     new AbilityScores(13, 15, 15, 2, 12, 6),
     13,
     14,
@@ -169,7 +180,8 @@ export const creatures: Creature[] = [
       new Attack('Bite', 2, '1d6', 1, false, AttackType.Melee, Modifier.Strength,
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
         [new Trip(2)])
-    ]
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'cheetah',
@@ -180,6 +192,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     50,
+    5,
     new AbilityScores(17, 19, 15, 2, 12, 6),
     19,
     15,
@@ -197,7 +210,8 @@ export const creatures: Creature[] = [
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
       new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning, DamageType.Slashing]),
       new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, Modifier.Dexterity, [DamageType.Bludgeoning, DamageType.Slashing])
-    ]
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Sprint]
   ),
   new Creature(
     'crocodile',
@@ -208,6 +222,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     20,
+    5,
     new AbilityScores(19, 12, 17, 1, 12, 2),
     22,
     14,
@@ -226,7 +241,7 @@ export const creatures: Creature[] = [
         [new Grab(11)]),
       new Attack('Tail Slap', 0, '1d12', 2, false, AttackType.Melee, Modifier.Strength, [DamageType.Bludgeoning])
     ],
-    ['Death Roll'] // TODO: Should DeathRoll be a CombatManeuver?
+    [SpecialAbility.LowLightVision, SpecialAbility.Sprint]
   ),
   new Creature(
     'shark',
@@ -237,6 +252,7 @@ export const creatures: Creature[] = [
     CreatureType.Animal,
     Alignment.trueNeutral,
     60,
+    5,
     new AbilityScores(17, 12, 13, 1, 12, 2),
     22,
     14,
@@ -251,6 +267,7 @@ export const creatures: Creature[] = [
     [
       new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, Modifier.Strength,
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
-    ]
+    ],
+    [SpecialAbility.Blindsense, SpecialAbility.KeenScent]
   )
 ];

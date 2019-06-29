@@ -1,4 +1,4 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, AttackType, Feat } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, AttackType, Feat, SpecialAbility } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
@@ -20,6 +20,7 @@ export class Creature {
     public type?: CreatureType,
     public alignment?: Alignment,
     public speed?: number,
+    public reach?: number,
     public abilityScores?: AbilityScores,
     public hitPoints?: number,
     public armorClass?: number,
@@ -29,13 +30,13 @@ export class Creature {
     public feats?: Feat[],
     public skills: SkillBonus[] = [],
     public attacks: Attack[] = [],
-    public abilities: string[] = []) {
+    public abilities: SpecialAbility[] = []) {
   }
 
   static fromObject(creature: Creature): Creature {
-    const { id, description, link, image, size, type, alignment, speed, abilityScores,
+    const { id, description, link, image, size, type, alignment, speed, reach, abilityScores,
       hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities } = creature;
-    return new this(id, description, link, image, size, type, alignment, speed, abilityScores,
+    return new this(id, description, link, image, size, type, alignment, speed, reach, abilityScores,
       hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities);
   }
 
