@@ -1,4 +1,7 @@
-import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save, Feat, SpecialAbility } from '../model/enums';
+import {
+  Size, CreatureType, Skill, Alignment, Modifier,
+  DamageType, AttackType, AbilityEffectType, Save, Feat, SpecialAbility
+} from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -17,11 +20,11 @@ export const creatures: Creature[] = [
     'https://pathfinderwiki.com/mediawiki/images/1/12/Dire_rat.jpg',
     Size.Small,
     CreatureType.Animal,
-    // Alignment.trueNeutral,
-    Alignment.neutralEvil, // TODO: Rats aren't REALLY evil, I just need to test getSpellCreatures with something that isn't True Neutral
+    Alignment.trueNeutral,
     40,
     5,
     new AbilityScores(10, 17, 12, 2, 12, 4),
+    1,
     5,
     14,
     -1,
@@ -55,6 +58,7 @@ export const creatures: Creature[] = [
     40,
     5,
     new AbilityScores(13, 13, 15, 2, 12, 6),
+    1,
     6,
     13,
     0,
@@ -83,6 +87,7 @@ export const creatures: Creature[] = [
     80,
     5,
     new AbilityScores(12, 15, 13, 2, 12, 6),
+    2,
     11,
     13,
     2,
@@ -107,6 +112,7 @@ export const creatures: Creature[] = [
     50,
     5,
     new AbilityScores(16, 14, 17, 2, 13, 7),
+    2,
     15,
     11,
     5,
@@ -133,6 +139,7 @@ export const creatures: Creature[] = [
     20,
     5,
     new AbilityScores(12, 17, 14, 2, 13, 3),
+    2,
     13,
     15,
     1,
@@ -165,6 +172,7 @@ export const creatures: Creature[] = [
     50,
     5,
     new AbilityScores(13, 15, 15, 2, 12, 6),
+    2,
     13,
     14,
     2,
@@ -194,6 +202,7 @@ export const creatures: Creature[] = [
     50,
     5,
     new AbilityScores(17, 19, 15, 2, 12, 6),
+    3,
     19,
     15,
     5,
@@ -224,6 +233,7 @@ export const creatures: Creature[] = [
     20,
     5,
     new AbilityScores(19, 12, 17, 1, 12, 2),
+    3,
     22,
     14,
     7,
@@ -254,6 +264,7 @@ export const creatures: Creature[] = [
     60,
     5,
     new AbilityScores(17, 12, 13, 1, 12, 2),
+    4,
     22,
     14,
     7,

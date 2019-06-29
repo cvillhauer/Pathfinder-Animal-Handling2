@@ -84,6 +84,7 @@ export class SpellComponent implements OnInit {
             this.selectedCreature.abilityScores.intelligence,
             this.selectedCreature.abilityScores.wisdom,
             this.selectedCreature.abilityScores.charisma),
+          this.selectedCreature.hitDice,
           this.selectedCreature.hitPoints,
           this.selectedCreature.armorClass,
           this.selectedCreature.combatManeuverBonus,

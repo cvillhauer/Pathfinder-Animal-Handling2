@@ -15,7 +15,7 @@ export class Attack {
     public modifier: Modifier,
     public damageTypes: DamageType[],
     public attackEffects: IAttackEffect[] = []) {
-      this.damageTypeDescription = this.getDamageTypeDescription();
+    this.damageTypeDescription = this.getDamageTypeDescription();
   }
 
   static fromObject(attack: Attack): Attack {
@@ -25,7 +25,7 @@ export class Attack {
     return newAttack;
   }
 
-  getDamageTypeDescription(){
+  getDamageTypeDescription() {
     let description = '';
     this.damageTypes.forEach(dt => {
       description += dt + ' ';
