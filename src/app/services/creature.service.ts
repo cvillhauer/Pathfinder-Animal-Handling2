@@ -10,6 +10,7 @@ import { Poison } from '../model/poison';
 import { Trip, Grab } from '../model/combatManeuvers';
 import { Disease } from '../model/disease';
 import { AbilityEffect } from '../model/abilityEffect';
+import { SkillBonus } from '../model/skillbonus';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +37,22 @@ export class CreatureService {
         const returnCreatures: Creature[] = [];
         filteredCreatures.map(c => {
           const newCreature = Creature.fromObject(c);
+          newCreature.skills = this.buildSkills(c.skills);
           newCreature.attacks = this.buildAttacks(c.attacks);
           returnCreatures.push(newCreature);
         });
         return returnCreatures;
       })
     );
+  }
+
+  private buildSkills(creatureSkills: SkillBonus[]): SkillBonus[] {
+    const skills: SkillBonus[] = [];
+    creatureSkills.map(s => {
+      const newSkill = SkillBonus.fromObject(s);
+      skills.push(newSkill);
+    });
+    return skills;
   }
 
   private buildAttacks(creatureAttacks: Attack[]): Attack[] {

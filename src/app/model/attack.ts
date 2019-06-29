@@ -1,8 +1,7 @@
-import { Modifier, DamageType, AttackType } from './enums';
+import { DamageType, AttackType } from './enums';
 import { IAttackEffect } from './attackeffect';
 
 export class Attack {
-  additionalDamage: string[]; // TODO: This should be an object with damageDice, damageBonus, and damageTypes, or an abilityEffect
   damageTypeDescription = '';
 
   constructor(
@@ -13,7 +12,9 @@ export class Attack {
     public touchAttack: boolean,
     public attackType: AttackType,
     public damageTypes: DamageType[],
-    public attackEffects: IAttackEffect[] = []) {
+    public attackEffects: IAttackEffect[] = [],
+    // TODO: This should be an object with damageDice, damageBonus, and damageTypes, or an abilityEffect
+    public additionalDamage: string[] = []) {
     this.damageTypeDescription = this.getDamageTypeDescription();
   }
 

@@ -1,9 +1,10 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, AttackType, Feat, SpecialAbility } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility } from './enums';
 import { AbilityScores } from './abilityscores';
-import { SkillBonus } from './skillbonus';
+import { SkillBonus } from './skillBonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
 import { Attack } from './attack';
+import { ArmorClass } from './armorClass';
 
 export class Creature {
   level: number;
@@ -24,7 +25,7 @@ export class Creature {
     public abilityScores?: AbilityScores,
     public hitDice?: number,
     public hitPoints?: number,
-    public armorClass?: number,
+    public armorClass?: ArmorClass,
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
@@ -102,11 +103,9 @@ export class Creature {
     this.hitPoints += (2 * this.hitDice);
     this.combatManeuverBonus += 2;
     this.combatManeuverDefense += 2;
-    this.saves.fortitude += 2;
+    this.saves.augmentSummoning();
     for (const skill of this.skills) {
-      if (skill.skill.modifier === Modifier.Strength || skill.skill.modifier === Modifier.Constitution) {
-        skill.bonus += 2;
-      }
+      skill.augmentSummoning();
     }
     const hasWeaponFinesse = this.feats.indexOf(Feat.WeaponFinesse) >= 0;
     const strBonus = this.abilityScores.getBonus(Modifier.Strength);

@@ -11,6 +11,8 @@ import { AbilityEffect } from '../model/abilityEffect';
 import { Grab, Trip } from '../model/combatManeuvers';
 import { Disease } from '../model/disease';
 import { Poison } from '../model/poison';
+import { ArmorClass } from '../model/armorClass';
+import { SkillBonus } from '../model/skillbonus';
 
 export const creatures: Creature[] = [
   new Creature(
@@ -26,16 +28,16 @@ export const creatures: Creature[] = [
     new AbilityScores(10, 17, 12, 2, 12, 4),
     1,
     5,
-    14,
+    new ArmorClass(14, 14, 11),
     -1,
     12,
     new Saves(3, 5, 1),
     [Feat.SkillFocusPerception],
     [
-      { skill: Skill.climb, bonus: 11 },
-      { skill: Skill.perception, bonus: 4 },
-      { skill: Skill.stealth, bonus: 11 },
-      { skill: Skill.swim, bonus: 11 }
+      new SkillBonus(Skill.climb, 11),
+      new SkillBonus(Skill.perception, 4),
+      new SkillBonus(Skill.stealth, 11),
+      new SkillBonus(Skill.swim, 11)
     ],
     [
       new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee,
@@ -60,15 +62,15 @@ export const creatures: Creature[] = [
     new AbilityScores(13, 13, 15, 2, 12, 6),
     1,
     6,
-    13,
+    new ArmorClass(13, 12, 12),
     0,
     11,
     new Saves(4, 3, 1),
     [Feat.SkillFocusPerception],
     [
-      { skill: Skill.acrobatics, bonus: 1 },
-      { skill: Skill.perception, bonus: 8 },
-      { skill: Skill.survival, bonus: 1 }
+      new SkillBonus(Skill.acrobatics, 1),
+      new SkillBonus(Skill.perception, 8),
+      new SkillBonus(Skill.survival, 1)
     ],
     [
       new Attack('Bite', 2, '1d4', 1, false, AttackType.Melee,
@@ -89,14 +91,14 @@ export const creatures: Creature[] = [
     new AbilityScores(12, 15, 13, 2, 12, 6),
     2,
     11,
-    13,
+    new ArmorClass(13, 12, 11),
     2,
     14,
     new Saves(4, 5, 1),
     [Feat.WeaponFinesse],
     [
-      { skill: Skill.perception, bonus: 9 },
-      { skill: Skill.swim, bonus: 13 }
+      new SkillBonus(Skill.perception, 9),
+      new SkillBonus(Skill.swim, 13)
     ],
     [new Attack('Slam', 3, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning])],
     [SpecialAbility.Blindsight, SpecialAbility.LowLightVision]
@@ -114,13 +116,13 @@ export const creatures: Creature[] = [
     new AbilityScores(16, 14, 17, 2, 13, 7),
     2,
     15,
-    11,
+    new ArmorClass(11, 11, 9),
     5,
     17,
     new Saves(6, 5, 1),
     [Feat.Endurance, Feat.Run],
     [
-      { skill: Skill.perception, bonus: 6 }
+      new SkillBonus(Skill.perception, 6)
     ],
     [
       new Attack('Hoof', -2, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning]),
@@ -141,15 +143,15 @@ export const creatures: Creature[] = [
     new AbilityScores(12, 17, 14, 2, 13, 3),
     2,
     13,
-    15,
+    new ArmorClass(15, 14, 12),
     1,
     14,
     new Saves(5, 6, 1),
     [Feat.Multiattack, Feat.WeaponFinesse],
     [
-      { skill: Skill.climb, bonus: 13 },
-      { skill: Skill.stealth, bonus: 20 },
-      { skill: Skill.swim, bonus: 9 }
+      new SkillBonus(Skill.escapeartist, 13),
+      new SkillBonus(Skill.stealth, 20),
+      new SkillBonus(Skill.swim, 9)
     ],
     [
       new Attack('Bite', 5, '1d3', 1, false, AttackType.Melee,
@@ -174,15 +176,15 @@ export const creatures: Creature[] = [
     new AbilityScores(13, 15, 15, 2, 12, 6),
     2,
     13,
-    14,
+    new ArmorClass(14, 12, 12),
     2,
     14,
     new Saves(5, 5, 1),
     [Feat.SkillFocusPerception],
     [
-      { skill: Skill.perception, bonus: 8 },
-      { skill: Skill.stealth, bonus: 6 },
-      { skill: Skill.survival, bonus: 1 }
+      new SkillBonus(Skill.perception, 8),
+      new SkillBonus(Skill.stealth, 6),
+      new SkillBonus(Skill.survival, 1)
     ],
     [
       new Attack('Bite', 2, '1d6', 1, false, AttackType.Melee,
@@ -204,15 +206,15 @@ export const creatures: Creature[] = [
     new AbilityScores(17, 19, 15, 2, 12, 6),
     3,
     19,
-    15,
+    new ArmorClass(15, 14, 11),
     5,
     19,
     new Saves(5, 7, 2),
     [Feat.ImprovedInititive, Feat.WeaponFinesse],
     [
-      { skill: Skill.acrobatics, bonus: 8 },
-      { skill: Skill.perception, bonus: 5 },
-      { skill: Skill.stealth, bonus: 8 }
+      new SkillBonus(Skill.acrobatics, 8),
+      new SkillBonus(Skill.perception, 5),
+      new SkillBonus(Skill.stealth, 8)
     ],
     [
       new Attack('Bite', 6, '1d6', 3, false, AttackType.Melee,
@@ -235,15 +237,15 @@ export const creatures: Creature[] = [
     new AbilityScores(19, 12, 17, 1, 12, 2),
     3,
     22,
-    14,
+    new ArmorClass(14, 10, 13),
     7,
     18,
     new Saves(6, 4, 2),
     [Feat.SkillFocusPerception, Feat.SkillFocusStealth],
     [
-      { skill: Skill.perception, bonus: 8 },
-      { skill: Skill.stealth, bonus: 5 },
-      { skill: Skill.swim, bonus: 12 }
+      new SkillBonus(Skill.perception, 8),
+      new SkillBonus(Skill.stealth, 5),
+      new SkillBonus(Skill.swim, 12)
     ],
     [
       new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee,
@@ -266,14 +268,14 @@ export const creatures: Creature[] = [
     new AbilityScores(17, 12, 13, 1, 12, 2),
     4,
     22,
-    14,
+    new ArmorClass(14, 10, 13),
     7,
     18,
     new Saves(7, 5, 2),
     [Feat.GreatFortitude, Feat.ImprovedInititive],
     [
-      { skill: Skill.perception, bonus: 8 },
-      { skill: Skill.swim, bonus: 11 }
+      new SkillBonus(Skill.perception, 8),
+      new SkillBonus(Skill.swim, 11)
     ],
     [
       new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee,
