@@ -18,7 +18,11 @@ export class Disease implements IAttackEffect {
 
   static fromObject(disease: any): Disease {
     const { diseaseName, savingThrow, onset, frequency, effects, cureSaves } = disease;
-    return new this(diseaseName, SavingThrow.fromObject(savingThrow), onset, frequency, effects, cureSaves);
+    const newDisease = new this(diseaseName, SavingThrow.fromObject(savingThrow), onset, frequency, effects, cureSaves);
+    newDisease.effects = newDisease.effects.map(e => AbilityEffect.fromObject(e));
+    newDisease.summary = newDisease.getSummary();
+    newDisease.details = newDisease.getDetails();
+    return newDisease;
   }
 
   getSummary() {
