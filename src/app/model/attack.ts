@@ -12,15 +12,14 @@ export class Attack {
     public damageBonus: number,
     public touchAttack: boolean,
     public attackType: AttackType,
-    public modifier: Modifier,
     public damageTypes: DamageType[],
     public attackEffects: IAttackEffect[] = []) {
     this.damageTypeDescription = this.getDamageTypeDescription();
   }
 
   static fromObject(attack: Attack): Attack {
-    const { description, attackBonus, damageDice, damageBonus, touchAttack, attackType, modifier, damageTypes, attackEffects } = attack;
-    const newAttack = new this(description, attackBonus, damageDice, damageBonus, touchAttack, attackType, modifier, damageTypes);
+    const { description, attackBonus, damageDice, damageBonus, touchAttack, attackType, damageTypes, attackEffects } = attack;
+    const newAttack = new this(description, attackBonus, damageDice, damageBonus, touchAttack, attackType, damageTypes);
     newAttack.attackEffects = attackEffects;
     return newAttack;
   }
@@ -31,6 +30,24 @@ export class Attack {
       description += dt + ' ';
     });
     return description;
+  }
+
+  augmentSummoning(hasWeaponFinesse: boolean, strBonus: number, dexBonus: number) {
+    if (this.attackType === AttackType.Melee) {
+      this.damageBonus += 2;
+      if (hasWeaponFinesse) {
+        if (strBonus > dexBonus) {
+          this.attackBonus = this.attackBonus - dexBonus + strBonus;
+        }
+      } else {
+        this.attackBonus += 2;
+      }
+    }
+    if (this.attackEffects) {
+      for (const attackEffect of this.attackEffects) {
+        attackEffect.applyAugmentSummoning();
+      }
+    }
   }
 
 }

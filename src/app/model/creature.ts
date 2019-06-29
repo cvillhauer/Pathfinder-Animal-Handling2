@@ -108,21 +108,11 @@ export class Creature {
         skill.bonus += 2;
       }
     }
+    const hasWeaponFinesse = this.feats.indexOf(Feat.WeaponFinesse) >= 0;
+    const strBonus = this.abilityScores.getBonus(Modifier.Strength);
+    const dexBonus = this.abilityScores.getBonus(Modifier.Dexterity);
     for (const attack of this.attacks) {
-      if (attack.modifier === Modifier.Strength) {
-        attack.attackBonus += 2;
-        // TODO: If creature has a melee attack with Weapon Finesse that uses Dex modifier,
-        // it's possible their attack would be more powerful if they used strength.
-        // If that happens, the attack should switch to using strength, subtract dex bonus, add str bonus.
-      }
-      if (attack.attackType === AttackType.Melee) {
-        attack.damageBonus += 2;
-      }
-      if (attack.attackEffects) {
-        for (const attackEffect of attack.attackEffects) {
-          attackEffect.applyAugmentSummoning();
-        }
-      }
+      attack.augmentSummoning(hasWeaponFinesse, strBonus, dexBonus);
     }
   }
 }
