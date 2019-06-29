@@ -91,6 +91,7 @@ export class SpellComponent implements OnInit {
             this.selectedCreature.saves.fortitude,
             this.selectedCreature.saves.reflex,
             this.selectedCreature.saves.will),
+          this.selectedCreature.feats,
           this.selectedCreature.skills,
           this.selectedCreature.attacks,
           this.selectedCreature.abilities

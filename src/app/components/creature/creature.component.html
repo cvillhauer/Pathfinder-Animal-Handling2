@@ -53,10 +53,14 @@
       </div>
       <div class="row">
         <br />
-        <div class="col-xs-3">
-          <h5>Abilities:</h5>
+        <div class="col-xs-4">
+          <h5 *ngIf="creature.abilities.length > 0">Abilities:</h5>
           <ul>
             <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
+          </ul>
+          <h5>Feats:</h5>
+          <ul>
+            <li *ngFor="let feat of creature.feats">{{ feat }}</li>
           </ul>
         </div>
         <div class="col-xs-3">
@@ -74,7 +78,7 @@
           Wisdom: {{ creature.abilityScores.wisdom }}<br />
           Charisma: {{ creature.abilityScores.charisma }}<br />
         </div>
-        <div class="col-xs-3" style="text-align: right;">
+        <div class="col-xs-2" style="text-align: right;">
           Fortitude: <span *ngIf='(creature.saves.fortitude >= 0)'>+</span>{{ creature.saves.fortitude }}<br />
           Reflex: <span *ngIf='(creature.saves.reflex >= 0)'>+</span>{{ creature.saves.reflex }}<br />
           Will: <span *ngIf='(creature.saves.will >= 0)'>+</span>{{ creature.saves.will }}<br />

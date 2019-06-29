@@ -1,4 +1,4 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, AttackType } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, AttackType, Feat } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
@@ -26,6 +26,7 @@ export class Creature {
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
     public saves?: Saves,
+    public feats?: Feat[],
     public skills: SkillBonus[] = [],
     public attacks: Attack[] = [],
     public abilities: string[] = []) {
@@ -33,9 +34,9 @@ export class Creature {
 
   static fromObject(creature: Creature): Creature {
     const { id, description, link, image, size, type, alignment, speed, abilityScores,
-      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills, attacks, abilities } = creature;
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities } = creature;
     return new this(id, description, link, image, size, type, alignment, speed, abilityScores,
-      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, skills);
+      hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities);
   }
 
   toggleEditCreatureName() {

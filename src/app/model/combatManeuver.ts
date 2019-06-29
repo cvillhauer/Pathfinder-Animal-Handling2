@@ -30,6 +30,9 @@ export class CombatManeuver implements IAttackEffect {
   getDetails() {
     let details: string = this.getSummary();
     details += '\r\n' + this.resultText;
+    if (this.creatureBecomesGrappled) {
+      details += '\r\nCreature becomes grappled.';
+    }
     return details;
   }
 

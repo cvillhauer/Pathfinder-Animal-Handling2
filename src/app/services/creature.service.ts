@@ -39,7 +39,6 @@ export class CreatureService {
           newCreature.attacks = this.buildAttacks(c.attacks);
           returnCreatures.push(newCreature);
         });
-        // TODO: Every time I add anything to creature, I need to add it here too
         return returnCreatures;
       })
     );

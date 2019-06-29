@@ -1,4 +1,4 @@
-import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save } from '../model/enums';
+import { Size, CreatureType, Skill, Alignment, Modifier, DamageType, AttackType, AbilityEffectType, Save, Feat } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -26,6 +26,7 @@ export const creatures: Creature[] = [
     -1,
     12,
     new Saves(3, 5, 1),
+    [Feat.SkillFocusPerception],
     [
       { skill: Skill.climb, bonus: 11 },
       { skill: Skill.perception, bonus: 4 },
@@ -56,6 +57,7 @@ export const creatures: Creature[] = [
     0,
     11,
     new Saves(4, 3, 1),
+    [Feat.SkillFocusPerception],
     [
       { skill: Skill.acrobatics, bonus: 1 },
       { skill: Skill.perception, bonus: 8 },
@@ -81,6 +83,7 @@ export const creatures: Creature[] = [
     2,
     14,
     new Saves(4, 5, 1),
+    [Feat.WeaponFinesse],
     [
       { skill: Skill.perception, bonus: 9 },
       { skill: Skill.swim, bonus: 13 }
@@ -102,6 +105,7 @@ export const creatures: Creature[] = [
     5,
     17,
     new Saves(6, 5, 1),
+    [Feat.Endurance, Feat.Run],
     [
       { skill: Skill.perception, bonus: 6 }
     ],
@@ -125,6 +129,7 @@ export const creatures: Creature[] = [
     1,
     14,
     new Saves(5, 6, 1),
+    [Feat.Multiattack, Feat.WeaponFinesse],
     [
       { skill: Skill.climb, bonus: 13 },
       { skill: Skill.stealth, bonus: 20 },
@@ -154,6 +159,7 @@ export const creatures: Creature[] = [
     2,
     14,
     new Saves(5, 5, 1),
+    [Feat.SkillFocusPerception],
     [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 6 },
@@ -180,6 +186,7 @@ export const creatures: Creature[] = [
     5,
     19,
     new Saves(5, 7, 2),
+    [Feat.ImprovedInititive, Feat.WeaponFinesse],
     [
       { skill: Skill.acrobatics, bonus: 8 },
       { skill: Skill.perception, bonus: 5 },
@@ -207,6 +214,7 @@ export const creatures: Creature[] = [
     7,
     18,
     new Saves(6, 4, 2),
+    [Feat.SkillFocusPerception, Feat.SkillFocusStealth],
     [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.stealth, bonus: 5 },
@@ -235,6 +243,7 @@ export const creatures: Creature[] = [
     7,
     18,
     new Saves(7, 5, 2),
+    [Feat.GreatFortitude, Feat.ImprovedInititive],
     [
       { skill: Skill.perception, bonus: 8 },
       { skill: Skill.swim, bonus: 11 }

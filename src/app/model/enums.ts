@@ -116,6 +116,17 @@ export enum AbilityEffectType {
   Enhancement = 'Enhancement'
 }
 
+export enum Feat {
+  Endurance = 'Endurance',
+  GreatFortitude = 'Great Fortitude',
+  ImprovedInititive = 'Improved Inititive',
+  Multiattack = 'Multiattack',
+  Run = 'Run',
+  SkillFocusPerception = 'Skill Focus (Perception)',
+  SkillFocusStealth = 'Skill Focus (Stealth)',
+  WeaponFinesse = 'Weapon Finesse'
+}
+
 export class Skill {
   static acrobatics = {
     description: 'Acrobatics',
