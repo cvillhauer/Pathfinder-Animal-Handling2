@@ -68,6 +68,7 @@ export class SpellComponent implements OnInit {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       for (let i = 1; i <= numberOfCreatures; i++) {
         const newCreature = Creature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
+        console.log('onSummon newCreature', newCreature);
         // new Creature(
         //   this.selectedCreature.id,
         //   this.selectedCreature.description,

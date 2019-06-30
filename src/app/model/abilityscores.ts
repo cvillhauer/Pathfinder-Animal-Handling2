@@ -11,6 +11,11 @@ export class AbilityScores {
     public charisma: number) {
   }
 
+  static fromObject(abilityScores: any): AbilityScores {
+    const { strength, dexterity, constitution, intelligence, wisdom, charisma } = abilityScores;
+    return new this(strength, dexterity, constitution, intelligence, wisdom, charisma);
+  }
+
   getBonus(ability: Modifier) {
     switch (ability) {
       case Modifier.Strength:

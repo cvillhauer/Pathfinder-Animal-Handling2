@@ -1,6 +1,6 @@
 import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility } from './enums';
 import { AbilityScores } from './abilityscores';
-import { SkillBonus } from './skillBonus';
+import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
 import { Attack } from './attack';
@@ -36,10 +36,17 @@ export class Creature {
   }
 
   static fromObject(creature: Creature): Creature {
-    const { id, description, link, image, size, type, alignment, speed, reach, abilityScores,
-      hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities } = creature;
-    return new this(id, description, link, image, size, type, alignment, speed, reach, abilityScores,
-      hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense, saves, feats, skills, attacks, abilities);
+    const { id, description, link, image, size, type, alignment,
+      speed, reach, abilityScores,
+      hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
+      saves, feats, skills, attacks, abilities } = creature;
+    const newCreature = new this(id, description, link, image, size, type, alignment,
+      speed, reach, AbilityScores.fromObject(abilityScores),
+      hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
+      Saves.fromObject(saves), feats, skills, attacks, abilities);
+    newCreature.skills = skills.map(s => SkillBonus.fromObject(s));
+    newCreature.attacks = attacks.map(a => Attack.fromObject(a));
+    return newCreature;
   }
 
   toggleEditCreatureName() {

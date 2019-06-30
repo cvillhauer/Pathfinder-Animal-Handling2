@@ -8,8 +8,7 @@ export class SkillBonus {
 
   static fromObject(skillBonus: SkillBonus): SkillBonus {
     const { skill, bonus } = skillBonus;
-    const newSkillBonus = new this(skill, bonus);
-    return newSkillBonus;
+    return new this(skill, bonus);
   }
 
   augmentSummoning() {
