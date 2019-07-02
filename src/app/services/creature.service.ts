@@ -68,31 +68,7 @@ export class CreatureService {
   private buildAttackEffects(attackEffects: IAttackEffect[]): IAttackEffect[] {
     const effects: IAttackEffect[] = [];
     attackEffects.map(ae => {
-      switch (ae.description) {
-        case 'Disease':
-          const disease = Disease.fromObject(ae); // ae as Disease;
-          disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
-          effects.push(disease);
-          break;
-        case 'Grab':
-          const grab = ae as Grab;
-          const newGrab = new Grab(grab.combatManeuverBonus);
-          effects.push(newGrab);
-          break;
-        case 'Poison':
-          const poison = Poison.fromObject(ae); // ae as Disease;
-          poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
-          effects.push(poison);
-          break;
-        case 'Trip':
-          const trip = ae as Trip;
-          const newTrip = new Trip(trip.combatManeuverBonus);
-          effects.push(newTrip);
-          break;
-        default:
-          console.log('Unknown attack effect');
-          break;
-      }
+      effects.push(ae);
     });
     return effects;
   }
