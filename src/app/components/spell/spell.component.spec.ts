@@ -13,6 +13,7 @@ import { DiceService } from 'src/app/services/dice.service';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { of } from 'rxjs';
+import { ArmorClass } from 'src/app/model/armorClass';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -57,9 +58,11 @@ describe('SpellComponent', () => {
       CreatureType.Animal,
       Alignment.trueNeutral,
       20,
+      5,
       new AbilityScores(10, 10, 10, 10, 10, 10),
+      1,
       15,
-      15,
+      new ArmorClass(15, 12, 13),
       5,
       15,
       new Saves(1, 2, 3),
@@ -121,9 +124,11 @@ describe('SpellComponent', () => {
       CreatureType.Animal,
       Alignment.trueNeutral,
       20,
+      5,
       new AbilityScores(10, 10, 10, 10, 10, 10),
+      1,
       15,
-      15,
+      new ArmorClass(15, 12, 13),
       5,
       15,
       new Saves(1, 2, 3),
@@ -152,9 +157,11 @@ describe('SpellComponent', () => {
       CreatureType.Animal,
       Alignment.trueNeutral,
       20,
+      5,
       new AbilityScores(14, 10, 14, 10, 10, 10),
+      1,
       17,
-      15,
+      new ArmorClass(15, 12, 13),
       7,
       17,
       new Saves(3, 2, 3),

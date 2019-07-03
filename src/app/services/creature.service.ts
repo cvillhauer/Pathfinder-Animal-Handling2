@@ -10,6 +10,7 @@ import { Poison } from '../model/poison';
 import { Trip, Grab } from '../model/combatManeuvers';
 import { Disease } from '../model/disease';
 import { AbilityEffect } from '../model/abilityEffect';
+import { SkillBonus } from '../model/skillbonus';
 
 @Injectable({
   providedIn: 'root'
@@ -36,13 +37,22 @@ export class CreatureService {
         const returnCreatures: Creature[] = [];
         filteredCreatures.map(c => {
           const newCreature = Creature.fromObject(c);
+          newCreature.skills = this.buildSkills(c.skills);
           newCreature.attacks = this.buildAttacks(c.attacks);
           returnCreatures.push(newCreature);
         });
-        // TODO: Every time I add anything to creature, I need to add it here too
         return returnCreatures;
       })
     );
+  }
+
+  private buildSkills(creatureSkills: SkillBonus[]): SkillBonus[] {
+    const skills: SkillBonus[] = [];
+    creatureSkills.map(s => {
+      const newSkill = SkillBonus.fromObject(s);
+      skills.push(newSkill);
+    });
+    return skills;
   }
 
   private buildAttacks(creatureAttacks: Attack[]): Attack[] {
@@ -58,31 +68,7 @@ export class CreatureService {
   private buildAttackEffects(attackEffects: IAttackEffect[]): IAttackEffect[] {
     const effects: IAttackEffect[] = [];
     attackEffects.map(ae => {
-      switch (ae.description) {
-        case 'Disease':
-          const disease = Disease.fromObject(ae); // ae as Disease;
-          disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
-          effects.push(disease);
-          break;
-        case 'Grab':
-          const grab = ae as Grab;
-          const newGrab = new Grab(grab.combatManeuverBonus);
-          effects.push(newGrab);
-          break;
-        case 'Poison':
-          const poison = Poison.fromObject(ae); // ae as Disease;
-          poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
-          effects.push(poison);
-          break;
-        case 'Trip':
-          const trip = ae as Trip;
-          const newTrip = new Trip(trip.combatManeuverBonus);
-          effects.push(newTrip);
-          break;
-        default:
-          console.log('Unknown attack effect');
-          break;
-      }
+      effects.push(ae);
     });
     return effects;
   }

@@ -67,35 +67,7 @@ export class SpellComponent implements OnInit {
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
       for (let i = 1; i <= numberOfCreatures; i++) {
-        const newCreature = new Creature(
-          this.selectedCreature.id,
-          this.selectedCreature.description,
-          this.selectedCreature.link,
-          this.selectedCreature.image,
-          this.selectedCreature.size,
-          this.selectedCreature.type,
-          this.determineAlignment(),
-          this.selectedCreature.speed,
-          new AbilityScores(
-            this.selectedCreature.abilityScores.strength,
-            this.selectedCreature.abilityScores.dexterity,
-            this.selectedCreature.abilityScores.constitution,
-            this.selectedCreature.abilityScores.intelligence,
-            this.selectedCreature.abilityScores.wisdom,
-            this.selectedCreature.abilityScores.charisma),
-          this.selectedCreature.hitPoints,
-          this.selectedCreature.armorClass,
-          this.selectedCreature.combatManeuverBonus,
-          this.selectedCreature.combatManeuverDefense,
-          new Saves(
-            this.selectedCreature.saves.fortitude,
-            this.selectedCreature.saves.reflex,
-            this.selectedCreature.saves.will),
-          this.selectedCreature.skills,
-          this.selectedCreature.attacks,
-          this.selectedCreature.abilities
-          // TODO: Every time I add anything to creature, I need to add it here too
-        );
+        const newCreature = Creature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;

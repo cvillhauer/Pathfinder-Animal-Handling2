@@ -116,6 +116,46 @@ export enum AbilityEffectType {
   Enhancement = 'Enhancement'
 }
 
+export enum SpecialAbility {
+  Blindsense = 'Blindsense',
+  Blindsight = 'Blindsight',
+  DamageResistanceEvil5 = 'DR 5/Evil',
+  DamageResistanceEvil10 = 'DR 10/Evil',
+  DamageResistanceGood5 = 'DR 5/Good',
+  DamageResistanceGood10 = 'DR 10/Evil',
+  InkCloud = 'Ink cloud',
+  Jet = 'Jet',
+  KeenScent = 'Keen Scent',
+  LowLightVision = 'Low-light Vision',
+  ResistAcid5 = 'Resist Acid 5',
+  ResistAcid10 = 'Resist Acid 10',
+  ResistAcid15 = 'Resist Acid 15',
+  ResistCold5 = 'Resist Cold 5',
+  ResistCold10 = 'Resist Cold 10',
+  ResistCold15 = 'Resist Cold 15',
+  ResistFire5 = 'Resist Fire 5',
+  ResistFire10 = 'Resist Fire 10',
+  ResistFire15 = 'Resist Fire 15',
+  ResistElectricity5 = 'Resist Electricity 5',
+  ResistElectricity10 = 'Resist Electricity 10',
+  ResistElectricity15 = 'Resist Electricity 15',
+  Scent = 'Scent',
+  SmiteEvil = 'Smite Evil',
+  SmiteGood = 'Smite Good',
+  Sprint = 'Sprint'
+}
+
+export enum Feat {
+  Endurance = 'Endurance',
+  GreatFortitude = 'Great Fortitude',
+  ImprovedInititive = 'Improved Inititive',
+  Multiattack = 'Multiattack',
+  Run = 'Run',
+  SkillFocusPerception = 'Skill Focus (Perception)',
+  SkillFocusStealth = 'Skill Focus (Stealth)',
+  WeaponFinesse = 'Weapon Finesse'
+}
+
 export class Skill {
   static acrobatics = {
     description: 'Acrobatics',
