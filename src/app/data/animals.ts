@@ -166,6 +166,35 @@ export const creatures: Creature[] = [
     [SpecialAbility.Blindsight, SpecialAbility.LowLightVision]
   ),
   new Creature(
+    'eagle',
+    'Eagle',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Eagle',
+    'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Animals/images/EagleLarge.jpg',
+    Size.Small,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    80,
+    5,
+    new AbilityScores(10, 15, 12, 2, 15, 7),
+    1,
+    5,
+    new ArmorClass(14, 13, 12),
+    -1,
+    11,
+    new Saves(3, 4, 2),
+    [Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.fly, 8),
+      new SkillBonus(Skill.perception, 10)
+    ],
+    [
+      new Attack('Talon', 3, '1d4', 0, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Talon', 3, '1d4', 0, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Bite', 3, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ],
+    [SpecialAbility.LowLightVision]
+  ),
+  new Creature(
     'horse',
     'Horse',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Horse',
@@ -226,6 +255,64 @@ export const creatures: Creature[] = [
     [SpecialAbility.InkCloud, SpecialAbility.Jet, SpecialAbility.LowLightVision]
   ),
   new Creature(
+    'poisonousfrog',
+    'Poisonous Frog',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Poison%20Frog',
+    'http://static2.paizo.com/image/content/PathfinderACG/PZO6818-Flybreath.jpg',
+    Size.Tiny,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    10,
+    0,
+    new AbilityScores(2, 12, 11, 1, 9, 10),
+    1,
+    4,
+    new ArmorClass(13, 13, 12),
+    -1,
+    5,
+    new Saves(2, 3, -1),
+    [Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.acrobatics, 5),
+      new SkillBonus(Skill.perception, 3),
+      new SkillBonus(Skill.stealth, 13),
+      new SkillBonus(Skill.swim, 9)
+    ],
+    [
+      new Attack('Bite', 3, '1', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [
+          new Poison(new SavingThrow(Save.Fortitude, 10), 'once per round for 6 rounds',
+            [new AbilityEffect('1d2', Modifier.Constitution, AbilityEffectType.Damage)], 1)
+        ])
+    ],
+    [SpecialAbility.LowLightVision]
+  ),
+  new Creature(
+    'pony',
+    'Pony',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Pony',
+    'https://orig00.deviantart.net/7569/f/2013/252/4/5/tobiano_draft_horse_study_by_charreed-d6lq7pf.jpg',
+    Size.Medium,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    40,
+    5,
+    new AbilityScores(13, 13, 14, 2, 11, 4),
+    2,
+    13,
+    new ArmorClass(11, 11, 10),
+    2,
+    13,
+    new Saves(5, 4, 0),
+    [Feat.Endurance, Feat.Run],
+    [new SkillBonus(Skill.perception, 5)],
+    [
+      new Attack('Hoof', -3, '1d3', 0, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Hoof', -3, '1d3', 0, false, AttackType.Melee, [DamageType.Bludgeoning])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
     'shark',
     'Shark',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Shark',
@@ -252,6 +339,37 @@ export const creatures: Creature[] = [
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
     ],
     [SpecialAbility.Blindsense, SpecialAbility.KeenScent]
+  ),
+  new Creature(
+    'viper',
+    'Viper',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Viper',
+    'https://pre00.deviantart.net/f3fe/th/pre/i/2015/108/b/c/cave_viper_by_bryansyme-d79yo8f.jpg',
+    Size.Tiny,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    20,
+    0,
+    new AbilityScores(4, 17, 8, 1, 13, 2),
+    1,
+    3,
+    new ArmorClass(16, 15, 13),
+    1,
+    8,
+    new Saves(1, 5, 1),
+    [Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.climb, 11),
+      new SkillBonus(Skill.perception, 9),
+      new SkillBonus(Skill.stealth, 15),
+      new SkillBonus(Skill.swim, 11)
+    ],
+    [
+      new Attack('Bite', 5, '1d2', -2, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Poison(new SavingThrow(Save.Fortitude, 9), 'once per round for 6 rounds',
+          [new AbilityEffect('1d2', Modifier.Constitution, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'wolf',
