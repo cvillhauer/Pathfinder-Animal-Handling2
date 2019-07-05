@@ -14,7 +14,7 @@ import { Poison } from '../model/poison';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 
-export const creatures: Creature[] = [
+export const animals: Creature[] = [
   new Creature(
     'cheetah',
     'Cheetah',
