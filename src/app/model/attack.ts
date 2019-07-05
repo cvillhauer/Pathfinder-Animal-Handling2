@@ -27,18 +27,17 @@ export class Attack {
       touchAttack, attackType, damageTypes, attackEffects, additionalDamage } = attack;
     const newAttack = new this(description, attackBonus, damageDice, damageBonus,
       touchAttack, attackType, damageTypes, attackEffects, additionalDamage);
-    // I don't like that this is being repeated here and in the creature service (but it works)
     newAttack.attackEffects = attackEffects.map(ae => {
       switch (ae.description) {
         case 'Disease':
-          const disease = Disease.fromObject(ae); // ae as Disease;
+          const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
           return disease;
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);
         case 'Poison':
-          const poison = Poison.fromObject(ae); // ae as Disease;
+          const poison = Poison.fromObject(ae);
           poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
           return poison;
         case 'Trip':

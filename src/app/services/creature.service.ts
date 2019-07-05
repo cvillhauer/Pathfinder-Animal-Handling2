@@ -6,10 +6,6 @@ import { map } from 'rxjs/operators';
 import { Creature } from '../model/creature';
 import { Attack } from '../model/attack';
 import { IAttackEffect } from '../model/attackeffect';
-import { Poison } from '../model/poison';
-import { Trip, Grab } from '../model/combatManeuvers';
-import { Disease } from '../model/disease';
-import { AbilityEffect } from '../model/abilityEffect';
 import { SkillBonus } from '../model/skillbonus';
 
 @Injectable({
