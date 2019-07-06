@@ -66,6 +66,3 @@ export class Speeds {
     return primarySpeed;
   }
 }
-
-
-

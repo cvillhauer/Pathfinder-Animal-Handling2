@@ -7,6 +7,7 @@ import { Grab, Trip, Attach, Pull } from './combatManeuvers';
 import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
 import { SwallowWhole } from './swallowWhole';
+import { Web } from './web';
 
 export class Attack {
   damageTypeDescription = '';
@@ -62,6 +63,10 @@ export class Attack {
           const trip = ae as Trip;
           const newTrip = new Trip(trip.combatManeuverBonus);
           return newTrip;
+        case 'Web':
+          const web = ae as Web;
+          const newWeb = new Web(web.difficultyCheck, web.hitPoints);
+          return newWeb;
         default:
           console.log('Unknown attack effect: ' + ae.description);
           break;

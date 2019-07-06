@@ -12,6 +12,7 @@ import { Poison } from '../model/poison';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
+import { Web } from '../model/web';
 
 export const vermin: Creature[] = [
   new Creature(
@@ -120,8 +121,9 @@ export const vermin: Creature[] = [
     [
       new Attack('Bite', 2, '1d6', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
         [new Poison(new SavingThrow(Save.Fortitude, 14), 'once per round for 4 rounds',
-          [new AbilityEffect('1d2', Modifier.Strength, AbilityEffectType.Damage)], 1)])
-    ], // TODO Needs Web attack
+          [new AbilityEffect('1d2', Modifier.Strength, AbilityEffectType.Damage)], 1)]),
+      new Attack('Web', 5, '', 0, false, AttackType.Ranged, [], [new Web(12, 2)])
+    ],
     [SpecialAbility.Darkvision, SpecialAbility.Tremorsense, SpecialAbility.ImmuneMindAffecting]
   )
 ];
