@@ -33,6 +33,7 @@ export class Creature {
     public skills: SkillBonus[] = [],
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = []) {
+      abilities.sort();
   }
 
   static fromObject(creature: Creature): Creature {

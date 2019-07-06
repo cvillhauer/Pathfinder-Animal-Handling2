@@ -30,8 +30,8 @@ export const magicalbeasts: Creature[] = [
     new Saves(2, 6, 1),
     [Feat.WeaponFinesse],
     [
-      new SkillBonus(Skill.fly, 8),
-      new SkillBonus(Skill.stealth, 16)
+      new SkillBonus(Skill.Fly, 8),
+      new SkillBonus(Skill.Stealth, 16)
     ],
     [new Attack('Touch', 7, ' ', 0, true, AttackType.Melee, [], [new Attach(11), new BloodDrain('1', 'For up to 4 con damage total.')])],
     [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent]

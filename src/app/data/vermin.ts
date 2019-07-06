@@ -31,9 +31,9 @@ export const vermin: Creature[] = [
     9,
     new Saves(2, 0, 0),
     [],
-    [new SkillBonus(Skill.fly, -2)],
+    [new SkillBonus(Skill.Fly, -2)],
     [new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
-    [SpecialAbility.ImmuneToMindAffecting, SpecialAbility.LowLightVision, SpecialAbility.Luminescence]
+    [SpecialAbility.ImmuneMindAffecting, SpecialAbility.LowLightVision, SpecialAbility.Luminescence]
   ),
   new Creature(
     'giantcentipede',
@@ -54,15 +54,15 @@ export const vermin: Creature[] = [
     new Saves(3, 2, 0),
     [Feat.WeaponFinesse],
     [
-      new SkillBonus(Skill.climb, 10),
-      new SkillBonus(Skill.perception, 4),
-      new SkillBonus(Skill.stealth, 10)
+      new SkillBonus(Skill.Climb, 10),
+      new SkillBonus(Skill.Perception, 4),
+      new SkillBonus(Skill.Stealth, 10)
     ],
     [
       new Attack('Bite', 2, '1d6', -1, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
         [new Poison(new SavingThrow(Save.Fortitude, 13), 'once per round for 6 rounds',
           [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage)], 1)])
     ],
-    [SpecialAbility.Darkvision, SpecialAbility.ImmuneToMindAffecting]
+    [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
   ),
 ];

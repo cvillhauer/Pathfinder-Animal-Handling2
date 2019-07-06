@@ -28,12 +28,12 @@ export const fey: Creature[] = [
     new Saves(0, 3, 3),
     [Feat.PointBlankShot],
     [
-      new SkillBonus(Skill.climb, 7),
-      new SkillBonus(Skill.handleanimal, 0),
-      new SkillBonus(Skill.perception, 5),
-      new SkillBonus(Skill.ride, 2),
-      new SkillBonus(Skill.slightofhand, 9),
-      new SkillBonus(Skill.stealth, 13)
+      new SkillBonus(Skill.Climb, 7),
+      new SkillBonus(Skill.HandleAnimal, 0),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Ride, 2),
+      new SkillBonus(Skill.SlightOfHand, 9),
+      new SkillBonus(Skill.Stealth, 13)
     ],
     [
       new Attack('Dagger', 0, '1d3', -1, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing]),
