@@ -6,6 +6,7 @@ import { Alignment } from './alignment';
 import { Attack } from './attack';
 import { ArmorClass } from './armorClass';
 import { Speeds } from './speed';
+import { SpellLikeAbility } from './spellLikeAbility';
 
 export class Creature {
   level: number;
@@ -33,21 +34,23 @@ export class Creature {
     public feats?: Feat[],
     public skills: SkillBonus[] = [],
     public attacks: Attack[] = [],
-    public abilities: SpecialAbility[] = []) {
-      abilities.sort();
+    public abilities: SpecialAbility[] = [],
+    public spellLikeAbilities: SpellLikeAbility[] = []) {
+    abilities.sort();
   }
 
   static fromObject(creature: Creature): Creature {
     const { id, description, link, image, size, type, alignment,
       speed, reach, abilityScores,
       hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
-      saves, feats, skills, attacks, abilities } = creature;
+      saves, feats, skills, attacks, abilities, spellLikeAbilities } = creature;
     const newCreature = new this(id, description, link, image, size, type, alignment,
       Speeds.fromObject(speed), reach, AbilityScores.fromObject(abilityScores),
       hitDice, hitPoints, ArmorClass.fromObject(armorClass), combatManeuverBonus, combatManeuverDefense,
       Saves.fromObject(saves), feats, skills, attacks, abilities);
     newCreature.skills = skills.map(s => SkillBonus.fromObject(s));
     newCreature.attacks = attacks.map(a => Attack.fromObject(a));
+    newCreature.spellLikeAbilities = spellLikeAbilities.map(sla => SpellLikeAbility.fromObject(sla));
     return newCreature;
   }
 

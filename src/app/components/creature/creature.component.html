@@ -57,6 +57,11 @@
         <div class="col-xs-12">
           <h3>Attacks:</h3>
           <attack *ngFor="let creatureAttack of creature.attacks" [attack]="creatureAttack"></attack>
+          <br *ngIf="creature.spellLikeAbilities.length > 0">
+          <h3 *ngIf="creature.spellLikeAbilities.length > 0">Spell-Like Abilities:</h3>
+          <h4 *ngFor="let spellLikeAbility of creature.spellLikeAbilities"><span
+              style="font-weight: bold;">{{ spellLikeAbility.summary }}</span>
+            {{ spellLikeAbility.details }}</h4>
         </div>
       </div>
       <div class="row">

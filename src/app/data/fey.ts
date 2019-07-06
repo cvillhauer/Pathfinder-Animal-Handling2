@@ -1,5 +1,5 @@
 import {
-  Size, CreatureType, Skill, Alignment, DamageType, AttackType, Feat, SpecialAbility
+  Size, CreatureType, Skill, Alignment, DamageType, AttackType, Feat, SpecialAbility, Spell
 } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
@@ -8,6 +8,7 @@ import { Attack } from '../model/attack';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
+import { SpellLikeAbility } from '../model/spellLikeAbility';
 
 export const fey: Creature[] = [
   new Creature(
@@ -17,7 +18,7 @@ export const fey: Creature[] = [
     'https://pathfinderwiki.com/mediawiki/images/0/04/Mite.jpg',
     Size.Small,
     CreatureType.Fey,
-    Alignment.lawfulEvil,
+    Alignment.trueNeutral,
     new Speeds(20, 20),
     5,
     new AbilityScores(8, 13, 11, 8, 13, 8),
@@ -43,6 +44,10 @@ export const fey: Creature[] = [
     [
       SpecialAbility.DamageResistanceColdIron2, SpecialAbility.Darkvision, SpecialAbility.Hatred, SpecialAbility.LightSensitivity,
       SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.VerminEmpathy
-    ] // TODO: Needs spell-like abilities
+    ],
+    [
+      new SpellLikeAbility(1, 'at will', Spell.Prestidigitation),
+      new SpellLikeAbility(1, 'once per day', Spell.Doom, 10)
+    ]
   )
 ];

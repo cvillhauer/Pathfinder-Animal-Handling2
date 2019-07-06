@@ -80,6 +80,7 @@ export class SpellComponent implements OnInit {
             // TODO: Let the user choose
           }
         }
+        newCreature.alignment = this.determineAlignment();
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
           newCreature.augmentSummoning();
         }

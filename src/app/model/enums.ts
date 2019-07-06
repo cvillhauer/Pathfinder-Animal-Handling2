@@ -373,3 +373,12 @@ export enum SpeedType {
   Fly = 'Fly',
   Swim = 'Swim'
 }
+
+export enum Spell {
+  Aid = 'Aid',
+  ContinualFlame = 'Continual Flame',
+  DetectEvil = 'Detect Evil',
+  GreaterTeleport = 'GreaterTeleport',
+  Doom = 'Doom',
+  Prestidigitation = 'Prestidigitation'
+}
