@@ -156,6 +156,7 @@ export enum Feat {
   Endurance = 'Endurance',
   GreatFortitude = 'Great Fortitude',
   ImprovedInititive = 'Improved Inititive',
+  LightningReflexes = 'Lightning Reflexes',
   Multiattack = 'Multiattack',
   PointBlankShot = 'Point-Blank Shot',
   Run = 'Run',

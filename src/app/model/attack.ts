@@ -3,9 +3,10 @@ import { IAttackEffect } from './attackeffect';
 import { Disease } from './disease';
 import { AbilityEffect } from './abilityEffect';
 import { Poison } from './poison';
-import { Grab, Trip, Attach } from './combatManeuvers';
+import { Grab, Trip, Attach, Pull } from './combatManeuvers';
 import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
+import { SwallowWhole } from './swallowWhole';
 
 export class Attack {
   damageTypeDescription = '';
@@ -49,12 +50,20 @@ export class Attack {
           const poison = Poison.fromObject(ae);
           poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
           return poison;
+        case 'Pull':
+          const pull = ae as Pull;
+          const newPull = new Pull(pull.combatManeuverBonus, pull.distance);
+          return newPull;
+        case 'Swallow Whole':
+          const swallowWhole = ae as SwallowWhole;
+          const newSwallowWhole = new SwallowWhole(swallowWhole.armorClass, swallowWhole.hitPoints);
+          return newSwallowWhole;
         case 'Trip':
           const trip = ae as Trip;
           const newTrip = new Trip(trip.combatManeuverBonus);
           return newTrip;
         default:
-          console.log('Unknown attack effect');
+          console.log('Unknown attack effect: ' + ae.description);
           break;
       }
     });
@@ -73,8 +82,10 @@ export class Attack {
   }
 
   augmentSummoning(hasWeaponFinesse: boolean, strBonus: number, dexBonus: number) {
-    if (this.attackType === AttackType.Melee && !this.touchAttack) {
-      this.damageBonus += 2;
+    if (this.attackType === AttackType.Melee) {
+      if (!this.touchAttack) {
+        this.damageBonus += 2;
+      }
       if (hasWeaponFinesse) {
         if (strBonus > dexBonus) {
           this.attackBonus = this.attackBonus - dexBonus + strBonus;

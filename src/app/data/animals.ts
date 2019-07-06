@@ -8,11 +8,12 @@ import { Creature } from '../model/creature';
 import { Attack } from '../model/attack';
 import { SavingThrow } from '../model/savingThrow';
 import { AbilityEffect } from '../model/abilityEffect';
-import { Grab, Trip } from '../model/combatManeuvers';
+import { Grab, Trip, Pull } from '../model/combatManeuvers';
 import { Disease } from '../model/disease';
 import { Poison } from '../model/poison';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
+import { SwallowWhole } from '../model/swallowWhole';
 
 export const animals: Creature[] = [
   new Creature(
@@ -36,7 +37,8 @@ export const animals: Creature[] = [
     [
       new SkillBonus(Skill.acrobatics, 8),
       new SkillBonus(Skill.perception, 5),
-      new SkillBonus(Skill.stealth, 8)
+      new SkillBonus(Skill.stealth, 8),
+      new SkillBonus(Skill.stealth, 12, 'In Tall Grass')
     ],
     [
       new Attack('Bite', 6, '1d6', 3, false, AttackType.Melee,
@@ -67,6 +69,7 @@ export const animals: Creature[] = [
     [
       new SkillBonus(Skill.perception, 8),
       new SkillBonus(Skill.stealth, 5),
+      new SkillBonus(Skill.stealth, 13, 'In Water'),
       new SkillBonus(Skill.swim, 12)
     ],
     [
@@ -131,8 +134,10 @@ export const animals: Creature[] = [
     [Feat.SkillFocusPerception],
     [
       new SkillBonus(Skill.acrobatics, 1),
+      new SkillBonus(Skill.acrobatics, 9, 'Jumping'),
       new SkillBonus(Skill.perception, 8),
-      new SkillBonus(Skill.survival, 1)
+      new SkillBonus(Skill.survival, 1),
+      new SkillBonus(Skill.survival, 5, 'Scent Tracking')
     ],
     [
       new Attack('Bite', 2, '1d4', 1, false, AttackType.Melee,
@@ -193,6 +198,39 @@ export const animals: Creature[] = [
       new Attack('Bite', 3, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
     ],
     [SpecialAbility.LowLightVision]
+  ),
+  new Creature(
+    'giantfrog',
+    'Giant Frog',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Frog',
+    'https://vignette.wikia.nocookie.net/rythiae/images/3/35/Giant_Frog_1.jpg/revision/latest?cb=20141125110711',
+    Size.Medium,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    30,
+    5,
+    new AbilityScores(15, 13, 16, 1, 8, 6),
+    2,
+    15,
+    new ArmorClass(12, 11, 11),
+    3,
+    14,
+    new Saves(6, 6, -1),
+    [Feat.LightningReflexes],
+    [
+      new SkillBonus(Skill.acrobatics, 9),
+      new SkillBonus(Skill.acrobatics, 13, 'Jumping'),
+      new SkillBonus(Skill.perception, 3),
+      new SkillBonus(Skill.stealth, 5),
+      new SkillBonus(Skill.swim, 10)
+    ],
+    [
+      new Attack('Bite', 3, '1d6', 2, false,
+        AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(7)]),
+      new Attack('Tongue', 3, '', 0, true, AttackType.Ranged, [], [new Grab(7), new Pull(7, 5)]),
+      new Attack('Swallow Whole', 7, '1d4', 0, true, AttackType.Melee, [DamageType.Bludgeoning], [new SwallowWhole(10, 1)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
     'horse',
@@ -274,6 +312,7 @@ export const animals: Creature[] = [
     [Feat.WeaponFinesse],
     [
       new SkillBonus(Skill.acrobatics, 5),
+      new SkillBonus(Skill.acrobatics, 9, 'Jumping'),
       new SkillBonus(Skill.perception, 3),
       new SkillBonus(Skill.stealth, 13),
       new SkillBonus(Skill.swim, 9)
@@ -392,7 +431,8 @@ export const animals: Creature[] = [
     [
       new SkillBonus(Skill.perception, 8),
       new SkillBonus(Skill.stealth, 6),
-      new SkillBonus(Skill.survival, 1)
+      new SkillBonus(Skill.survival, 1),
+      new SkillBonus(Skill.survival, 5, 'Scent Tracking')
     ],
     [
       new Attack('Bite', 2, '1d6', 1, false, AttackType.Melee,
