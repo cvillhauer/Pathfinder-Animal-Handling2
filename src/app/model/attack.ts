@@ -4,6 +4,8 @@ import { Disease } from './disease';
 import { AbilityEffect } from './abilityEffect';
 import { Poison } from './poison';
 import { Grab, Trip, Attach } from './combatManeuvers';
+import { AdditionalDamage } from './additionalDamage';
+import { BloodDrain } from './grappleEffects';
 
 export class Attack {
   damageTypeDescription = '';
@@ -15,10 +17,9 @@ export class Attack {
     public damageBonus: number,
     public touchAttack: boolean,
     public attackType: AttackType,
-    public damageTypes: DamageType[],
+    public damageTypes: DamageType[] = [],
     public attackEffects: IAttackEffect[] = [],
-    // TODO: This should be an object with damageDice, damageBonus, and damageTypes, or an abilityEffect
-    public additionalDamage: string[] = []) {
+    public additionalDamage: AdditionalDamage[] = []) {
     this.damageTypeDescription = this.getDamageTypeDescription();
   }
 
@@ -30,9 +31,13 @@ export class Attack {
     newAttack.attackEffects = attackEffects.map(ae => {
       switch (ae.description) {
         case 'Attach':
-            const attach = ae as Attach;
-            const newAttach = new Attach(attach.combatManeuverBonus);
-            return newAttach;
+          const attach = ae as Attach;
+          const newAttach = new Attach(attach.combatManeuverBonus);
+          return newAttach;
+        case 'Blood Drain':
+          const bloodDrain = ae as BloodDrain;
+          const newBloodDrain = new BloodDrain(bloodDrain.conDamage, bloodDrain.restrictionText);
+          return newBloodDrain;
         case 'Disease':
           const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
@@ -58,6 +63,9 @@ export class Attack {
 
   getDamageTypeDescription() {
     let description = '';
+    if (this.touchAttack) {
+      description += 'Touch ';
+    }
     this.damageTypes.forEach(dt => {
       description += dt + ' ';
     });
@@ -65,7 +73,7 @@ export class Attack {
   }
 
   augmentSummoning(hasWeaponFinesse: boolean, strBonus: number, dexBonus: number) {
-    if (this.attackType === AttackType.Melee) {
+    if (this.attackType === AttackType.Melee && !this.touchAttack) {
       this.damageBonus += 2;
       if (hasWeaponFinesse) {
         if (strBonus > dexBonus) {

@@ -8,6 +8,7 @@ import { Attack } from '../model/attack';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Attach } from '../model/combatManeuvers';
+import { BloodDrain } from '../model/grappleEffects';
 
 export const magicalbeasts: Creature[] = [
   new Creature(
@@ -32,7 +33,7 @@ export const magicalbeasts: Creature[] = [
       new SkillBonus(Skill.fly, 8),
       new SkillBonus(Skill.stealth, 16)
     ],
-    [new Attack('Touch', 7, ' ', 0, true, AttackType.Melee, [], [new Attach(11)])],
+    [new Attack('Touch', 7, ' ', 0, true, AttackType.Melee, [], [new Attach(11), new BloodDrain('1', 'For up to 4 con damage total.')])],
     [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent]
   )
 ];
