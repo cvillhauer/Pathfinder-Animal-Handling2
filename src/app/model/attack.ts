@@ -3,7 +3,7 @@ import { IAttackEffect } from './attackeffect';
 import { Disease } from './disease';
 import { AbilityEffect } from './abilityEffect';
 import { Poison } from './poison';
-import { Grab, Trip } from './combatManeuvers';
+import { Grab, Trip, Attach } from './combatManeuvers';
 
 export class Attack {
   damageTypeDescription = '';
@@ -29,6 +29,10 @@ export class Attack {
       touchAttack, attackType, damageTypes, attackEffects, additionalDamage);
     newAttack.attackEffects = attackEffects.map(ae => {
       switch (ae.description) {
+        case 'Attach':
+            const attach = ae as Attach;
+            const newAttach = new Attach(attach.combatManeuverBonus);
+            return newAttach;
         case 'Disease':
           const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));

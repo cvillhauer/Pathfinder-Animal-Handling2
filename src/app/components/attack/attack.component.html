@@ -6,8 +6,8 @@
       <span>{{ attack.attackBonus }} </span>
       <span *ngIf='(attack.touchAttack)'> touch</span>
       <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
-      <span *ngIf='attack.damageDice && (attack.damageBonus >= 0)'>+</span>
-      <span *ngIf='attack.damageDice'>{{ attack.damageBonus }} &nbsp;</span>
+      <span *ngIf='attack.damageDice && (attack.damageBonus > 0)'>+</span>
+      <span *ngIf='attack.damageDice && (attack.damageBonus > 0)'>{{ attack.damageBonus }} &nbsp;</span>
     </span>
     <span *ngIf='attack.attackEffects.length > 0'>plus
       <span *ngFor='let attackEffect of attack.attackEffects'
