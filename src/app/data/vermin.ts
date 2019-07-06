@@ -11,6 +11,7 @@ import { AbilityEffect } from '../model/abilityEffect';
 import { Poison } from '../model/poison';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
+import { Speeds } from '../model/speed';
 
 export const vermin: Creature[] = [
   new Creature(
@@ -21,7 +22,7 @@ export const vermin: Creature[] = [
     Size.Small,
     CreatureType.Vermin,
     Alignment.trueNeutral,
-    30,
+    new Speeds(30, 0, 30),
     5,
     new AbilityScores(10, 11, 11, 0, 10, 7),
     1,
@@ -43,7 +44,7 @@ export const vermin: Creature[] = [
     Size.Medium,
     CreatureType.Vermin,
     Alignment.trueNeutral,
-    50,
+    new Speeds(50, 20),
     5,
     new AbilityScores(14, 10, 17, 0, 13, 11),
     2,
@@ -69,7 +70,7 @@ export const vermin: Creature[] = [
     Size.Medium,
     CreatureType.Vermin,
     Alignment.trueNeutral,
-    40,
+    new Speeds(40, 40),
     5,
     new AbilityScores(9, 15, 12, 0, 10, 2),
     1,
@@ -99,7 +100,7 @@ export const vermin: Creature[] = [
     Size.Medium,
     CreatureType.Vermin,
     Alignment.trueNeutral,
-    30,
+    new Speeds(30, 30),
     5,
     new AbilityScores(11, 17, 12, 0, 10, 2),
     3,

@@ -7,6 +7,7 @@ import { Creature } from '../model/creature';
 import { Attack } from '../model/attack';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
+import { Speeds } from '../model/speed';
 
 export const fey: Creature[] = [
   new Creature(
@@ -17,7 +18,7 @@ export const fey: Creature[] = [
     Size.Small,
     CreatureType.Fey,
     Alignment.lawfulEvil,
-    20,
+    new Speeds(20, 20),
     5,
     new AbilityScores(8, 13, 11, 8, 13, 8),
     1,

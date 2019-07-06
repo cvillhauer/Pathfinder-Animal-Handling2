@@ -5,6 +5,7 @@ import { Saves } from './saves';
 import { Alignment } from './alignment';
 import { Attack } from './attack';
 import { ArmorClass } from './armorClass';
+import { Speeds } from './speed';
 
 export class Creature {
   level: number;
@@ -20,7 +21,7 @@ export class Creature {
     public size?: Size,
     public type?: CreatureType,
     public alignment?: Alignment,
-    public speed?: number,
+    public speed?: Speeds,
     public reach?: number,
     public abilityScores?: AbilityScores,
     public hitDice?: number,

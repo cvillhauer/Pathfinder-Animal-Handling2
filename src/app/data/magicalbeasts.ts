@@ -9,6 +9,7 @@ import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Attach } from '../model/combatManeuvers';
 import { BloodDrain } from '../model/grappleEffects';
+import { Speeds } from '../model/speed';
 
 export const magicalbeasts: Creature[] = [
   new Creature(
@@ -19,7 +20,7 @@ export const magicalbeasts: Creature[] = [
     Size.Tiny,
     CreatureType.MagicalBeast,
     Alignment.trueNeutral,
-    40,
+    new Speeds(10, 0, 40),
     0,
     new AbilityScores(3, 19, 10, 1, 12, 6),
     1,

@@ -362,3 +362,10 @@ export enum DamageType {
   Force = 'Force',
   Sonic = 'Sonic'
 }
+
+export enum SpeedType {
+  Foot = 'Foot',
+  Climb = 'Climb',
+  Fly = 'Fly',
+  Swim = 'Swim'
+}

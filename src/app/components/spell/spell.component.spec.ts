@@ -14,6 +14,7 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { of } from 'rxjs';
 import { ArmorClass } from 'src/app/model/armorClass';
+import { Speeds } from 'src/app/model/speed';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;
@@ -57,7 +58,7 @@ describe('SpellComponent', () => {
       Size.Small,
       CreatureType.Animal,
       Alignment.trueNeutral,
-      20,
+      new Speeds(20),
       5,
       new AbilityScores(10, 10, 10, 10, 10, 10),
       1,
@@ -123,7 +124,7 @@ describe('SpellComponent', () => {
       Size.Small,
       CreatureType.Animal,
       Alignment.trueNeutral,
-      20,
+      new Speeds(20),
       5,
       new AbilityScores(10, 10, 10, 10, 10, 10),
       1,
@@ -156,7 +157,7 @@ describe('SpellComponent', () => {
       Size.Small,
       CreatureType.Animal,
       Alignment.trueNeutral,
-      20,
+      new Speeds(20),
       5,
       new AbilityScores(14, 10, 14, 10, 10, 10),
       1,
