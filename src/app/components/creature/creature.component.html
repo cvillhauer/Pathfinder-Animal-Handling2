@@ -56,21 +56,21 @@
       <div class="row">
         <br />
         <div class="col-xs-4">
-          <h5>Abilities:</h5>
+          <h5 *ngIf='(creature.abilities.length > 0)'>Abilities:</h5>
           <ul>
             <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
           </ul>
-          <h5>Feats:</h5>
+          <h5 *ngIf='(creature.feats).length > 0'>Feats:</h5>
           <ul>
             <li *ngFor="let feat of creature.feats">{{ feat }}</li>
           </ul>
         </div>
         <div class="col-xs-4">
-          <h5>Skills:</h5>
+          <h5 *ngIf='(creature.skills.length > 0)'>Skills:</h5>
           <ul>
             <li *ngFor="let skill of creature.skills">
               {{ skill.skill.description }}
-              <span *ngIf='(skill.circumstance)'>({{ skill.circumstance }})</span>
+              <span *ngIf='(skill.circumstance)'>({{ skill.circumstance }}) </span>
               <span *ngIf='(skill.bonus >= 0)'>+</span>{{ skill.bonus }}</li>
           </ul>
         </div>

@@ -150,6 +150,7 @@ export enum SpecialAbility {
   SmiteEvil = 'Smite Evil',
   SmiteGood = 'Smite Good',
   Sprint = 'Sprint',
+  Tremorsense = 'Tremorsense',
   VerminEmpathy = 'Vermin Empathy'
 }
 

@@ -225,7 +225,7 @@ export class CharacterComponent implements OnInit {
   summon($event) {
     const summonedCreatures: Creature[] = $event.creatures;
     const characterId: string = $event.id;
-    this.getCharacterById(characterId).summonedCreatures.push(...summonedCreatures);
+    this.getCharacterById(characterId).summonedCreatures.unshift(...summonedCreatures);
   }
 
   delete(character: Character, creature: Creature) {
