@@ -24,8 +24,14 @@ export const spells = [
     group: 'summonnaturesally',
     level: 2,
     creatureList: [
+      'giantantworker',
+      'giantfrog',
+      'giantspider',
+      'goblindog',
       'horse',
+      'hyena',
       'octopus',
+      'squid',
       'wolf'
     ]
   },
@@ -104,8 +110,16 @@ export const spells = [
     group: 'summonmonster',
     level: 2,
     creatureList: [
+      'giantantworker',
+      'giantcentipede',
+      'giantfrog',
+      'giantspider',
+      'goblindog',
       'horse',
+      'hyena',
+      'lemure',
       'octopus',
+      'squid',
       'wolf'
     ]
   },

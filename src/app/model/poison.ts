@@ -35,7 +35,10 @@ export class Poison implements IAttackEffect {
   getDetails() {
     let details: string = this.getSummary();
     details += '\r\nFrequency: ' + this.frequency;
-    details += ', Cure: ' + this.cureSaves + ' saves';
+    details += ', Cure: ' + this.cureSaves + ' save';
+    if (this.cureSaves > 1) {
+      details += 's';
+    }
     return details;
   }
 

@@ -38,7 +38,10 @@ export class Disease implements IAttackEffect {
     let details: string = this.getSummary();
     details += '\r\nOnset: ' + this.onset;
     details += ', Frequency: ' + this.frequency;
-    details += ', Cure: ' + this.cureSaves + ' saves';
+    details += ', Cure: ' + this.cureSaves + ' save';
+    if (this.cureSaves > 1) {
+      details += 's';
+    }
     return details;
   }
 

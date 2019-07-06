@@ -123,10 +123,14 @@ export enum SpecialAbility {
   DamageResistanceEvil5 = 'DR 5/Evil',
   DamageResistanceEvil10 = 'DR 10/Evil',
   DamageResistanceGood5 = 'DR 5/Good',
-  DamageResistanceGood10 = 'DR 10/Evil',
+  DamageResistanceGood10 = 'DR 10/Good',
+  DamageResistanceSilver5 = 'DR 5/Siver',
   Darkvision = 'Darkvision',
   Hatred = 'Hatred',
-  ImmuneToMindAffecting = 'Immune to Mind-Affecting Effects',
+  ImmuneDisesase = 'Immune to Disease',
+  ImmuneFire = 'Immune to Fire',
+  ImmunePoison = 'Immune to Poison',
+  ImmuneMindAffecting = 'Immune to Mind-Affecting Effects',
   InkCloud = 'Ink cloud',
   Jet = 'Jet',
   KeenScent = 'Keen Scent',
@@ -146,9 +150,11 @@ export enum SpecialAbility {
   ResistElectricity10 = 'Resist Electricity 10',
   ResistElectricity15 = 'Resist Electricity 15',
   Scent = 'Scent',
+  SeeInDarkness = 'See in Darkness',
   SmiteEvil = 'Smite Evil',
   SmiteGood = 'Smite Good',
   Sprint = 'Sprint',
+  Tremorsense = 'Tremorsense',
   VerminEmpathy = 'Vermin Empathy'
 }
 
@@ -156,186 +162,188 @@ export enum Feat {
   Endurance = 'Endurance',
   GreatFortitude = 'Great Fortitude',
   ImprovedInititive = 'Improved Inititive',
+  LightningReflexes = 'Lightning Reflexes',
   Multiattack = 'Multiattack',
   PointBlankShot = 'Point-Blank Shot',
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
+  Toughness = 'Toughness',
   WeaponFinesse = 'Weapon Finesse'
 }
 
 export class Skill {
-  static acrobatics = {
+  static Acrobatics = {
     description: 'Acrobatics',
     modifier: Modifier.Dexterity
   };
 
-  static appraise = {
+  static Appraise = {
     description: 'Appraise',
     modifier: Modifier.Intelligence
   };
 
-  static bluff = {
+  static Bluff = {
     description: 'Bluff',
     modifier: Modifier.Charisma
   };
 
-  static climb = {
+  static Climb = {
     description: 'Climb',
     modifier: Modifier.Strength
   };
 
-  static craft = {
+  static Craft = {
     description: 'Craft',
     modifier: Modifier.Intelligence
   };
 
-  static diplomacy = {
+  static Diplomacy = {
     description: 'Diplomacy',
     modifier: Modifier.Charisma
   };
 
-  static disabledevice = {
+  static Disabledevice = {
     description: 'Disable Device',
     modifier: Modifier.Dexterity
   };
 
-  static disguise = {
+  static Disguise = {
     description: 'Disguise',
     modifier: Modifier.Charisma
   };
 
-  static escapeartist = {
+  static EscapeArtist = {
     description: 'Escape Artist',
     modifier: Modifier.Dexterity
   };
 
-  static fly = {
+  static Fly = {
     description: 'Fly',
     modifier: Modifier.Dexterity
   };
 
-  static handleanimal = {
+  static HandleAnimal = {
     description: 'Handle Animal',
     modifier: Modifier.Charisma
   };
 
-  static heal = {
+  static Heal = {
     description: 'Heal',
     modifier: Modifier.Wisdom
   };
 
-  static intimidate = {
+  static Intimidate = {
     description: 'Intimidate',
     modifier: Modifier.Charisma
   };
 
-  static knowledgearcana = {
+  static KnowledgeArcana = {
     description: 'Knowledge (Arcana)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgedungeoneering = {
+  static KnowledgeDungeoneering = {
     description: 'Knowledge (Dungeoneering)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgeengineering = {
+  static KnowledgeEngineering = {
     description: 'Knowledge (Engineering)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgegeography = {
+  static KnowledGegeography = {
     description: 'Knowledge (Geography)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgehistory = {
+  static KnowledgeHistory = {
     description: 'Knowledge (History)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgelocal = {
+  static KnowledgeLocal = {
     description: 'Knowledge (Local)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgenature = {
+  static KnowledgeNature = {
     description: 'Knowledge (Nature)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgenobility = {
+  static KnowledgeNobility = {
     description: 'Knowledge (Nobility)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgeplanes = {
+  static KnowledgePlanes = {
     description: 'Knowledge (Planes)',
     modifier: Modifier.Intelligence
   };
 
-  static knowledgereligion = {
+  static KknowledgeReligion = {
     description: 'Knowledge (Religion)',
     modifier: Modifier.Intelligence
   };
 
-  static linguistics = {
+  static Linguistics = {
     description: 'Linguistics',
     modifier: Modifier.Intelligence
   };
 
-  static perception = {
+  static Perception = {
     description: 'Perception',
     modifier: Modifier.Wisdom
   };
 
-  static perform = {
+  static Perform = {
     description: 'Perform',
     modifier: Modifier.Charisma
   };
 
-  static profession = {
+  static Profession = {
     description: 'Profession',
     modifier: Modifier.Wisdom
   };
 
-  static ride = {
+  static Ride = {
     description: 'Ride',
     modifier: Modifier.Dexterity
   };
 
-  static sensemotive = {
+  static SenseMotive = {
     description: 'Sense Motive',
     modifier: Modifier.Wisdom
   };
 
-  static slightofhand = {
+  static SlightOfHand = {
     description: 'Slight of Hand',
     modifier: Modifier.Dexterity
   };
 
-  static spellcraft = {
+  static Spellcraft = {
     description: 'Spellcraft',
     modifier: Modifier.Intelligence
   };
 
-  static stealth = {
+  static Stealth = {
     description: 'Stealth',
     modifier: Modifier.Dexterity
   };
 
-  static survival = {
+  static Survival = {
     description: 'Survival',
     modifier: Modifier.Wisdom
   };
 
-  static swim = {
+  static Swim = {
     description: 'Swim',
     modifier: Modifier.Strength
   };
 
-  static usemagicdevice = {
+  static UseMagicDevice = {
     description: 'Use Magic Device',
     modifier: Modifier.Charisma
   };
@@ -357,4 +365,20 @@ export enum DamageType {
   Fire = 'Fire',
   Force = 'Force',
   Sonic = 'Sonic'
+}
+
+export enum SpeedType {
+  Foot = 'Foot',
+  Climb = 'Climb',
+  Fly = 'Fly',
+  Swim = 'Swim'
+}
+
+export enum Spell {
+  Aid = 'Aid',
+  ContinualFlame = 'Continual Flame',
+  DetectEvil = 'Detect Evil',
+  GreaterTeleport = 'GreaterTeleport',
+  Doom = 'Doom',
+  Prestidigitation = 'Prestidigitation'
 }
