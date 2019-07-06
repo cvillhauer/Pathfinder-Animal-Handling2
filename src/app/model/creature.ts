@@ -43,7 +43,7 @@ export class Creature {
       hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
       saves, feats, skills, attacks, abilities } = creature;
     const newCreature = new this(id, description, link, image, size, type, alignment,
-      speed, reach, AbilityScores.fromObject(abilityScores),
+      Speeds.fromObject(speed), reach, AbilityScores.fromObject(abilityScores),
       hitDice, hitPoints, ArmorClass.fromObject(armorClass), combatManeuverBonus, combatManeuverDefense,
       Saves.fromObject(saves), feats, skills, attacks, abilities);
     newCreature.skills = skills.map(s => SkillBonus.fromObject(s));

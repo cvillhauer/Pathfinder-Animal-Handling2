@@ -43,7 +43,24 @@ export class Speeds {
 
   static fromObject(speed: Speeds): Speeds {
     const { footSpeed, climbSpeed, flySpeed, swimSpeed } = speed;
-    return new this(footSpeed.speedDistance, climbSpeed.speedDistance, flySpeed.speedDistance, swimSpeed.speedDistance);
+    // TODO: This is stupid!!
+    let footSpeedDistance = 0;
+    let climbSpeedDistance = 0;
+    let flySpeedDistance = 0;
+    let swimSpeedDistance = 0;
+    if (footSpeed) {
+      footSpeedDistance = footSpeed.speedDistance;
+    }
+    if (climbSpeed) {
+      climbSpeedDistance = climbSpeed.speedDistance;
+    }
+    if (flySpeed) {
+      flySpeedDistance = flySpeed.speedDistance;
+    }
+    if (swimSpeed) {
+      swimSpeedDistance = swimSpeed.speedDistance;
+    }
+    return new this(footSpeedDistance, climbSpeedDistance, flySpeedDistance, swimSpeedDistance);
   }
 
   getPrimarySpeed() {
