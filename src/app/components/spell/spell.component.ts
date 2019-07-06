@@ -7,8 +7,6 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Morality } from 'src/app/model/enums';
-import { AbilityScores } from 'src/app/model/abilityscores';
-import { Saves } from 'src/app/model/saves';
 
 @Component({
   selector: 'spell',

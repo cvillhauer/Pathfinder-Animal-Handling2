@@ -7,7 +7,15 @@ export const spells = [
     creatureList: [
       'direrat',
       'dog',
-      'dolphin'
+      'dolphin',
+      'eagle',
+      'firebeetle',
+      'giantcentipede',
+      'mite',
+      'poisonousfrog',
+      'pony',
+      'stirge',
+      'viper'
     ]
   },
   {
@@ -82,7 +90,12 @@ export const spells = [
     creatureList: [
       'direrat',
       'dog',
-      'dolphin'
+      'dolphin',
+      'eagle',
+      'firebeetle',
+      'poisonousfrog',
+      'pony',
+      'viper'
     ]
   },
   {

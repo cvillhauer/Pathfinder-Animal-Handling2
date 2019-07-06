@@ -119,14 +119,20 @@ export enum AbilityEffectType {
 export enum SpecialAbility {
   Blindsense = 'Blindsense',
   Blindsight = 'Blindsight',
+  DamageResistanceColdIron2 = 'DR 2/Cold Iron',
   DamageResistanceEvil5 = 'DR 5/Evil',
   DamageResistanceEvil10 = 'DR 10/Evil',
   DamageResistanceGood5 = 'DR 5/Good',
   DamageResistanceGood10 = 'DR 10/Evil',
+  Darkvision = 'Darkvision',
+  Hatred = 'Hatred',
+  ImmuneToMindAffecting = 'Immune to Mind-Affecting Effects',
   InkCloud = 'Ink cloud',
   Jet = 'Jet',
   KeenScent = 'Keen Scent',
+  LightSensitivity = 'Light Sensitivity',
   LowLightVision = 'Low-light Vision',
+  Luminescence = 'Luminescence',
   ResistAcid5 = 'Resist Acid 5',
   ResistAcid10 = 'Resist Acid 10',
   ResistAcid15 = 'Resist Acid 15',
@@ -142,7 +148,8 @@ export enum SpecialAbility {
   Scent = 'Scent',
   SmiteEvil = 'Smite Evil',
   SmiteGood = 'Smite Good',
-  Sprint = 'Sprint'
+  Sprint = 'Sprint',
+  VerminEmpathy = 'Vermin Empathy'
 }
 
 export enum Feat {
@@ -150,6 +157,7 @@ export enum Feat {
   GreatFortitude = 'Great Fortitude',
   ImprovedInititive = 'Improved Inititive',
   Multiattack = 'Multiattack',
+  PointBlankShot = 'Point-Blank Shot',
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
