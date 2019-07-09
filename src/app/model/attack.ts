@@ -8,6 +8,7 @@ import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
 import { SwallowWhole } from './swallowWhole';
 import { Web } from './web';
+import { Whirlwind } from './whirlwind';
 
 export class Attack {
   damageTypeDescription = '';
@@ -67,6 +68,10 @@ export class Attack {
           const web = ae as Web;
           const newWeb = new Web(web.difficultyCheck, web.hitPoints);
           return newWeb;
+          case 'Whirlwind':
+          const whirlwind = ae as Whirlwind;
+          const newWhirlwind = new Whirlwind(whirlwind.rounds, whirlwind.difficultyCheck, whirlwind.maxHeight);
+          return newWhirlwind;
         default:
           console.log('Unknown attack effect: ' + ae.description);
           break;

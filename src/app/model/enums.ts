@@ -117,6 +117,7 @@ export enum AbilityEffectType {
 }
 
 export enum SpecialAbility {
+  AirMastery = 'Air Mastery',
   Blindsense = 'Blindsense',
   Blindsight = 'Blindsight',
   DamageResistanceColdIron2 = 'DR 2/Cold Iron',
@@ -126,17 +127,26 @@ export enum SpecialAbility {
   DamageResistanceGood10 = 'DR 10/Good',
   DamageResistanceSilver5 = 'DR 5/Siver',
   Darkvision = 'Darkvision',
+  EarthMastery = 'Earth Mastery',
   Hatred = 'Hatred',
+  ImmuneBleed = 'Immune to Bleed',
   ImmuneDisesase = 'Immune to Disease',
+  ImmuneCritical = 'Immune to Critical Hits',
   ImmuneFire = 'Immune to Fire',
-  ImmunePoison = 'Immune to Poison',
+  ImmuneFlanking = 'Immune to Flanking',
   ImmuneMindAffecting = 'Immune to Mind-Affecting Effects',
+  ImmuneParalysis = 'Immune to Paralysis',
+  ImmunePoison = 'Immune to Poison',
+  ImmuneSleepEffects = 'Immune to Sleep Effects',
+  ImmuneSneakAttack = 'Immune to Sneak Attack',
+  ImmuneStunning = 'Immune to Stunning',
   InkCloud = 'Ink cloud',
   Jet = 'Jet',
   KeenScent = 'Keen Scent',
   LightSensitivity = 'Light Sensitivity',
   LowLightVision = 'Low-light Vision',
   Luminescence = 'Luminescence',
+  MetalMastery = 'Metal Mastery',
   ResistAcid5 = 'Resist Acid 5',
   ResistAcid10 = 'Resist Acid 10',
   ResistAcid15 = 'Resist Acid 15',
@@ -155,11 +165,13 @@ export enum SpecialAbility {
   SmiteGood = 'Smite Good',
   Sprint = 'Sprint',
   Tremorsense = 'Tremorsense',
-  VerminEmpathy = 'Vermin Empathy'
+  VerminEmpathy = 'Vermin Empathy',
+  WaterMastery = 'Water Mastery'
 }
 
 export enum Feat {
   Endurance = 'Endurance',
+  FlybyAttack = 'Flyby Attack',
   GreatFortitude = 'Great Fortitude',
   ImprovedInititive = 'Improved Inititive',
   LightningReflexes = 'Lightning Reflexes',
