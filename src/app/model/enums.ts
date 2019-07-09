@@ -167,10 +167,15 @@ export enum SpecialAbility {
   Sprint = 'Sprint',
   Tremorsense = 'Tremorsense',
   VerminEmpathy = 'Vermin Empathy',
+  VulnerableAcid = 'Vulnerable to Acid',
+  VulnerableCold = 'Vulnerable to Cold',
+  VulnerableFire = 'Vulnerable to Fire',
+  VulnerableElectricity = 'Vulnerable to Electricity',
   WaterMastery = 'Water Mastery'
 }
 
 export enum Feat {
+  Dodge = 'Dodge',
   Endurance = 'Endurance',
   FlybyAttack = 'Flyby Attack',
   GreatFortitude = 'Great Fortitude',

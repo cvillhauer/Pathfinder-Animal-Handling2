@@ -9,6 +9,7 @@ import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
 import { Whirlwind } from '../model/whirlwind';
+import { Burn } from '../model/burn';
 
 const elementalTraits = [
   SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,
@@ -77,5 +78,34 @@ export const elementals: Creature[] = [
     ],
     [new Attack('Slam', 6, '1d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning])],
     [SpecialAbility.Darkvision, SpecialAbility.Tremorsense, SpecialAbility.EarthMastery, SpecialAbility.EarthGlide, ...elementalTraits]
+  ),
+  new Creature(
+    'smallfireelemental',
+    'Small Fire Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Fire%20Elemental',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/e/e8/Fire_elemental_1.jpg/250px-Fire_elemental_1.jpg',
+    Size.Small,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(50),
+    5,
+    new AbilityScores(10, 13, 10, 4, 11, 11),
+    2,
+    11,
+    new ArmorClass(16, 13, 14),
+    1,
+    13,
+    new Saves(3, 4, 0),
+    [Feat.Dodge, Feat.ImprovedInititive, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Acrobatics, 5),
+      new SkillBonus(Skill.Climb, 4),
+      new SkillBonus(Skill.EscapeArtist, 5),
+      new SkillBonus(Skill.Intimidate, 4),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 4)
+    ],
+    [new Attack('Slam', 4, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d4', 11)])],
+    [SpecialAbility.Darkvision, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold, ...elementalTraits]
   ),
 ];
