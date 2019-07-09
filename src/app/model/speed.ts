@@ -20,8 +20,9 @@ export class Speeds {
   public climbSpeed: Speed;
   public flySpeed: Speed;
   public swimSpeed: Speed;
+  public burrowSpeed: Speed;
 
-  constructor(footSpeed: number, climbSpeed?: number, flySpeed?: number, swimSpeed?: number) {
+  constructor(footSpeed: number, climbSpeed?: number, flySpeed?: number, swimSpeed?: number, burrowSpeed?: number) {
     if (footSpeed && footSpeed > 0) {
       this.footSpeed = new Speed(SpeedType.Foot, footSpeed);
       this.speeds.push(this.footSpeed);
@@ -38,15 +39,20 @@ export class Speeds {
       this.swimSpeed = new Speed(SpeedType.Swim, swimSpeed);
       this.speeds.push(this.swimSpeed);
     }
+    if (burrowSpeed && burrowSpeed > 0) {
+      this.burrowSpeed = new Speed(SpeedType.Burrow, burrowSpeed);
+      this.speeds.push(this.burrowSpeed);
+    }
     this.primarySpeed = this.getPrimarySpeed();
   }
 
   static fromObject(speed: Speeds): Speeds {
-    const { footSpeed, climbSpeed, flySpeed, swimSpeed } = speed;
+    const { footSpeed, climbSpeed, flySpeed, swimSpeed, burrowSpeed } = speed;
     return new this(footSpeed ? footSpeed.speedDistance : 0,
       climbSpeed ? climbSpeed.speedDistance : 0,
       flySpeed ? flySpeed.speedDistance : 0,
-      swimSpeed ? swimSpeed.speedDistance : 0);
+      swimSpeed ? swimSpeed.speedDistance : 0,
+      burrowSpeed ? burrowSpeed.speedDistance : 0);
   }
 
   getPrimarySpeed() {
@@ -62,6 +68,9 @@ export class Speeds {
     }
     if (this.swimSpeed && this.swimSpeed.speedDistance > primarySpeed.speedDistance) {
       primarySpeed = this.swimSpeed;
+    }
+    if (this.burrowSpeed && this.burrowSpeed.speedDistance > primarySpeed.speedDistance) {
+      primarySpeed = this.burrowSpeed;
     }
     return primarySpeed;
   }

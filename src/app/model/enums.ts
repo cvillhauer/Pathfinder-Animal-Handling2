@@ -127,6 +127,7 @@ export enum SpecialAbility {
   DamageResistanceGood10 = 'DR 10/Good',
   DamageResistanceSilver5 = 'DR 5/Siver',
   Darkvision = 'Darkvision',
+  EarthGlide = 'EarthGlide',
   EarthMastery = 'Earth Mastery',
   Hatred = 'Hatred',
   ImmuneBleed = 'Immune to Bleed',
@@ -173,10 +174,12 @@ export enum Feat {
   Endurance = 'Endurance',
   FlybyAttack = 'Flyby Attack',
   GreatFortitude = 'Great Fortitude',
+  ImprovedBullRush = 'Improved Bull Rush',
   ImprovedInititive = 'Improved Inititive',
   LightningReflexes = 'Lightning Reflexes',
   Multiattack = 'Multiattack',
   PointBlankShot = 'Point-Blank Shot',
+  PowerAttack = 'Power Attack',
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
@@ -383,7 +386,8 @@ export enum SpeedType {
   Foot = 'Foot',
   Climb = 'Climb',
   Fly = 'Fly',
-  Swim = 'Swim'
+  Swim = 'Swim',
+  Burrow = 'Burrow'
 }
 
 export enum Spell {
