@@ -44,3 +44,21 @@ export class Whirlwind implements IAttackEffect {
     this.details = this.getDetails();
   }
 }
+
+export class Vortex extends Whirlwind {
+  constructor(
+    public rounds: number,
+    public difficultyCheck: number,
+    public maxHeight: number) {
+    super(rounds, difficultyCheck, maxHeight);
+    this.description = 'Vortex';
+  }
+
+  getDetails() {
+    let details: string = this.getSummary();
+    details += '\r\n' + 'Creatures that touch the vortex make a Reflex save to avoid being trapped.';
+    details += '\r\n' + 'Creatures the same size or smaller make a Relfex save to avoid taking damage.';
+    details += '\r\n' + 'A cloud of bubbles surrounds the creature and causes Concealment.';
+    return details;
+  }
+}

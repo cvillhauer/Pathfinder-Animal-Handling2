@@ -127,6 +127,7 @@ export enum SpecialAbility {
   DamageResistanceGood10 = 'DR 10/Good',
   DamageResistanceSilver5 = 'DR 5/Siver',
   Darkvision = 'Darkvision',
+  Drench = 'Drench',
   EarthGlide = 'EarthGlide',
   EarthMastery = 'Earth Mastery',
   Hatred = 'Hatred',

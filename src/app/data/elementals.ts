@@ -8,7 +8,7 @@ import { Attack } from '../model/attack';
 import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
-import { Whirlwind } from '../model/whirlwind';
+import { Whirlwind, Vortex } from '../model/whirlwind';
 import { Burn } from '../model/burn';
 
 const elementalTraits = [
@@ -108,4 +108,36 @@ export const elementals: Creature[] = [
     [new Attack('Slam', 4, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d4', 11)])],
     [SpecialAbility.Darkvision, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold, ...elementalTraits]
   ),
+  new Creature(
+    'smallwaterelemental',
+    'Small Water Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Water%20Elemental',
+    'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeWaterElemental.jpg',
+    Size.Small,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 90),
+    5,
+    new AbilityScores(14, 10, 13, 4, 11, 11),
+    2,
+    13,
+    new ArmorClass(17, 11, 17),
+    3,
+    13,
+    new Saves(4, 3, 0),
+    [Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.Acrobatics, 4),
+      new SkillBonus(Skill.EscapeArtist, 4),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 4),
+      new SkillBonus(Skill.Stealth, 8),
+      new SkillBonus(Skill.Swim, 14)
+    ],
+    [
+      new Attack('Slam', 5, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Vortex', null, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(1, 13, 20)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.Drench, SpecialAbility.WaterMastery, ...elementalTraits]
+  )
 ];

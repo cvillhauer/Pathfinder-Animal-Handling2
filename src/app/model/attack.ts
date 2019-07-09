@@ -8,7 +8,7 @@ import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
 import { SwallowWhole } from './swallowWhole';
 import { Web } from './web';
-import { Whirlwind } from './whirlwind';
+import { Whirlwind, Vortex } from './whirlwind';
 import { Burn } from './burn';
 
 export class Attack {
@@ -42,7 +42,7 @@ export class Attack {
           const bloodDrain = ae as BloodDrain;
           const newBloodDrain = new BloodDrain(bloodDrain.conDamage, bloodDrain.restrictionText);
           return newBloodDrain;
-          case 'Burn':
+        case 'Burn':
           const burn = ae as Burn;
           const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);
           return newBurn;
@@ -69,6 +69,10 @@ export class Attack {
           const trip = ae as Trip;
           const newTrip = new Trip(trip.combatManeuverBonus);
           return newTrip;
+        case 'Vortex':
+          const vortex = ae as Vortex;
+          const newVortex = new Vortex(vortex.rounds, vortex.difficultyCheck, vortex.maxHeight);
+          return newVortex;
         case 'Web':
           const web = ae as Web;
           const newWeb = new Web(web.difficultyCheck, web.hitPoints);
@@ -105,7 +109,7 @@ export class Attack {
         if (strBonus > dexBonus) {
           this.attackBonus = this.attackBonus - dexBonus + strBonus;
         }
-      } else {
+      } else if (this.attackBonus) {
         this.attackBonus += 2;
       }
     }
