@@ -24,7 +24,8 @@ SpecialAbility.EarthMastery, SpecialAbility.EarthGlide];
 const fireElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold];
 const iceElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.SnowVision, SpecialAbility.ImmuneCold,
 SpecialAbility.VulnerableFire, SpecialAbility.IceGlide, SpecialAbility.Icewalking];
-const lightningElementalTraits = [];
+const lightningElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.ImmuneElectricity,
+SpecialAbility.MetalMastery, SpecialAbility.SparkLeap];
 const magmaElementalTraits = [];
 const mudElementalTraits = [];
 const waterElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.Drench, SpecialAbility.WaterMastery];
@@ -32,7 +33,7 @@ const airElementalImage = 'http://cdn.obsidianportal.com/assets/94811/windelemen
 const earthElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/0/0a/Earth_elemental_1.jpg/250px-Earth_elemental_1.jpg';
 const fireElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/e/e8/Fire_elemental_1.jpg/250px-Fire_elemental_1.jpg';
 const iceElementalImage = 'http://3.bp.blogspot.com/-UxQgzrN05wk/VSwPtJugyJI/AAAAAAAACfs/8pfMiTzgGO4/s1600/Ice%2BElemental.png';
-const lightningElementalImage = '';
+const lightningElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeAirElemental.jpg';
 const magmaElementalImage = '';
 const mudElementalImage = '';
 const waterElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeWaterElemental.jpg';
@@ -156,6 +157,35 @@ export const elementals: Creature[] = [
     [new Attack('Slam', 4, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(12)],
       [new AdditionalDamage('1d3', 0, DamageType.Cold)])],
     [...iceElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'smalllightningelemental',
+    'Small Lightning Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Lightning%20Elemental',
+    lightningElementalImage,
+    Size.Small,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 100),
+    5,
+    new AbilityScores(10, 15, 10, 4, 11, 11),
+    2,
+    11,
+    new ArmorClass(14, 13, 12),
+    1,
+    13,
+    new Saves(3, 5, 0),
+    [Feat.ImprovedInititive, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Acrobatics, 7),
+      new SkillBonus(Skill.EscapeArtist, 6),
+      new SkillBonus(Skill.Fly, 12),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 5)
+    ],
+    [new Attack('Slam', 5, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [],
+      [new AdditionalDamage('1d3', 0, DamageType.Electricity)])],
+    [...lightningElementalTraits, ...elementalTraits]
   ),
   new Creature(
     'smallwaterelemental',
