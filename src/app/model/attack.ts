@@ -12,6 +12,7 @@ import { Whirlwind, Vortex } from './whirlwind';
 import { Burn } from './burn';
 import { NumbingCold } from './numbingCold';
 import { LavaPuddle } from './lavaPuddle';
+import { Entrap } from './entrap';
 
 export class Attack {
   damageTypeDescription = '';
@@ -52,6 +53,10 @@ export class Attack {
           const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
           return disease;
+        case 'Entrap':
+          const entrap = ae as Entrap;
+          const newEntrap = new Entrap(entrap.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
+          return newEntrap;
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);

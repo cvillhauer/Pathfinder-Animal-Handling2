@@ -13,6 +13,7 @@ import { Burn } from '../model/burn';
 import { NumbingCold } from '../model/numbingCold';
 import { AdditionalDamage } from '../model/additionalDamage';
 import { LavaPuddle } from '../model/lavaPuddle';
+import { Entrap } from '../model/entrap';
 
 const elementalTraits = [
   SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,
@@ -29,7 +30,7 @@ const lightningElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.Immu
 SpecialAbility.MetalMastery, SpecialAbility.SparkLeap];
 const magmaElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.ImmuneFire,
 SpecialAbility.VulnerableCold, SpecialAbility.EarthGlide];
-const mudElementalTraits = [];
+const mudElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.Tremorsense, SpecialAbility.ImmuneAcid, SpecialAbility.EarthGlide];
 const waterElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.Drench, SpecialAbility.WaterMastery];
 const airElementalImage = 'http://cdn.obsidianportal.com/assets/94811/windelemental.jpg';
 const earthElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/0/0a/Earth_elemental_1.jpg/250px-Earth_elemental_1.jpg';
@@ -37,7 +38,7 @@ const fireElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/e/
 const iceElementalImage = 'http://3.bp.blogspot.com/-UxQgzrN05wk/VSwPtJugyJI/AAAAAAAACfs/8pfMiTzgGO4/s1600/Ice%2BElemental.png';
 const lightningElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeAirElemental.jpg';
 const magmaElementalImage = 'https://i.pinimg.com/originals/e8/71/0a/e8710a8e7d01f0812eb36237a5ee1efc.jpg';
-const mudElementalImage = '';
+const mudElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/3/33/Mud_elemental.jpg/250px-Mud_elemental.jpg';
 const waterElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeWaterElemental.jpg';
 
 
@@ -217,6 +218,35 @@ export const elementals: Creature[] = [
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(2)])
     ],
     [...magmaElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'smallmudelemental',
+    'Small Mud Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Mud%20Elemental',
+    mudElementalImage,
+    Size.Small,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 30, 10),
+    5,
+    new AbilityScores(14, 8, 13, 4, 11, 11),
+    2,
+    13,
+    new ArmorClass(16, 10, 16),
+    3,
+    12,
+    new Saves(4, 2, 0),
+    [Feat.ImprovedBullRush, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.Climb, 6),
+      new SkillBonus(Skill.EscapeArtist, 3),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Stealth, 7),
+      new SkillBonus(Skill.Swim, 10)
+    ],
+    [new Attack('Slam', 5, '1d4', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(12, '10 minutes', 5, 5)])],
+    [...mudElementalTraits, ...elementalTraits]
   ),
   new Creature(
     'smallwaterelemental',
