@@ -11,6 +11,7 @@ import { Web } from './web';
 import { Whirlwind, Vortex } from './whirlwind';
 import { Burn } from './burn';
 import { NumbingCold } from './numbingCold';
+import { LavaPuddle } from './lavaPuddle';
 
 export class Attack {
   damageTypeDescription = '';
@@ -54,6 +55,10 @@ export class Attack {
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);
+        case 'Lava Puddle':
+          const lavaPuddle = ae as LavaPuddle;
+          const newLavaPuddle = new LavaPuddle(lavaPuddle.hitDice);
+          return newLavaPuddle;
         case 'Numbing Cold':
           const numbingCold = ae as NumbingCold;
           const newNumbingCold = new NumbingCold(numbingCold.difficultyCheck);

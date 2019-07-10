@@ -6,6 +6,7 @@ export class Disease implements IAttackEffect {
   description = 'Disease';
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public diseaseName: string,

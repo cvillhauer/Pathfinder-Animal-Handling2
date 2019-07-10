@@ -10,8 +10,8 @@
     </span>
     <span *ngIf='attack.additionalDamage.length > 0'>plus
       <span *ngFor='let additionalDamage of attack.additionalDamage'>{{ additionalDamage.summary}} &nbsp;</span></span>
-    <span *ngIf='attack.attackEffects.length > 0'>plus
+    <span *ngIf='attack.attackEffects.length > 0'>
       <span *ngFor='let attackEffect of attack.attackEffects'
-        title='{{ attackEffect.details }}'>{{ attackEffect.summary }} &nbsp;</span></span>
+        title='{{ attackEffect.details }}'><span *ngIf='attackEffect.displayDescription'>plus</span> {{ attackEffect.summary }} &nbsp;</span></span>
   </h4>
 </div>

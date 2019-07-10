@@ -4,6 +4,7 @@ export class Burn implements IAttackEffect {
   description = 'Burn';
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public damageDice: string,

@@ -4,6 +4,7 @@ export class Web implements IAttackEffect {
   description = 'Web';
   summary = '';
   details = '';
+  displayDescription = false;
 
   constructor(
     public difficultyCheck: number,
@@ -18,13 +19,12 @@ export class Web implements IAttackEffect {
   }
 
   getSummary() {
-    let summary: string = this.description + ': ';
-    summary += 'DC ' + this.difficultyCheck + ', ' + this.hitPoints + ' HP, DR 5';
+    const summary: string = 'DC ' + this.difficultyCheck + ', ' + this.hitPoints + ' HP, DR 5';
     return summary;
   }
 
   getDetails() {
-    let details: string = this.getSummary();
+    let details: string = this.description + ': ' + this.getSummary();
     details += '\r\n' + 'Throw a web at a target up to 50ft away, entangling them.';
     return details;
   }

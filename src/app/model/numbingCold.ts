@@ -4,6 +4,7 @@ export class NumbingCold implements IAttackEffect {
   description = 'Numbing Cold';
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public difficultyCheck: number) {

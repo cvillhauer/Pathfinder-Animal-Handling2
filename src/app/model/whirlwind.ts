@@ -4,6 +4,7 @@ export class Whirlwind implements IAttackEffect {
   description = 'Whirlwind';
   summary = '';
   details = '';
+  displayDescription = false;
 
   constructor(
     public rounds: number,
@@ -19,8 +20,7 @@ export class Whirlwind implements IAttackEffect {
   }
 
   getSummary() {
-    let summary: string = this.description + ': ';
-    summary += this.rounds + ' round';
+    let summary: string = this.rounds + ' round';
     if (this.rounds > 1) {
       summary += 's';
     }
@@ -31,7 +31,7 @@ export class Whirlwind implements IAttackEffect {
   }
 
   getDetails() {
-    let details: string = this.getSummary();
+    let details: string = this.description + ': ' + this.getSummary();
     details += '\r\n' + 'Creatures that touch the whirlwind make a Reflex save to avoid being trapped.';
     details += '\r\n' + 'Creatures the same size or smaller make a Relfex save to avoid taking damage.';
     details += '\r\n' + 'A cloud of debris surrounds the creature and causes Concealment.';

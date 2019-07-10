@@ -12,6 +12,7 @@ import { Whirlwind, Vortex } from '../model/whirlwind';
 import { Burn } from '../model/burn';
 import { NumbingCold } from '../model/numbingCold';
 import { AdditionalDamage } from '../model/additionalDamage';
+import { LavaPuddle } from '../model/lavaPuddle';
 
 const elementalTraits = [
   SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,
@@ -26,7 +27,8 @@ const iceElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.SnowVision
 SpecialAbility.VulnerableFire, SpecialAbility.IceGlide, SpecialAbility.Icewalking];
 const lightningElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.ImmuneElectricity,
 SpecialAbility.MetalMastery, SpecialAbility.SparkLeap];
-const magmaElementalTraits = [];
+const magmaElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.ImmuneFire,
+SpecialAbility.VulnerableCold, SpecialAbility.EarthGlide];
 const mudElementalTraits = [];
 const waterElementalTraits = [SpecialAbility.Darkvision, SpecialAbility.Drench, SpecialAbility.WaterMastery];
 const airElementalImage = 'http://cdn.obsidianportal.com/assets/94811/windelemental.jpg';
@@ -34,7 +36,7 @@ const earthElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/0
 const fireElementalImage = 'https://pathfinderwiki.com/mediawiki/images/thumb/e/e8/Fire_elemental_1.jpg/250px-Fire_elemental_1.jpg';
 const iceElementalImage = 'http://3.bp.blogspot.com/-UxQgzrN05wk/VSwPtJugyJI/AAAAAAAACfs/8pfMiTzgGO4/s1600/Ice%2BElemental.png';
 const lightningElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeAirElemental.jpg';
-const magmaElementalImage = '';
+const magmaElementalImage = 'https://i.pinimg.com/originals/e8/71/0a/e8710a8e7d01f0812eb36237a5ee1efc.jpg';
 const mudElementalImage = '';
 const waterElementalImage = 'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Elementals/images/LargeWaterElemental.jpg';
 
@@ -186,6 +188,35 @@ export const elementals: Creature[] = [
     [new Attack('Slam', 5, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [],
       [new AdditionalDamage('1d3', 0, DamageType.Electricity)])],
     [...lightningElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'smallmagmaelemental',
+    'Small Magma Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Magma%20Elemental',
+    magmaElementalImage,
+    Size.Small,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 0, 20),
+    5,
+    new AbilityScores(10, 8, 11, 4, 11, 11),
+    2,
+    11,
+    new ArmorClass(15, 10, 15),
+    1,
+    10,
+    new Saves(3, 2, 0),
+    [Feat.ImprovedInititive],
+    [
+      new SkillBonus(Skill.KnowledgeDungeoneering, 2),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Stealth, 8)
+    ],
+    [
+      new Attack('Slam', 3, '1d3', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d4', 9)]),
+      new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(2)])
+    ],
+    [...magmaElementalTraits, ...elementalTraits]
   ),
   new Creature(
     'smallwaterelemental',

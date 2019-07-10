@@ -6,6 +6,7 @@ export class Poison implements IAttackEffect {
   description = 'Poison';
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public savingThrow: SavingThrow,
