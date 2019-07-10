@@ -34,6 +34,10 @@ export const spells = [
       'smallairelemental',
       'smallearthelemental',
       'smallfireelemental',
+      'smalliceelemental',
+      'smalllightningelemental',
+      'smallmagmaelemental',
+      'smallmudelemental',
       'smallwaterelemental',
       'squid',
       'wolf'
@@ -126,6 +130,10 @@ export const spells = [
       'smallairelemental',
       'smallearthelemental',
       'smallfireelemental',
+      'smalliceelemental',
+      'smalllightningelemental',
+      'smallmagmaelemental',
+      'smallmudelemental',
       'smallwaterelemental',
       'squid',
       'wolf'

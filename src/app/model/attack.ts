@@ -10,6 +10,7 @@ import { SwallowWhole } from './swallowWhole';
 import { Web } from './web';
 import { Whirlwind, Vortex } from './whirlwind';
 import { Burn } from './burn';
+import { NumbingCold } from './numbingCold';
 
 export class Attack {
   damageTypeDescription = '';
@@ -53,6 +54,10 @@ export class Attack {
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);
+        case 'Numbing Cold':
+          const numbingCold = ae as NumbingCold;
+          const newNumbingCold = new NumbingCold(numbingCold.difficultyCheck);
+          return newNumbingCold;
         case 'Poison':
           const poison = Poison.fromObject(ae);
           poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
