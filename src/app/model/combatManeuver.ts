@@ -3,6 +3,7 @@ import { IAttackEffect } from './attackeffect';
 export class CombatManeuver implements IAttackEffect {
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public description: string,

@@ -6,7 +6,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
-import { Morality } from 'src/app/model/enums';
+import { Morality, CreatureType } from 'src/app/model/enums';
 
 @Component({
   selector: 'spell',
@@ -71,7 +71,8 @@ export class SpellComponent implements OnInit {
         newCreature.editName = false;
         newCreature.roundsLeft = this.castingCharacter.characterLevel;
         // Add Celestial/Fiendish template
-        if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()) {
+        if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()
+          && this.selectedCreature.type !== CreatureType.Elemental) {
           if (this.castingCharacter.alignment.morality === Morality.Good) {
             newCreature.applyCelestialTemplate();
           } else if (this.castingCharacter.alignment.morality === Morality.Evil) {

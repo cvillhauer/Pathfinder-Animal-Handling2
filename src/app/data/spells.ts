@@ -31,6 +31,14 @@ export const spells = [
       'horse',
       'hyena',
       'octopus',
+      'smallairelemental',
+      'smallearthelemental',
+      'smallfireelemental',
+      'smalliceelemental',
+      'smalllightningelemental',
+      'smallmagmaelemental',
+      'smallmudelemental',
+      'smallwaterelemental',
       'squid',
       'wolf'
     ]
@@ -119,6 +127,14 @@ export const spells = [
       'hyena',
       'lemure',
       'octopus',
+      'smallairelemental',
+      'smallearthelemental',
+      'smallfireelemental',
+      'smalliceelemental',
+      'smalllightningelemental',
+      'smallmagmaelemental',
+      'smallmudelemental',
+      'smallwaterelemental',
       'squid',
       'wolf'
     ]

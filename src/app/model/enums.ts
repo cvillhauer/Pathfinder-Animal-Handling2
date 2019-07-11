@@ -117,6 +117,7 @@ export enum AbilityEffectType {
 }
 
 export enum SpecialAbility {
+  AirMastery = 'Air Mastery',
   Blindsense = 'Blindsense',
   Blindsight = 'Blindsight',
   DamageResistanceColdIron2 = 'DR 2/Cold Iron',
@@ -126,17 +127,33 @@ export enum SpecialAbility {
   DamageResistanceGood10 = 'DR 10/Good',
   DamageResistanceSilver5 = 'DR 5/Siver',
   Darkvision = 'Darkvision',
+  Drench = 'Drench',
+  EarthGlide = 'EarthGlide',
+  EarthMastery = 'Earth Mastery',
   Hatred = 'Hatred',
+  IceGlide = 'Ice Glide',
+  Icewalking = 'Icewalking',
+  ImmuneAcid = 'Immune to Acid',
+  ImmuneBleed = 'Immune to Bleed',
+  ImmuneCold = 'Immune to Cold',
+  ImmuneCritical = 'Immune to Critical Hits',
   ImmuneDisesase = 'Immune to Disease',
+  ImmuneElectricity = 'Immune to Electricity',
   ImmuneFire = 'Immune to Fire',
-  ImmunePoison = 'Immune to Poison',
+  ImmuneFlanking = 'Immune to Flanking',
   ImmuneMindAffecting = 'Immune to Mind-Affecting Effects',
+  ImmuneParalysis = 'Immune to Paralysis',
+  ImmunePoison = 'Immune to Poison',
+  ImmuneSleepEffects = 'Immune to Sleep Effects',
+  ImmuneSneakAttack = 'Immune to Sneak Attack',
+  ImmuneStunning = 'Immune to Stunning',
   InkCloud = 'Ink cloud',
   Jet = 'Jet',
   KeenScent = 'Keen Scent',
   LightSensitivity = 'Light Sensitivity',
   LowLightVision = 'Low-light Vision',
   Luminescence = 'Luminescence',
+  MetalMastery = 'Metal Mastery',
   ResistAcid5 = 'Resist Acid 5',
   ResistAcid10 = 'Resist Acid 10',
   ResistAcid15 = 'Resist Acid 15',
@@ -153,18 +170,29 @@ export enum SpecialAbility {
   SeeInDarkness = 'See in Darkness',
   SmiteEvil = 'Smite Evil',
   SmiteGood = 'Smite Good',
+  SnowVision = 'Snow Vision',
+  SparkLeap = 'Spark Leap',
   Sprint = 'Sprint',
   Tremorsense = 'Tremorsense',
-  VerminEmpathy = 'Vermin Empathy'
+  VerminEmpathy = 'Vermin Empathy',
+  VulnerableAcid = 'Vulnerable to Acid',
+  VulnerableCold = 'Vulnerable to Cold',
+  VulnerableFire = 'Vulnerable to Fire',
+  VulnerableElectricity = 'Vulnerable to Electricity',
+  WaterMastery = 'Water Mastery'
 }
 
 export enum Feat {
+  Dodge = 'Dodge',
   Endurance = 'Endurance',
+  FlybyAttack = 'Flyby Attack',
   GreatFortitude = 'Great Fortitude',
+  ImprovedBullRush = 'Improved Bull Rush',
   ImprovedInititive = 'Improved Inititive',
   LightningReflexes = 'Lightning Reflexes',
   Multiattack = 'Multiattack',
   PointBlankShot = 'Point-Blank Shot',
+  PowerAttack = 'Power Attack',
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
@@ -371,7 +399,8 @@ export enum SpeedType {
   Foot = 'Foot',
   Climb = 'Climb',
   Fly = 'Fly',
-  Swim = 'Swim'
+  Swim = 'Swim',
+  Burrow = 'Burrow'
 }
 
 export enum Spell {

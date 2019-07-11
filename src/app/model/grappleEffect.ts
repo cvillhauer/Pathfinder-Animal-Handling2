@@ -4,6 +4,7 @@ import { AdditionalDamage } from './additionalDamage';
 export class GrappleEffect implements IAttackEffect {
   summary = '';
   details = '';
+  displayDescription = true;
 
   constructor(
     public description: string,

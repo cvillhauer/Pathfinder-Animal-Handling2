@@ -2,12 +2,14 @@ import { DamageType } from './enums';
 import { AbilityEffect } from './abilityEffect';
 
 export class AdditionalDamage {
+  summary = '';
 
   constructor(
     public damageDice: string,
     public damageBonus: number,
     public damageType: DamageType,
     public effects: AbilityEffect[] = []) {
+    this.summary = this.getSummary();
   }
 
   static fromObject(additionalDamage: AdditionalDamage): AdditionalDamage {
@@ -18,7 +20,11 @@ export class AdditionalDamage {
   getSummary() {
     let summary = '';
     if (this.damageDice) {
-      summary += this.damageDice + ' +' + this.damageBonus + ' ' + this.damageType + ' damage';
+      summary += this.damageDice + ' ';
+      if (this.damageBonus > 0) {
+        summary += '+' + this.damageBonus + ' ';
+      }
+      summary += this.damageType + ' damage';
       summary += ', ';
     }
     this.effects.forEach(e => {

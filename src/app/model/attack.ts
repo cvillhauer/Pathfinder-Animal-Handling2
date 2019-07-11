@@ -8,6 +8,11 @@ import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
 import { SwallowWhole } from './swallowWhole';
 import { Web } from './web';
+import { Whirlwind, Vortex } from './whirlwind';
+import { Burn } from './burn';
+import { NumbingCold } from './numbingCold';
+import { LavaPuddle } from './lavaPuddle';
+import { Entrap } from './entrap';
 
 export class Attack {
   damageTypeDescription = '';
@@ -40,13 +45,29 @@ export class Attack {
           const bloodDrain = ae as BloodDrain;
           const newBloodDrain = new BloodDrain(bloodDrain.conDamage, bloodDrain.restrictionText);
           return newBloodDrain;
+        case 'Burn':
+          const burn = ae as Burn;
+          const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);
+          return newBurn;
         case 'Disease':
           const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));
           return disease;
+        case 'Entrap':
+          const entrap = ae as Entrap;
+          const newEntrap = new Entrap(entrap.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
+          return newEntrap;
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);
+        case 'Lava Puddle':
+          const lavaPuddle = ae as LavaPuddle;
+          const newLavaPuddle = new LavaPuddle(lavaPuddle.hitDice);
+          return newLavaPuddle;
+        case 'Numbing Cold':
+          const numbingCold = ae as NumbingCold;
+          const newNumbingCold = new NumbingCold(numbingCold.difficultyCheck);
+          return newNumbingCold;
         case 'Poison':
           const poison = Poison.fromObject(ae);
           poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));
@@ -63,10 +84,18 @@ export class Attack {
           const trip = ae as Trip;
           const newTrip = new Trip(trip.combatManeuverBonus);
           return newTrip;
+        case 'Vortex':
+          const vortex = ae as Vortex;
+          const newVortex = new Vortex(vortex.rounds, vortex.difficultyCheck, vortex.maxHeight);
+          return newVortex;
         case 'Web':
           const web = ae as Web;
           const newWeb = new Web(web.difficultyCheck, web.hitPoints);
           return newWeb;
+        case 'Whirlwind':
+          const whirlwind = ae as Whirlwind;
+          const newWhirlwind = new Whirlwind(whirlwind.rounds, whirlwind.difficultyCheck, whirlwind.maxHeight);
+          return newWhirlwind;
         default:
           console.log('Unknown attack effect: ' + ae.description);
           break;
@@ -95,7 +124,7 @@ export class Attack {
         if (strBonus > dexBonus) {
           this.attackBonus = this.attackBonus - dexBonus + strBonus;
         }
-      } else {
+      } else if (this.attackBonus) {
         this.attackBonus += 2;
       }
     }

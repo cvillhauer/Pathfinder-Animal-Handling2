@@ -2,14 +2,16 @@
   <h4>
     <span style='font-weight: bold'>
       <span title='{{ attack.damageTypeDescription }}'>{{ attack.description }} &nbsp;</span>
-      <span *ngIf='(attack.attackBonus >= 0)'>+</span>
+      <span *ngIf='(attack.attackBonus && attack.attackBonus >= 0)'>+</span>
       <span>{{ attack.attackBonus }} </span>
       <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
       <span *ngIf='attack.damageDice && (attack.damageBonus > 0)'>+</span>
       <span *ngIf='attack.damageDice && (attack.damageBonus != 0)'>{{ attack.damageBonus }}</span> &nbsp;
     </span>
-    <span *ngIf='attack.attackEffects.length > 0'>plus
+    <span *ngIf='attack.additionalDamage.length > 0'>plus
+      <span *ngFor='let additionalDamage of attack.additionalDamage'>{{ additionalDamage.summary}} &nbsp;</span></span>
+    <span *ngIf='attack.attackEffects.length > 0'>
       <span *ngFor='let attackEffect of attack.attackEffects'
-        title='{{ attackEffect.details }}'>{{ attackEffect.summary }} &nbsp;</span></span>
+        title='{{ attackEffect.details }}'><span *ngIf='attackEffect.displayDescription'>plus</span> {{ attackEffect.summary }} &nbsp;</span></span>
   </h4>
 </div>
