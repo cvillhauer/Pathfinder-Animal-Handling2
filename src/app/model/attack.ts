@@ -3,7 +3,7 @@ import { IAttackEffect } from './attackeffect';
 import { Disease } from './disease';
 import { AbilityEffect } from './abilityEffect';
 import { Poison } from './poison';
-import { Grab, Trip, Attach, Pull } from './combatManeuvers';
+import { Grab, Trip, Attach, Pull, Constrict, DeathRoll } from './combatManeuvers';
 import { AdditionalDamage } from './additionalDamage';
 import { BloodDrain } from './grappleEffects';
 import { SwallowWhole } from './swallowWhole';
@@ -49,6 +49,12 @@ export class Attack {
           const burn = ae as Burn;
           const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);
           return newBurn;
+        case 'Constrict':
+          const constrict = ae as Constrict;
+          return new Constrict(constrict.combatManeuverBonus, constrict.damageDice, constrict.damageBonus);
+          case 'Death Roll':
+          const deathRoll = ae as DeathRoll;
+          return new DeathRoll(deathRoll.combatManeuverBonus, deathRoll.damageDice, deathRoll.damageBonus);
         case 'Disease':
           const disease = Disease.fromObject(ae);
           disease.effects = disease.effects.map(e => AbilityEffect.fromObject(e));

@@ -8,7 +8,7 @@ import { Creature } from '../model/creature';
 import { Attack } from '../model/attack';
 import { SavingThrow } from '../model/savingThrow';
 import { AbilityEffect } from '../model/abilityEffect';
-import { Grab, Trip, Pull } from '../model/combatManeuvers';
+import { Grab, Trip, Pull, DeathRoll, Constrict } from '../model/combatManeuvers';
 import { Disease } from '../model/disease';
 import { Poison } from '../model/poison';
 import { ArmorClass } from '../model/armorClass';
@@ -43,11 +43,39 @@ export const animals: Creature[] = [
     ],
     [
       new Attack('Bite', 6, '1d6', 3, false, AttackType.Melee,
-        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Trip(5)]),
       new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
       new Attack('Claw', 6, '1d3', 3, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Sprint]
+  ),
+  new Creature(
+    'constrictorsnake',
+    'Constrictor Snake',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Constrictor%20Snake',
+    'http://www.heliocentric.com.au/images/titanaboa.jpg?crc=253069396',
+    Size.Medium,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(20, 20, 0, 20),
+    5,
+    new AbilityScores(17, 17, 12, 1, 12, 2),
+    3,
+    19,
+    new ArmorClass(15, 13, 12),
+    5,
+    18,
+    new Saves(4, 6, 2),
+    [Feat.SkillFocusPerception, Feat.Toughness],
+    [
+      new SkillBonus(Skill.Acrobatics, 15),
+      new SkillBonus(Skill.Climb, 11),
+      new SkillBonus(Skill.Perception, 12),
+      new SkillBonus(Skill.Stealth, 11),
+      new SkillBonus(Skill.Swim, 11)
+    ],
+    [new Attack('Bite', 5, '1d4', 4, false, AttackType.Melee, [], [new Grab(9), new Constrict(9, '1d4', 4)])],
+    [SpecialAbility.Scent]
   ),
   new Creature(
     'crocodile',
@@ -76,7 +104,7 @@ export const animals: Creature[] = [
     [
       new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee,
         [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
-        [new Grab(11)]),
+        [new Grab(11), new DeathRoll(11, '1d8', 6)]),
       new Attack('Tail Slap', 0, '1d12', 2, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Sprint]
@@ -112,7 +140,7 @@ export const animals: Creature[] = [
           [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage),
           new AbilityEffect('1d3', Modifier.Constitution, AbilityEffectType.Damage)], 2)]
       )
-    ], // TODO: Needs Death Roll
+    ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(

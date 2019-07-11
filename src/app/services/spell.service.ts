@@ -34,7 +34,7 @@ export class SpellService {
     getSpellCreatureListBySpellId(spellId: string): Observable<string[]> {
         return this.http.get<Spell>((this.spellsUrl) + '/' + spellId).pipe(
             map(spell => {
-                return spell.creatureList;
+                return spell.creatureList.sort();
             })
         );
     }

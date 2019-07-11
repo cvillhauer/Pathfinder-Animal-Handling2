@@ -49,9 +49,20 @@ export const spells = [
     group: 'summonnaturesally',
     level: 3,
     creatureList: [
+      'giantantsoldier',
+      'ape',
+      'auroch',
+      'boar',
       'cheetah',
+      'constrictorsnake',
       'crocodile',
-      'shark'
+      'direbat',
+      'electriceel',
+      'giantcrab',
+      'leopard',
+      'monitorlizard',
+      'shark',
+      'wolverine'
     ]
   },
   {
@@ -145,9 +156,21 @@ export const spells = [
     group: 'summonmonster',
     level: 3,
     creatureList: [
+      'giantantsoldier',
+      'ape',
+      'auroch',
+      'boar',
       'cheetah',
+      'constrictorsnake',
       'crocodile',
-      'shark'
+      'direbat',
+      'dretch',
+      'electriceel',
+      'lanternarchon',
+      'leopard',
+      'monitorlizard',
+      'shark',
+      'wolverine'
     ]
   },
   {

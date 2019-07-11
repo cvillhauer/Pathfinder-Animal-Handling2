@@ -10,6 +10,62 @@ export class Attach extends CombatManeuver {
   }
 }
 
+export class Constrict extends CombatManeuver {
+  constructor(public combatManeuverBonus: number, public damageDice: string, public damageBonus: number) {
+    super(
+      'Constrict',
+      'Creature crushes grappled target, dealing ' + damageDice + '+' + damageBonus + ' damage.',
+      combatManeuverBonus,
+      false);
+  }
+
+  getSummary() {
+    let summary: string = this.description + ': ';
+    if (this.combatManeuverBonus >= 0) {
+      summary += '+';
+    }
+    summary += this.combatManeuverBonus;
+    summary += ' ' + this.damageDice + '+' + this.damageBonus;
+    return summary;
+  }
+
+  applyAugmentSummoning() {
+    this.combatManeuverBonus += 2;
+    this.damageBonus += 2;
+    this.resultText = 'Creature crushes grappled target, dealing ' + this.damageDice + '+' + this.damageBonus + ' damage.';
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+}
+
+export class DeathRoll extends CombatManeuver {
+  constructor(public combatManeuverBonus: number, public damageDice: string, public damageBonus: number) {
+    super(
+      'Death Roll',
+      'Creature inflicts ' + damageDice + '+' + damageBonus + ' bite damage, and target is knocked prone.',
+      combatManeuverBonus,
+      false);
+  }
+
+  getSummary() {
+    let summary: string = this.description + ': ';
+    if (this.combatManeuverBonus >= 0) {
+      summary += '+';
+    }
+    summary += this.combatManeuverBonus;
+    summary += ' ' + this.damageDice + '+' + this.damageBonus;
+    return summary;
+  }
+
+  applyAugmentSummoning() {
+    this.combatManeuverBonus += 2;
+    this.damageBonus += 2;
+    this.resultText = 'Creature inflicts ' + this.damageDice + '+' + this.damageBonus + ' bite damage, and target is knocked prone.';
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+}
+
 export class Grab extends CombatManeuver {
   constructor(public combatManeuverBonus: number) {
     super(
