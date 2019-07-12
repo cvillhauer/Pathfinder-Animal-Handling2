@@ -121,6 +121,7 @@ export enum SpecialAbility {
   Blindsense = 'Blindsense',
   Blindsight = 'Blindsight',
   DamageResistanceColdIron2 = 'DR 2/Cold Iron',
+  DamageResistanceColdIron5 = 'DR 5/Cold Iron',
   DamageResistanceEvil5 = 'DR 5/Evil',
   DamageResistanceEvil10 = 'DR 10/Evil',
   DamageResistanceGood5 = 'DR 5/Good',
@@ -144,6 +145,7 @@ export enum SpecialAbility {
   ImmuneFlanking = 'Immune to Flanking',
   ImmuneMindAffecting = 'Immune to Mind-Affecting Effects',
   ImmuneParalysis = 'Immune to Paralysis',
+  ImmunePetrification = 'Immune to Petrification',
   ImmunePoison = 'Immune to Poison',
   ImmuneSleepEffects = 'Immune to Sleep Effects',
   ImmuneSneakAttack = 'Immune to Sneak Attack',
@@ -408,9 +410,11 @@ export enum SpeedType {
 
 export enum Spell {
   Aid = 'Aid',
+  AuraOfMenace = 'Aura of Menace',
+  CauseFear = 'Cause Fear',
   ContinualFlame = 'Continual Flame',
   DetectEvil = 'Detect Evil',
-  GreaterTeleport = 'GreaterTeleport',
   Doom = 'Doom',
-  Prestidigitation = 'Prestidigitation'
+  Prestidigitation = 'Prestidigitation',
+  StinkingCloud = 'Stinking Cloud'
 }
