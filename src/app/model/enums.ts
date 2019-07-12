@@ -130,6 +130,7 @@ export enum SpecialAbility {
   Drench = 'Drench',
   EarthGlide = 'EarthGlide',
   EarthMastery = 'Earth Mastery',
+  Ferocity = 'Ferocity',
   Hatred = 'Hatred',
   IceGlide = 'Ice Glide',
   Icewalking = 'Icewalking',
@@ -183,6 +184,7 @@ export enum SpecialAbility {
 }
 
 export enum Feat {
+  Alertness = 'Alertness',
   Dodge = 'Dodge',
   Endurance = 'Endurance',
   FlybyAttack = 'Flyby Attack',
@@ -196,6 +198,7 @@ export enum Feat {
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
+  Stealthy = 'Stealthy',
   Toughness = 'Toughness',
   WeaponFinesse = 'Weapon Finesse'
 }

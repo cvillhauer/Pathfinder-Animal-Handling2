@@ -18,6 +18,57 @@ import { Speeds } from '../model/speed';
 
 export const animals: Creature[] = [
   new Creature(
+    'ape',
+    'Ape',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Gorilla',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/1/15/Gorilla.jpg/250px-Gorilla.jpg',
+    Size.Large,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30, 30),
+    10,
+    new AbilityScores(15, 15, 14, 2, 12, 7),
+    3,
+    19,
+    new ArmorClass(14, 11, 12),
+    5,
+    17,
+    new Saves(7, 5, 2),
+    [Feat.GreatFortitude, Feat.SkillFocusPerception],
+    [
+      new SkillBonus(Skill.Acrobatics, 6),
+      new SkillBonus(Skill.Climb, 14),
+      new SkillBonus(Skill.Perception, 8)
+    ],
+    [
+      new Attack('Slam', 3, '1d6', 2, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 3, '1d6', 2, false, AttackType.Melee, [DamageType.Bludgeoning])
+    ],
+    [SpecialAbility.LowLightVision]
+  ),
+  new Creature(
+    'boar',
+    'Boar',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Boar',
+    'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Animals/images/Boar.jpg',
+    Size.Medium,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    5,
+    new AbilityScores(17, 10, 17, 2, 13, 4),
+    2,
+    18,
+    new ArmorClass(14, 10, 14),
+    4,
+    14,
+    new Saves(6, 3, 1),
+    [Feat.Toughness],
+    [new SkillBonus(Skill.Perception, 6)],
+    [new Attack('Gore', 4, '1d8', 4, false, AttackType.Melee, [DamageType.Piercing])],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Ferocity]
+  ),
+  new Creature(
     'cheetah',
     'Cheetah',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Cheetah',
@@ -74,7 +125,8 @@ export const animals: Creature[] = [
       new SkillBonus(Skill.Stealth, 11),
       new SkillBonus(Skill.Swim, 11)
     ],
-    [new Attack('Bite', 5, '1d4', 4, false, AttackType.Melee, [], [new Grab(9), new Constrict(9, '1d4', 4)])],
+    [new Attack('Bite', 5, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+      [new Grab(9), new Constrict(9, '1d4', 4)])],
     [SpecialAbility.Scent]
   ),
   new Creature(
@@ -108,6 +160,33 @@ export const animals: Creature[] = [
       new Attack('Tail Slap', 0, '1d12', 2, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Sprint]
+  ),
+  new Creature(
+    'direbat',
+    'Dire Bat',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Bat',
+    'https://s-media-cache-ak0.pinimg.com/originals/59/0d/ee/590deeb0b5a84ccfb5466a643b134df4.jpg',
+    Size.Large,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 40),
+    5,
+    new AbilityScores(17, 15, 13, 2, 14, 6),
+    4,
+    22,
+    new ArmorClass(14, 11, 12),
+    7,
+    19,
+    new Saves(5, 6, 3),
+    [Feat.Alertness, Feat.Stealthy],
+    [
+      new SkillBonus(Skill.Fly, 9),
+      new SkillBonus(Skill.Perception, 12),
+      new SkillBonus(Skill.Perception, 16, 'with Blindsense'),
+      new SkillBonus(Skill.Stealth, 4)
+    ],
+    [new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
+    [SpecialAbility.Blindsense]
   ),
   new Creature(
     'direrat',
@@ -338,6 +417,36 @@ export const animals: Creature[] = [
     ],
     [new Attack('Bite', 3, '1d6', 3, false, AttackType.Melee,
       [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Trip(3)])],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'monitorlizard',
+    'Monitor Lizard',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Monitor%20Lizard',
+    'https://78.media.tumblr.com/7048d9a0164e8f270544c4d8e51f4258/tumblr_nw5v2y2hyk1uqhshmo1_1280.png',
+    Size.Medium,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30, 0, 0, 30),
+    5,
+    new AbilityScores(17, 15, 17, 2, 12, 6),
+    3,
+    22,
+    new ArmorClass(15, 12, 13),
+    5,
+    17,
+    new Saves(8, 5, 2),
+    [Feat.GreatFortitude, Feat.SkillFocusPerception],
+    [
+      new SkillBonus(Skill.Climb, 7),
+      new SkillBonus(Skill.Perception, 8),
+      new SkillBonus(Skill.Stealth, 10),
+      new SkillBonus(Skill.Stealth, 14, 'in Undergrowth'),
+      new SkillBonus(Skill.Swim, 11)
+    ],
+    [new Attack('Bite', 5, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+      [new Grab(9), new Poison(new SavingThrow(Save.Fortitude, 14), 'once per hour for 6 hours',
+        [new AbilityEffect('1d2', Modifier.Dexterity, AbilityEffectType.Damage)], 1)])],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
