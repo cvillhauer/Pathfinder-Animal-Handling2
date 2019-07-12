@@ -13,6 +13,7 @@ import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
 import { Web } from '../model/web';
+import { Grab, Constrict } from '../model/combatManeuvers';
 
 export const vermin: Creature[] = [
   new Creature(
@@ -36,6 +37,38 @@ export const vermin: Creature[] = [
     [new SkillBonus(Skill.Fly, -2)],
     [new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
     [SpecialAbility.ImmuneMindAffecting, SpecialAbility.LowLightVision, SpecialAbility.Luminescence]
+  ),
+  new Creature(
+    'giantantsoldier',
+    'Giant Ant (Soldier)',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Ant',
+    'https://vignette.wikia.nocookie.net/non-aliencreatures/images/5/5e/Fire_Ant_Warrior.png/revision/latest?cb=20101228091156',
+    Size.Medium,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(50, 20),
+    5,
+    new AbilityScores(14, 10, 17, 0, 13, 11),
+    2,
+    18,
+    new ArmorClass(15, 10, 15),
+    3,
+    13,
+    new Saves(6, 0, 1),
+    [Feat.Toughness],
+    [
+      new SkillBonus(Skill.Climb, 10),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Survival, 5)
+    ],
+    [
+      new Attack('Bite', 3, '1d6', 2, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(7)]),
+      new Attack('Sting', 3, '1d4', 2, false, AttackType.Melee, [DamageType.Piercing],
+        [new Poison(new SavingThrow(Save.Fortitude, 14), 'once per round for 4 rounds',
+          [new AbilityEffect('1d2', Modifier.Strength, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.Scent, SpecialAbility.ImmuneMindAffecting]
   ),
   new Creature(
     'giantantworker',
@@ -90,6 +123,33 @@ export const vermin: Creature[] = [
       new Attack('Bite', 2, '1d6', -1, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
         [new Poison(new SavingThrow(Save.Fortitude, 13), 'once per round for 6 rounds',
           [new AbilityEffect('1d3', Modifier.Dexterity, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
+  ),
+  new Creature(
+    'giantcrab',
+    'Giant Crab',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Crab',
+    'http://2.bp.blogspot.com/_Fwjw80hPmio/TOp2HbokuGI/AAAAAAAACCY/lv_SdLnlcbM/s1600/Tojanida.jpg',
+    Size.Medium,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(30, 0, 0, 20),
+    5,
+    new AbilityScores(15, 13, 14, 0, 10, 2),
+    3,
+    19,
+    new ArmorClass(16, 11, 15),
+    4,
+    15,
+    new Saves(5, 2, 1),
+    [],
+    [new SkillBonus(Skill.Perception, 4), new SkillBonus(Skill.Swim, 10)],
+    [
+      new Attack('Claw', 4, '1d4', 2, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Slashing], [new Grab(8), new Constrict(8, '1d4', 2)]),
+      new Attack('Claw', 4, '1d4', 2, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Slashing], [new Grab(8), new Constrict(8, '1d4', 2)])
     ],
     [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
   ),

@@ -121,6 +121,7 @@ export enum SpecialAbility {
   Blindsense = 'Blindsense',
   Blindsight = 'Blindsight',
   DamageResistanceColdIron2 = 'DR 2/Cold Iron',
+  DamageResistanceColdIron5 = 'DR 5/Cold Iron',
   DamageResistanceEvil5 = 'DR 5/Evil',
   DamageResistanceEvil10 = 'DR 10/Evil',
   DamageResistanceGood5 = 'DR 5/Good',
@@ -130,6 +131,7 @@ export enum SpecialAbility {
   Drench = 'Drench',
   EarthGlide = 'EarthGlide',
   EarthMastery = 'Earth Mastery',
+  Ferocity = 'Ferocity',
   Hatred = 'Hatred',
   IceGlide = 'Ice Glide',
   Icewalking = 'Icewalking',
@@ -143,6 +145,7 @@ export enum SpecialAbility {
   ImmuneFlanking = 'Immune to Flanking',
   ImmuneMindAffecting = 'Immune to Mind-Affecting Effects',
   ImmuneParalysis = 'Immune to Paralysis',
+  ImmunePetrification = 'Immune to Petrification',
   ImmunePoison = 'Immune to Poison',
   ImmuneSleepEffects = 'Immune to Sleep Effects',
   ImmuneSneakAttack = 'Immune to Sneak Attack',
@@ -154,6 +157,8 @@ export enum SpecialAbility {
   LowLightVision = 'Low-light Vision',
   Luminescence = 'Luminescence',
   MetalMastery = 'Metal Mastery',
+  Pounce = 'Pounce',
+  Rage = 'Rage',
   ResistAcid5 = 'Resist Acid 5',
   ResistAcid10 = 'Resist Acid 10',
   ResistAcid15 = 'Resist Acid 15',
@@ -173,6 +178,7 @@ export enum SpecialAbility {
   SnowVision = 'Snow Vision',
   SparkLeap = 'Spark Leap',
   Sprint = 'Sprint',
+  Stampede = 'Stampede',
   Tremorsense = 'Tremorsense',
   VerminEmpathy = 'Vermin Empathy',
   VulnerableAcid = 'Vulnerable to Acid',
@@ -183,6 +189,7 @@ export enum SpecialAbility {
 }
 
 export enum Feat {
+  Alertness = 'Alertness',
   Dodge = 'Dodge',
   Endurance = 'Endurance',
   FlybyAttack = 'Flyby Attack',
@@ -196,6 +203,7 @@ export enum Feat {
   Run = 'Run',
   SkillFocusPerception = 'Skill Focus (Perception)',
   SkillFocusStealth = 'Skill Focus (Stealth)',
+  Stealthy = 'Stealthy',
   Toughness = 'Toughness',
   WeaponFinesse = 'Weapon Finesse'
 }
@@ -405,9 +413,11 @@ export enum SpeedType {
 
 export enum Spell {
   Aid = 'Aid',
+  AuraOfMenace = 'Aura of Menace',
+  CauseFear = 'Cause Fear',
   ContinualFlame = 'Continual Flame',
   DetectEvil = 'Detect Evil',
-  GreaterTeleport = 'GreaterTeleport',
   Doom = 'Doom',
-  Prestidigitation = 'Prestidigitation'
+  Prestidigitation = 'Prestidigitation',
+  StinkingCloud = 'Stinking Cloud'
 }
