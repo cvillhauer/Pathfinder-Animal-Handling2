@@ -13,6 +13,7 @@ import { Burn } from './burn';
 import { NumbingCold } from './numbingCold';
 import { LavaPuddle } from './lavaPuddle';
 import { Entrap } from './entrap';
+import { Trample } from './trample';
 
 export class Attack {
   damageTypeDescription = '';
@@ -52,7 +53,7 @@ export class Attack {
         case 'Constrict':
           const constrict = ae as Constrict;
           return new Constrict(constrict.combatManeuverBonus, constrict.damageDice, constrict.damageBonus);
-          case 'Death Roll':
+        case 'Death Roll':
           const deathRoll = ae as DeathRoll;
           return new DeathRoll(deathRoll.combatManeuverBonus, deathRoll.damageDice, deathRoll.damageBonus);
         case 'Disease':
@@ -86,6 +87,10 @@ export class Attack {
           const swallowWhole = ae as SwallowWhole;
           const newSwallowWhole = new SwallowWhole(swallowWhole.armorClass, swallowWhole.hitPoints);
           return newSwallowWhole;
+        case 'Trample':
+          const trample = ae as Trample;
+          const newTrample = new Trample(trample.damageDice, trample.damageBonus, trample.difficultyCheck);
+          return newTrample;
         case 'Trip':
           const trip = ae as Trip;
           const newTrip = new Trip(trip.combatManeuverBonus);

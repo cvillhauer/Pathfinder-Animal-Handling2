@@ -2,8 +2,9 @@
   <h4>
     <span style='font-weight: bold'>
       <span title='{{ attack.damageTypeDescription }}'>{{ attack.description }} &nbsp;</span>
-      <span *ngIf='(attack.attackBonus && attack.attackBonus >= 0)'>+</span>
+      <span *ngIf='attack.attackBonus != null && attack.attackBonus >= 0'>+</span>
       <span>{{ attack.attackBonus }} </span>
+      <span *ngIf='attack.touchAttack'>touch </span>
       <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
       <span *ngIf='attack.damageDice && (attack.damageBonus > 0)'>+</span>
       <span *ngIf='attack.damageDice && (attack.damageBonus != 0)'>{{ attack.damageBonus }}</span> &nbsp;
