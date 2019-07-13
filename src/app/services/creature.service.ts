@@ -33,39 +33,10 @@ export class CreatureService {
         const returnCreatures: Creature[] = [];
         filteredCreatures.map(c => {
           const newCreature = Creature.fromObject(c);
-          newCreature.skills = this.buildSkills(c.skills);
-          newCreature.attacks = this.buildAttacks(c.attacks);
           returnCreatures.push(newCreature);
         });
         return returnCreatures;
       })
     );
-  }
-
-  private buildSkills(creatureSkills: SkillBonus[]): SkillBonus[] {
-    const skills: SkillBonus[] = [];
-    creatureSkills.map(s => {
-      const newSkill = SkillBonus.fromObject(s);
-      skills.push(newSkill);
-    });
-    return skills;
-  }
-
-  private buildAttacks(creatureAttacks: Attack[]): Attack[] {
-    const attacks: Attack[] = [];
-    creatureAttacks.map(a => {
-      const newAttack = Attack.fromObject(a);
-      newAttack.attackEffects = this.buildAttackEffects(a.attackEffects);
-      attacks.push(newAttack);
-    });
-    return attacks;
-  }
-
-  private buildAttackEffects(attackEffects: IAttackEffect[]): IAttackEffect[] {
-    const effects: IAttackEffect[] = [];
-    attackEffects.map(ae => {
-      effects.push(ae);
-    });
-    return effects;
   }
 }

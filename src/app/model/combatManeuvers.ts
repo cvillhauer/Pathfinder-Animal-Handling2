@@ -17,6 +17,8 @@ export class Constrict extends CombatManeuver {
       'Creature crushes grappled target, dealing ' + damageDice + '+' + damageBonus + ' damage.',
       combatManeuverBonus,
       false);
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 
   getSummary() {
@@ -45,6 +47,8 @@ export class DeathRoll extends CombatManeuver {
       'Creature inflicts ' + damageDice + '+' + damageBonus + ' bite damage, and target is knocked prone.',
       combatManeuverBonus,
       false);
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
   }
 
   getSummary() {
