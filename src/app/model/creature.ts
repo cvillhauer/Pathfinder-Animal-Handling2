@@ -1,4 +1,4 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility } from './enums';
+import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility, InGameCondition } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
@@ -14,7 +14,7 @@ export class Creature {
   creatureName: string;
   editName: boolean;
   roundsLeft: number;
-  inGameModifiers: InGameModifier[] = [new InGameModifier('Grappled', false)];
+  inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled)];
 
   constructor(
     public id: string,
@@ -38,7 +38,23 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = [],
     public spellLikeAbilities: SpellLikeAbility[] = []) {
+    if (this.feats.indexOf(Feat.PowerAttack) > -1) {
+      this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+    }
+    if (this.abilities.indexOf(SpecialAbility.Rage) > -1) {
+      this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
+    }
+    if (this.abilities.indexOf(SpecialAbility.EarthMastery) > -1) {
+      this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
+    }
+    if (this.abilities.indexOf(SpecialAbility.MetalMastery) > -1) {
+      this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
+    }
+    if (this.abilities.indexOf(SpecialAbility.WaterMastery) > -1) {
+      this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
+    }
     abilities.sort();
+    this.inGameModifiers.sort((a, b) => (a.description > b.description) ? 1 : -1);
   }
 
   static fromObject(creature: Creature): Creature {
@@ -71,6 +87,7 @@ export class Creature {
   applyCelestialTemplate() {
     this.description = 'Celestial ' + this.description;
     this.abilities.push(SpecialAbility.SmiteEvil);
+    this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
     if (this.hitDice < 1) {
       console.log('Error: Unable to calculate creature hit dice.');
     } else if (this.hitDice <= 4) {
@@ -94,6 +111,7 @@ export class Creature {
   applyFiendishTemplate() {
     this.description = 'Fiendish ' + this.description;
     this.abilities.push(SpecialAbility.SmiteGood);
+    this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
     if (this.hitDice < 1) {
       console.log('Error: Unable to calculate creature hit dice.');
     } else if (this.hitDice <= 4) {

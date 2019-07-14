@@ -421,3 +421,13 @@ export enum Spell {
   Prestidigitation = 'Prestidigitation',
   StinkingCloud = 'Stinking Cloud'
 }
+
+export enum InGameCondition {
+  EarthMastery = 'Earth Mastery',
+  Grappled = 'Grappled',
+  MetalMastery = 'Metal Mastery',
+  PowerAttack = 'Power Attack',
+  Rage = 'Rage',
+  Smite = 'Smite',
+  WaterMastery = 'Water Mastery'
+}

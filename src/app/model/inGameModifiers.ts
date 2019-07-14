@@ -1,7 +1,9 @@
+import { InGameCondition } from './enums';
+
 export class InGameModifier {
 
   constructor(
-    public description: string,
+    public description: InGameCondition,
     public applied: boolean = false) {
 
   }

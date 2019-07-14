@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Creature } from '../model/creature';
 import { InGameModifier } from '../model/inGameModifiers';
+import { InGameCondition } from '../model/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -12,48 +13,117 @@ export class InGameModifiersService {
   }
 
   proccessModifierChange(affectedCreature: Creature, modifier: InGameModifier) {
-    console.log(affectedCreature.description + ' had a modifier change.');
-    console.log(modifier.description + ' changed to ' + modifier.applied + '.');
+    const applyModifier = modifier.applied;
+    switch (modifier.description) {
+      case InGameCondition.EarthMastery:
+        if (applyModifier) {
+          this.applyEarthMastery(affectedCreature);
+        } else {
+          this.removeEarthMastery(affectedCreature);
+        }
+        break;
+      case InGameCondition.Grappled:
+        if (applyModifier) {
+          this.applyGrappled(affectedCreature);
+        } else {
+          this.removeGrappled(affectedCreature);
+        }
+        break;
+      case InGameCondition.MetalMastery:
+        if (applyModifier) {
+          this.applyMetalMastery(affectedCreature);
+        } else {
+          this.removeMetalMastery(affectedCreature);
+        }
+        break;
+      case InGameCondition.PowerAttack:
+        if (applyModifier) {
+          this.applyPowerAttack(affectedCreature);
+        } else {
+          this.removePowerAttack(affectedCreature);
+        }
+        break;
+      case InGameCondition.Rage:
+        if (applyModifier) {
+          this.applyRage(affectedCreature);
+        } else {
+          this.removeRage(affectedCreature);
+        }
+        break;
+      case InGameCondition.Smite:
+        if (applyModifier) {
+          this.applySmite(affectedCreature);
+        } else {
+          this.removeSmite(affectedCreature);
+        }
+        break;
+      case InGameCondition.WaterMastery:
+        if (applyModifier) {
+          this.applyWaterMastery(affectedCreature);
+        } else {
+          this.removeWaterMastery(affectedCreature);
+        }
+        break;
+      default:
+        console.log('Unknown in-game modifier: ' + modifier.description);
+        break;
+    }
   }
 
-  applyElementalMastery() {
-    console.log('Creature\s elemental masteries apply.');
+  applyEarthMastery(affectedCreature: Creature) {
+    console.log('Creature\s earth mastery applies.');
   }
 
-  removeElementalMastery() {
-    console.log('Creature\s elemental masteries don\'t apply.');
+  removeEarthMastery(affectedCreature: Creature) {
+    console.log('Creature\s earth mastery doen\'t apply.');
   }
 
-  applyGrappled() {
+  applyGrappled(affectedCreature: Creature) {
     console.log('Creature is grappled.');
   }
 
-  removeGrappled() {
+  removeGrappled(affectedCreature: Creature) {
     console.log('Creature is not grappled.');
   }
 
-  applyPowerAttack() {
+  applyMetalMastery(affectedCreature: Creature) {
+    console.log('Creature\s metal mastery applies.');
+  }
+
+  removeMetalMastery(affectedCreature: Creature) {
+    console.log('Creature\s metal mastery doen\'t apply.');
+  }
+
+  applyPowerAttack(affectedCreature: Creature) {
     console.log('Creature is power attacking.');
   }
 
-  removePowerAttack() {
+  removePowerAttack(affectedCreature: Creature) {
     console.log('Creature is not power attacking.');
   }
 
-  applyRage() {
+  applyRage(affectedCreature: Creature) {
     console.log('Creature is raging.');
   }
 
-  removeRage() {
+  removeRage(affectedCreature: Creature) {
     console.log('Creature is not raging.');
   }
 
-  applySmite() {
+  applySmite(affectedCreature: Creature) {
     console.log('Creature is smiting.');
   }
 
-  removeSmite() {
+  removeSmite(affectedCreature: Creature) {
     console.log('Creature is not smiting.');
+  }
+
+  applyWaterMastery(affectedCreature: Creature) {
+    console.log('Creature\s water mastery applies.');
+  }
+
+  removeWaterMastery(affectedCreature: Creature) {
+    console.log('Creature\s water mastery doen\'t apply.');
   }
 
 }
