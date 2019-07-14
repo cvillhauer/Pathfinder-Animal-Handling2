@@ -4,9 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Creature } from '../model/creature';
-import { Attack } from '../model/attack';
-import { IAttackEffect } from '../model/attackeffect';
-import { SkillBonus } from '../model/skillbonus';
 
 @Injectable({
   providedIn: 'root'

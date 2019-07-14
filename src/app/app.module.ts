@@ -11,6 +11,7 @@ import { AttackComponent } from './components/attack/attack.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
 import { SpellComponent } from './components/spell/spell.component';
+import { InGameModifiersComponent } from './components/in-game-modifiers/in-game-modifiers.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SpellComponent } from './components/spell/spell.component';
     AttackComponent,
     CharacterComponent,
     CreatureComponent,
+    InGameModifiersComponent,
     SpellComponent
   ],
   imports: [

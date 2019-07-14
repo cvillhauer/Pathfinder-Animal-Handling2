@@ -1,0 +1,7 @@
+<div>
+  <h4>In-Game Modifiers:</h4>
+  <div class="checkbox" *ngFor='let inGameModifier of inGameModifiers'>
+    <label><input type="checkbox" [(ngModel)]="inGameModifier.applied"
+        (change)="modifierChange(inGameModifier)" />{{ inGameModifier.description }}</label>
+  </div>
+</div>

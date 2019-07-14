@@ -7,12 +7,14 @@ import { Attack } from './attack';
 import { ArmorClass } from './armorClass';
 import { Speeds } from './speed';
 import { SpellLikeAbility } from './spellLikeAbility';
+import { InGameModifier } from './inGameModifiers';
 
 export class Creature {
   level: number;
   creatureName: string;
   editName: boolean;
   roundsLeft: number;
+  inGameModifiers: InGameModifier[] = [new InGameModifier('Grappled', false)];
 
   constructor(
     public id: string,
