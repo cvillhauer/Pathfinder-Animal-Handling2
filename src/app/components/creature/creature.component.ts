@@ -20,7 +20,6 @@ export class CreatureComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('Button push');
     this.delete.emit();
   }
 }

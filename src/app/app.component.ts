@@ -9,8 +9,10 @@ import { Alignment } from './model/enums';
 })
 export class AppComponent implements OnInit {
   characters: Character[] = [];
+  roundCount: number;
 
   ngOnInit() {
+    this.roundCount = 1;
     const nirwe: Character = new Character('nirwe', 'Aldamirnirwa', Alignment.trueNeutral,
       'Druid', 6, new AbilityScores(12, 16, 13, 12, 16, 8));
     nirwe.feats.push('Augmented Summoning');
@@ -27,6 +29,20 @@ export class AppComponent implements OnInit {
     const ivanus: Character = new Character('ivanus', 'Ivanus', Alignment.neutralGood,
       'Ranger', 6, new AbilityScores(14, 16, 16, 10, 14, 8));
     this.characters.push(ivanus);
+  }
+
+  nextRound() {
+    this.roundCount++;
+    this.characters.forEach(c => {
+      for (let i = c.summonedCreatures.length - 1; i >= 0; i--) {
+        const creature = c.summonedCreatures[i];
+        creature.roundsLeft--;
+        if (creature.roundsLeft <= 0) {
+          console.log(creature.creatureName + ' is out of rounds.');
+          c.summonedCreatures.splice(i, 1);
+        }
+      }
+    });
   }
 
 }

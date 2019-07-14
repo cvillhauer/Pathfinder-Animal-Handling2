@@ -13,6 +13,7 @@ export class Creature {
   level: number;
   creatureName: string;
   editName: boolean;
+  roundSummoned: number;
   roundsLeft: number;
   inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled)];
 

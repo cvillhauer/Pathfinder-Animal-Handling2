@@ -15,6 +15,7 @@ import { Morality, CreatureType } from 'src/app/model/enums';
 export class SpellComponent implements OnInit {
   @Input() spell: Spell;
   @Input() castingCharacter: Character;
+  @Input() roundCount: number;
   selectedLevel: number;
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
@@ -69,6 +70,7 @@ export class SpellComponent implements OnInit {
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;
+        newCreature.roundSummoned = this.roundCount;
         newCreature.roundsLeft = this.castingCharacter.characterLevel;
         // Add Celestial/Fiendish template
         if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()
