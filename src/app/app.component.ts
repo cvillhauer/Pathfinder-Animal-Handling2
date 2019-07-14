@@ -18,11 +18,14 @@ export class AppComponent implements OnInit {
     const richard: Character = new Character('richard', 'Richard', Alignment.lawfulEvil,
       'Wizard', 8, new AbilityScores(10, 14, 13, 18, 12, 10));
     this.characters.push(richard);
+    const hekda: Character = new Character('hekda', 'Hekda', Alignment.chaoticGood,
+      'Witch', 6, new AbilityScores(9, 15, 14, 19, 14, 8));
+    this.characters.push(hekda);
     const elzaphir: Character = new Character('elzaphir', 'Elzaphir', Alignment.chaoticGood,
       'Sorcerer', 16, new AbilityScores(9, 15, 11, 14, 12, 24));
     this.characters.push(elzaphir);
     const ivanus: Character = new Character('ivanus', 'Ivanus', Alignment.neutralGood,
-      'Ranger', 10, new AbilityScores(14, 16, 16, 10, 14, 8));
+      'Ranger', 6, new AbilityScores(14, 16, 16, 10, 14, 8));
     this.characters.push(ivanus);
   }
 
