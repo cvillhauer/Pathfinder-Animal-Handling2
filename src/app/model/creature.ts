@@ -130,21 +130,4 @@ export class Creature {
     this.abilities.sort();
   }
 
-  augmentSummoning() {
-    this.abilityScores.strength += 4;
-    this.abilityScores.constitution += 4;
-    this.hitPoints += (2 * this.hitDice);
-    this.combatManeuverBonus += 2;
-    this.combatManeuverDefense += 2;
-    this.saves.augmentSummoning();
-    for (const skill of this.skills) {
-      skill.augmentSummoning();
-    }
-    const hasWeaponFinesse = this.feats.indexOf(Feat.WeaponFinesse) >= 0;
-    const strBonus = this.abilityScores.getBonus(Modifier.Strength);
-    const dexBonus = this.abilityScores.getBonus(Modifier.Dexterity);
-    for (const attack of this.attacks) {
-      attack.augmentSummoning(hasWeaponFinesse, strBonus, dexBonus);
-    }
-  }
 }

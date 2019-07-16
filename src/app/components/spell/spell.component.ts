@@ -7,6 +7,7 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Morality, CreatureType } from 'src/app/model/enums';
+import { AbilityScoreService } from 'src/app/services/ability-score.service';
 
 @Component({
   selector: 'spell',
@@ -21,7 +22,11 @@ export class SpellComponent implements OnInit {
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
   readonly augmentSummonFeat = 'Augmented Summoning';
 
-  constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
+  constructor(
+    private diceService: DiceService,
+    private spellService: SpellService,
+    private creatureService: CreatureService,
+    private abilityScoreService: AbilityScoreService) {
   }
 
   ngOnInit() {
@@ -85,7 +90,8 @@ export class SpellComponent implements OnInit {
         }
         newCreature.alignment = this.determineAlignment();
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
-          newCreature.augmentSummoning();
+          this.abilityScoreService.increaseStrength(newCreature, 4);
+          this.abilityScoreService.increaseConstitution(newCreature, 4);
         }
         summonedCreatures.push(newCreature);
       }
