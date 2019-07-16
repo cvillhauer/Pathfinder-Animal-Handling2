@@ -30,7 +30,7 @@ export class SwallowWhole implements IAttackEffect {
     return details;
   }
 
-  applyAugmentSummoning() {
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

@@ -90,6 +90,7 @@ export class SpellComponent implements OnInit {
         }
         newCreature.alignment = this.determineAlignment();
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
+          // AugmentSummoning increases Strength and Constitution by 4
           this.abilityScoreService.increaseStrength(newCreature, 4);
           this.abilityScoreService.increaseConstitution(newCreature, 4);
         }

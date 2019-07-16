@@ -6,5 +6,6 @@ export abstract class IAttackEffect {
 
   getSummary: () => string;
   getDetails: () => string;
-  applyAugmentSummoning: () => void;
+  // TODO: Will AttackEffects ever care about int, wis, or cha increases?
+  applyAbilityBonusIncreases: (strIncrease, dexIncrease, conIncrease) => void;
 }
