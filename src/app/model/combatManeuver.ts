@@ -42,4 +42,12 @@ export class CombatManeuver implements IAttackEffect {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
+    if (includeCombatManeuvers) {
+      this.combatManeuverBonus += attackBonusIncrease;
+    }
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
 }

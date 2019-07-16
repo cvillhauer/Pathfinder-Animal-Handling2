@@ -126,4 +126,8 @@ export class Attack {
     return description;
   }
 
+  applyAttackBonusIncrease(attackBonusIncrease: number) {
+    this.attackBonus += attackBonusIncrease;
+  }
+
 }

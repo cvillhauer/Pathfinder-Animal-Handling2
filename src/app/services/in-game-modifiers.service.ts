@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Creature } from '../model/creature';
 import { InGameModifier } from '../model/inGameModifiers';
 import { InGameCondition } from '../model/enums';
+import { AbilityScoreService } from './ability-score.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InGameModifiersService {
 
-  constructor() {
+  constructor(private abilityScoreService: AbilityScoreService) {
 
   }
 
@@ -71,59 +72,89 @@ export class InGameModifiersService {
   }
 
   applyEarthMastery(affectedCreature: Creature) {
-    console.log('Creature\s earth mastery applies.');
+    this.applyAttackBonusIncrease(affectedCreature, 1);
   }
 
   removeEarthMastery(affectedCreature: Creature) {
-    console.log('Creature\s earth mastery doen\'t apply.');
+    this.applyAttackBonusIncrease(affectedCreature, -1);
   }
 
   applyGrappled(affectedCreature: Creature) {
-    console.log('Creature is grappled.');
+    this.abilityScoreService.increaseDexterity(affectedCreature, -4);
+    this.applyAttackBonusIncrease(affectedCreature, -2, false);
   }
 
   removeGrappled(affectedCreature: Creature) {
-    console.log('Creature is not grappled.');
+    this.abilityScoreService.increaseDexterity(affectedCreature, 4);
+    this.applyAttackBonusIncrease(affectedCreature, +2, false);
   }
 
   applyMetalMastery(affectedCreature: Creature) {
-    console.log('Creature\s metal mastery applies.');
+    this.applyAttackBonusIncrease(affectedCreature, 3);
   }
 
   removeMetalMastery(affectedCreature: Creature) {
-    console.log('Creature\s metal mastery doen\'t apply.');
+    this.applyAttackBonusIncrease(affectedCreature, -3);
   }
 
   applyPowerAttack(affectedCreature: Creature) {
     console.log('Creature is power attacking.');
+    // -x on attack rolls and CMB/CMD (including attack effects)
+    // +2x on damage rolls
+    // x = (BAB + 1) / 4, round up
+
   }
 
   removePowerAttack(affectedCreature: Creature) {
     console.log('Creature is not power attacking.');
+    // Attack and damage rolls go back to normal
   }
 
   applyRage(affectedCreature: Creature) {
-    console.log('Creature is raging.');
+    this.abilityScoreService.increaseStrength(affectedCreature, 4);
+    this.abilityScoreService.increaseConstitution(affectedCreature, 4);
   }
 
   removeRage(affectedCreature: Creature) {
-    console.log('Creature is not raging.');
+    this.abilityScoreService.increaseStrength(affectedCreature, -4);
+    this.abilityScoreService.increaseConstitution(affectedCreature, -4);
   }
 
   applySmite(affectedCreature: Creature) {
     console.log('Creature is smiting.');
+    // Add charisma bonus to attack rolls
+    // Add hitdice to damage bonus
   }
 
   removeSmite(affectedCreature: Creature) {
     console.log('Creature is not smiting.');
+    // Subtract charisma bonus to attack rolls
+    // Subtract hitdice to damage bonus
   }
 
   applyWaterMastery(affectedCreature: Creature) {
-    console.log('Creature\s water mastery applies.');
+    this.applyAttackBonusIncrease(affectedCreature, 1);
   }
 
   removeWaterMastery(affectedCreature: Creature) {
-    console.log('Creature\s water mastery doen\'t apply.');
+    this.applyAttackBonusIncrease(affectedCreature, -1);
+  }
+
+  applyAttackBonusIncrease(affectedCreature: Creature, attackBonusIncrease: number, includeCombatManeuvers: boolean = true) {
+    if (includeCombatManeuvers) {
+      affectedCreature.combatManeuverBonus += attackBonusIncrease;
+      affectedCreature.combatManeuverDefense += attackBonusIncrease;
+    }
+    for (const attack of affectedCreature.attacks) {
+      if (attack.attackBonus) {
+        attack.applyAttackBonusIncrease(attackBonusIncrease);
+      }
+      if (attack.attackEffects) {
+        for (const attackEffect of attack.attackEffects) {
+          attackEffect.applyAttackBonusIncrease(attackBonusIncrease, includeCombatManeuvers);
+        }
+      }
+    }
   }
 
 }

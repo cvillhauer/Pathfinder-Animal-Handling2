@@ -37,4 +37,9 @@ export class LavaPuddle implements IAttackEffect {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
 }

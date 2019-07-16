@@ -8,4 +8,5 @@ export abstract class IAttackEffect {
   getDetails: () => string;
   // TODO: Will AttackEffects ever care about int, wis, or cha increases?
   applyAbilityBonusIncreases: (strIncrease, dexIncrease, conIncrease) => void;
+  applyAttackBonusIncrease: (attackBonusIncrease, includeCombatManeuvers) => void;
 }

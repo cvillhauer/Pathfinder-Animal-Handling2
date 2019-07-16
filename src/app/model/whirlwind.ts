@@ -43,6 +43,11 @@ export class Whirlwind implements IAttackEffect {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
 }
 
 export class Vortex extends Whirlwind {
