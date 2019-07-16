@@ -51,12 +51,36 @@ export class AbilityScoreService {
     affectedCreature.abilityScores.dexterity += dexIncrease;
     const newDexBonus = affectedCreature.abilityScores.getBonus(Modifier.Dexterity);
     const dexBonusIncrease = newDexBonus - oldDexBonus;
-    // TODO: Increase Armor Bonus
-    // TODO: Increase Reflex Save
-    // TODO: Increase Dex-based skills
-    // TODO: Increase Attack Bonus on Ranged attacks
-    // TODO: Increase Attack Bonus on Melee Weapon Finesse attacks
-    // TODO: Increase CMD
+    affectedCreature.armorClass.armorClass += dexBonusIncrease;
+    affectedCreature.armorClass.touchAC += dexBonusIncrease;
+    affectedCreature.saves.reflex += dexBonusIncrease;
+    for (const skillBonus of affectedCreature.skills) {
+      if (skillBonus.skill.modifier === Modifier.Dexterity) {
+        skillBonus.bonus += dexBonusIncrease;
+      }
+    }
+    affectedCreature.combatManeuverDefense += dexBonusIncrease;
+    const hasWeaponFinesse = affectedCreature.feats.indexOf(Feat.WeaponFinesse) >= 0;
+    const strBonus = affectedCreature.abilityScores.getBonus(Modifier.Strength);
+    for (const attack of affectedCreature.attacks) {
+      if (attack.attackType === AttackType.Ranged) {
+        attack.attackBonus += dexBonusIncrease;
+      } else if (attack.attackType === AttackType.Melee && hasWeaponFinesse) {
+        if (strBonus >= oldDexBonus) {
+          if (newDexBonus > strBonus) { // Attack Bonus should switch to use Dex bonus instead of Str
+            attack.attackBonus = attack.attackBonus - strBonus + newDexBonus;
+          }
+          // Otherwise, the attack uses strength and should continue to do so - a dex increase won't affect it
+        } else { // Attack is already using Dex bonus
+          attack.attackBonus += dexBonusIncrease;
+        }
+      }
+      if (attack.attackEffects) {
+        for (const attackEffect of attack.attackEffects) {
+          attackEffect.applyAbilityBonusIncreases(0, dexBonusIncrease, 0);
+        }
+      }
+    }
   }
 
   increaseConstitution(affectedCreature: Creature, conIncrease: number) {
@@ -80,7 +104,11 @@ export class AbilityScoreService {
     affectedCreature.abilityScores.intelligence += intIncrease;
     const newIntBonus = affectedCreature.abilityScores.getBonus(Modifier.Intelligence);
     const intBonusIncrease = newIntBonus - oldIntBonus;
-    // TODO: Increase Int-based skills
+    for (const skillBonus of affectedCreature.skills) {
+      if (skillBonus.skill.modifier === Modifier.Intelligence) {
+        skillBonus.bonus += intBonusIncrease;
+      }
+    }
     // TODO: Increase Spell-Like abilities?
   }
 
@@ -89,8 +117,12 @@ export class AbilityScoreService {
     affectedCreature.abilityScores.wisdom += wisIncrease;
     const newWisBonus = affectedCreature.abilityScores.getBonus(Modifier.Wisdom);
     const wisBonusIncrease = newWisBonus - oldWisBonus;
-    // TODO: Increase Will Save
-    // TODO: Increase Wis-based skills
+    affectedCreature.saves.will += wisBonusIncrease;
+    for (const skillBonus of affectedCreature.skills) {
+      if (skillBonus.skill.modifier === Modifier.Wisdom) {
+        skillBonus.bonus += wisBonusIncrease;
+      }
+    }
     // TODO: Increase Spell-Like abilities?
   }
 
@@ -99,7 +131,11 @@ export class AbilityScoreService {
     affectedCreature.abilityScores.charisma += chaIncrease;
     const newChaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
     const chaBonusIncrease = newChaBonus - oldChaBonus;
-    // TODO: Increase Cha-based skills
+    for (const skillBonus of affectedCreature.skills) {
+      if (skillBonus.skill.modifier === Modifier.Charisma) {
+        skillBonus.bonus += chaBonusIncrease;
+      }
+    }
     // TODO: Increase Spell-Like abilities?
   }
 
