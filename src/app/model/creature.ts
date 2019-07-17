@@ -39,19 +39,19 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = [],
     public spellLikeAbilities: SpellLikeAbility[] = []) {
-    if (this.feats.indexOf(Feat.PowerAttack) > -1) {
+    if (this.feats && this.feats.indexOf(Feat.PowerAttack) > -1) {
       this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
     }
-    if (this.abilities.indexOf(SpecialAbility.Rage) > -1) {
+    if (this.abilities && this.abilities.indexOf(SpecialAbility.Rage) > -1) {
       this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
     }
-    if (this.abilities.indexOf(SpecialAbility.EarthMastery) > -1) {
+    if (this.abilities && this.abilities.indexOf(SpecialAbility.EarthMastery) > -1) {
       this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
     }
-    if (this.abilities.indexOf(SpecialAbility.MetalMastery) > -1) {
+    if (this.abilities && this.abilities.indexOf(SpecialAbility.MetalMastery) > -1) {
       this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
     }
-    if (this.abilities.indexOf(SpecialAbility.WaterMastery) > -1) {
+    if (this.abilities && this.abilities.indexOf(SpecialAbility.WaterMastery) > -1) {
       this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
     }
     abilities.sort();
