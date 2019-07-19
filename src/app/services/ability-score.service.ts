@@ -34,7 +34,7 @@ export class AbilityScoreService {
           if (newStrBonus > dexBonus) {
             attack.attackBonus = attack.attackBonus - dexBonus + newStrBonus;
           }
-        } else if (attack.attackBonus) { // Attack Bonus is using Str bonus already
+        } else if (attack.attackBonus || attack.attackBonus === 0) { // Attack Bonus is using Str bonus already
           attack.attackBonus += strBonusIncrease;
         }
       }

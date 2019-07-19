@@ -130,4 +130,7 @@ export class Attack {
     this.attackBonus += attackBonusIncrease;
   }
 
+  applyDamageBonusIncrease(damageBonusIncrease: number) {
+    this.damageBonus += damageBonusIncrease;
+  }
 }

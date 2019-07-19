@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Creature } from '../model/creature';
 import { InGameModifier } from '../model/inGameModifiers';
-import { InGameCondition } from '../model/enums';
+import { InGameCondition, AttackType, Modifier } from '../model/enums';
 import { AbilityScoreService } from './ability-score.service';
 
 @Injectable({
@@ -98,16 +98,23 @@ export class InGameModifiersService {
   }
 
   applyPowerAttack(affectedCreature: Creature) {
-    console.log('Creature is power attacking.');
-    // -x on attack rolls and CMB/CMD (including attack effects)
-    // +2x on damage rolls
-    // x = (BAB + 1) / 4, round up
-
+    const powerAttackModifier = Math.ceil((affectedCreature.baseAttackBonus + 1) / 4);
+    this.applyAttackBonusIncrease(affectedCreature, (-1 * powerAttackModifier), false);
+    for (const attack of affectedCreature.attacks) {
+      if ((attack.attackBonus || attack.attackBonus === 0) && attack.attackType === AttackType.Melee) {
+        attack.applyDamageBonusIncrease(powerAttackModifier * 2);
+      }
+    }
   }
 
   removePowerAttack(affectedCreature: Creature) {
-    console.log('Creature is not power attacking.');
-    // Attack and damage rolls go back to normal
+    const powerAttackModifier = Math.ceil((affectedCreature.baseAttackBonus + 1) / 4);
+    this.applyAttackBonusIncrease(affectedCreature, powerAttackModifier, false);
+    for (const attack of affectedCreature.attacks) {
+      if ((attack.attackBonus || attack.attackBonus === 0) && attack.attackType === AttackType.Melee) {
+        attack.applyDamageBonusIncrease(powerAttackModifier * -2);
+      }
+    }
   }
 
   applyRage(affectedCreature: Creature) {
@@ -121,15 +128,23 @@ export class InGameModifiersService {
   }
 
   applySmite(affectedCreature: Creature) {
-    console.log('Creature is smiting.');
-    // Add charisma bonus to attack rolls
-    // Add hitdice to damage bonus
+    const charismaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
+    if (charismaBonus > 0) {
+      this.applyAttackBonusIncrease(affectedCreature, charismaBonus);
+    }
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(affectedCreature.hitDice);
+    }
   }
 
   removeSmite(affectedCreature: Creature) {
-    console.log('Creature is not smiting.');
-    // Subtract charisma bonus to attack rolls
-    // Subtract hitdice to damage bonus
+    const charismaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
+    if (charismaBonus > 0) {
+      this.applyAttackBonusIncrease(affectedCreature, (-1 * charismaBonus));
+    }
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(-1 * affectedCreature.hitDice);
+    }
   }
 
   applyWaterMastery(affectedCreature: Creature) {
@@ -146,7 +161,7 @@ export class InGameModifiersService {
       affectedCreature.combatManeuverDefense += attackBonusIncrease;
     }
     for (const attack of affectedCreature.attacks) {
-      if (attack.attackBonus) {
+      if (attack.attackBonus || attack.attackBonus === 0) {
         attack.applyAttackBonusIncrease(attackBonusIncrease);
       }
       if (attack.attackEffects) {
