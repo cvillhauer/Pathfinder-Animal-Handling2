@@ -67,6 +67,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       5,
       15,
+      1,
+      1,
+      0,
       new Saves(1, 2, 3),
       []
     );
@@ -133,6 +136,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       5,
       15,
+      1,
+      1,
+      0,
       new Saves(1, 2, 3),
       []
     );
@@ -167,6 +173,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       7,
       17,
+      1,
+      1,
+      0,
       new Saves(3, 2, 3),
       []
     );

@@ -59,6 +59,9 @@ export const elementals: Creature[] = [
     new ArmorClass(17, 14, 14),
     2,
     15,
+    2,
+    1,
+    0,
     new Saves(4, 6, 0),
     [Feat.FlybyAttack, Feat.ImprovedInititive, Feat.WeaponFinesse],
     [
@@ -91,6 +94,9 @@ export const elementals: Creature[] = [
     new ArmorClass(17, 10, 17),
     4,
     13,
+    2,
+    1,
+    0,
     new Saves(4, -1, 3),
     [Feat.ImprovedBullRush, Feat.PowerAttack],
     [
@@ -120,6 +126,9 @@ export const elementals: Creature[] = [
     new ArmorClass(16, 13, 14),
     1,
     13,
+    2,
+    1,
+    0,
     new Saves(3, 4, 0),
     [Feat.Dodge, Feat.ImprovedInititive, Feat.WeaponFinesse],
     [
@@ -149,6 +158,9 @@ export const elementals: Creature[] = [
     new ArmorClass(16, 10, 16),
     2,
     11,
+    2,
+    1,
+    0,
     new Saves(4, 2, 0),
     [Feat.PowerAttack],
     [
@@ -177,6 +189,9 @@ export const elementals: Creature[] = [
     new ArmorClass(14, 13, 12),
     1,
     13,
+    2,
+    1,
+    0,
     new Saves(3, 5, 0),
     [Feat.ImprovedInititive, Feat.WeaponFinesse],
     [
@@ -206,6 +221,9 @@ export const elementals: Creature[] = [
     new ArmorClass(15, 10, 15),
     1,
     10,
+    2,
+    1,
+    0,
     new Saves(3, 2, 0),
     [Feat.ImprovedInititive],
     [
@@ -235,6 +253,9 @@ export const elementals: Creature[] = [
     new ArmorClass(16, 10, 16),
     3,
     12,
+    2,
+    1,
+    0,
     new Saves(4, 2, 0),
     [Feat.ImprovedBullRush, Feat.PowerAttack],
     [
@@ -264,6 +285,9 @@ export const elementals: Creature[] = [
     new ArmorClass(17, 11, 17),
     3,
     13,
+    2,
+    1,
+    0,
     new Saves(4, 3, 0),
     [Feat.PowerAttack],
     [

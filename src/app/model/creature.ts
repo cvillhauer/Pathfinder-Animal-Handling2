@@ -33,6 +33,9 @@ export class Creature {
     public armorClass?: ArmorClass,
     public combatManeuverBonus?: number, // BAB + Str + size
     public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
+    public baseAttackBonus?: number,
+    public challengeRating?: number,
+    public spellResistance?: number,
     public saves?: Saves,
     public feats?: Feat[],
     public skills: SkillBonus[] = [],
@@ -62,10 +65,12 @@ export class Creature {
     const { id, description, link, image, size, type, alignment,
       speed, reach, abilityScores,
       hitDice, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
+      baseAttackBonus, challengeRating, spellResistance,
       saves, feats, skills, attacks, abilities, spellLikeAbilities } = creature;
     const newCreature = new this(id, description, link, image, size, type, alignment,
       Speeds.fromObject(speed), reach, AbilityScores.fromObject(abilityScores),
       hitDice, hitPoints, ArmorClass.fromObject(armorClass), combatManeuverBonus, combatManeuverDefense,
+      baseAttackBonus, challengeRating, spellResistance,
       Saves.fromObject(saves), feats, skills, attacks, abilities);
     newCreature.skills = skills.map(s => SkillBonus.fromObject(s));
     newCreature.attacks = attacks.map(a => Attack.fromObject(a));
@@ -88,6 +93,9 @@ export class Creature {
   applyCelestialTemplate() {
     this.description = 'Celestial ' + this.description;
     this.abilities.push(SpecialAbility.SmiteEvil);
+    if (this.abilities.indexOf(SpecialAbility.Darkvision) === -1) {
+      this.abilities.push(SpecialAbility.Darkvision);
+    }
     this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
     if (this.hitDice < 1) {
       console.log('Error: Unable to calculate creature hit dice.');
@@ -96,22 +104,28 @@ export class Creature {
       this.abilities.push(SpecialAbility.ResistCold5);
       this.abilities.push(SpecialAbility.ResistElectricity5);
     } else if (this.hitDice <= 10) {
+      this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistAcid10);
       this.abilities.push(SpecialAbility.ResistCold10);
       this.abilities.push(SpecialAbility.ResistElectricity10);
       this.abilities.push(SpecialAbility.DamageResistanceEvil5);
     } else if (this.hitDice >= 11) {
+      this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistAcid15);
       this.abilities.push(SpecialAbility.ResistCold15);
       this.abilities.push(SpecialAbility.ResistElectricity15);
       this.abilities.push(SpecialAbility.DamageResistanceEvil10);
     }
+    this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
     this.abilities.sort();
   }
 
   applyFiendishTemplate() {
     this.description = 'Fiendish ' + this.description;
     this.abilities.push(SpecialAbility.SmiteGood);
+    if (this.abilities.indexOf(SpecialAbility.Darkvision) === -1) {
+      this.abilities.push(SpecialAbility.Darkvision);
+    }
     this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
     if (this.hitDice < 1) {
       console.log('Error: Unable to calculate creature hit dice.');
@@ -119,14 +133,17 @@ export class Creature {
       this.abilities.push(SpecialAbility.ResistCold5);
       this.abilities.push(SpecialAbility.ResistFire5);
     } else if (this.hitDice <= 10) {
+      this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistCold10);
       this.abilities.push(SpecialAbility.ResistFire10);
       this.abilities.push(SpecialAbility.DamageResistanceGood5);
     } else if (this.hitDice >= 11) {
+      this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistCold15);
       this.abilities.push(SpecialAbility.ResistFire15);
       this.abilities.push(SpecialAbility.DamageResistanceGood10);
     }
+    this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
     this.abilities.sort();
   }
 

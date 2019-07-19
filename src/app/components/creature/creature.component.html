@@ -38,6 +38,7 @@
         <div class="col-xs-3">
           <h3 title='Touch: {{ creature.armorClass.touchAC }} &nbsp; Flat: {{ creature.armorClass.flatAC }}'>
             Armor Class: <strong>{{ creature.armorClass.armorClass }}</strong></h3>
+          <h4 *ngIf='creature.spellResistance > 0'>Spell Resistance: {{ creature.spellResistance }}</h4>
           <h5>Reach: {{ creature.reach }} feet</h5>
         </div>
         <div class="col-xs-3">
