@@ -126,24 +126,11 @@ export class Attack {
     return description;
   }
 
-  augmentSummoning(hasWeaponFinesse: boolean, strBonus: number, dexBonus: number) {
-    if (this.attackType === AttackType.Melee) {
-      if (!this.touchAttack) {
-        this.damageBonus += 2;
-      }
-      if (hasWeaponFinesse) {
-        if (strBonus > dexBonus) {
-          this.attackBonus = this.attackBonus - dexBonus + strBonus;
-        }
-      } else if (this.attackBonus) {
-        this.attackBonus += 2;
-      }
-    }
-    if (this.attackEffects) {
-      for (const attackEffect of this.attackEffects) {
-        attackEffect.applyAugmentSummoning();
-      }
-    }
+  applyAttackBonusIncrease(attackBonusIncrease: number) {
+    this.attackBonus += attackBonusIncrease;
   }
 
+  applyDamageBonusIncrease(damageBonusIncrease: number) {
+    this.damageBonus += damageBonusIncrease;
+  }
 }

@@ -2,7 +2,7 @@
   <h2 (ngModel)="character.characterName">{{ character.characterName }}</h2>
   <h3>{{ character.alignment.description }} {{ character.characterClass }} - {{ character.characterLevel }}</h3>
   <div class="row spell">
-    <spell [spell]="spell" [castingCharacter]="character" (summon)="summon($event)"
+    <spell [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount" (summon)="summon($event)"
       *ngFor="let spell of character.validSpells"></spell>
   </div>
   <div>

@@ -49,6 +49,7 @@ describe('SpellComponent', () => {
       creatureList: [],
       creatures: []
     };
+    component.roundCount = 1;
     component.castingCharacter = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
     component.selectedCreature = new Creature(
       'test',
@@ -66,6 +67,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       5,
       15,
+      1,
+      1,
+      0,
       new Saves(1, 2, 3),
       []
     );
@@ -132,6 +136,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       5,
       15,
+      1,
+      1,
+      0,
       new Saves(1, 2, 3),
       []
     );
@@ -139,6 +146,7 @@ describe('SpellComponent', () => {
     testCreature.creatureName = 'Squeaky 1',
       testCreature.editName = false;
     testCreature.roundsLeft = 1;
+    testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
       id: '1', creatures: [testCreature]
     });
@@ -165,6 +173,9 @@ describe('SpellComponent', () => {
       new ArmorClass(15, 12, 13),
       7,
       17,
+      1,
+      1,
+      0,
       new Saves(3, 2, 3),
       []
     );
@@ -172,6 +183,7 @@ describe('SpellComponent', () => {
     testCreature.creatureName = 'Squeaky 1',
       testCreature.editName = false;
     testCreature.roundsLeft = 1;
+    testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
       id: '1', creatures: [testCreature]
     });

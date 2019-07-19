@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-8">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-4">
           <h1 *ngIf="!creature.editName" (ngModel)="creature.creatureName" (click)="creature.toggleEditCreatureName()">
             <span>{{ creature.creatureName }}</span> &nbsp;
             <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
@@ -10,7 +10,10 @@
           <input class="form-control" *ngIf="creature.editName || !creature.creatureName"
             [(ngModel)]="creature.creatureName" (focusout)="creature.toggleEditCreatureName()" />
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-4">
+          <h3>Summoned in Round {{ creature.roundSummoned }}</h3>
+        </div>
+        <div class="col-xs-4">
           <h2><a target="_blank" href="{{ creature.link }}">{{ creature.description }}</a></h2>
         </div>
       </div>
@@ -35,6 +38,7 @@
         <div class="col-xs-3">
           <h3 title='Touch: {{ creature.armorClass.touchAC }} &nbsp; Flat: {{ creature.armorClass.flatAC }}'>
             Armor Class: <strong>{{ creature.armorClass.armorClass }}</strong></h3>
+          <h4 *ngIf='creature.spellResistance > 0'>Spell Resistance: {{ creature.spellResistance }}</h4>
           <h5>Reach: {{ creature.reach }} feet</h5>
         </div>
         <div class="col-xs-3">
@@ -66,7 +70,7 @@
       </div>
       <div class="row">
         <br />
-        <div class="col-xs-4">
+        <div class="col-xs-3">
           <h5 *ngIf='(creature.abilities.length > 0)'>Abilities:</h5>
           <ul>
             <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
@@ -85,13 +89,25 @@
               <span *ngIf='(skill.bonus >= 0)'>+</span>{{ skill.bonus }}</li>
           </ul>
         </div>
-        <div class="col-xs-2" style="text-align: right;">
-          Strength: {{ creature.abilityScores.strength }}<br />
-          Dexterity: {{ creature.abilityScores.dexterity }}<br />
-          Constitution: {{ creature.abilityScores.constitution }}<br />
-          Intelligence: {{ creature.abilityScores.intelligence }}<br />
-          Wisdom: {{ creature.abilityScores.wisdom }}<br />
-          Charisma: {{ creature.abilityScores.charisma }}<br />
+        <div class="col-xs-3" style="text-align: right;">
+          Strength: {{ creature.abilityScores.strength }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.strength) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.strength) }})<br />
+          Dexterity: {{ creature.abilityScores.dexterity }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.dexterity) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.dexterity) }})<br />
+          Constitution: {{ creature.abilityScores.constitution }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.constitution) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.constitution) }})<br />
+          Intelligence: {{ creature.abilityScores.intelligence }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.intelligence) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.intelligence) }})<br />
+          Wisdom: {{ creature.abilityScores.wisdom }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.wisdom) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.wisdom) }})<br />
+          Charisma: {{ creature.abilityScores.charisma }}
+          (<span
+            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.charisma) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.charisma) }})<br />
         </div>
         <div class="col-xs-2" style="text-align: right;">
           Fortitude: <span *ngIf='(creature.saves.fortitude >= 0)'>+</span>{{ creature.saves.fortitude }}<br />
@@ -106,5 +122,6 @@
     <div class="col-xs-4">
       <img class="col-xs-12" src="{{ creature.image }}" />
     </div>
+    <in-game-modifiers [affectedCreature]="creature" [inGameModifiers]="creature.inGameModifiers"></in-game-modifiers>
   </div>
 </div>

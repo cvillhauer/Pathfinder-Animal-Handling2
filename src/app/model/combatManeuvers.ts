@@ -31,9 +31,9 @@ export class Constrict extends CombatManeuver {
     return summary;
   }
 
-  applyAugmentSummoning() {
-    this.combatManeuverBonus += 2;
-    this.damageBonus += 2;
+  applyAbilityIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.combatManeuverBonus += strIncrease;
+    this.damageBonus += strIncrease;
     this.resultText = 'Creature crushes grappled target, dealing ' + this.damageDice + '+' + this.damageBonus + ' damage.';
     this.summary = this.getSummary();
     this.details = this.getDetails();
@@ -61,9 +61,9 @@ export class DeathRoll extends CombatManeuver {
     return summary;
   }
 
-  applyAugmentSummoning() {
-    this.combatManeuverBonus += 2;
-    this.damageBonus += 2;
+  applyAbilityIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.combatManeuverBonus += strIncrease;
+    this.damageBonus += strIncrease;
     this.resultText = 'Creature inflicts ' + this.damageDice + '+' + this.damageBonus + ' bite damage, and target is knocked prone.';
     this.summary = this.getSummary();
     this.details = this.getDetails();

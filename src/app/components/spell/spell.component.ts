@@ -7,6 +7,7 @@ import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Morality, CreatureType } from 'src/app/model/enums';
+import { AbilityScoreService } from 'src/app/services/ability-score.service';
 
 @Component({
   selector: 'spell',
@@ -15,12 +16,17 @@ import { Morality, CreatureType } from 'src/app/model/enums';
 export class SpellComponent implements OnInit {
   @Input() spell: Spell;
   @Input() castingCharacter: Character;
+  @Input() roundCount: number;
   selectedLevel: number;
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
   readonly augmentSummonFeat = 'Augmented Summoning';
 
-  constructor(private diceService: DiceService, private spellService: SpellService, private creatureService: CreatureService) {
+  constructor(
+    private diceService: DiceService,
+    private spellService: SpellService,
+    private creatureService: CreatureService,
+    private abilityScoreService: AbilityScoreService) {
   }
 
   ngOnInit() {
@@ -69,6 +75,7 @@ export class SpellComponent implements OnInit {
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;
+        newCreature.roundSummoned = this.roundCount;
         newCreature.roundsLeft = this.castingCharacter.characterLevel;
         // Add Celestial/Fiendish template
         if (this.spell.group === 'summonmonster' && this.selectedCreature.isTrueNeutral()
@@ -83,7 +90,9 @@ export class SpellComponent implements OnInit {
         }
         newCreature.alignment = this.determineAlignment();
         if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
-          newCreature.augmentSummoning();
+          // AugmentSummoning increases Strength and Constitution by 4
+          this.abilityScoreService.increaseStrength(newCreature, 4);
+          this.abilityScoreService.increaseConstitution(newCreature, 4);
         }
         summonedCreatures.push(newCreature);
       }

@@ -29,8 +29,13 @@ export class Web implements IAttackEffect {
     return details;
   }
 
-  applyAugmentSummoning() {
-    this.difficultyCheck += 2;
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.difficultyCheck += conIncrease;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

@@ -10,6 +10,7 @@ import { Creature } from 'src/app/model/creature';
 })
 export class CharacterComponent implements OnInit {
   @Input() characters: Character[] = [];
+  @Input() roundCount: number;
 
   constructor(private spellService: SpellService, ) {
   }

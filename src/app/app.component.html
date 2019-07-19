@@ -1,4 +1,14 @@
 <div class="container">
-  <h1>Pathfinder Animal Handling</h1>
-  <character [characters]="characters"></character>
+  <div class="row">
+    <div class="col-xs-6">
+      <h1>Pathfinder Animal Handling</h1>
+    </div>
+    <div class="col-xs-3">
+      <h2>Round {{ roundCount }}</h2>
+    </div>
+    <div class="col-xs-3">
+      <button type="button" class="btn btn-default button-holder" (click)="nextRound()">Next Round</button>
+    </div>
+  </div>
+  <character [characters]="characters" [roundCount]="roundCount"></character>
 </div>

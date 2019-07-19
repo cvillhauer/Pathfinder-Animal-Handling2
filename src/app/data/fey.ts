@@ -27,6 +27,9 @@ export const fey: Creature[] = [
     new ArmorClass(12, 12, 11),
     -2,
     9,
+    0,
+    0.25,
+    0,
     new Saves(0, 3, 3),
     [Feat.PointBlankShot],
     [

@@ -43,8 +43,13 @@ export class Poison implements IAttackEffect {
     return details;
   }
 
-  applyAugmentSummoning() {
-    this.savingThrow.difficultyCheck += 2;
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.savingThrow.difficultyCheck += conIncrease;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

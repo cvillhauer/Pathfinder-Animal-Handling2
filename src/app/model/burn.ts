@@ -26,14 +26,20 @@ export class Burn implements IAttackEffect {
 
   getDetails() {
     let details: string = this.getSummary();
-    details += '\r\n' + 'Creatures hit make a Reflex save to avoid catching fire.';
-    details += '\r\n' + 'Burning creatures take fire damage on their turn for 1d4 rounds.';
+    details += '\r\n' + 'Affects targets hit by this creature and enemies who hit this creature with a natural attack.';
+    details += '\r\n' + 'Creatures take ' + this.damageDice + ' Fire damage and make a Reflex save to avoid catching fire.';
+    details += '\r\n' + 'Burning creatures take 1d6 Fire damage on their turn for 1d4 rounds.';
     details += '\r\n' + 'Burning creatures may spend a full-round action to get a new Reflex save at a +4 bonus.';
     return details;
   }
 
-  applyAugmentSummoning() {
-    this.difficultyCheck += 2;
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.difficultyCheck += conIncrease;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

@@ -32,9 +32,14 @@ export class Trample implements IAttackEffect {
     return details;
   }
 
-  applyAugmentSummoning() {
-    this.damageBonus += 3;
-    this.difficultyCheck += 2;
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+    this.damageBonus += Math.floor(strIncrease * 1.5);
+    this.difficultyCheck += strIncrease;
+    this.summary = this.getSummary();
+    this.details = this.getDetails();
+  }
+
+  applyAttackBonusIncrease(attackBonusIncrease: number, includeCombatManeuvers: boolean) {
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

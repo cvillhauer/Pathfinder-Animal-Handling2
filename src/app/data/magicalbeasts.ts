@@ -28,6 +28,9 @@ export const magicalbeasts: Creature[] = [
     new ArmorClass(16, 16, 12),
     3,
     9,
+    1,
+    0.5,
+    0,
     new Saves(2, 6, 1),
     [Feat.WeaponFinesse],
     [
