@@ -73,17 +73,17 @@
         <div class="col-xs-3">
           <h5 *ngIf='(creature.abilities.length > 0)'>Abilities:</h5>
           <ul>
-            <li *ngFor="let ability of creature.abilities">{{ ability }}</li>
+            <li *ngFor='let ability of creature.abilities' title='{{ ability.summary }}'>{{ ability.description }}</li>
           </ul>
           <h5 *ngIf='(creature.feats).length > 0'>Feats:</h5>
           <ul>
-            <li *ngFor="let feat of creature.feats">{{ feat }}</li>
+            <li *ngFor='let feat of creature.feats' title='{{ feat.summary }}'>{{ feat.description }}</li>
           </ul>
         </div>
         <div class="col-xs-4">
           <h5 *ngIf='(creature.skills.length > 0)'>Skills:</h5>
           <ul>
-            <li *ngFor="let skill of creature.skills">
+            <li *ngFor='let skill of creature.skills'>
               {{ skill.skill.description }}
               <span *ngIf='(skill.circumstance)'>({{ skill.circumstance }}) </span>
               <span *ngIf='(skill.bonus >= 0)'>+</span>{{ skill.bonus }}</li>

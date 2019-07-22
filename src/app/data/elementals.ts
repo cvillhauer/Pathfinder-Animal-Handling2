@@ -1,6 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, DamageType, AttackType, Feat, SpecialAbility, Spell
-} from '../model/enums';
+import { Size, CreatureType, DamageType, AttackType } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -14,6 +12,10 @@ import { NumbingCold } from '../model/numbingCold';
 import { AdditionalDamage } from '../model/additionalDamage';
 import { LavaPuddle } from '../model/lavaPuddle';
 import { Entrap } from '../model/entrap';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
 
 const elementalTraits = [
   SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,

@@ -1,6 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, DamageType, AttackType, Feat, SpecialAbility, Spell
-} from '../model/enums';
+import { Size, CreatureType, DamageType, AttackType, Spell } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -9,6 +7,10 @@ import { ArmorClass } from '../model/armorClass';
 import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
 import { SpellLikeAbility } from '../model/spellLikeAbility';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
 
 export const fey: Creature[] = [
   new Creature(

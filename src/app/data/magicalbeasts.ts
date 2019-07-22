@@ -1,6 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, AttackType, Feat, SpecialAbility
-} from '../model/enums';
+import { Size, CreatureType, AttackType } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -10,6 +8,10 @@ import { SkillBonus } from '../model/skillbonus';
 import { Attach } from '../model/combatManeuvers';
 import { BloodDrain } from '../model/grappleEffects';
 import { Speeds } from '../model/speed';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
 
 export const magicalbeasts: Creature[] = [
   new Creature(

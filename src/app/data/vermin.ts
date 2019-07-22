@@ -1,7 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, Modifier,
-  DamageType, AttackType, AbilityEffectType, Save, Feat, SpecialAbility
-} from '../model/enums';
+import { Size, CreatureType, Modifier, DamageType, AttackType, AbilityEffectType, Save } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -14,6 +11,10 @@ import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
 import { Web } from '../model/web';
 import { Grab, Constrict } from '../model/combatManeuvers';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
 
 export const vermin: Creature[] = [
   new Creature(

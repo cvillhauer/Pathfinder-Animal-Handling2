@@ -1,13 +1,15 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility, InGameCondition } from './enums';
+import { Size, CreatureType, Morality, Sociology, InGameCondition } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
+import { Feat } from './feat';
 import { Attack } from './attack';
 import { ArmorClass } from './armorClass';
 import { Speeds } from './speed';
 import { SpellLikeAbility } from './spellLikeAbility';
 import { InGameModifier } from './inGameModifiers';
+import { SpecialAbility } from '../model/specialAbility';
 
 export class Creature {
   level: number;
