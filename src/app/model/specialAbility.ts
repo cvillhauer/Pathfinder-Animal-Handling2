@@ -2,57 +2,52 @@ export class SpecialAbility {
 
   static AirMastery = {
     description: 'Air Mastery',
-    summary: ''
+    summary: 'Airborne enemies take a –1 penalty on attack and damage rolls'
   };
 
   static Blindsense = {
     description: 'Blindsense',
-    summary: ''
+    summary: 'Does not need to make Perception checks to notice and locate creatures within range'
   };
 
   static Blindsight = {
     description: 'Blindsight',
-    summary: ''
-  };
-
-  static Acrobatics = {
-    description: 'Acrobatics',
-    summary: ''
+    summary: 'Ability to use a non-visual sense to operate effectively without vision'
   };
 
   static DamageResistanceColdIron2 = {
     description: 'DR 2/Cold Iron',
-    summary: ''
+    summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'
   };
 
   static DamageResistanceColdIron5 = {
     description: 'DR 5/Cold Iron',
-    summary: ''
+    summary: 'Takes 5 less points of damage from all weapons that are not Cold Iron'
   };
 
   static DamageResistanceEvil5 = {
     description: 'DR 5/Evil',
-    summary: ''
+    summary: 'Takes 5 less points of damage from all weapons that are not Evil'
   };
 
   static DamageResistanceEvil10 = {
     description: 'DR 10/Evil',
-    summary: ''
+    summary: 'Takes 10 less points of damage from all weapons that are not Evil'
   };
 
   static DamageResistanceGood5 = {
     description: 'DR 5/Good',
-    summary: ''
+    summary: 'Takes 5 less points of damage from all weapons that are not Good'
   };
 
   static DamageResistanceGood10 = {
     description: 'DR 10/Good',
-    summary: ''
+    summary: 'Takes 10 less points of damage from all weapons that are not Good'
   };
 
   static DamageResistanceSilver5 = {
     description: 'DR 5/Siver',
-    summary: ''
+    summary: 'Takes 5 less points of damage from all weapons that are not Silver'
   };
 
   static Darkvision = {
