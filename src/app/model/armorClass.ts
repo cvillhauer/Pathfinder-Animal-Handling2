@@ -10,4 +10,10 @@ export class ArmorClass {
     const { armorClass, touchAC, flatAC } = AC;
     return new this(armorClass, touchAC, flatAC);
   }
+
+  applyArmorModifier(modifier: number) {
+    this.armorClass += modifier;
+    this.touchAC += modifier;
+    this.flatAC += modifier;
+  }
 }

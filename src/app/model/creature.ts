@@ -44,22 +44,23 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = [],
     public spellLikeAbilities: SpellLikeAbility[] = []) {
-    if (this.feats && this.feats.indexOf(Feat.PowerAttack) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.Rage) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.EarthMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.MetalMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.WaterMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
-    }
-    abilities.sort();
+    this.feats.forEach(f => {
+      if (f.description === Feat.PowerAttack.description) {
+        this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+      }
+    });
+    this.abilities.forEach(a => {
+      if (a.description === SpecialAbility.Rage.description) {
+        this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
+      } else if (a.description === SpecialAbility.EarthMastery.description) {
+        this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
+      } else if (a.description === SpecialAbility.MetalMastery.description) {
+        this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
+      } else if (a.description === SpecialAbility.WaterMastery.description) {
+        this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
+      }
+    });
+    abilities.sort((a, b) => (a.description > b.description) ? 1 : -1);
     this.inGameModifiers.sort((a, b) => (a.description > b.description) ? 1 : -1);
   }
 
