@@ -44,22 +44,26 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = [],
     public spellLikeAbilities: SpellLikeAbility[] = []) {
-    this.feats.forEach(f => {
-      if (f.description === Feat.PowerAttack.description) {
-        this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
-      }
-    });
-    this.abilities.forEach(a => {
-      if (a.description === SpecialAbility.Rage.description) {
-        this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
-      } else if (a.description === SpecialAbility.EarthMastery.description) {
-        this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
-      } else if (a.description === SpecialAbility.MetalMastery.description) {
-        this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
-      } else if (a.description === SpecialAbility.WaterMastery.description) {
-        this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
-      }
-    });
+    if (this.feats) {
+      this.feats.forEach(f => {
+        if (f.description === Feat.PowerAttack.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+        }
+      });
+    }
+    if (this.abilities) {
+      this.abilities.forEach(a => {
+        if (a.description === SpecialAbility.Rage.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
+        } else if (a.description === SpecialAbility.EarthMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
+        } else if (a.description === SpecialAbility.MetalMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
+        } else if (a.description === SpecialAbility.WaterMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
+        }
+      });
+    }
     abilities.sort((a, b) => (a.description > b.description) ? 1 : -1);
     this.inGameModifiers.sort((a, b) => (a.description > b.description) ? 1 : -1);
   }
@@ -91,6 +95,30 @@ export class Creature {
     } else {
       return false;
     }
+  }
+
+  getStrengthBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.strength);
+  }
+
+  getDexterityBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.dexterity);
+  }
+
+  getConstitutionBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.constitution);
+  }
+
+  getIntelligenceBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.intelligence);
+  }
+
+  getWisdomBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.wisdom);
+  }
+
+  getCharismaBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.charisma);
   }
 
   applyCelestialTemplate() {

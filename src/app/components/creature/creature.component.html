@@ -91,23 +91,17 @@
         </div>
         <div class="col-xs-3" style="text-align: right;">
           Strength: {{ creature.abilityScores.strength }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.strength) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.strength) }})<br />
+          (<span *ngIf='creature.getStrengthBonus() >= 0'>+</span>{{ creature.getStrengthBonus() }})<br />
           Dexterity: {{ creature.abilityScores.dexterity }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.dexterity) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.dexterity) }})<br />
+          (<span *ngIf='creature.getDexterityBonus() >= 0'>+</span>{{ creature.getDexterityBonus() }})<br />
           Constitution: {{ creature.abilityScores.constitution }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.constitution) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.constitution) }})<br />
+          (<span *ngIf='creature.getConstitutionBonus() >= 0'>+</span>{{ creature.getConstitutionBonus() }})<br />
           Intelligence: {{ creature.abilityScores.intelligence }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.intelligence) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.intelligence) }})<br />
+          (<span *ngIf='creature.getIntelligenceBonus() >= 0'>+</span>{{ creature.getIntelligenceBonus() }})<br />
           Wisdom: {{ creature.abilityScores.wisdom }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.wisdom) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.wisdom) }})<br />
+          (<span *ngIf='creature.getWisdomBonus() >= 0'>+</span>{{ creature.getWisdomBonus() }})<br />
           Charisma: {{ creature.abilityScores.charisma }}
-          (<span
-            *ngIf='creature.abilityScores.calculateBonus(creature.abilityScores.charisma) >= 0'>+</span>{{ creature.abilityScores.calculateBonus(creature.abilityScores.charisma) }})<br />
+          (<span *ngIf='creature.getCharismaBonus() >= 0'>+</span>{{ creature.getCharismaBonus() }})<br />
         </div>
         <div class="col-xs-2" style="text-align: right;">
           Fortitude: <span *ngIf='(creature.saves.fortitude >= 0)'>+</span>{{ creature.saves.fortitude }}<br />
