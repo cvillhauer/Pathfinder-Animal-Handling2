@@ -34,9 +34,19 @@ export class Feat {
     summary: '+4 bonus on initiative checks'
   };
 
+  static IronWill = {
+    description: 'Iron Will',
+    summary: '+2 bonus on Will saves'
+  };
+
   static LightningReflexes = {
     description: 'Lightning Reflexes',
     summary: '+2 bonus on Reflex saves'
+  };
+
+  static Mobility = {
+    description: 'Mobility',
+    summary: '+4 dodge bonus to AC against Attacks of Opportunity when moving'
   };
 
   static Multiattack = {
@@ -82,6 +92,11 @@ export class Feat {
   static WeaponFinesse = {
     description: 'Weapon Finesse',
     summary: 'Use Dex instead of Str on attack rolls with light weapons'
+  };
+
+  static WeaponFocusBite = {
+    description: 'Weapon Focus Bite',
+    summary: '+1 on attack rolls with Bite attack'
   };
 
   description: string;

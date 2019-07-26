@@ -54,5 +54,52 @@ export const fey: Creature[] = [
       new SpellLikeAbility(1, 'at will', Spell.Prestidigitation),
       new SpellLikeAbility(1, 'once per day', Spell.Doom, 10)
     ]
+  ),
+  new Creature(
+    'satyr',
+    'Satyr',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Satyr',
+    'http://orig01.deviantart.net/4eaa/f/2009/296/a/4/satyr_for_paizo_publishing_by_michaeljaecks.jpg',
+    Size.Medium,
+    CreatureType.Fey,
+    Alignment.chaoticNeutral,
+    new Speeds(40),
+    5,
+    new AbilityScores(14, 15, 15, 12, 14, 19),
+    8,
+    44,
+    new ArmorClass(18, 13, 15),
+    6,
+    18,
+    4,
+    4,
+    0,
+    new Saves(4, 8, 8),
+    [Feat.Dodge, Feat.Mobility, Feat.SkillFocusPerception, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Bluff, 15),
+      new SkillBonus(Skill.Diplomacy, 15),
+      new SkillBonus(Skill.Disguise, 9),
+      new SkillBonus(Skill.Intimidate, 9),
+      new SkillBonus(Skill.KnowledgeNature, 10),
+      new SkillBonus(Skill.Perception, 18),
+      new SkillBonus(Skill.Perform, 19),
+      new SkillBonus(Skill.Stealth, 17),
+      new SkillBonus(Skill.Survival, 7)
+    ],
+    [
+      new Attack('Dagger', 6, '1d4', 2, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Horns', 1, '1d6', 1, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Short Bow', 6, '1d6', 0, false, AttackType.Ranged, [DamageType.Piercing])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.DamageResistanceColdIron5],
+    [
+      new SpellLikeAbility(8, 'at will', Spell.CharmPerson, 15),
+      new SpellLikeAbility(8, 'at will', Spell.DancingLights),
+      new SpellLikeAbility(8, 'at will', Spell.GhostSound, 14),
+      new SpellLikeAbility(8, 'at will', Spell.Sleep, 15),
+      new SpellLikeAbility(8, 'at will', Spell.Suggestion, 17),
+      new SpellLikeAbility(8, 'once per day', Spell.Fear, 18)
+    ]
   )
 ];

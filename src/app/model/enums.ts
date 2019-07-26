@@ -90,11 +90,19 @@ export enum Spell {
   Aid = 'Aid',
   AuraOfMenace = 'Aura of Menace',
   CauseFear = 'Cause Fear',
+  CharmPerson = 'Charm Person',
   ContinualFlame = 'Continual Flame',
+  DancingLights = 'Dancing Lights',
   DetectEvil = 'Detect Evil',
   Doom = 'Doom',
+  Fear = 'Fear',
+  GhostSound = 'Ghost Sound',
+  MagicCircleAgainstEvil = 'Magic Circle Against Evil',
+  Message = 'Message',
   Prestidigitation = 'Prestidigitation',
-  StinkingCloud = 'Stinking Cloud'
+  Sleep = 'Sleep',
+  StinkingCloud = 'Stinking Cloud',
+  Suggestion = 'Suggestion'
 }
 
 export enum InGameCondition {
