@@ -75,7 +75,7 @@ export const animals: Creature[] = [
     [new SkillBonus(Skill.Perception, 9)],
     [
       new Attack('Gore', 7, '1d8', 9, false, AttackType.Melee, [DamageType.Piercing]),
-      new Attack('Trample', null, '', 0, false, AttackType.Melee, [], [new Trample('2d6', 9, 17)])
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('2d6', 9, 17)])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Stampede]
   ),
