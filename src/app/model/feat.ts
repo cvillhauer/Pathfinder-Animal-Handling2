@@ -79,6 +79,11 @@ export class Feat {
     summary: '+3 bonus on Stealth checks'
   };
 
+  static SkillFocusSurvival = {
+    description: 'Skill Focus (Survival)',
+    summary: '+3 bonus on Survival checks'
+  };
+
   static Stealthy = {
     description: 'Stealthy',
     summary: '+2 bonus on Escape Artist and Stealth checks'
@@ -97,6 +102,11 @@ export class Feat {
   static WeaponFocusBite = {
     description: 'Weapon Focus Bite',
     summary: '+1 on attack rolls with Bite attack'
+  };
+
+  static WeaponFocusClaw = {
+    description: 'Weapon Focus Claw',
+    summary: '+1 on attack rolls with Claw attack'
   };
 
   description: string;

@@ -205,6 +205,11 @@ export class SpecialAbility {
     summary: 'Can make a full attack on a Charge, including rake attacks'
   };
 
+  static PowerfulCharge = {
+    description: 'Powerful Charge',
+    summary: 'Charge attack deals extra damage'
+  };
+
   static Rage = {
     description: 'Rage',
     summary: 'Gains +4 to Strengh, +4 to Constitution, and -2 to Armor Class'
