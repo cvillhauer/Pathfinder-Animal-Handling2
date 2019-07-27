@@ -16,6 +16,13 @@ export class InGameModifiersService {
   proccessModifierChange(affectedCreature: Creature, modifier: InGameModifier) {
     const applyModifier = modifier.applied;
     switch (modifier.description) {
+      case InGameCondition.Charging:
+        if (applyModifier) {
+          this.applyCharging(affectedCreature);
+        } else {
+          this.removeCharging(affectedCreature);
+        }
+        break;
       case InGameCondition.EarthMastery:
         if (applyModifier) {
           this.applyEarthMastery(affectedCreature);
@@ -69,6 +76,16 @@ export class InGameModifiersService {
         console.log('Unknown in-game modifier: ' + modifier.description);
         break;
     }
+  }
+
+  applyCharging(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, 2);
+    affectedCreature.armorClass.applyArmorModifier(-2);
+  }
+
+  removeCharging(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, -2);
+    affectedCreature.armorClass.applyArmorModifier(2);
   }
 
   applyEarthMastery(affectedCreature: Creature) {

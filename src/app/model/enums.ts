@@ -111,6 +111,7 @@ export enum Shape {
 }
 
 export enum InGameCondition {
+  Charging = 'Charging',
   EarthMastery = 'Earth Mastery',
   Grappled = 'Grappled',
   MetalMastery = 'Metal Mastery',

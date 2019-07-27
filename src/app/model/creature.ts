@@ -17,7 +17,7 @@ export class Creature {
   editName: boolean;
   roundSummoned: number;
   roundsLeft: number;
-  inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled)];
+  inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled), new InGameModifier(InGameCondition.Charging)];
 
   constructor(
     public id: string,
