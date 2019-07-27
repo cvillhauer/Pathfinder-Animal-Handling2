@@ -14,6 +14,7 @@ import { NumbingCold } from './numbingCold';
 import { LavaPuddle } from './lavaPuddle';
 import { Entrap } from './entrap';
 import { Trample } from './trample';
+import { BreathWeapon } from './breathWeapon';
 
 export class Attack {
   damageTypeDescription = '';
@@ -46,6 +47,9 @@ export class Attack {
           const bloodDrain = ae as BloodDrain;
           const newBloodDrain = new BloodDrain(bloodDrain.conDamage, bloodDrain.restrictionText);
           return newBloodDrain;
+        case 'Breath Weapon':
+          const breathWeapon = BreathWeapon.fromObject(ae);
+          return breathWeapon;
         case 'Burn':
           const burn = ae as Burn;
           const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);

@@ -1,4 +1,4 @@
-import { Size, CreatureType, DamageType, AttackType, Spell } from '../model/enums';
+import { Size, CreatureType, DamageType, AttackType, Spell, Shape, Save } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -12,6 +12,8 @@ import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
 import { AdditionalDamage } from '../model/additionalDamage';
+import { BreathWeapon } from '../model/breathWeapon';
+import { SavingThrow } from '../model/savingThrow';
 
 export const outsiders: Creature[] = [
   new Creature(
@@ -83,8 +85,10 @@ export const outsiders: Creature[] = [
     ],
     [
       new Attack('Bite', 5, '1d8', 1, false, AttackType.Melee,
-        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [], [new AdditionalDamage('1d6', 0, DamageType.Fire)])
-      // TODO: Add breath weapon (10-ft. cone, once every 2d4 rounds, 2d6 fire damage, Reflex DC 14 for half)
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [], [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
+      new Attack('Breath Weapon', null, '', 0, false, AttackType.AreaOfEffect, [],
+        [new BreathWeapon(Shape.Cone10, new AdditionalDamage('2d6', 0, DamageType.Fire),
+          new SavingThrow(Save.Reflex, 14), 'once every 2d4 rounds')])
     ],
     [SpecialAbility.Darkvision, SpecialAbility.Scent, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold]
   ),

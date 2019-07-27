@@ -61,6 +61,7 @@ export enum AbilityEffectType {
 }
 
 export enum AttackType {
+  AreaOfEffect = 'Area of Effect',
   Melee = 'Melee',
   Ranged = 'Ranged'
 }
@@ -103,6 +104,10 @@ export enum Spell {
   Sleep = 'Sleep',
   StinkingCloud = 'Stinking Cloud',
   Suggestion = 'Suggestion'
+}
+
+export enum Shape {
+  Cone10 = '10 ft Cone'
 }
 
 export enum InGameCondition {
