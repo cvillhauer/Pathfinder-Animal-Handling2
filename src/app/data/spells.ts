@@ -70,7 +70,34 @@ export const spells = [
     description: 'Summon Nature\'s Ally IV',
     group: 'summonnaturesally',
     level: 4,
-    creatureList: []
+    creatureList: [
+      'giantantdrone',
+      'bison',
+      'deinonychus',
+      'direape',
+      'direboar',
+      'direwolf',
+      'giantscorpion',
+      'giantstagbeetle',
+      'giantwasp',
+      'griffon',
+      'grizzlybear',
+      'lion',
+      'mediumairelemental',
+      'mediumearthelemental',
+      'mediumfireelemental',
+      'mediumiceelemental',
+      'mediumlightningelemental',
+      'mediummagmaelemental',
+      'mediummudelemental',
+      'mediumwaterelemental',
+      // 'mephit', // TODO Implement Mephits
+      'owlbear',
+      'pteranodon',
+      'rhinoceros',
+      'satyr',
+      'tiger'
+    ]
   },
   {
     id: 'summonnaturesally5',
@@ -178,7 +205,31 @@ export const spells = [
     description: 'Summon Monster IV',
     group: 'summonmonster',
     level: 4,
-    creatureList: []
+    creatureList: [
+      'giantantdrone',
+      'bison',
+      'deinonychus',
+      'direape',
+      'direboar',
+      'direwolf',
+      'giantscorpion',
+      'giantwasp',
+      'grizzlybear',
+      'hellhound',
+      'houndarchon',
+      'lion',
+      'mediumairelemental',
+      'mediumearthelemental',
+      'mediumfireelemental',
+      'mediumiceelemental',
+      'mediumlightningelemental',
+      'mediummagmaelemental',
+      'mediummudelemental',
+      'mediumwaterelemental',
+      // 'mephit', // TODO Implement Mephits
+      'pteranodon',
+      'rhinoceros'
+    ]
   },
   {
     id: 'summonmonster5',

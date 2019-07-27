@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Creature } from '../model/creature';
-import { Modifier, Feat, AttackType } from '../model/enums';
+import { Modifier, AttackType } from '../model/enums';
+import { Feat } from '../model/feat';
 
 @Injectable({
   providedIn: 'root'

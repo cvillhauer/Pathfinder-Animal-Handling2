@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from './model/character';
 import { AbilityScores } from './model/abilityscores';
-import { Alignment } from './model/enums';
+import { Alignment } from './model/alignment';
 
 @Component({
   selector: 'app-root',

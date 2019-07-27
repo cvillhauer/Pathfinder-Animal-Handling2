@@ -1,6 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, DamageType, AttackType, Feat, SpecialAbility, Spell
-} from '../model/enums';
+import { Size, CreatureType, DamageType, AttackType } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -14,6 +12,10 @@ import { NumbingCold } from '../model/numbingCold';
 import { AdditionalDamage } from '../model/additionalDamage';
 import { LavaPuddle } from '../model/lavaPuddle';
 import { Entrap } from '../model/entrap';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
 
 const elementalTraits = [
   SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,
@@ -51,7 +53,7 @@ export const elementals: Creature[] = [
     Size.Small,
     CreatureType.Elemental,
     Alignment.trueNeutral,
-    new Speeds(0, 0, 100, 0),
+    new Speeds(0, 0, 100),
     5,
     new AbilityScores(12, 17, 12, 4, 11, 11),
     2,
@@ -75,6 +77,41 @@ export const elementals: Creature[] = [
     [
       new Attack('Slam', 6, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Whirlwind', null, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(1, 12, 20)])
+    ],
+    [...airElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'mediumairelemental',
+    'Medium Air Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Air%20Elemental',
+    airElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 100),
+    5,
+    new AbilityScores(14, 21, 14, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(19, 16, 13),
+    6,
+    22,
+    4,
+    3,
+    0,
+    new Saves(6, 9, 1),
+    [Feat.Dodge, Feat.FlybyAttack, Feat.ImprovedInititive, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Acrobatics, 11),
+      new SkillBonus(Skill.EscapeArtist, 9),
+      new SkillBonus(Skill.Fly, 17),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 10)
+    ],
+    [
+      new Attack('Slam', 9, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Whirlwind', null, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(2, 14, 30)])
     ],
     [...airElementalTraits, ...elementalTraits]
   ),
@@ -111,6 +148,41 @@ export const elementals: Creature[] = [
     [...earthElementalTraits, ...elementalTraits]
   ),
   new Creature(
+    'mediumearthelemental',
+    'Medium Earth Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Earth%20Elemental',
+    earthElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 0, 20),
+    5,
+    new AbilityScores(20, 8, 17, 4, 11, 11),
+    4,
+    34,
+    new ArmorClass(18, 9, 18),
+    9,
+    18,
+    4,
+    3,
+    0,
+    new Saves(7, 0, 4),
+    [Feat.Cleave, Feat.ImprovedBullRush, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.Appraise, 1),
+      new SkillBonus(Skill.Climb, 10),
+      new SkillBonus(Skill.KnowledgeDungeoneering, 2),
+      new SkillBonus(Skill.KnowledgePlanes, 2),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 3)
+    ],
+    [
+      new Attack('Slam', 9, '1d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Cleave (Slam)', 9, '1d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+    ],
+    [...earthElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
     'smallfireelemental',
     'Small Fire Elemental',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Fire%20Elemental',
@@ -143,6 +215,38 @@ export const elementals: Creature[] = [
     [...fireElementalTraits, ...elementalTraits]
   ),
   new Creature(
+    'mediumfireelemental',
+    'Medium Fire Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Fire%20Elemental',
+    fireElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(50),
+    5,
+    new AbilityScores(12, 17, 14, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(17, 14, 13),
+    5,
+    19,
+    4,
+    3,
+    0,
+    new Saves(6, 7, 1),
+    [Feat.Dodge, Feat.ImprovedInititive, Feat.Mobility, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Acrobatics, 8),
+      new SkillBonus(Skill.Climb, 5),
+      new SkillBonus(Skill.EscapeArtist, 8),
+      new SkillBonus(Skill.Intimidate, 5),
+      new SkillBonus(Skill.KnowledgePlanes, 1),
+      new SkillBonus(Skill.Perception, 7)
+    ],
+    [new Attack('Slam', 7, '1d6', 1, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d6', 14)])],
+    [...fireElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
     'smalliceelemental',
     'Small Ice Elemental',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Ice%20Elemental',
@@ -171,6 +275,37 @@ export const elementals: Creature[] = [
     ],
     [new Attack('Slam', 4, '1d4', 1, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(12)],
       [new AdditionalDamage('1d3', 0, DamageType.Cold)])],
+    [...iceElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'mediumiceelemental',
+    'Medium Ice Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Ice%20Elemental',
+    iceElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 60, 20),
+    5,
+    new AbilityScores(16, 10, 15, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(16, 10, 16),
+    7,
+    17,
+    4,
+    3,
+    0,
+    new Saves(6, 4, 1),
+    [Feat.Cleave, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.KnowledgePlanes, 4),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 7),
+      new SkillBonus(Skill.Swim, 11)
+    ],
+    [new Attack('Slam', 7, '1d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(14)],
+      [new AdditionalDamage('1d4', 0, DamageType.Cold)])],
     [...iceElementalTraits, ...elementalTraits]
   ),
   new Creature(
@@ -206,6 +341,38 @@ export const elementals: Creature[] = [
     [...lightningElementalTraits, ...elementalTraits]
   ),
   new Creature(
+    'mediumlightningelemental',
+    'Medium Lightning Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Lightning%20Elemental',
+    lightningElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 100),
+    5,
+    new AbilityScores(14, 19, 12, 4, 11, 11),
+    4,
+    26,
+    new ArmorClass(16, 15, 11),
+    6,
+    21,
+    4,
+    3,
+    0,
+    new Saves(5, 8, 1),
+    [Feat.Dodge, Feat.ImprovedInititive, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Acrobatics, 11),
+      new SkillBonus(Skill.EscapeArtist, 9),
+      new SkillBonus(Skill.Fly, 12),
+      new SkillBonus(Skill.KnowledgePlanes, 2),
+      new SkillBonus(Skill.Perception, 7)
+    ],
+    [new Attack('Slam', 8, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [],
+      [new AdditionalDamage('1d4', 0, DamageType.Electricity)])],
+    [...lightningElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
     'smallmagmaelemental',
     'Small Magma Elemental',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Magma%20Elemental',
@@ -234,6 +401,38 @@ export const elementals: Creature[] = [
     [
       new Attack('Slam', 3, '1d3', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d4', 9)]),
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(2)])
+    ],
+    [...magmaElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'mediummagmaelemental',
+    'Medium Magma Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Magma%20Elemental',
+    magmaElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 0, 20),
+    5,
+    new AbilityScores(14, 8, 15, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(16, 9, 16),
+    6,
+    15,
+    4,
+    3,
+    0,
+    new Saves(6, 3, 1),
+    [Feat.ImprovedInititive, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.KnowledgeDungeoneering, 4),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 6)
+    ],
+    [
+      new Attack('Slam', 6, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d4', 12)]),
+      new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(4)])
     ],
     [...magmaElementalTraits, ...elementalTraits]
   ),
@@ -270,6 +469,38 @@ export const elementals: Creature[] = [
     [...mudElementalTraits, ...elementalTraits]
   ),
   new Creature(
+    'mediummudelemental',
+    'Medium Mud Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Mud%20Elemental',
+    mudElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 30, 10),
+    5,
+    new AbilityScores(16, 10, 15, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(16, 10, 16),
+    7,
+    17,
+    4,
+    3,
+    0,
+    new Saves(6, 4, 1),
+    [Feat.Cleave, Feat.ImprovedBullRush, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.Climb, 8),
+      new SkillBonus(Skill.EscapeArtist, 5),
+      new SkillBonus(Skill.KnowledgePlanes, 2),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 5),
+      new SkillBonus(Skill.Swim, 11)
+    ],
+    [new Attack('Slam', 7, '1d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(14, '10 minutes', 5, 5)])],
+    [...mudElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
     'smallwaterelemental',
     'Small Water Elemental',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Water%20Elemental',
@@ -301,6 +532,41 @@ export const elementals: Creature[] = [
     [
       new Attack('Slam', 5, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Vortex', null, '1d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(1, 13, 20)])
+    ],
+    [...waterElementalTraits, ...elementalTraits]
+  ),
+  new Creature(
+    'mediumwaterelemental',
+    'Medium Water Elemental',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Water%20Elemental',
+    waterElementalImage,
+    Size.Medium,
+    CreatureType.Elemental,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 90),
+    5,
+    new AbilityScores(16, 12, 15, 4, 11, 11),
+    4,
+    30,
+    new ArmorClass(17, 11, 16),
+    7,
+    18,
+    4,
+    3,
+    0,
+    new Saves(6, 5, 1),
+    [Feat.Cleave, Feat.PowerAttack],
+    [
+      new SkillBonus(Skill.Acrobatics, 6),
+      new SkillBonus(Skill.EscapeArtist, 6),
+      new SkillBonus(Skill.KnowledgePlanes, 2),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Stealth, 6),
+      new SkillBonus(Skill.Swim, 16)
+    ],
+    [
+      new Attack('Slam', 7, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Vortex', null, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(2, 15, 30)])
     ],
     [...waterElementalTraits, ...elementalTraits]
   )

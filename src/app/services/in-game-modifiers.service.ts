@@ -16,6 +16,20 @@ export class InGameModifiersService {
   proccessModifierChange(affectedCreature: Creature, modifier: InGameModifier) {
     const applyModifier = modifier.applied;
     switch (modifier.description) {
+      case InGameCondition.Charging:
+        if (applyModifier) {
+          this.applyCharging(affectedCreature);
+        } else {
+          this.removeCharging(affectedCreature);
+        }
+        break;
+      case InGameCondition.Cleave:
+        if (applyModifier) {
+          this.applyCleave(affectedCreature);
+        } else {
+          this.removeCleave(affectedCreature);
+        }
+        break;
       case InGameCondition.EarthMastery:
         if (applyModifier) {
           this.applyEarthMastery(affectedCreature);
@@ -71,12 +85,36 @@ export class InGameModifiersService {
     }
   }
 
+  applyCharging(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, 2);
+    affectedCreature.armorClass.applyArmorModifier(-2);
+  }
+
+  removeCharging(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, -2);
+    affectedCreature.armorClass.applyArmorModifier(2);
+  }
+
+  applyCleave(affectedCreature: Creature) {
+    affectedCreature.armorClass.applyArmorModifier(-2);
+  }
+
+  removeCleave(affectedCreature: Creature) {
+    affectedCreature.armorClass.applyArmorModifier(2);
+  }
+
   applyEarthMastery(affectedCreature: Creature) {
     this.applyAttackBonusIncrease(affectedCreature, 1);
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(1);
+    }
   }
 
   removeEarthMastery(affectedCreature: Creature) {
     this.applyAttackBonusIncrease(affectedCreature, -1);
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(-1);
+    }
   }
 
   applyGrappled(affectedCreature: Creature) {
@@ -120,11 +158,13 @@ export class InGameModifiersService {
   applyRage(affectedCreature: Creature) {
     this.abilityScoreService.increaseStrength(affectedCreature, 4);
     this.abilityScoreService.increaseConstitution(affectedCreature, 4);
+    affectedCreature.armorClass.applyArmorModifier(-2);
   }
 
   removeRage(affectedCreature: Creature) {
     this.abilityScoreService.increaseStrength(affectedCreature, -4);
     this.abilityScoreService.increaseConstitution(affectedCreature, -4);
+    affectedCreature.armorClass.applyArmorModifier(2);
   }
 
   applySmite(affectedCreature: Creature) {
@@ -149,10 +189,16 @@ export class InGameModifiersService {
 
   applyWaterMastery(affectedCreature: Creature) {
     this.applyAttackBonusIncrease(affectedCreature, 1);
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(1);
+    }
   }
 
   removeWaterMastery(affectedCreature: Creature) {
     this.applyAttackBonusIncrease(affectedCreature, -1);
+    for (const attack of affectedCreature.attacks) {
+      attack.applyDamageBonusIncrease(-1);
+    }
   }
 
   applyAttackBonusIncrease(affectedCreature: Creature, attackBonusIncrease: number, includeCombatManeuvers: boolean = true) {

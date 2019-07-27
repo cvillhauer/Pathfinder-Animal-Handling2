@@ -1,13 +1,15 @@
-import { Size, CreatureType, Modifier, Morality, Sociology, Feat, SpecialAbility, InGameCondition } from './enums';
+import { Size, CreatureType, Morality, Sociology, InGameCondition } from './enums';
 import { AbilityScores } from './abilityscores';
 import { SkillBonus } from './skillbonus';
 import { Saves } from './saves';
 import { Alignment } from './alignment';
+import { Feat } from './feat';
 import { Attack } from './attack';
 import { ArmorClass } from './armorClass';
 import { Speeds } from './speed';
 import { SpellLikeAbility } from './spellLikeAbility';
 import { InGameModifier } from './inGameModifiers';
+import { SpecialAbility } from '../model/specialAbility';
 
 export class Creature {
   level: number;
@@ -15,7 +17,7 @@ export class Creature {
   editName: boolean;
   roundSummoned: number;
   roundsLeft: number;
-  inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled)];
+  inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled), new InGameModifier(InGameCondition.Charging)];
 
   constructor(
     public id: string,
@@ -42,22 +44,29 @@ export class Creature {
     public attacks: Attack[] = [],
     public abilities: SpecialAbility[] = [],
     public spellLikeAbilities: SpellLikeAbility[] = []) {
-    if (this.feats && this.feats.indexOf(Feat.PowerAttack) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+    if (this.feats) {
+      this.feats.forEach(f => {
+        if (f.description === Feat.PowerAttack.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+        } else if (f.description === Feat.Cleave.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.Cleave));
+        }
+      });
     }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.Rage) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
+    if (this.abilities) {
+      this.abilities.forEach(a => {
+        if (a.description === SpecialAbility.Rage.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.Rage));
+        } else if (a.description === SpecialAbility.EarthMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
+        } else if (a.description === SpecialAbility.MetalMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
+        } else if (a.description === SpecialAbility.WaterMastery.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
+        }
+      });
     }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.EarthMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.EarthMastery));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.MetalMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.MetalMastery));
-    }
-    if (this.abilities && this.abilities.indexOf(SpecialAbility.WaterMastery) > -1) {
-      this.inGameModifiers.push(new InGameModifier(InGameCondition.WaterMastery));
-    }
-    abilities.sort();
+    abilities.sort((a, b) => (a.description > b.description) ? 1 : -1);
     this.inGameModifiers.sort((a, b) => (a.description > b.description) ? 1 : -1);
   }
 
@@ -88,6 +97,30 @@ export class Creature {
     } else {
       return false;
     }
+  }
+
+  getStrengthBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.strength);
+  }
+
+  getDexterityBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.dexterity);
+  }
+
+  getConstitutionBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.constitution);
+  }
+
+  getIntelligenceBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.intelligence);
+  }
+
+  getWisdomBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.wisdom);
+  }
+
+  getCharismaBonus() {
+    return this.abilityScores.calculateBonus(this.abilityScores.charisma);
   }
 
   applyCelestialTemplate() {

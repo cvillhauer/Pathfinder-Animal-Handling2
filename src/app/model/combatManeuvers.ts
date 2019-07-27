@@ -31,7 +31,7 @@ export class Constrict extends CombatManeuver {
     return summary;
   }
 
-  applyAbilityIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
     this.combatManeuverBonus += strIncrease;
     this.damageBonus += strIncrease;
     this.resultText = 'Creature crushes grappled target, dealing ' + this.damageDice + '+' + this.damageBonus + ' damage.';
@@ -61,7 +61,7 @@ export class DeathRoll extends CombatManeuver {
     return summary;
   }
 
-  applyAbilityIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
+  applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
     this.combatManeuverBonus += strIncrease;
     this.damageBonus += strIncrease;
     this.resultText = 'Creature inflicts ' + this.damageDice + '+' + this.damageBonus + ' bite damage, and target is knocked prone.';

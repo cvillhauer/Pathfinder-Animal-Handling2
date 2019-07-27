@@ -14,6 +14,8 @@ import { NumbingCold } from './numbingCold';
 import { LavaPuddle } from './lavaPuddle';
 import { Entrap } from './entrap';
 import { Trample } from './trample';
+import { BreathWeapon } from './breathWeapon';
+import { Rend } from './rend';
 
 export class Attack {
   damageTypeDescription = '';
@@ -46,6 +48,9 @@ export class Attack {
           const bloodDrain = ae as BloodDrain;
           const newBloodDrain = new BloodDrain(bloodDrain.conDamage, bloodDrain.restrictionText);
           return newBloodDrain;
+        case 'Breath Weapon':
+          const breathWeapon = BreathWeapon.fromObject(ae);
+          return breathWeapon;
         case 'Burn':
           const burn = ae as Burn;
           const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);
@@ -83,6 +88,10 @@ export class Attack {
           const pull = ae as Pull;
           const newPull = new Pull(pull.combatManeuverBonus, pull.distance);
           return newPull;
+        case 'Rend':
+          const rend = ae as Rend;
+          const newRend = new Rend(rend.damageDice, rend.damageBonus);
+          return newRend;
         case 'Swallow Whole':
           const swallowWhole = ae as SwallowWhole;
           const newSwallowWhole = new SwallowWhole(swallowWhole.armorClass, swallowWhole.hitPoints);

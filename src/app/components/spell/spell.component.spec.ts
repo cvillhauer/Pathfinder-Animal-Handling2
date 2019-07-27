@@ -6,7 +6,7 @@ import { SpellComponent } from './spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
-import { Size, CreatureType, Alignment } from 'src/app/model/enums';
+import { Size, CreatureType } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
 import { Saves } from 'src/app/model/saves';
 import { DiceService } from 'src/app/services/dice.service';
@@ -15,6 +15,7 @@ import { CreatureService } from 'src/app/services/creature.service';
 import { of } from 'rxjs';
 import { ArmorClass } from 'src/app/model/armorClass';
 import { Speeds } from 'src/app/model/speed';
+import { Alignment } from 'src/app/model/alignment';
 
 describe('SpellComponent', () => {
   let component: SpellComponent;

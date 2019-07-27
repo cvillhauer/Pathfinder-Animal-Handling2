@@ -1,7 +1,4 @@
-import {
-  Size, CreatureType, Skill, Alignment, Modifier,
-  DamageType, AttackType, AbilityEffectType, Save, Feat, SpecialAbility
-} from '../model/enums';
+import { Size, CreatureType, Modifier, DamageType, AttackType, AbilityEffectType, Save } from '../model/enums';
 import { AbilityScores } from '../model/abilityscores';
 import { Saves } from '../model/saves';
 import { Creature } from '../model/creature';
@@ -14,6 +11,11 @@ import { SkillBonus } from '../model/skillbonus';
 import { Speeds } from '../model/speed';
 import { Web } from '../model/web';
 import { Grab, Constrict } from '../model/combatManeuvers';
+import { Feat } from '../model/feat';
+import { Alignment } from '../model/alignment';
+import { Skill } from '../model/skill';
+import { SpecialAbility } from '../model/specialAbility';
+import { Trample } from '../model/trample';
 
 export const vermin: Creature[] = [
   new Creature(
@@ -40,6 +42,41 @@ export const vermin: Creature[] = [
     [new SkillBonus(Skill.Fly, -2)],
     [new Attack('Bite', 1, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
     [SpecialAbility.ImmuneMindAffecting, SpecialAbility.LowLightVision, SpecialAbility.Luminescence]
+  ),
+  new Creature(
+    'giantantdrone',
+    'Giant Ant (Drone)',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Ant',
+    'https://vignette.wikia.nocookie.net/non-aliencreatures/images/5/5e/Fire_Ant_Warrior.png/revision/latest?cb=20101228091156',
+    Size.Medium,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(50, 20, 30),
+    5,
+    new AbilityScores(14, 10, 17, 0, 13, 11),
+    2,
+    22,
+    new ArmorClass(19, 14, 19),
+    5,
+    17,
+    1,
+    3,
+    0,
+    new Saves(6, 0, 1),
+    [Feat.Toughness],
+    [
+      new SkillBonus(Skill.Climb, 10),
+      new SkillBonus(Skill.Perception, 5),
+      new SkillBonus(Skill.Survival, 5)
+    ],
+    [
+      new Attack('Bite', 5, '1d6', 4, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(9)]),
+      new Attack('Sting', 5, '1d4', 4, false, AttackType.Melee, [DamageType.Piercing],
+        [new Poison(new SavingThrow(Save.Fortitude, 16), 'once per round for 4 rounds',
+          [new AbilityEffect('1d2', Modifier.Strength, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.Scent, SpecialAbility.ImmuneMindAffecting]
   ),
   new Creature(
     'giantantsoldier',
@@ -169,6 +206,42 @@ export const vermin: Creature[] = [
     [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
   ),
   new Creature(
+    'giantscorpion',
+    'Giant Scorpion',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Scorpion',
+    'http://images.uesp.net//9/9b/ON-concept-Giant_scorpion.png',
+    Size.Large,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(50),
+    10,
+    new AbilityScores(19, 10, 16, 0, 10, 2),
+    5,
+    37,
+    new ArmorClass(16, 9, 16),
+    8,
+    18,
+    3,
+    3,
+    0,
+    new Saves(7, 1, 1),
+    [],
+    [
+      new SkillBonus(Skill.Climb, 8),
+      new SkillBonus(Skill.Perception, 4),
+      new SkillBonus(Skill.Stealth, 0)
+    ],
+    [
+      new Attack('Claw', 6, '1d6', 4, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Slashing], [new Grab(12), new Constrict(12, '1d6', 4)]),
+      new Attack('Claw', 6, '1d6', 4, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Slashing], [new Grab(12), new Constrict(12, '1d6', 4)]),
+      new Attack('Sting', 6, '1d6', 4, false, AttackType.Melee, [DamageType.Piercing], [new Poison(new SavingThrow(Save.Fortitude, 17),
+        'once per round for 6 rounds', [new AbilityEffect('1d2', Modifier.Strength, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.Tremorsense, SpecialAbility.ImmuneMindAffecting]
+  ),
+  new Creature(
     'giantspider',
     'Giant Spider',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Spider',
@@ -203,5 +276,65 @@ export const vermin: Creature[] = [
       new Attack('Web', 5, '', 0, false, AttackType.Ranged, [], [new Web(12, 2)])
     ],
     [SpecialAbility.Darkvision, SpecialAbility.Tremorsense, SpecialAbility.ImmuneMindAffecting]
+  ),
+  new Creature(
+    'giantstagbeetle',
+    'Giant Stag Beetle',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Stag%20Beetle',
+    'https://thetrove.net/Assets/Roll%2020/Devin%20Night/Devin%20Token%20Pack%2043%20-%20Many%20Legged%20Fiends%20(KS)/TP43_ManyLegedFiends_KS/vermin_giant_stag_beetle.png',
+    Size.Large,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 20),
+    5,
+    new AbilityScores(19, 10, 15, 0, 10, 9),
+    7,
+    45,
+    new ArmorClass(17, 9, 17),
+    10,
+    20,
+    5,
+    4,
+    0,
+    new Saves(7, 2, 2),
+    [],
+    [new SkillBonus(Skill.Fly, -6)],
+    [
+      new Attack('Bite', 8, '2d8', 6, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('1d6', 6, 17)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
+  ),
+  new Creature(
+    'giantwasp',
+    'Giant Wasp',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Wasp',
+    'https://ironbombs.files.wordpress.com/2014/03/wasp.jpg',
+    Size.Large,
+    CreatureType.Vermin,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 60),
+    5,
+    new AbilityScores(18, 12, 18, 0, 13, 11),
+    4,
+    34,
+    new ArmorClass(14, 10, 13),
+    8,
+    19,
+    3,
+    3,
+    0,
+    new Saves(8, 2, 2),
+    [],
+    [
+      new SkillBonus(Skill.Fly, 3),
+      new SkillBonus(Skill.Perception, 9)
+    ],
+    [
+      new Attack('Sting', 6, '1d8', 6, false, AttackType.Melee, [DamageType.Piercing],
+        [new Poison(new SavingThrow(Save.Fortitude, 18), 'once per round for 6 rounds',
+          [new AbilityEffect('1d2', Modifier.Dexterity, AbilityEffectType.Damage)], 1)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.ImmuneMindAffecting]
   )
 ];

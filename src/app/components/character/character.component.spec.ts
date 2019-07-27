@@ -12,7 +12,7 @@ import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { Spell } from 'src/app/model/spell';
 import { of } from 'rxjs';
-import { Alignment } from 'src/app/model/enums';
+import { Alignment } from 'src/app/model/alignment';
 import { AttackComponent } from '../attack/attack.component';
 import { InGameModifiersComponent } from '../in-game-modifiers/in-game-modifiers.component';
 
