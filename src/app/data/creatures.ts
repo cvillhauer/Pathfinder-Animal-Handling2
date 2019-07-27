@@ -1,4 +1,5 @@
 export * from './animals';
+export * from './dinosaurs';
 export * from './elementals';
 export * from './fey';
 export * from './magicalbeasts';
