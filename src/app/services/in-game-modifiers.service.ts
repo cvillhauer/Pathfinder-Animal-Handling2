@@ -23,6 +23,13 @@ export class InGameModifiersService {
           this.removeCharging(affectedCreature);
         }
         break;
+      case InGameCondition.Cleave:
+        if (applyModifier) {
+          this.applyCleave(affectedCreature);
+        } else {
+          this.removeCleave(affectedCreature);
+        }
+        break;
       case InGameCondition.EarthMastery:
         if (applyModifier) {
           this.applyEarthMastery(affectedCreature);
@@ -85,6 +92,14 @@ export class InGameModifiersService {
 
   removeCharging(affectedCreature: Creature) {
     this.applyAttackBonusIncrease(affectedCreature, -2);
+    affectedCreature.armorClass.applyArmorModifier(2);
+  }
+
+  applyCleave(affectedCreature: Creature) {
+    affectedCreature.armorClass.applyArmorModifier(-2);
+  }
+
+  removeCleave(affectedCreature: Creature) {
     affectedCreature.armorClass.applyArmorModifier(2);
   }
 

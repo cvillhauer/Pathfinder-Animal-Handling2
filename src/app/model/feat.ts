@@ -4,6 +4,11 @@ export class Feat {
     summary: '+2 bonus on Perception and Sense Motive checks'
   };
 
+  static Cleave = {
+    description: 'Cleave',
+    summary: 'Can strike two adjacent foes with a single swing'
+  };
+
   static Dodge = {
     description: 'Dodge',
     summary: '+1 dodge bonus to AC'

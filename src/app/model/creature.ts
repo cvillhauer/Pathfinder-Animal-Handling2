@@ -48,6 +48,8 @@ export class Creature {
       this.feats.forEach(f => {
         if (f.description === Feat.PowerAttack.description) {
           this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
+        } else if (f.description === Feat.Cleave.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.Cleave));
         }
       });
     }

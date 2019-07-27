@@ -28,7 +28,7 @@ export class LavaPuddle implements IAttackEffect {
 
   getDetails() {
     let details: string = this.description + ': ' + this.getSummary();
-    details += '\r\n' + 'Vomit forth a puddle of lava in the creatures space.';
+    details += '\r\n' + 'Vomit forth a puddle of lava in the creature\'s space.';
     details += '\r\n' + 'Any creature that moves through the puddle takes fire damage.';
     return details;
   }
