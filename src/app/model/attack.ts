@@ -16,6 +16,7 @@ import { Entrap } from './entrap';
 import { Trample } from './trample';
 import { BreathWeapon } from './breathWeapon';
 import { Rend } from './rend';
+import { Stun } from './stun';
 
 export class Attack {
   damageTypeDescription = '';
@@ -53,7 +54,7 @@ export class Attack {
           return breathWeapon;
         case 'Burn':
           const burn = ae as Burn;
-          const newBurn = new Burn(burn.damageDice, burn.difficultyCheck);
+          const newBurn = new Burn(burn.damageDice, burn.savingThrow.difficultyCheck);
           return newBurn;
         case 'Constrict':
           const constrict = ae as Constrict;
@@ -67,7 +68,7 @@ export class Attack {
           return disease;
         case 'Entrap':
           const entrap = ae as Entrap;
-          const newEntrap = new Entrap(entrap.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
+          const newEntrap = new Entrap(entrap.savingThrow.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
           return newEntrap;
         case 'Grab':
           const grab = ae as Grab;
@@ -78,7 +79,7 @@ export class Attack {
           return newLavaPuddle;
         case 'Numbing Cold':
           const numbingCold = ae as NumbingCold;
-          const newNumbingCold = new NumbingCold(numbingCold.difficultyCheck);
+          const newNumbingCold = new NumbingCold(numbingCold.savingThrow.difficultyCheck);
           return newNumbingCold;
         case 'Poison':
           const poison = Poison.fromObject(ae);
@@ -92,13 +93,17 @@ export class Attack {
           const rend = ae as Rend;
           const newRend = new Rend(rend.damageDice, rend.damageBonus);
           return newRend;
+        case 'Stun':
+          const stun = ae as Stun;
+          const newStun = new Stun(stun.savingThrow.difficultyCheck);
+          return newStun;
         case 'Swallow Whole':
           const swallowWhole = ae as SwallowWhole;
           const newSwallowWhole = new SwallowWhole(swallowWhole.armorClass, swallowWhole.hitPoints);
           return newSwallowWhole;
         case 'Trample':
           const trample = ae as Trample;
-          const newTrample = new Trample(trample.damageDice, trample.damageBonus, trample.difficultyCheck);
+          const newTrample = new Trample(trample.damageDice, trample.damageBonus, trample.savingThrow.difficultyCheck);
           return newTrample;
         case 'Trip':
           const trip = ae as Trip;
@@ -106,7 +111,7 @@ export class Attack {
           return newTrip;
         case 'Vortex':
           const vortex = ae as Vortex;
-          const newVortex = new Vortex(vortex.rounds, vortex.difficultyCheck, vortex.maxHeight);
+          const newVortex = new Vortex(vortex.rounds, vortex.savingThrow.difficultyCheck, vortex.maxHeight);
           return newVortex;
         case 'Web':
           const web = ae as Web;
@@ -114,7 +119,7 @@ export class Attack {
           return newWeb;
         case 'Whirlwind':
           const whirlwind = ae as Whirlwind;
-          const newWhirlwind = new Whirlwind(whirlwind.rounds, whirlwind.difficultyCheck, whirlwind.maxHeight);
+          const newWhirlwind = new Whirlwind(whirlwind.rounds, whirlwind.savingThrow.difficultyCheck, whirlwind.maxHeight);
           return newWhirlwind;
         default:
           console.log('Unknown attack effect: ' + ae.description);

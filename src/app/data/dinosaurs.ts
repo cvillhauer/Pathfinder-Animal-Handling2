@@ -10,8 +10,34 @@ import { Feat } from '../model/feat';
 import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
+import { Stun } from '../model/stun';
 
 export const dinosaurs: Creature[] = [
+  new Creature(
+    'ankylosaurus',
+    'Ankylosaurus',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Ankylosaurus',
+    'https://dreager1.files.wordpress.com/2012/04/ankylosaurus_7.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    15,
+    new AbilityScores(27, 10, 17, 2, 13, 8),
+    10,
+    75,
+    new ArmorClass(22, 8, 22),
+    17,
+    27,
+    7,
+    6,
+    0,
+    new Saves(12, 7, 4),
+    [Feat.GreatFortitude, Feat.ImprovedBullRush, Feat.ImprovedOverrun, Feat.PowerAttack, Feat.WeaponFocusTail],
+    [new SkillBonus(Skill.Perception, 14)],
+    [new Attack('Tail', 14, '3d6', 12, false, AttackType.Melee, [DamageType.Bludgeoning], [new Stun(23)])],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
   new Creature(
     'deinonychus',
     'Deinonychus',

@@ -1,22 +1,26 @@
 import { IAttackEffect } from './attackeffect';
+import { SavingThrow } from './savingThrow';
+import { Save } from './enums';
 
 export class Whirlwind implements IAttackEffect {
   description = 'Whirlwind';
   summary = '';
   details = '';
   displayDescription = false;
+  savingThrow: SavingThrow;
 
   constructor(
     public rounds: number,
-    public difficultyCheck: number,
+    difficultyCheck: number,
     public maxHeight: number) {
+    this.savingThrow = new SavingThrow(Save.Reflex, difficultyCheck);
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }
 
   static fromObject(whirlwind: Whirlwind): Whirlwind {
-    const { rounds, difficultyCheck, maxHeight } = whirlwind;
-    return new this(rounds, difficultyCheck, maxHeight);
+    const { rounds, savingThrow, maxHeight } = whirlwind;
+    return new this(rounds, savingThrow.difficultyCheck, maxHeight);
   }
 
   getSummary() {
@@ -26,20 +30,20 @@ export class Whirlwind implements IAttackEffect {
     }
     summary += ' per day, ';
     summary += '10-' + this.maxHeight + 'ft high, ';
-    summary += 'DC ' + this.difficultyCheck;
+    summary += this.savingThrow.getSummary();
     return summary;
   }
 
   getDetails() {
     let details: string = this.description + ': ' + this.getSummary();
-    details += '\r\n' + 'Creatures that touch the whirlwind make a Reflex save to avoid being trapped.';
-    details += '\r\n' + 'Creatures the same size or smaller make a Relfex save to avoid taking damage.';
+    details += '\r\n' + 'Creatures that touch the whirlwind make a ' + this.savingThrow.save + ' save to avoid being trapped.';
+    details += '\r\n' + 'Creatures the same size or smaller make a ' + this.savingThrow.save + ' save to avoid taking damage.';
     details += '\r\n' + 'A cloud of debris surrounds the creature and causes Concealment.';
     return details;
   }
 
   applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
-    this.difficultyCheck += strIncrease;
+    this.savingThrow.difficultyCheck += strIncrease;
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }
@@ -53,7 +57,7 @@ export class Whirlwind implements IAttackEffect {
 export class Vortex extends Whirlwind {
   constructor(
     public rounds: number,
-    public difficultyCheck: number,
+    difficultyCheck: number,
     public maxHeight: number) {
     super(rounds, difficultyCheck, maxHeight);
     this.description = 'Vortex';
@@ -61,8 +65,8 @@ export class Vortex extends Whirlwind {
 
   getDetails() {
     let details: string = this.getSummary();
-    details += '\r\n' + 'Creatures that touch the vortex make a Reflex save to avoid being trapped.';
-    details += '\r\n' + 'Creatures the same size or smaller make a Relfex save to avoid taking damage.';
+    details += '\r\n' + 'Creatures that touch the vortex make a ' + this.savingThrow.save + ' save to avoid being trapped.';
+    details += '\r\n' + 'Creatures the same size or smaller make a ' + this.savingThrow.save + ' save to avoid taking damage.';
     details += '\r\n' + 'A cloud of bubbles surrounds the creature and causes Concealment.';
     return details;
   }

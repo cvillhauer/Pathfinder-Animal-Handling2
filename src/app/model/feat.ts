@@ -39,6 +39,11 @@ export class Feat {
     summary: '+4 bonus on initiative checks'
   };
 
+  static ImprovedOverrun = {
+    description: 'Improved Overrun',
+    summary: '+2 bonus to Overrun combat maneuvers'
+  };
+
   static IronWill = {
     description: 'Iron Will',
     summary: '+2 bonus on Will saves'
@@ -112,6 +117,11 @@ export class Feat {
   static WeaponFocusClaw = {
     description: 'Weapon Focus Claw',
     summary: '+1 on attack rolls with Claw attack'
+  };
+
+  static WeaponFocusTail = {
+    description: 'Weapon Focus Tail',
+    summary: '+1 on attack rolls with Tail attack'
   };
 
   description: string;

@@ -104,7 +104,25 @@ export const spells = [
     description: 'Summon Nature\'s Ally V',
     group: 'summonnaturesally',
     level: 5,
-    creatureList: []
+    creatureList: [
+      'ankylosaurus',
+      'cyclops',
+      'direlion',
+      'ettin',
+      'giantmorayeel',
+      'girallon',
+      'largeairelemental',
+      'largeearthelemental',
+      'largefireelemental',
+      'largeiceelemental',
+      'largelavaelemental',
+      'largemagmaelemental',
+      'largemudelemental',
+      'largewaterelemental',
+      'manticore',
+      'orca',
+      'woolyrhinoceros'
+    ]
   },
   {
     id: 'summonnaturesally6',
@@ -236,7 +254,27 @@ export const spells = [
     description: 'Summon Monster V',
     group: 'summonmonster',
     level: 5,
-    creatureList: []
+    creatureList: [
+      'ankylosaurus',
+      'babau',
+      'beardeddevil',
+      'bralaniazata',
+      'direlion',
+      'giantmorayeel',
+      'kyton',
+      'largeairelemental',
+      'largeearthelemental',
+      'largefireelemental',
+      'largeiceelemental',
+      'largelavaelemental',
+      'largemagmaelemental',
+      'largemudelemental',
+      'largewaterelemental',
+      'orca',
+      'salamander',
+      'woolyrhinoceros',
+      'xill'
+    ]
   },
   {
     id: 'summonmonster6',
