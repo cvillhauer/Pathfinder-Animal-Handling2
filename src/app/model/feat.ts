@@ -24,6 +24,11 @@ export class Feat {
     summary: 'Make a standard action in the middle of a flying move action'
   };
 
+  static GreatCleave = {
+    description: 'Great Cleave',
+    summary: 'Can strike any number of adjacent foes with a single swing'
+  };
+
   static GreatFortitude = {
     description: 'Great Fortitude',
     summary: '+2 bonus on Fortitude saves'

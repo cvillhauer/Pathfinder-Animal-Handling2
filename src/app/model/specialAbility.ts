@@ -75,6 +75,11 @@ export class SpecialAbility {
     summary: 'Can continue fighting even if its hit point total is below 0'
   };
 
+  static FlashOfInsight = {
+    description: 'Flash of Insight',
+    summary: 'Once per day, choose the result of one die roll'
+  };
+
   static Hatred = {
     description: 'Hatred',
     summary: '+1 bonus on attack rolls against hated foes'
@@ -313,6 +318,11 @@ export class SpecialAbility {
   static Stampede = {
     description: 'Stampede',
     summary: 'Trample DC increases if there are 3 or more creatures'
+  };
+
+  static SuperiorTwoWeaponFighting = {
+    description: 'Superior Two Weapon Fighting',
+    summary: 'No penalty on attacks or damage for attacking with two weapons'
   };
 
   static Tremorsense = {
