@@ -29,6 +29,11 @@ export class Feat {
     summary: '+2 bonus on Fortitude saves'
   };
 
+  static Hover = {
+    description: 'Hover',
+    summary: 'Can halt fly movement without hover checks'
+  };
+
   static ImprovedBullRush = {
     description: 'Improved Bull Rush',
     summary: '+2 bonus to Bull Rush combat maneuvers'
@@ -117,6 +122,11 @@ export class Feat {
   static WeaponFocusClaw = {
     description: 'Weapon Focus Claw',
     summary: '+1 on attack rolls with Claw attack'
+  };
+
+  static WeaponFocusSpikes = {
+    description: 'Weapon Focus Spikes',
+    summary: '+1 on attack rolls with Spikes attack'
   };
 
   static WeaponFocusTail = {

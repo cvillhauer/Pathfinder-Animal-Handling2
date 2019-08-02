@@ -264,7 +264,7 @@ export const animals: Creature[] = [
     ],
     [
       new Attack('Bite', 6, '1d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
-      new Attack('Claw', 6, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing], [new Rend('1d4', 6)]),
+      new Attack('Claw', 6, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
       new Attack('Claw', 6, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing], [new Rend('1d4', 6)])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
