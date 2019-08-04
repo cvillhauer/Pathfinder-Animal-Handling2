@@ -9,6 +9,11 @@ export class Feat {
     summary: 'Can strike two adjacent foes with a single swing'
   };
 
+  static Diehard = {
+    description: 'Diehard',
+    summary: 'Automatically stabilize without falling unconscious'
+  };
+
   static Dodge = {
     description: 'Dodge',
     summary: '+1 dodge bonus to AC'
@@ -102,6 +107,11 @@ export class Feat {
   static SkillFocusSurvival = {
     description: 'Skill Focus (Survival)',
     summary: '+3 bonus on Survival checks'
+  };
+
+  static SkillFocusSwim = {
+    description: 'Skill Focus (Swim)',
+    summary: '+3 bonus on Swim checks'
   };
 
   static Stealthy = {

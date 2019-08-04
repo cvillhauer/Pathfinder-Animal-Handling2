@@ -17,6 +17,7 @@ import { Trample } from './trample';
 import { BreathWeapon } from './breathWeapon';
 import { Rend } from './rend';
 import { Stun } from './stun';
+import { Gnaw } from './gnaw';
 
 export class Attack {
   damageTypeDescription = '';
@@ -70,6 +71,9 @@ export class Attack {
           const entrap = ae as Entrap;
           const newEntrap = new Entrap(entrap.savingThrow.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
           return newEntrap;
+        case 'Gnaw':
+          const gnaw = ae as Gnaw;
+          return new Gnaw(gnaw.damageDice, gnaw.damageBonus);
         case 'Grab':
           const grab = ae as Grab;
           return new Grab(grab.combatManeuverBonus);

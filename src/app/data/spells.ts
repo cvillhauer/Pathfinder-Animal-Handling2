@@ -121,7 +121,7 @@ export const spells = [
       'largewaterelemental',
       'manticore',
       'orca',
-      'woolyrhinoceros'
+      'woollyrhinoceros'
     ]
   },
   {
@@ -272,7 +272,7 @@ export const spells = [
       'largewaterelemental',
       'orca',
       'salamander',
-      'woolyrhinoceros',
+      'woollyrhinoceros',
       'xill'
     ]
   },

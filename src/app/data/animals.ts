@@ -18,6 +18,7 @@ import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
 import { Rend } from '../model/rend';
+import { Gnaw } from '../model/gnaw';
 
 export const animals: Creature[] = [
   new Creature(
@@ -325,6 +326,43 @@ export const animals: Creature[] = [
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Ferocity]
   ),
   new Creature(
+    'direlion',
+    'Dire Lion',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Lion%20(Spotted%20Lion)',
+    'https://i.pinimg.com/originals/bd/29/69/bd2969c22dedba403783d992667adfe8.jpg',
+    Size.Large,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    5,
+    new AbilityScores(25, 15, 17, 2, 12, 10),
+    8,
+    60,
+    new ArmorClass(15, 11, 13),
+    14,
+    26,
+    6,
+    5,
+    0,
+    new Saves(9, 8, 3),
+    [Feat.ImprovedInititive, Feat.Run, Feat.SkillFocusPerception, Feat.WeaponFocusClaw],
+    [
+      new SkillBonus(Skill.Acrobatics, 11),
+      new SkillBonus(Skill.Perception, 11),
+      new SkillBonus(Skill.Stealth, 7),
+      new SkillBonus(Skill.Stealth, 11, 'in Undergrowth')
+    ],
+    [
+      new Attack('Bite', 12, '1d8', 7, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(18)]),
+      new Attack('Claw', 13, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 13, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Rake (if grappling)', 13, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Rake (if grappling)', 13, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Pounce]
+  ),
+  new Creature(
     'direrat',
     'Dire Rat',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Rat',
@@ -552,6 +590,41 @@ export const animals: Creature[] = [
         AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(7)]),
       new Attack('Tongue', 3, '', 0, true, AttackType.Melee, [], [new Grab(7), new Pull(7, 5)]),
       new Attack('Swallow Whole', 7, '1d4', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new SwallowWhole(10, 1)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'giantmorayeel',
+    'Giant Moray Eel',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Moray%20Eel',
+    'https://i.pinimg.com/originals/02/55/98/0255988b0afc03aa7c69a84bd286f428.jpg',
+    Size.Large,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 0, 30),
+    10,
+    new AbilityScores(22, 14, 16, 1, 12, 8),
+    7,
+    52,
+    new ArmorClass(19, 11, 17),
+    12,
+    24,
+    5,
+    5,
+    0,
+    new Saves(8, 9, 3),
+    [Feat.ImprovedInititive, Feat.LightningReflexes, Feat.SkillFocusStealth, Feat.WeaponFocusBite],
+    [
+      new SkillBonus(Skill.EscapeArtist, 10),
+      new SkillBonus(Skill.Perception, 7),
+      new SkillBonus(Skill.Stealth, 8),
+      new SkillBonus(Skill.Swim, 14)
+    ],
+    [
+      new Attack('Bite', 11, '2d6', 9, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(16)]),
+      new Attack('Bite (if grappling)', 11, '1d6', 3, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Gnaw('2d6', 9)])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
@@ -818,6 +891,36 @@ export const animals: Creature[] = [
       new Attack('Tentacles (8)', 3, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Grab(5)])
     ],
     [SpecialAbility.InkCloud, SpecialAbility.Jet, SpecialAbility.LowLightVision]
+  ),
+  new Creature(
+    'orca',
+    'Orca',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Orca',
+    'https://images-na.ssl-images-amazon.com/images/I/71a4xW%2BgrRL._SX466_.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 0, 80),
+    10,
+    new AbilityScores(27, 15, 16, 2, 15, 6),
+    9,
+    67,
+    new ArmorClass(9, 8, 5),
+    16,
+    28,
+    6,
+    5,
+    0,
+    new Saves(9, 8, 5),
+    [Feat.Endurance, Feat.ImprovedInititive, Feat.SkillFocusPerception, Feat.SkillFocusSwim, Feat.WeaponFocusBite],
+    [
+      new SkillBonus(Skill.Perception, 19),
+      new SkillBonus(Skill.Swim, 28)
+    ],
+    [
+      new Attack('Bite', 13, '2d6', 12, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ],
+    [SpecialAbility.Blindsight, SpecialAbility.LowLightVision]
   ),
   new Creature(
     'poisonousfrog',
@@ -1111,5 +1214,34 @@ export const animals: Creature[] = [
       new Attack('Bite', 4, '1d4', 2, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Rage]
+  ),
+  new Creature(
+    'woollyrhinoceros',
+    'Woolly Rhinoceros',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Woolly%20Rhinoceros',
+    'https://vignette.wikia.nocookie.net/shipoffools/images/a/a4/Woolly-Rhino.jpg',
+    Size.Large,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    5,
+    new AbilityScores(28, 10, 21, 2, 13, 3),
+    8,
+    76,
+    new ArmorClass(19, 9, 19),
+    16,
+    26,
+    6,
+    6,
+    0,
+    new Saves(13, 6, 3),
+    [Feat.Diehard, Feat.Endurance, Feat.GreatFortitude, Feat.SkillFocusPerception],
+    [new SkillBonus(Skill.Perception, 15)],
+    [
+      new Attack('Gore', 14, '2d8', 13, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Powerful Charge (Gore)', 14, '4d8', 18, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('2d6', 13, 23)])
+    ],
+    [SpecialAbility.Scent, SpecialAbility.PowerfulCharge]
   )
 ];
