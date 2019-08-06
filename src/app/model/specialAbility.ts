@@ -25,6 +25,11 @@ export class SpecialAbility {
     summary: 'Takes 5 less points of damage from all weapons that are not Cold Iron'
   };
 
+  static DamageResistanceColdIron10 = {
+    description: 'DR 10/Cold Iron',
+    summary: 'Takes 10 less points of damage from all weapons that are not Cold Iron'
+  };
+
   static DamageResistanceEvil5 = {
     description: 'DR 5/Evil',
     summary: 'Takes 5 less points of damage from all weapons that are not Evil'
@@ -170,6 +175,11 @@ export class SpecialAbility {
     summary: 'Cannot be stunned'
   };
 
+  static InfernalWound = {
+    description: 'Infernal Wound',
+    summary: 'Heal spells on Bleeding foes require DC 16 caster level check'
+  };
+
   static InkCloud = {
     description: 'Ink Cloud',
     summary: 'Emits sphere of ink as a free action, providing total concealment'
@@ -213,6 +223,11 @@ export class SpecialAbility {
   static PowerfulCharge = {
     description: 'Powerful Charge',
     summary: 'Charge attack deals extra damage'
+  };
+
+  static ProtectiveSlime = {
+    description: 'Protective Slime',
+    summary: 'Weapons that strike take 1d8 acid damage unless they pass a DC 18 Reflex save'
   };
 
   static Rage = {

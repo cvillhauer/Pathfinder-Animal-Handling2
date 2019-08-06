@@ -9,6 +9,11 @@ export class Feat {
     summary: 'Can strike two adjacent foes with a single swing'
   };
 
+  static CombatReflexes = {
+    description: 'Combat Reflexes',
+    summary: 'Can make additional Attacks of Opportunity'
+  };
+
   static Diehard = {
     description: 'Diehard',
     summary: 'Automatically stabilize without falling unconscious'
@@ -137,6 +142,11 @@ export class Feat {
   static WeaponFocusClaw = {
     description: 'Weapon Focus Claw',
     summary: '+1 on attack rolls with Claw attack'
+  };
+
+  static WeaponFocusGlaive = {
+    description: 'Weapon Focus Glaive',
+    summary: '+1 on attack rolls with Glaive attack'
   };
 
   static WeaponFocusSpikes = {
