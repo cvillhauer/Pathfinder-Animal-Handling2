@@ -258,7 +258,7 @@ export const spells = [
       'ankylosaurus',
       'babau',
       'beardeddevil',
-      'bralaniazata',
+      'bralani',
       'direlion',
       'giantmorayeel',
       'kyton',

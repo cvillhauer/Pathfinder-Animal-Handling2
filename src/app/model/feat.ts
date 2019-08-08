@@ -4,6 +4,11 @@ export class Feat {
     summary: '+2 bonus on Perception and Sense Motive checks'
   };
 
+  static BlindFight = {
+    description: 'Blind Fight',
+    summary: 'Can reroll concealment miss chance'
+  };
+
   static Cleave = {
     description: 'Cleave',
     summary: 'Can strike two adjacent foes with a single swing'
@@ -139,6 +144,11 @@ export class Feat {
     summary: '+1 on attack rolls with Bite attack'
   };
 
+  static WeaponFocusChain = {
+    description: 'Weapon Focus Chain',
+    summary: '+1 on attack rolls with Chain attack'
+  };
+
   static WeaponFocusClaw = {
     description: 'Weapon Focus Claw',
     summary: '+1 on attack rolls with Claw attack'
@@ -147,6 +157,11 @@ export class Feat {
   static WeaponFocusGlaive = {
     description: 'Weapon Focus Glaive',
     summary: '+1 on attack rolls with Glaive attack'
+  };
+
+  static WeaponFocusShortSword = {
+    description: 'Weapon Focus Short Sword',
+    summary: '+1 on attack rolls with Short Sword attack'
   };
 
   static WeaponFocusSpikes = {

@@ -18,6 +18,7 @@ import { BreathWeapon } from './breathWeapon';
 import { Rend } from './rend';
 import { Stun } from './stun';
 import { Gnaw } from './gnaw';
+import { Paralysis } from './paralysis';
 
 export class Attack {
   damageTypeDescription = '';
@@ -59,7 +60,7 @@ export class Attack {
           return newBurn;
         case 'Constrict':
           const constrict = ae as Constrict;
-          return new Constrict(constrict.combatManeuverBonus, constrict.damageDice, constrict.damageBonus);
+          return new Constrict(constrict.combatManeuverBonus, constrict.damageDice, constrict.damageBonus, constrict.additionalDamage);
         case 'Death Roll':
           const deathRoll = ae as DeathRoll;
           return new DeathRoll(deathRoll.combatManeuverBonus, deathRoll.damageDice, deathRoll.damageBonus);
@@ -85,6 +86,10 @@ export class Attack {
           const numbingCold = ae as NumbingCold;
           const newNumbingCold = new NumbingCold(numbingCold.savingThrow.difficultyCheck);
           return newNumbingCold;
+        case 'Paralysis':
+          const paralysis = ae as Paralysis;
+          const newParalysis = new Paralysis(paralysis.duration, paralysis.savingThrow.difficultyCheck);
+          return newParalysis;
         case 'Poison':
           const poison = Poison.fromObject(ae);
           poison.effects = poison.effects.map(e => AbilityEffect.fromObject(e));

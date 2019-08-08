@@ -50,9 +50,29 @@ export class SpecialAbility {
     summary: 'Takes 10 less points of damage from all weapons that are not Good'
   };
 
+  static DamageResistanceMagic5 = {
+    description: 'DR 5/Magic',
+    summary: 'Takes 5 less points of damage from all weapons that are not Magic'
+  };
+
+  static DamageResistanceMagic10 = {
+    description: 'DR 10/Magic',
+    summary: 'Takes 10 less points of damage from all weapons that are not Magic'
+  };
+
   static DamageResistanceSilver5 = {
     description: 'DR 5/Siver',
     summary: 'Takes 5 less points of damage from all weapons that are not Silver'
+  };
+
+  static DamageResistanceSilver10 = {
+    description: 'DR 10/Siver',
+    summary: 'Takes 10 less points of damage from all weapons that are not Silver'
+  };
+
+  static DancingChains = {
+    description: 'Dancing Chains',
+    summary: 'Can control up to four chains within 20ft as a standard action'
   };
 
   static Darkvision = {
@@ -88,6 +108,11 @@ export class SpecialAbility {
   static Hatred = {
     description: 'Hatred',
     summary: '+1 bonus on attack rolls against hated foes'
+  };
+
+  static Heat = {
+    description: 'Heat',
+    summary: 'Attacks deal additional fire damage'
   };
 
   static IceGlide = {
@@ -213,6 +238,11 @@ export class SpecialAbility {
   static MetalMastery = {
     description: 'Metal Mastery',
     summary: '+3 bonus to attack rolls if enemy has metal armor or weapons'
+  };
+
+  static MultiweaponMastery = {
+    description: 'Multiweapon Mastery',
+    summary: 'Never takes penalties on its attack rolls when fighting with multiple weapons'
   };
 
   static Pounce = {
@@ -373,6 +403,11 @@ export class SpecialAbility {
   static WaterMastery = {
     description: 'Water Mastery',
     summary: '+1 bonus on attack and damage rolls if target is touching water'
+  };
+
+  static WindForm = {
+    description: 'Wind Form',
+    summary: 'Shift forms as a standard action, then can fly and use Whirlwind Blast'
   };
 
   description: string;
