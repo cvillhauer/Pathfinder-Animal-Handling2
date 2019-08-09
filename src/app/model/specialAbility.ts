@@ -15,6 +15,11 @@ export class SpecialAbility {
     summary: 'Ability to use a non-visual sense to operate effectively without vision'
   };
 
+  static DamageResistance5 = {
+    description: 'DR 5/',
+    summary: 'Takes 5 less points of damage from all weapons'
+  };
+
   static DamageResistanceColdIron2 = {
     description: 'DR 2/Cold Iron',
     summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'

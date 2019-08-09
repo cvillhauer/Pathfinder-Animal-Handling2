@@ -49,6 +49,11 @@ export class Feat {
     summary: '+2 bonus on Fortitude saves'
   };
 
+  static GreaterBullRush = {
+    description: 'Greater Bull Rush',
+    summary: 'Additional +2 bonus to Bull Rush combat maneuvers'
+  };
+
   static Hover = {
     description: 'Hover',
     summary: 'Can halt fly movement without hover checks'
@@ -122,6 +127,11 @@ export class Feat {
   static SkillFocusSwim = {
     description: 'Skill Focus (Swim)',
     summary: '+3 bonus on Swim checks'
+  };
+
+  static SpringAttack = {
+    description: 'Spring Attack',
+    summary: 'Can move both before and after a single attack as a full-round action'
   };
 
   static Stealthy = {
