@@ -12,8 +12,44 @@ import { Feat } from '../model/feat';
 import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
+import { Rend } from '../model/rend';
 
 export const magicalbeasts: Creature[] = [
+  new Creature(
+    'girallon',
+    'Girallon',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Girallon',
+    'https://i.pinimg.com/originals/03/16/64/031664ec6fd89e4ecf7cb8e25aa1b592.jpg',
+    Size.Large,
+    CreatureType.MagicalBeast,
+    Alignment.trueNeutral,
+    new Speeds(40, 40),
+    10,
+    new AbilityScores(19, 17, 18, 2, 12, 7),
+    7,
+    73,
+    new ArmorClass(18, 12, 15),
+    12,
+    25,
+    7,
+    6,
+    0,
+    new Saves(9, 8, 5),
+    [Feat.ImprovedInititive, Feat.IronWill, Feat.SkillFocusPerception, Feat.Toughness],
+    [
+      new SkillBonus(Skill.Climb, 12),
+      new SkillBonus(Skill.Perception, 11),
+      new SkillBonus(Skill.Stealth, 5)
+    ],
+    [
+      new Attack('Bite', 10, '1d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 10, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 10, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 10, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 10, '1d4', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing], [new Rend('1d4', 6)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
   new Creature(
     'griffon',
     'Griffon',
@@ -49,7 +85,41 @@ export const magicalbeasts: Creature[] = [
     ],
     [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Pounce]
   ),
-
+  new Creature(
+    'manticore',
+    'Manticore',
+    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Manticore',
+    'https://i.pinimg.com/originals/33/8f/7f/338f7f30d1a199b99b4c2bc7633d0d9c.jpg',
+    Size.Large,
+    CreatureType.MagicalBeast,
+    Alignment.trueNeutral,
+    new Speeds(30, 0, 50),
+    5,
+    new AbilityScores(20, 15, 18, 7, 12, 9),
+    6,
+    57,
+    new ArmorClass(17, 11, 15),
+    12,
+    24,
+    6,
+    5,
+    0,
+    new Saves(9, 7, 3),
+    [Feat.FlybyAttack, Feat.Hover, Feat.WeaponFocusSpikes],
+    [
+      new SkillBonus(Skill.Fly, -3),
+      new SkillBonus(Skill.Perception, 9),
+      new SkillBonus(Skill.Survival, 4),
+      new SkillBonus(Skill.Survival, 8, 'Tracking'),
+    ],
+    [
+      new Attack('Bite', 10, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 10, '2d4', 5, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Claw', 10, '2d4', 5, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Slashing]),
+      new Attack('Spikes (x4)', 8, '1d6', 5, false, AttackType.Ranged, [DamageType.Piercing])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
   new Creature(
     'owlbear',
     'Owlbear',

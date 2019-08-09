@@ -62,7 +62,7 @@ export const fey: Creature[] = [
     'http://orig01.deviantart.net/4eaa/f/2009/296/a/4/satyr_for_paizo_publishing_by_michaeljaecks.jpg',
     Size.Medium,
     CreatureType.Fey,
-    Alignment.chaoticNeutral,
+    Alignment.trueNeutral,
     new Speeds(40),
     5,
     new AbilityScores(14, 15, 15, 12, 14, 19),

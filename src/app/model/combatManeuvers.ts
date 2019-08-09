@@ -1,4 +1,5 @@
 import { CombatManeuver } from './combatManeuver';
+import { AdditionalDamage } from './additionalDamage';
 
 export class Attach extends CombatManeuver {
   constructor(public combatManeuverBonus: number) {
@@ -11,7 +12,11 @@ export class Attach extends CombatManeuver {
 }
 
 export class Constrict extends CombatManeuver {
-  constructor(public combatManeuverBonus: number, public damageDice: string, public damageBonus: number) {
+  constructor(
+    public combatManeuverBonus: number,
+    public damageDice: string,
+    public damageBonus: number,
+    public additionalDamage?: AdditionalDamage) {
     super(
       'Constrict',
       'Creature crushes grappled target, dealing ' + damageDice + '+' + damageBonus + ' damage.',
@@ -28,6 +33,9 @@ export class Constrict extends CombatManeuver {
     }
     summary += this.combatManeuverBonus;
     summary += ' ' + this.damageDice + '+' + this.damageBonus;
+    if (this.additionalDamage) {
+      summary += ' plus ' + this.additionalDamage.summary;
+    }
     return summary;
   }
 

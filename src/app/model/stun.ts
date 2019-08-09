@@ -2,8 +2,8 @@ import { IAttackEffect } from './attackeffect';
 import { SavingThrow } from './savingThrow';
 import { Save } from './enums';
 
-export class NumbingCold implements IAttackEffect {
-  description = 'Numbing Cold';
+export class Stun implements IAttackEffect {
+  description = 'Stun';
   summary = '';
   details = '';
   displayDescription = true;
@@ -16,8 +16,8 @@ export class NumbingCold implements IAttackEffect {
     this.details = this.getDetails();
   }
 
-  static fromObject(numbingCold: NumbingCold): NumbingCold {
-    const { savingThrow } = numbingCold;
+  static fromObject(stun: Stun): Stun {
+    const { savingThrow } = stun;
     return new this(savingThrow.difficultyCheck);
   }
 
@@ -28,12 +28,13 @@ export class NumbingCold implements IAttackEffect {
 
   getDetails() {
     let details: string = this.getSummary();
-    details += '\r\n' + 'Creatures hit make a ' + this.savingThrow.save + ' save or be staggered for 1 round.';
+    details += '\r\n' + 'The target must make a ' + this.savingThrow.save + ' save or become stunned for 1 round.';
+    details += '\r\n' + 'On a critcal hit, the stun lasts for 1d4 rounds.';
     return details;
   }
 
   applyAbilityBonusIncreases(strIncrease: number, dexIncrease: number, conIncrease: number) {
-    this.savingThrow.difficultyCheck += conIncrease;
+    this.savingThrow.difficultyCheck += strIncrease;
     this.summary = this.getSummary();
     this.details = this.getDetails();
   }

@@ -71,6 +71,9 @@ export enum DamageType {
   Piercing = 'Piercing',
   Slashing = 'Slashing',
   Nonlethal = 'Nonlethal',
+  SneakAttack = 'Sneak Attack',
+  Bleed = 'Bleed',
+  Magic = 'Magic',
   Acid = 'Acid',
   Cold = 'Cold',
   Electricity = 'Electricity',
@@ -90,24 +93,35 @@ export enum SpeedType {
 export enum Spell {
   Aid = 'Aid',
   AuraOfMenace = 'Aura of Menace',
+  Blur = 'Blur',
   CauseFear = 'Cause Fear',
   CharmPerson = 'Charm Person',
   ContinualFlame = 'Continual Flame',
+  CureSeriousWounds = 'Cure Serious Wounds',
   DancingLights = 'Dancing Lights',
+  Darkness = 'Darkness',
   DetectEvil = 'Detect Evil',
+  DispelMagic = 'Dispel Magic',
   Doom = 'Doom',
   Fear = 'Fear',
   GhostSound = 'Ghost Sound',
+  GustOfWind = 'Gust of Wind',
+  LightningBolt = 'Lightning Bolt',
   MagicCircleAgainstEvil = 'Magic Circle Against Evil',
   Message = 'Message',
+  MirrorImage = 'Mirror Image',
   Prestidigitation = 'Prestidigitation',
+  SeeInvisibility = 'See Invisibility',
   Sleep = 'Sleep',
   StinkingCloud = 'Stinking Cloud',
-  Suggestion = 'Suggestion'
+  Suggestion = 'Suggestion',
+  UnnervingGaze = 'Unnerving Gaze',
+  WindWall = 'Wind Wall'
 }
 
 export enum Shape {
-  Cone10 = '10 ft Cone'
+  Cone10 = '10 ft Cone',
+  Line20 = '20 ft Line'
 }
 
 export enum InGameCondition {

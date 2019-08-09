@@ -86,12 +86,12 @@ export class InGameModifiersService {
   }
 
   applyCharging(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, 2);
+    this.applyAttackBonusIncrease(affectedCreature, 2, false);
     affectedCreature.armorClass.applyArmorModifier(-2);
   }
 
   removeCharging(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, -2);
+    this.applyAttackBonusIncrease(affectedCreature, -2, false);
     affectedCreature.armorClass.applyArmorModifier(2);
   }
 
@@ -104,14 +104,14 @@ export class InGameModifiersService {
   }
 
   applyEarthMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, 1);
+    this.applyAttackBonusIncrease(affectedCreature, 1, true);
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(1);
     }
   }
 
   removeEarthMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, -1);
+    this.applyAttackBonusIncrease(affectedCreature, -1, true);
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(-1);
     }
@@ -119,25 +119,25 @@ export class InGameModifiersService {
 
   applyGrappled(affectedCreature: Creature) {
     this.abilityScoreService.increaseDexterity(affectedCreature, -4);
-    this.applyAttackBonusIncrease(affectedCreature, -2, false);
+    this.applyAttackBonusIncrease(affectedCreature, -2, false, true);
   }
 
   removeGrappled(affectedCreature: Creature) {
     this.abilityScoreService.increaseDexterity(affectedCreature, 4);
-    this.applyAttackBonusIncrease(affectedCreature, +2, false);
+    this.applyAttackBonusIncrease(affectedCreature, +2, false, true);
   }
 
   applyMetalMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, 3);
+    this.applyAttackBonusIncrease(affectedCreature, 3, true);
   }
 
   removeMetalMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, -3);
+    this.applyAttackBonusIncrease(affectedCreature, -3, true);
   }
 
   applyPowerAttack(affectedCreature: Creature) {
     const powerAttackModifier = Math.ceil((affectedCreature.baseAttackBonus + 1) / 4);
-    this.applyAttackBonusIncrease(affectedCreature, (-1 * powerAttackModifier), false);
+    this.applyAttackBonusIncrease(affectedCreature, (-1 * powerAttackModifier), false, false);
     for (const attack of affectedCreature.attacks) {
       if ((attack.attackBonus || attack.attackBonus === 0) && attack.attackType === AttackType.Melee) {
         attack.applyDamageBonusIncrease(powerAttackModifier * 2);
@@ -147,7 +147,7 @@ export class InGameModifiersService {
 
   removePowerAttack(affectedCreature: Creature) {
     const powerAttackModifier = Math.ceil((affectedCreature.baseAttackBonus + 1) / 4);
-    this.applyAttackBonusIncrease(affectedCreature, powerAttackModifier, false);
+    this.applyAttackBonusIncrease(affectedCreature, powerAttackModifier, false, false);
     for (const attack of affectedCreature.attacks) {
       if ((attack.attackBonus || attack.attackBonus === 0) && attack.attackType === AttackType.Melee) {
         attack.applyDamageBonusIncrease(powerAttackModifier * -2);
@@ -170,7 +170,7 @@ export class InGameModifiersService {
   applySmite(affectedCreature: Creature) {
     const charismaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
     if (charismaBonus > 0) {
-      this.applyAttackBonusIncrease(affectedCreature, charismaBonus);
+      this.applyAttackBonusIncrease(affectedCreature, charismaBonus, true);
     }
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(affectedCreature.hitDice);
@@ -180,7 +180,7 @@ export class InGameModifiersService {
   removeSmite(affectedCreature: Creature) {
     const charismaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
     if (charismaBonus > 0) {
-      this.applyAttackBonusIncrease(affectedCreature, (-1 * charismaBonus));
+      this.applyAttackBonusIncrease(affectedCreature, (-1 * charismaBonus), true);
     }
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(-1 * affectedCreature.hitDice);
@@ -188,26 +188,27 @@ export class InGameModifiersService {
   }
 
   applyWaterMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, 1);
+    this.applyAttackBonusIncrease(affectedCreature, 1, true);
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(1);
     }
   }
 
   removeWaterMastery(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, -1);
+    this.applyAttackBonusIncrease(affectedCreature, -1, true);
     for (const attack of affectedCreature.attacks) {
       attack.applyDamageBonusIncrease(-1);
     }
   }
 
-  applyAttackBonusIncrease(affectedCreature: Creature, attackBonusIncrease: number, includeCombatManeuvers: boolean = true) {
+  applyAttackBonusIncrease(affectedCreature: Creature, attackBonusIncrease: number,
+                           includeCombatManeuvers: boolean = true, includeRanged: boolean = true) {
     if (includeCombatManeuvers) {
       affectedCreature.combatManeuverBonus += attackBonusIncrease;
       affectedCreature.combatManeuverDefense += attackBonusIncrease;
     }
     for (const attack of affectedCreature.attacks) {
-      if (attack.attackBonus || attack.attackBonus === 0) {
+      if ((attack.attackBonus || attack.attackBonus === 0) && (attack.attackType === AttackType.Melee || includeRanged)) {
         attack.applyAttackBonusIncrease(attackBonusIncrease);
       }
       if (attack.attackEffects) {

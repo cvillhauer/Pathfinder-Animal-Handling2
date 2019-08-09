@@ -15,6 +15,11 @@ export class SpecialAbility {
     summary: 'Ability to use a non-visual sense to operate effectively without vision'
   };
 
+  static DamageResistance5 = {
+    description: 'DR 5/',
+    summary: 'Takes 5 less points of damage from all weapons'
+  };
+
   static DamageResistanceColdIron2 = {
     description: 'DR 2/Cold Iron',
     summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'
@@ -23,6 +28,11 @@ export class SpecialAbility {
   static DamageResistanceColdIron5 = {
     description: 'DR 5/Cold Iron',
     summary: 'Takes 5 less points of damage from all weapons that are not Cold Iron'
+  };
+
+  static DamageResistanceColdIron10 = {
+    description: 'DR 10/Cold Iron',
+    summary: 'Takes 10 less points of damage from all weapons that are not Cold Iron'
   };
 
   static DamageResistanceEvil5 = {
@@ -45,9 +55,29 @@ export class SpecialAbility {
     summary: 'Takes 10 less points of damage from all weapons that are not Good'
   };
 
+  static DamageResistanceMagic5 = {
+    description: 'DR 5/Magic',
+    summary: 'Takes 5 less points of damage from all weapons that are not Magic'
+  };
+
+  static DamageResistanceMagic10 = {
+    description: 'DR 10/Magic',
+    summary: 'Takes 10 less points of damage from all weapons that are not Magic'
+  };
+
   static DamageResistanceSilver5 = {
     description: 'DR 5/Siver',
     summary: 'Takes 5 less points of damage from all weapons that are not Silver'
+  };
+
+  static DamageResistanceSilver10 = {
+    description: 'DR 10/Siver',
+    summary: 'Takes 10 less points of damage from all weapons that are not Silver'
+  };
+
+  static DancingChains = {
+    description: 'Dancing Chains',
+    summary: 'Can control up to four chains within 20ft as a standard action'
   };
 
   static Darkvision = {
@@ -75,9 +105,19 @@ export class SpecialAbility {
     summary: 'Can continue fighting even if its hit point total is below 0'
   };
 
+  static FlashOfInsight = {
+    description: 'Flash of Insight',
+    summary: 'Once per day, choose the result of one die roll'
+  };
+
   static Hatred = {
     description: 'Hatred',
     summary: '+1 bonus on attack rolls against hated foes'
+  };
+
+  static Heat = {
+    description: 'Heat',
+    summary: 'Attacks deal additional fire damage'
   };
 
   static IceGlide = {
@@ -165,6 +205,11 @@ export class SpecialAbility {
     summary: 'Cannot be stunned'
   };
 
+  static InfernalWound = {
+    description: 'Infernal Wound',
+    summary: 'Heal spells on Bleeding foes require DC 16 caster level check'
+  };
+
   static InkCloud = {
     description: 'Ink Cloud',
     summary: 'Emits sphere of ink as a free action, providing total concealment'
@@ -200,6 +245,11 @@ export class SpecialAbility {
     summary: '+3 bonus to attack rolls if enemy has metal armor or weapons'
   };
 
+  static MultiweaponMastery = {
+    description: 'Multiweapon Mastery',
+    summary: 'Never takes penalties on its attack rolls when fighting with multiple weapons'
+  };
+
   static Pounce = {
     description: 'Pounce',
     summary: 'Can make a full attack on a Charge, including rake attacks'
@@ -208,6 +258,11 @@ export class SpecialAbility {
   static PowerfulCharge = {
     description: 'Powerful Charge',
     summary: 'Charge attack deals extra damage'
+  };
+
+  static ProtectiveSlime = {
+    description: 'Protective Slime',
+    summary: 'Weapons that strike take 1d8 acid damage unless they pass a DC 18 Reflex save'
   };
 
   static Rage = {
@@ -315,6 +370,11 @@ export class SpecialAbility {
     summary: 'Trample DC increases if there are 3 or more creatures'
   };
 
+  static SuperiorTwoWeaponFighting = {
+    description: 'Superior Two Weapon Fighting',
+    summary: 'No penalty on attacks or damage for attacking with two weapons'
+  };
+
   static Tremorsense = {
     description: 'Tremorsense',
     summary: 'Can automatically pinpoint the location of any creature in contact with the ground'
@@ -348,6 +408,11 @@ export class SpecialAbility {
   static WaterMastery = {
     description: 'Water Mastery',
     summary: '+1 bonus on attack and damage rolls if target is touching water'
+  };
+
+  static WindForm = {
+    description: 'Wind Form',
+    summary: 'Shift forms as a standard action, then can fly and use Whirlwind Blast'
   };
 
   description: string;

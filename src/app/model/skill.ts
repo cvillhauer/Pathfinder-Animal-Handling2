@@ -31,7 +31,7 @@ export class Skill {
     modifier: Modifier.Charisma
   };
 
-  static Disabledevice = {
+  static DisableDevice = {
     description: 'Disable Device',
     modifier: Modifier.Dexterity
   };

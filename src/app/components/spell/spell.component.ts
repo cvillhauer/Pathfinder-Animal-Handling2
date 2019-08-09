@@ -120,7 +120,7 @@ export class SpellComponent implements OnInit {
 
   determineAlignment() {
     // True Neutral creatures will use the summoning character's alignment
-    if (this.selectedCreature.isTrueNeutral()) {
+    if (this.selectedCreature.isTrueNeutral() && this.selectedCreature.type !== CreatureType.Elemental) {
       return this.castingCharacter.alignment;
     } else {
       return this.selectedCreature.alignment;
