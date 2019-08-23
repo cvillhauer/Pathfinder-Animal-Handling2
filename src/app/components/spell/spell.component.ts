@@ -21,6 +21,7 @@ export class SpellComponent implements OnInit {
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
   readonly augmentSummonFeat = 'Augmented Summoning';
+  readonly superiorSummonFeat = 'Superior Summoning';
 
   constructor(
     private diceService: DiceService,
@@ -70,6 +71,9 @@ export class SpellComponent implements OnInit {
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
+      if (this.castingCharacter.feats.indexOf(this.superiorSummonFeat) >= 0 && this.spell.level > this.selectedLevel) {
+        numberOfCreatures += 1;
+      }
       for (let i = 1; i <= numberOfCreatures; i++) {
         const newCreature = Creature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
         newCreature.level = this.selectedLevel;
