@@ -16,7 +16,7 @@ export const dinosaurs: Creature[] = [
   new Creature(
     'ankylosaurus',
     'Ankylosaurus',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Ankylosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/ankylosaurus/',
     'https://dreager1.files.wordpress.com/2012/04/ankylosaurus_7.jpg',
     Size.Huge,
     CreatureType.Animal,
@@ -41,7 +41,7 @@ export const dinosaurs: Creature[] = [
   new Creature(
     'deinonychus',
     'Deinonychus',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Deinonychus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/deinonychus/',
     'https://dungeonhacking.files.wordpress.com/2015/07/deinonychus_antirrhopus.gif',
     Size.Medium,
     CreatureType.Animal,
@@ -76,7 +76,7 @@ export const dinosaurs: Creature[] = [
   new Creature(
     'pteranodon',
     'Pteranodon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Pteranodon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/pterosaur/pterosaur-pteranodon/',
     'https://vignette.wikia.nocookie.net/primalcarnagethegame/images/2/22/Pteranodon.png/revision/latest?cb=20170929141926',
     Size.Large,
     CreatureType.Animal,

@@ -18,7 +18,7 @@ export const magicalbeasts: Creature[] = [
   new Creature(
     'girallon',
     'Girallon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Girallon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/girallon/',
     'https://i.pinimg.com/originals/03/16/64/031664ec6fd89e4ecf7cb8e25aa1b592.jpg',
     Size.Large,
     CreatureType.MagicalBeast,
@@ -53,7 +53,7 @@ export const magicalbeasts: Creature[] = [
   new Creature(
     'griffon',
     'Griffon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Griffon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/griffon/',
     'https://pre00.deviantart.net/17d5/th/pre/i/2016/218/0/c/griffin_concept_by_dleoblack-dacx7vx.jpg',
     Size.Large,
     CreatureType.MagicalBeast,
@@ -88,7 +88,7 @@ export const magicalbeasts: Creature[] = [
   new Creature(
     'manticore',
     'Manticore',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Manticore',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/manticore/',
     'https://i.pinimg.com/originals/33/8f/7f/338f7f30d1a199b99b4c2bc7633d0d9c.jpg',
     Size.Large,
     CreatureType.MagicalBeast,
@@ -123,7 +123,7 @@ export const magicalbeasts: Creature[] = [
   new Creature(
     'owlbear',
     'Owlbear',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Owlbear',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/owlbear/',
     'http://orig03.deviantart.net/126f/f/2009/156/8/5/owl_bear_by_benwootten.jpg',
     Size.Large,
     CreatureType.MagicalBeast,
@@ -152,7 +152,7 @@ export const magicalbeasts: Creature[] = [
   new Creature(
     'stirge',
     'Stirge',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Stirge',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/stirge/',
     'https://vignette1.wikia.nocookie.net/forgottenrealms/images/d/d2/Stirge_-_Lars_Grant-West.jpg/revision/latest?cb=20090218055114',
     Size.Tiny,
     CreatureType.MagicalBeast,

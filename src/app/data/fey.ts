@@ -16,7 +16,7 @@ export const fey: Creature[] = [
   new Creature(
     'mite',
     'Mite',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Mite',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/fey/mite/',
     'https://pathfinderwiki.com/mediawiki/images/0/04/Mite.jpg',
     Size.Small,
     CreatureType.Fey,
@@ -58,7 +58,7 @@ export const fey: Creature[] = [
   new Creature(
     'satyr',
     'Satyr',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Satyr',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/fey/satyr/',
     'http://orig01.deviantart.net/4eaa/f/2009/296/a/4/satyr_for_paizo_publishing_by_michaeljaecks.jpg',
     Size.Medium,
     CreatureType.Fey,

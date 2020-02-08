@@ -48,7 +48,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallairelemental',
     'Small Air Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Air%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-air/small-air-elemental',
     airElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -83,7 +83,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumairelemental',
     'Medium Air Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Air%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-air/medium-air-elemental',
     airElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -118,7 +118,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largeairelemental',
     'Large Air Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Air%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-air/large-air-elemental',
     airElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -154,7 +154,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallearthelemental',
     'Small Earth Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Earth%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-earth/small-earth-elemental',
     earthElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -186,7 +186,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumearthelemental',
     'Medium Earth Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Earth%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-earth/medium-earth-elemental',
     earthElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -220,7 +220,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largeearthelemental',
     'Large Earth Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Earth%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-earth/large-earth-elemental',
     earthElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -255,7 +255,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallfireelemental',
     'Small Fire Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Fire%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-fire/small-fire-elemental',
     fireElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -287,7 +287,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumfireelemental',
     'Medium Fire Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Fire%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-fire/medium-fire-elemental',
     fireElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -319,7 +319,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largefireelemental',
     'Large Fire Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Fire%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-fire/large-fire-elemental',
     fireElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -354,7 +354,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smalliceelemental',
     'Small Ice Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Ice%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-ice/small-ice-elemental',
     iceElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -385,7 +385,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumiceelemental',
     'Medium Ice Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Ice%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-ice/medium-ice-elemental',
     iceElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -416,7 +416,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largeiceelemental',
     'Large Ice Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Ice%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-ice/large-ice-elemental',
     iceElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -452,7 +452,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smalllightningelemental',
     'Small Lightning Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Lightning%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-lightning/small-lightning-elemental',
     lightningElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -484,7 +484,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumlightningelemental',
     'Medium Lightning Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Lightning%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-lightning/medium-lightning-elemental',
     lightningElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -516,7 +516,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largelightningelemental',
     'Large Lightning Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Lightning%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-lightning/large-lightning-elemental',
     lightningElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -552,7 +552,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallmagmaelemental',
     'Small Magma Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Magma%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-magma/small-magma-elemental',
     magmaElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -584,7 +584,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediummagmaelemental',
     'Medium Magma Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Magma%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-magma/medium-magma-elemental',
     magmaElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -616,7 +616,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largemagmaelemental',
     'Large Magma Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Magma%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-magma/large-magma-elemental',
     magmaElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -650,7 +650,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallmudelemental',
     'Small Mud Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Mud%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-mud/small-mud-elemental',
     mudElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -682,7 +682,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediummudelemental',
     'Medium Mud Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Mud%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-mud/medium-mud-elemental',
     mudElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -714,7 +714,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largemudelemental',
     'Large Mud Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Mud%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-mud/large-mud-elemental',
     mudElementalImage,
     Size.Large,
     CreatureType.Elemental,
@@ -749,7 +749,7 @@ export const elementals: Creature[] = [
   new Creature(
     'smallwaterelemental',
     'Small Water Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Small%20Water%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-water/small-water-elemental',
     waterElementalImage,
     Size.Small,
     CreatureType.Elemental,
@@ -784,7 +784,7 @@ export const elementals: Creature[] = [
   new Creature(
     'mediumwaterelemental',
     'Medium Water Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Medium%20Water%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-water/medium-water-elemental',
     waterElementalImage,
     Size.Medium,
     CreatureType.Elemental,
@@ -819,7 +819,7 @@ export const elementals: Creature[] = [
   new Creature(
     'largewaterelemental',
     'Large Water Elemental',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Large%20Water%20Elemental',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/elemental-water/large-water-elemental',
     waterElementalImage,
     Size.Large,
     CreatureType.Elemental,

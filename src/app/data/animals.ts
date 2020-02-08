@@ -24,7 +24,7 @@ export const animals: Creature[] = [
   new Creature(
     'ape',
     'Ape',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Gorilla',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/primates/primate-gorilla/',
     'https://pathfinderwiki.com/mediawiki/images/thumb/1/15/Gorilla.jpg/250px-Gorilla.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -56,7 +56,7 @@ export const animals: Creature[] = [
   new Creature(
     'auroch',
     'Auroch',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Aurochs',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/herd-animals/aurochs/',
     'http://www.historyofinformation.com/images/3501a%20Large.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -84,7 +84,7 @@ export const animals: Creature[] = [
   new Creature(
     'bison',
     'Bison',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Bison',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/herd-animals/bison/',
     'https://img00.deviantart.net/9c0e/i/2012/235/1/9/bison_beast_by_prodigyduck-d5c77mh.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -112,7 +112,7 @@ export const animals: Creature[] = [
   new Creature(
     'boar',
     'Boar',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Boar',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/boar/boar/',
     'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Animals/images/Boar.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -137,7 +137,7 @@ export const animals: Creature[] = [
   new Creature(
     'cheetah',
     'Cheetah',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Cheetah',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/felines/cat-great/cheetah/',
     'https://img00.deviantart.net/bf17/i/2012/238/a/0/cheetah_running_by_prodigyduck-d5chize.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -172,7 +172,7 @@ export const animals: Creature[] = [
   new Creature(
     'constrictorsnake',
     'Constrictor Snake',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Constrictor%20Snake',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/snake/snake-constrictor/',
     'http://www.heliocentric.com.au/images/titanaboa.jpg?crc=253069396',
     Size.Medium,
     CreatureType.Animal,
@@ -204,7 +204,7 @@ export const animals: Creature[] = [
   new Creature(
     'crocodile',
     'Crocodile',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Crocodile',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/crocodilians/crocodile/crocodile/',
     'https://78.media.tumblr.com/864cd2f022509d7f566ca9c4fd60cd4a/tumblr_o0n2mahH761uqhshmo1_1280.png',
     Size.Large,
     CreatureType.Animal,
@@ -239,7 +239,7 @@ export const animals: Creature[] = [
   new Creature(
     'direape',
     'Dire Ape',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Ape%20(Gigantopithecus)',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/primates/primate-ape-dire/',
     'https://pre00.deviantart.net/de32/th/pre/i/2015/302/1/8/dire_ape_by_prodigyduck-d9esof4.png',
     Size.Large,
     CreatureType.Animal,
@@ -273,7 +273,7 @@ export const animals: Creature[] = [
   new Creature(
     'direbat',
     'Dire Bat',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Bat',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/bat/bat-dire/',
     'https://s-media-cache-ak0.pinimg.com/originals/59/0d/ee/590deeb0b5a84ccfb5466a643b134df4.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -303,7 +303,7 @@ export const animals: Creature[] = [
   new Creature(
     'direboar',
     'Dire Boar',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Boar%20(Daeodon)',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/boar/dire-boar/',
     'https://i2.wp.com/adventureaweek.com/wp-content/uploads/2013/07/Dire-Boar.jpg?ssl=1',
     Size.Large,
     CreatureType.Animal,
@@ -328,7 +328,7 @@ export const animals: Creature[] = [
   new Creature(
     'direlion',
     'Dire Lion',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Lion%20(Spotted%20Lion)',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/felines/cat-great/lion/dire-lion/',
     'https://i.pinimg.com/originals/bd/29/69/bd2969c22dedba403783d992667adfe8.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -365,7 +365,7 @@ export const animals: Creature[] = [
   new Creature(
     'direrat',
     'Dire Rat',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Rat',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/rat/dire-rat/',
     'https://pathfinderwiki.com/mediawiki/images/1/12/Dire_rat.jpg',
     Size.Small,
     CreatureType.Animal,
@@ -402,7 +402,7 @@ export const animals: Creature[] = [
   new Creature(
     'direwolf',
     'Dire Wolf',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Wolf',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/canines/wolf/dire-wolf/',
     'http://1.bp.blogspot.com/-owAXCy78Njo/TbdMuvP5NRI/AAAAAAAAAB0/8nLQ61zbzoQ/s1600/Worg.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -433,7 +433,7 @@ export const animals: Creature[] = [
   new Creature(
     'dog',
     'Dog',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dog',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/canines/dog/dog/',
     'https://images.beastsofwar.com/2014/10/Guard-Dog.png',
     Size.Small,
     CreatureType.Animal,
@@ -467,7 +467,7 @@ export const animals: Creature[] = [
   new Creature(
     'dolphin',
     'Dolphin',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dolphin',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/cetacean/dolphin/dolphin/',
     'http://d2ydh70d4b5xgv.cloudfront.net/images/f/5/safari-ltd-monterey-bay-aquarium-sea-life-collection-bottlenose-dolphin-f2383e6f99e01e61cd2371b00314e98c.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -495,7 +495,7 @@ export const animals: Creature[] = [
   new Creature(
     'eagle',
     'Eagle',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Eagle',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/birds/eagle/',
     'http://www.killershrike.com/Fate/Fae/Pathfinder/Content/Characters/Animals/images/EagleLarge.jpg',
     Size.Small,
     CreatureType.Animal,
@@ -527,7 +527,7 @@ export const animals: Creature[] = [
   new Creature(
     'electriceel',
     'Electric Eel',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Electric%20Eel',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/eel/eel-electric/',
     'https://res.cloudinary.com/uktv/image/upload/b_rgb:000000,w_880,h_495/v1394626469/q0iknfjhpzzzhajaxgie.jpg',
     Size.Small,
     CreatureType.Animal,
@@ -560,7 +560,7 @@ export const animals: Creature[] = [
   new Creature(
     'giantfrog',
     'Giant Frog',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Frog',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/frog/frog-giant/',
     'https://vignette.wikia.nocookie.net/rythiae/images/3/35/Giant_Frog_1.jpg/revision/latest?cb=20141125110711',
     Size.Medium,
     CreatureType.Animal,
@@ -596,7 +596,7 @@ export const animals: Creature[] = [
   new Creature(
     'giantmorayeel',
     'Giant Moray Eel',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Moray%20Eel',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/eel/eel-moray-giant/',
     'https://i.pinimg.com/originals/02/55/98/0255988b0afc03aa7c69a84bd286f428.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -631,7 +631,7 @@ export const animals: Creature[] = [
   new Creature(
     'goblindog',
     'Goblin Dog',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Goblin%20Dog',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/canines/dog/goblin-dog/',
     'https://orig00.deviantart.net/e5f8/f/2007/297/a/a/goblin_dog_by_njoo.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -659,7 +659,7 @@ export const animals: Creature[] = [
   new Creature(
     'grizzlybear',
     'Grizzly Bear',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Grizzly%20Bear',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/bear/brown-grizzly-bear/',
     'https://i.pinimg.com/originals/92/19/d3/9219d3574771f8a02004bd9279022dd4.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -692,7 +692,7 @@ export const animals: Creature[] = [
   new Creature(
     'horse',
     'Horse',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Horse',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/horse/horse/',
     'http://darkfienix.com/wp-content/uploads/2018/01/horse1.png',
     Size.Large,
     CreatureType.Animal,
@@ -722,7 +722,7 @@ export const animals: Creature[] = [
   new Creature(
     'hyena',
     'Hyena',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Hyena',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/hyena/',
     'https://i.pinimg.com/736x/da/b1/d1/dab1d17a311616268e8af871f23f1040--hyena-harley-quinn.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -752,7 +752,7 @@ export const animals: Creature[] = [
   new Creature(
     'leopard',
     'Leopard',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Leopard',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/felines/cat-great/leopard/',
     'https://i.pinimg.com/originals/b0/53/77/b053770ed5ece5ad273d8a5aba7f507e.png',
     Size.Medium,
     CreatureType.Animal,
@@ -790,7 +790,7 @@ export const animals: Creature[] = [
   new Creature(
     'lion',
     'Lion',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Lion',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/felines/cat-great/lion/',
     'https://vignette.wikia.nocookie.net/greyhawk-chronicles/images/a/ad/Lion-animal.jpg/revision/latest?cb=20160306185717',
     Size.Large,
     CreatureType.Animal,
@@ -827,7 +827,7 @@ export const animals: Creature[] = [
   new Creature(
     'monitorlizard',
     'Monitor Lizard',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Monitor%20Lizard',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/lizard/monitor-lizard/',
     'https://78.media.tumblr.com/7048d9a0164e8f270544c4d8e51f4258/tumblr_nw5v2y2hyk1uqhshmo1_1280.png',
     Size.Medium,
     CreatureType.Animal,
@@ -860,7 +860,7 @@ export const animals: Creature[] = [
   new Creature(
     'octopus',
     'Octopus',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Octopus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/octopus/',
     'https://s-media-cache-ak0.pinimg.com/originals/20/29/38/202938767c7a7befba2974ff753e8ba5.jpg',
     Size.Small,
     CreatureType.Animal,
@@ -895,7 +895,7 @@ export const animals: Creature[] = [
   new Creature(
     'orca',
     'Orca',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Orca',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/cetacean/dolphin/orca/',
     'https://images-na.ssl-images-amazon.com/images/I/71a4xW%2BgrRL._SX466_.jpg',
     Size.Huge,
     CreatureType.Animal,
@@ -925,7 +925,7 @@ export const animals: Creature[] = [
   new Creature(
     'poisonousfrog',
     'Poisonous Frog',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Poison%20Frog',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/frog/frog-poisonous/',
     'http://static2.paizo.com/image/content/PathfinderACG/PZO6818-Flybreath.jpg',
     Size.Tiny,
     CreatureType.Animal,
@@ -962,7 +962,7 @@ export const animals: Creature[] = [
   new Creature(
     'pony',
     'Pony',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Pony',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/horse/pony/',
     'https://orig00.deviantart.net/7569/f/2013/252/4/5/tobiano_draft_horse_study_by_charreed-d6lq7pf.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -990,7 +990,7 @@ export const animals: Creature[] = [
   new Creature(
     'rhinoceros',
     'Rhinoceros',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Rhinoceros',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/rhinoceros/',
     'https://pre00.deviantart.net/dda4/th/pre/i/2013/049/2/1/rhinoceros_by_prodigyduck-d5ve638.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -1018,7 +1018,7 @@ export const animals: Creature[] = [
   new Creature(
     'shark',
     'Shark',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Shark',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/shark/shark/',
     'https://www.tribality.com/wp-content/uploads/2015/03/safariltd-tiger-shark-211702-0.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -1049,7 +1049,7 @@ export const animals: Creature[] = [
   new Creature(
     'squid',
     'Squid',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Squid',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/squid/',
     'https://pre00.deviantart.net/d23c/th/pre/i/2006/228/3/8/ice_element_giant_squid_by_njoo.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -1079,7 +1079,7 @@ export const animals: Creature[] = [
   new Creature(
     'tiger',
     'Tiger',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Tiger',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/felines/cat-great/tiger/',
     'https://orig00.deviantart.net/b979/f/2012/194/c/9/tiger_by_thedjib-d573nqn.jpg',
     Size.Large,
     CreatureType.Animal,
@@ -1118,7 +1118,7 @@ export const animals: Creature[] = [
   new Creature(
     'viper',
     'Viper',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Viper',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/snake/snake-viper/',
     'https://pre00.deviantart.net/f3fe/th/pre/i/2015/108/b/c/cave_viper_by_bryansyme-d79yo8f.jpg',
     Size.Tiny,
     CreatureType.Animal,
@@ -1152,7 +1152,7 @@ export const animals: Creature[] = [
   new Creature(
     'wolf',
     'Wolf',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Wolf',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/canines/wolf/',
     'https://vignette.wikia.nocookie.net/rollplaywestmarches/images/3/35/Worg.jpg/revision/latest?cb=20150210055421',
     Size.Medium,
     CreatureType.Animal,
@@ -1186,7 +1186,7 @@ export const animals: Creature[] = [
   new Creature(
     'wolverine',
     'Wolverine',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Wolverine',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/wolverine/',
     'http://animaldiversity.org/collections/contributors/Grzimek_mammals/Mustelidae/gulo_gulo/medium.jpg',
     Size.Medium,
     CreatureType.Animal,
@@ -1218,7 +1218,7 @@ export const animals: Creature[] = [
   new Creature(
     'woollyrhinoceros',
     'Woolly Rhinoceros',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Woolly%20Rhinoceros',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/rhinoceros/wooly-rhinoceros/',
     'https://vignette.wikia.nocookie.net/shipoffools/images/a/a4/Woolly-Rhino.jpg',
     Size.Large,
     CreatureType.Animal,

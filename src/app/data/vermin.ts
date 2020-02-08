@@ -21,7 +21,7 @@ export const vermin: Creature[] = [
   new Creature(
     'firebeetle',
     'Fire Beetle',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Fire%20Beetle',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/beetle/beetle-fire/',
     'https://wrathofzombie.files.wordpress.com/2017/08/fire-beetle.jpg',
     Size.Small,
     CreatureType.Vermin,
@@ -46,7 +46,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantantdrone',
     'Giant Ant (Drone)',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Ant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/ant/ant-giant-drone/',
     'https://vignette.wikia.nocookie.net/non-aliencreatures/images/5/5e/Fire_Ant_Warrior.png/revision/latest?cb=20101228091156',
     Size.Medium,
     CreatureType.Vermin,
@@ -81,7 +81,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantantsoldier',
     'Giant Ant (Soldier)',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Ant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/ant/ant-giant-soldier/',
     'https://vignette.wikia.nocookie.net/non-aliencreatures/images/5/5e/Fire_Ant_Warrior.png/revision/latest?cb=20101228091156',
     Size.Medium,
     CreatureType.Vermin,
@@ -116,7 +116,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantantworker',
     'Giant Ant (Worker)',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Ant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/ant/ant-giant-worker/',
     'https://vignette.wikia.nocookie.net/non-aliencreatures/images/5/5e/Fire_Ant_Warrior.png/revision/latest?cb=20101228091156',
     Size.Medium,
     CreatureType.Vermin,
@@ -145,7 +145,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantcentipede',
     'Giant Centipede',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Centipede',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/centipede/centipede-giant/',
     'https://ironbombs.files.wordpress.com/2014/03/giant-centipede-smaller.jpg',
     Size.Medium,
     CreatureType.Vermin,
@@ -178,7 +178,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantcrab',
     'Giant Crab',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Crab',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/crab/giant-crab/',
     'http://2.bp.blogspot.com/_Fwjw80hPmio/TOp2HbokuGI/AAAAAAAACCY/lv_SdLnlcbM/s1600/Tojanida.jpg',
     Size.Medium,
     CreatureType.Vermin,
@@ -208,7 +208,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantscorpion',
     'Giant Scorpion',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Scorpion',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/scorpion/scorpion-giant/',
     'http://images.uesp.net//9/9b/ON-concept-Giant_scorpion.png',
     Size.Large,
     CreatureType.Vermin,
@@ -244,7 +244,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantspider',
     'Giant Spider',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Spider',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/spider/giant-spider/',
     'https://i.pinimg.com/736x/2f/42/9d/2f429d7c217e618be3ad75b88ddeac29--spider-art-giant-spider.jpg',
     Size.Medium,
     CreatureType.Vermin,
@@ -280,7 +280,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantstagbeetle',
     'Giant Stag Beetle',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Stag%20Beetle',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/beetle/beetle-stag/',
     'https://thetrove.net/Assets/Roll%2020/Devin%20Night/Devin%20Token%20Pack%2043%20-%20Many%20Legged%20Fiends%20(KS)/TP43_ManyLegedFiends_KS/vermin_giant_stag_beetle.png',
     Size.Large,
     CreatureType.Vermin,
@@ -308,7 +308,7 @@ export const vermin: Creature[] = [
   new Creature(
     'giantwasp',
     'Giant Wasp',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Giant%20Wasp',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/vermin/bees-and-wasps/wasp/wasp-giant/',
     'https://ironbombs.files.wordpress.com/2014/03/wasp.jpg',
     Size.Large,
     CreatureType.Vermin,
