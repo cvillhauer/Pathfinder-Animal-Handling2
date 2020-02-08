@@ -9,6 +9,7 @@ import { Alignment } from './model/alignment';
 })
 export class AppComponent implements OnInit {
   characters: Character[] = [];
+  activeCharacter: Character;
   roundCount: number;
 
   ngOnInit() {

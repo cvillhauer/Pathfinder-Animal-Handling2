@@ -1,14 +1,11 @@
-<div *ngFor="let character of characters">
-  <h2 (ngModel)="character.characterName">{{ character.characterName }}</h2>
-  <h3>{{ character.alignment.description }} {{ character.characterClass }} - {{ character.characterLevel }}</h3>
-  <div class="row spell">
-    <spell [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount" (summon)="summon($event)"
-      *ngFor="let spell of character.validSpells"></spell>
-  </div>
-  <div>
-    <h3>Summoned Creatures</h3>
-    <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"
-      (delete)="delete(character, creature)"></creature>
-  </div>
-  <hr />
+<h2 (ngModel)="character.characterName">{{ character.characterName }}</h2>
+<h3>{{ character.alignment.description }} {{ character.characterClass }} - {{ character.characterLevel }}</h3>
+<div class="row spell">
+  <spell [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount" (summon)="summon($event)"
+    *ngFor="let spell of character.validSpells"></spell>
+</div>
+<div>
+  <h3>Summoned Creatures</h3>
+  <creature *ngFor="let creature of character.summonedCreatures" [creature]="creature"
+    (delete)="delete(creature)"></creature>
 </div>
