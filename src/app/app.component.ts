@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.roundCount = 1;
     const nirwe: Character = new Character('nirwe', 'Aldamirnirwa', Alignment.trueNeutral,
-      'Druid', 7, new AbilityScores(12, 16, 13, 12, 16, 8));
+      'Druid', 8, new AbilityScores(12, 18, 13, 12, 19, 8));
     nirwe.feats.push('Augmented Summoning');
     nirwe.feats.push('Superior Summoning');
     this.characters.push(nirwe);
