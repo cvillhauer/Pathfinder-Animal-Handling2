@@ -20,6 +20,11 @@ export class SpecialAbility {
     summary: 'Takes 5 less points of damage from all weapons'
   };
 
+  static DamageResistance10 = {
+    description: 'DR 10/',
+    summary: 'Takes 10 less points of damage from all weapons'
+  };
+
   static DamageResistanceColdIron2 = {
     description: 'DR 2/Cold Iron',
     summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'

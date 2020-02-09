@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       'Witch', 7, new AbilityScores(9, 15, 14, 19, 14, 8));
     this.characters.push(hekda);
     const richard: Character = new Character('richard', 'Richard', Alignment.lawfulEvil,
-      'Wizard', 10, new AbilityScores(10, 14, 13, 18, 12, 10));
+      'Wizard', 20, new AbilityScores(10, 14, 13, 20, 12, 10));
     this.characters.push(richard);
     const elzaphir: Character = new Character('elzaphir', 'Elzaphir', Alignment.chaoticGood,
       'Sorcerer', 16, new AbilityScores(9, 15, 11, 14, 12, 24));

@@ -4,6 +4,11 @@ export class Feat {
     summary: '+2 bonus on Perception and Sense Motive checks'
   };
 
+  static AwesomeBlow = {
+    description: 'Awesome Blow',
+    summary: 'Can perform an Awesome Blow combat maneuver as a standard action'
+  };
+
   static BlindFight = {
     description: 'Blind Fight',
     summary: 'Can reroll concealment miss chance'
@@ -54,6 +59,11 @@ export class Feat {
     summary: 'Additional +2 bonus to Bull Rush combat maneuvers'
   };
 
+  static GreaterOverrun = {
+    description: 'Greater Overrun',
+    summary: 'Additional +2 bonus to Overrun combat maneuvers'
+  };
+
   static Hover = {
     description: 'Hover',
     summary: 'Can halt fly movement without hover checks'
@@ -62,6 +72,11 @@ export class Feat {
   static ImprovedBullRush = {
     description: 'Improved Bull Rush',
     summary: '+2 bonus to Bull Rush combat maneuvers'
+  };
+
+  static ImprovedCriticalSlam = {
+    description: 'Improved Critical (Slam)',
+    summary: 'Critical threat range is doubled with Slam attack'
   };
 
   static ImprovedInititive = {
@@ -74,6 +89,11 @@ export class Feat {
     summary: '+2 bonus to Overrun combat maneuvers'
   };
 
+  static ImprovedSunder = {
+    description: 'Improved Sunder',
+    summary: '+2 bonus to Sunder combat maneuvers'
+  };
+
   static IronWill = {
     description: 'Iron Will',
     summary: '+2 bonus on Will saves'
@@ -82,6 +102,11 @@ export class Feat {
   static LightningReflexes = {
     description: 'Lightning Reflexes',
     summary: '+2 bonus on Reflex saves'
+  };
+
+  static LightningStance = {
+    description: 'Lightning Stance',
+    summary: 'You get 50% concealment for 1 round when you double move'
   };
 
   static Mobility = {
@@ -144,44 +169,54 @@ export class Feat {
     summary: '+3 hit points, +1 per hit die beyond 3'
   };
 
+  static VitalStrike = {
+    description: 'Vital Strike',
+    summary: 'One of your attacks deals additional weapon damage dice'
+  };
+
   static WeaponFinesse = {
     description: 'Weapon Finesse',
     summary: 'Use Dex instead of Str on attack rolls with light weapons'
   };
 
   static WeaponFocusBite = {
-    description: 'Weapon Focus Bite',
+    description: 'Weapon Focus (Bite)',
     summary: '+1 on attack rolls with Bite attack'
   };
 
   static WeaponFocusChain = {
-    description: 'Weapon Focus Chain',
+    description: 'Weapon Focus (Chain)',
     summary: '+1 on attack rolls with Chain attack'
   };
 
   static WeaponFocusClaw = {
-    description: 'Weapon Focus Claw',
+    description: 'Weapon Focus (Claw)',
     summary: '+1 on attack rolls with Claw attack'
   };
 
   static WeaponFocusGlaive = {
-    description: 'Weapon Focus Glaive',
+    description: 'Weapon Focus (Glaive)',
     summary: '+1 on attack rolls with Glaive attack'
   };
 
   static WeaponFocusShortSword = {
-    description: 'Weapon Focus Short Sword',
+    description: 'Weapon Focus (Short Sword)',
     summary: '+1 on attack rolls with Short Sword attack'
   };
 
   static WeaponFocusSpikes = {
-    description: 'Weapon Focus Spikes',
+    description: 'Weapon Focus (Spikes)',
     summary: '+1 on attack rolls with Spikes attack'
   };
 
   static WeaponFocusTail = {
-    description: 'Weapon Focus Tail',
+    description: 'Weapon Focus (Tail)',
     summary: '+1 on attack rolls with Tail attack'
+  };
+
+  static WindStance = {
+    description: 'Wind Stance',
+    summary: 'You get 20% concealment for 1 round against ranged attacks when you move more than 5 feet'
   };
 
   description: string;

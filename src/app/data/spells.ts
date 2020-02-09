@@ -129,21 +129,48 @@ export const spells = [
     description: 'Summon Nature\'s Ally VI',
     group: 'summonnaturesally',
     level: 6,
-    creatureList: []
+    creatureList: [
+      'hugeairelemental',
+      'hugeearthelemental',
+      'hugefireelemental',
+      'hugeiceelemental',
+      'hugelightningelemental',
+      'hugemagmaelemental',
+      'hugemudelemental',
+      'hugewaterelemental',
+    ]
   },
   {
     id: 'summonnaturesally7',
     description: 'Summon Nature\'s Ally VII',
     group: 'summonnaturesally',
     level: 7,
-    creatureList: []
+    creatureList: [
+      'greaterairelemental',
+      'greaterearthelemental',
+      'greaterfireelemental',
+      'greatericeelemental',
+      'greaterlightningelemental',
+      'greatermagmaelemental',
+      'greatermudelemental',
+      'greaterwaterelemental',
+    ]
   },
   {
     id: 'summonnaturesally8',
     description: 'Summon Nature\'s Ally VIII',
     group: 'summonnaturesally',
     level: 8,
-    creatureList: []
+    creatureList: [
+      'elderairelemental',
+      'elderearthelemental',
+      'elderfireelemental',
+      'eldericeelemental',
+      'elderlightningelemental',
+      'eldermagmaelemental',
+      'eldermudelemental',
+      'elderwaterelemental',
+    ]
   },
   {
     id: 'summonnaturesally9',
@@ -281,21 +308,48 @@ export const spells = [
     description: 'Summon Monster VI',
     group: 'summonmonster',
     level: 6,
-    creatureList: []
+    creatureList: [
+      'hugeairelemental',
+      'hugeearthelemental',
+      'hugefireelemental',
+      'hugeiceelemental',
+      'hugelightningelemental',
+      'hugemagmaelemental',
+      'hugemudelemental',
+      'hugewaterelemental',
+    ]
   },
   {
     id: 'summonmonster7',
     description: 'Summon Monster VII',
     group: 'summonmonster',
     level: 7,
-    creatureList: []
+    creatureList: [
+      'greaterairelemental',
+      'greaterearthelemental',
+      'greaterfireelemental',
+      'greatericeelemental',
+      'greaterlightningelemental',
+      'greatermagmaelemental',
+      'greatermudelemental',
+      'greaterwaterelemental',
+    ]
   },
   {
     id: 'summonmonster8',
     description: 'Summon Monster VIII',
     group: 'summonmonster',
     level: 8,
-    creatureList: []
+    creatureList: [
+      'elderairelemental',
+      'elderearthelemental',
+      'elderfireelemental',
+      'eldericeelemental',
+      'elderlightningelemental',
+      'eldermagmaelemental',
+      'eldermudelemental',
+      'elderwaterelemental',
+    ]
   },
   {
     id: 'summonmonster9',
