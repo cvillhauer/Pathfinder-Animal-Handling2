@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
 import { FormsModule } from '@angular/forms';
-import { SpellComponent } from './components/spell/spell.component';
+import { SummonSpellComponent } from './components/summon-spell/summon-spell.component';
 import { CreatureComponent } from './components/creature/creature.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AttackComponent } from './components/attack/attack.component';
@@ -18,7 +18,7 @@ describe('AppComponent', () => {
         RouterTestingModule, FormsModule, HttpClientModule
       ],
       declarations: [
-        AppComponent, AttackComponent, CharacterComponent, SpellComponent, CreatureComponent, InGameModifiersComponent
+        AppComponent, AttackComponent, CharacterComponent, SummonSpellComponent, CreatureComponent, InGameModifiersComponent
       ],
     }).compileComponents();
   }));

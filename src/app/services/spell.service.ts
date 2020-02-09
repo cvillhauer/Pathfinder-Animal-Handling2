@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Spell } from '../model/spell';
+import { Spell, SummonSpell } from '../model/spell';
 
 @Injectable({
     providedIn: 'root'
@@ -31,8 +31,8 @@ export class SpellService {
         );
     }
 
-    getSpellCreatureListBySpellId(spellId: string): Observable<string[]> {
-        return this.http.get<Spell>((this.spellsUrl) + '/' + spellId).pipe(
+    getSummonSpellCreatureListBySpellId(spellId: string): Observable<string[]> {
+        return this.http.get<SummonSpell>((this.spellsUrl) + '/' + spellId).pipe(
             map(spell => {
                 return spell.creatureList.sort();
             })

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SpellComponent } from './spell.component';
+import { SummonSpellComponent } from './summon-spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
@@ -18,18 +18,18 @@ import { Speeds } from 'src/app/model/speed';
 import { Alignment } from 'src/app/model/alignment';
 
 describe('SpellComponent', () => {
-  let component: SpellComponent;
-  let fixture: ComponentFixture<SpellComponent>;
+  let component: SummonSpellComponent;
+  let fixture: ComponentFixture<SummonSpellComponent>;
   const mockCreatureCodes: string[] = [];
   const mockCreatures: Creature[] = [];
 
   beforeEach(async(() => {
-    const spellService = jasmine.createSpyObj('SpellService', ['getSpellCreatureListBySpellId']);
-    spellService.getSpellCreatureListBySpellId.and.returnValue(of(mockCreatureCodes));
+    const spellService = jasmine.createSpyObj('SpellService', ['getSummonSpellCreatureListBySpellId']);
+    spellService.getSummonSpellCreatureListBySpellId.and.returnValue(of(mockCreatureCodes));
     const creatureService = jasmine.createSpyObj('CreatureService', ['getCreaturesFromCreatureList']);
     creatureService.getCreaturesFromCreatureList.and.returnValue(of(mockCreatures));
     TestBed.configureTestingModule({
-      declarations: [SpellComponent],
+      declarations: [SummonSpellComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [DiceService,
         { provide: SpellService, useValue: spellService },
@@ -39,7 +39,7 @@ describe('SpellComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpellComponent);
+    fixture = TestBed.createComponent(SummonSpellComponent);
     component = fixture.componentInstance;
     component.spell = {
       id: 'test',

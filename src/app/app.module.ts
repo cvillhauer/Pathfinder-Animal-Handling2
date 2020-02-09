@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AttackComponent } from './components/attack/attack.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
-import { SpellComponent } from './components/spell/spell.component';
+import { SummonSpellComponent } from './components/summon-spell/summon-spell.component';
 import { InGameModifiersComponent } from './components/in-game-modifiers/in-game-modifiers.component';
 
 
@@ -21,7 +21,7 @@ import { InGameModifiersComponent } from './components/in-game-modifiers/in-game
     CharacterComponent,
     CreatureComponent,
     InGameModifiersComponent,
-    SpellComponent
+    SummonSpellComponent
   ],
   imports: [
     BrowserModule,

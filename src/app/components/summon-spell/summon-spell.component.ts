@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { DiceService } from 'src/app/services/dice.service';
-import { Spell } from 'src/app/model/spell';
+import { SummonSpell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
@@ -10,11 +10,11 @@ import { Morality, CreatureType } from 'src/app/model/enums';
 import { AbilityScoreService } from 'src/app/services/ability-score.service';
 
 @Component({
-  selector: 'spell',
-  templateUrl: './spell.component.html'
+  selector: 'summon-spell',
+  templateUrl: './summon-spell.component.html'
 })
-export class SpellComponent implements OnInit {
-  @Input() spell: Spell;
+export class SummonSpellComponent implements OnInit {
+  @Input() spell: SummonSpell;
   @Input() castingCharacter: Character;
   @Input() roundCount: number;
   selectedLevel: number;
@@ -48,7 +48,7 @@ export class SpellComponent implements OnInit {
     let possibleValidCreatures = [];
     if (creatureLevel && creatureLevel <= this.spell.level) {
       const creatureListSpellId = this.spell.group + creatureLevel;
-      this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
+      this.spellService.getSummonSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
           possibleValidCreatures = creatures;
           for (const creature of possibleValidCreatures) {
