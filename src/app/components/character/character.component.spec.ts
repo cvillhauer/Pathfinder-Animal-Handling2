@@ -35,8 +35,8 @@ describe('CharacterComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CharacterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     component.character = new Character('', '', Alignment.trueNeutral, '', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    fixture.detectChanges();
   });
 
   afterEach(() => {
@@ -49,67 +49,80 @@ describe('CharacterComponent', () => {
 
   it('calculateSpellLevel Bard should return 1', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Bard', 1, new AbilityScores(10, 10, 10, 10, 10, 11));
-    expect(component.character.calculateSpellLevel()).toBe(1);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(1);
   });
 
   it('calculateSpellLevel Summoner should return 1', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Summoner', 1, new AbilityScores(10, 10, 10, 10, 10, 11));
-    expect(component.character.calculateSpellLevel()).toBe(1);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(1);
   });
 
   it('calculateSpellLevel Ranger should return 0', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Ranger', 1, new AbilityScores(10, 10, 10, 10, 11, 10));
-    expect(component.character.calculateSpellLevel()).toBe(0);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(0);
   });
 
   it('calculateSpellLevel Sorcerer should return 1', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Sorcerer', 1, new AbilityScores(10, 10, 10, 10, 10, 11));
-    expect(component.character.calculateSpellLevel()).toBe(1);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(1);
   });
 
   it('calculateSpellLevel Druid 3 should return 2', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 3, new AbilityScores(10, 10, 10, 10, 12, 10));
-    expect(component.character.calculateSpellLevel()).toBe(2);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(2);
   });
 
   it('calculateSpellLevel Druid 5 should return 3', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 5, new AbilityScores(10, 10, 10, 10, 13, 10));
-    expect(component.character.calculateSpellLevel()).toBe(3);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(3);
   });
 
   it('calculateSpellLevel Druid 7 should return 4', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 7, new AbilityScores(10, 10, 10, 10, 14, 10));
-    expect(component.character.calculateSpellLevel()).toBe(4);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(4);
   });
 
   it('calculateSpellLevel Druid 9 should return 5', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 9, new AbilityScores(10, 10, 10, 10, 15, 10));
-    expect(component.character.calculateSpellLevel()).toBe(5);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(5);
   });
 
   it('calculateSpellLevel Druid 11 should return 6', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 11, new AbilityScores(10, 10, 10, 10, 16, 10));
-    expect(component.character.calculateSpellLevel()).toBe(6);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(6);
   });
 
   it('calculateSpellLevel Druid 13 should return 7', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 13, new AbilityScores(10, 10, 10, 10, 17, 10));
-    expect(component.character.calculateSpellLevel()).toBe(7);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(7);
   });
 
   it('calculateSpellLevel Druid 15 should return 8', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 15, new AbilityScores(10, 10, 10, 10, 18, 10));
-    expect(component.character.calculateSpellLevel()).toBe(8);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(8);
   });
 
   it('calculateSpellLevel Druid 17 should return 9', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 17, new AbilityScores(10, 10, 10, 10, 19, 10));
-    expect(component.character.calculateSpellLevel()).toBe(9);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(9);
   });
 
   it('calculateSpellLevel Druid 33 should return 0', () => {
     component.character = new Character('1', 'test', Alignment.trueNeutral, 'Druid', 33, new AbilityScores(10, 10, 10, 10, 10, 10));
-    expect(component.character.calculateSpellLevel()).toBe(0);
+    component.character.calculateSpellLevel();
+    expect(component.character.spellLevel).toBe(0);
   });
 
 
