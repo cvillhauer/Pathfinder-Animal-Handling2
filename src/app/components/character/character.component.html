@@ -1,8 +1,10 @@
 <h2 (ngModel)="character.characterName">{{ character.characterName }}</h2>
 <h3>{{ character.alignment.description }} {{ character.characterClass }} - {{ character.characterLevel }}</h3>
 <div class="row spell">
-  <summon-spell [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount" (summon)="summon($event)"
-    *ngFor="let spell of character.validSpells"></summon-spell>
+  <div *ngFor="let spell of character.validSpells">
+    <summon-spell *ngIf="spell.type === 'summon'" [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount" (summon)="summon($event)"></summon-spell>
+    <shapeshift-spell *ngIf="spell.type === 'shapeshift'" [spell]="spell" [castingCharacter]="character" [roundCount]="roundCount"></shapeshift-spell>
+  </div>
 </div>
 <div>
   <h3>Summoned Creatures</h3>

@@ -1050,7 +1050,7 @@ export const animals: Creature[] = [
     'squid',
     'Squid',
     'https://www.d20pfsrd.com/bestiary/monster-listings/animals/squid/',
-    'https://pre00.deviantart.net/d23c/th/pre/i/2006/228/3/8/ice_element_giant_squid_by_njoo.jpg',
+    'https://beckyssketchbook.weebly.com/uploads/8/8/1/1/8811619/bubblegumsquid_orig.png',
     Size.Medium,
     CreatureType.Animal,
     Alignment.trueNeutral,

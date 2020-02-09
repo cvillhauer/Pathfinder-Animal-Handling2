@@ -27,16 +27,11 @@ describe('SpellService', () => {
 
   it(`can get a spell by group`, async(inject([SpellService, HttpTestingController],
     (service: SpellService, httpClient: HttpTestingController) => {
-      expect(service.getSpellsByGroup('summonnaturesally')).toBeTruthy();
-  })));
-
-  it(`can get a spell by group`, async(inject([SpellService, HttpTestingController],
-    (service: SpellService, httpClient: HttpTestingController) => {
-      expect(service.getSpellsByCharacterGroupAndLevel('summonnaturesally', 1)).toBeTruthy();
+      expect(service.getSpellsByCharacterClassAndLevel('summonnaturesally', 1)).toBeTruthy();
   })));
 
   it(`can get a spell by spell id`, async(inject([SpellService, HttpTestingController],
     (service: SpellService, httpClient: HttpTestingController) => {
-      expect(service.getSummonSpellCreatureListBySpellId('summonnaturesally')).toBeTruthy();
+      expect(service.getSummonSpellCreatureListBySpellId('summonnaturesally1')).toBeTruthy();
   })));
 });

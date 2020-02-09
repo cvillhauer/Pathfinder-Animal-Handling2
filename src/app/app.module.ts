@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AttackComponent } from './components/attack/attack.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CreatureComponent } from './components/creature/creature.component';
+import { ShapeshiftSpellComponent } from './components/shapeshift-spell/shapeshift-spell.component';
 import { SummonSpellComponent } from './components/summon-spell/summon-spell.component';
 import { InGameModifiersComponent } from './components/in-game-modifiers/in-game-modifiers.component';
 
@@ -21,6 +22,7 @@ import { InGameModifiersComponent } from './components/in-game-modifiers/in-game
     CharacterComponent,
     CreatureComponent,
     InGameModifiersComponent,
+    ShapeshiftSpellComponent,
     SummonSpellComponent
   ],
   imports: [

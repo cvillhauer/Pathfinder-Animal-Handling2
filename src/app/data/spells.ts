@@ -1,6 +1,25 @@
+import { Size, CreatureType } from 'src/app/model/enums';
+
 export const spells = [
   {
+    id: 'beastshape1',
+    type: 'shapeshift',
+    description: 'Beast Shape I',
+    level: 3,
+    creatureType: CreatureType.Animal,
+    sizeOptions: [Size.Medium, Size.Small],
+    allowedAbilities: [
+      'climb 30 ft',
+      'fly 30 ft',
+      'swim 30 ft',
+      'darkvision 60 ft',
+      'low-light vision',
+      'scent'
+    ]
+  },
+  {
     id: 'summonnaturesally1',
+    type: 'summon',
     description: 'Summon Nature\'s Ally I',
     group: 'summonnaturesally',
     level: 1,
@@ -20,6 +39,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally2',
+    type: 'summon',
     description: 'Summon Nature\'s Ally II',
     group: 'summonnaturesally',
     level: 2,
@@ -45,6 +65,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally3',
+    type: 'summon',
     description: 'Summon Nature\'s Ally III',
     group: 'summonnaturesally',
     level: 3,
@@ -67,6 +88,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally4',
+    type: 'summon',
     description: 'Summon Nature\'s Ally IV',
     group: 'summonnaturesally',
     level: 4,
@@ -101,6 +123,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally5',
+    type: 'summon',
     description: 'Summon Nature\'s Ally V',
     group: 'summonnaturesally',
     level: 5,
@@ -126,6 +149,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally6',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VI',
     group: 'summonnaturesally',
     level: 6,
@@ -133,6 +157,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally7',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VII',
     group: 'summonnaturesally',
     level: 7,
@@ -140,6 +165,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally8',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VIII',
     group: 'summonnaturesally',
     level: 8,
@@ -147,6 +173,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally9',
+    type: 'summon',
     description: 'Summon Nature\'s Ally IX',
     group: 'summonnaturesally',
     level: 9,
@@ -154,6 +181,7 @@ export const spells = [
   },
   {
     id: 'summonmonster1',
+    type: 'summon',
     description: 'Summon Monster I',
     group: 'summonmonster',
     level: 1,
@@ -170,6 +198,7 @@ export const spells = [
   },
   {
     id: 'summonmonster2',
+    type: 'summon',
     description: 'Summon Monster II',
     group: 'summonmonster',
     level: 2,
@@ -197,6 +226,7 @@ export const spells = [
   },
   {
     id: 'summonmonster3',
+    type: 'summon',
     description: 'Summon Monster III',
     group: 'summonmonster',
     level: 3,
@@ -220,6 +250,7 @@ export const spells = [
   },
   {
     id: 'summonmonster4',
+    type: 'summon',
     description: 'Summon Monster IV',
     group: 'summonmonster',
     level: 4,
@@ -251,6 +282,7 @@ export const spells = [
   },
   {
     id: 'summonmonster5',
+    type: 'summon',
     description: 'Summon Monster V',
     group: 'summonmonster',
     level: 5,
@@ -278,6 +310,7 @@ export const spells = [
   },
   {
     id: 'summonmonster6',
+    type: 'summon',
     description: 'Summon Monster VI',
     group: 'summonmonster',
     level: 6,
@@ -285,6 +318,7 @@ export const spells = [
   },
   {
     id: 'summonmonster7',
+    type: 'summon',
     description: 'Summon Monster VII',
     group: 'summonmonster',
     level: 7,
@@ -292,6 +326,7 @@ export const spells = [
   },
   {
     id: 'summonmonster8',
+    type: 'summon',
     description: 'Summon Monster VIII',
     group: 'summonmonster',
     level: 8,
@@ -299,6 +334,7 @@ export const spells = [
   },
   {
     id: 'summonmonster9',
+    type: 'summon',
     description: 'Summon Monster IX',
     group: 'summonmonster',
     level: 9,

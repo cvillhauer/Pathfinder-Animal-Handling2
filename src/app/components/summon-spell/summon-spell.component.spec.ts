@@ -43,6 +43,7 @@ describe('SpellComponent', () => {
     component = fixture.componentInstance;
     component.spell = {
       id: 'test',
+      type: 'summon',
       description: 'test',
       group: 'test',
       level: 1,

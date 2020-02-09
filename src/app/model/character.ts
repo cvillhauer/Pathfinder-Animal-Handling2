@@ -14,7 +14,6 @@ export class Character {
   abilityScores: AbilityScores;
 
   validSpells: Spell[];
-  spellGroup: string;
   spellLevel: number;
   spellAbilityModifier: Modifier;
 
@@ -92,35 +91,11 @@ export class Character {
     }
   }
 
-  calculateSpellGroup() {
-    let spellGroup = '';
-    switch (this.characterClass) {
-      case 'Druid':
-      case 'Ranger':
-      case 'Shaman':
-        spellGroup = 'summonnaturesally';
-        break;
-      case 'Cleric':
-      case 'Bard':
-      case 'Oracle':
-      case 'Sorcerer':
-      case 'Summoner':
-      case 'Witch':
-      case 'Wizard':
-        spellGroup = 'summonmonster';
-        break;
-      default:
-        break;
-    }
-    this.spellGroup = spellGroup;
-  }
-
   calculateSpellLevel() {
     const characterClass = this.characterClass;
     const characterLevel = this.characterLevel;
     const spellAbilityScore = this.getAbilityScore(this.spellAbilityModifier);
     let spellLevel = 0;
-    this.calculateSpellGroup();
     if (characterClass === 'Bard' || characterClass === 'Summoner') {
       spellLevel = this.calculateSpellLevelBardOrSummoner(characterLevel);
     } else if (characterClass === 'Ranger') {

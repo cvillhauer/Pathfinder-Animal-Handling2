@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CharacterComponent } from './character.component';
 import { FormsModule } from '@angular/forms';
+import { ShapeshiftSpellComponent } from '../shapeshift-spell/shapeshift-spell.component';
 import { SummonSpellComponent } from '../summon-spell/summon-spell.component';
 import { CreatureComponent } from '../creature/creature.component';
 import { Character } from 'src/app/model/character';
@@ -22,10 +23,11 @@ describe('CharacterComponent', () => {
   const mockSpells: Spell[] = [];
 
   beforeEach(async(() => {
-    const spellService = jasmine.createSpyObj('SpellService', ['getSpellsByCharacterGroupAndLevel']);
-    spellService.getSpellsByCharacterGroupAndLevel.and.returnValue(of(mockSpells));
+    const spellService = jasmine.createSpyObj('SpellService', ['getSpellsByCharacterClassAndLevel']);
+    spellService.getSpellsByCharacterClassAndLevel.and.returnValue(of(mockSpells));
     TestBed.configureTestingModule({
-      declarations: [CharacterComponent, SummonSpellComponent, CreatureComponent, AttackComponent, InGameModifiersComponent],
+      declarations: [CharacterComponent, ShapeshiftSpellComponent, SummonSpellComponent,
+        CreatureComponent, AttackComponent, InGameModifiersComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [{ provide: SpellService, useValue: spellService }]
     })
@@ -229,18 +231,6 @@ describe('CharacterComponent', () => {
     const creature = new Creature('1', 'test');
     component.character = char;
     expect(component.delete(creature)).toBeUndefined();
-  });
-
-  it('calculateSpellGroup default should return nothing', () => {
-    const char = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
-    component.character = char;
-    expect(component.character.calculateSpellGroup()).toBeUndefined();
-  });
-
-  it('calculateSpellGroup Cleric should return nothing', () => {
-    const char = new Character('1', 'test', Alignment.trueNeutral, 'Cleric', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
-    component.character = char;
-    expect(component.character.calculateSpellGroup()).toBeUndefined();
   });
 
   it('getValidSpells should return nothing', () => {
