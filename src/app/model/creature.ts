@@ -50,6 +50,8 @@ export class Creature {
           this.inGameModifiers.push(new InGameModifier(InGameCondition.PowerAttack));
         } else if (f.description === Feat.Cleave.description) {
           this.inGameModifiers.push(new InGameModifier(InGameCondition.Cleave));
+        } else if (f.description === Feat.RapidShot.description) {
+          this.inGameModifiers.push(new InGameModifier(InGameCondition.RapidShot));
         }
       });
     }

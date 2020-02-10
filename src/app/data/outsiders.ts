@@ -16,6 +16,8 @@ import { BreathWeapon } from '../model/breathWeapon';
 import { SavingThrow } from '../model/savingThrow';
 import { Grab, Constrict } from '../model/combatManeuvers';
 import { Paralysis } from '../model/paralysis';
+import { Entrap } from '../model/entrap';
+import { Entangle } from '../model/entangle';
 
 export const outsiders: Creature[] = [
   new Creature(
@@ -195,7 +197,57 @@ export const outsiders: Creature[] = [
       new SpellLikeAbility(2, 'once per day', Spell.StinkingCloud, 13)
     ]
   ),
-
+  new Creature(
+    'erinyes',
+    'Erinyes',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/devil/erinyes',
+    'https://sites.google.com/site/pathfinderogc/_/rsrc/1271353632453/bestiary/monster-listings/outsiders/devil/erinyes/PZO9213-ErinyesQueen.jpg',
+    Size.Medium,
+    CreatureType.Outsider,
+    Alignment.lawfulEvil,
+    new Speeds(30, 0, 50),
+    5,
+    new AbilityScores(20, 23, 21, 14, 18, 21),
+    9,
+    94,
+    new ArmorClass(23, 17, 16),
+    14,
+    31,
+    9,
+    8,
+    19,
+    new Saves(11, 12, 7),
+    [Feat.CombatReflexes, Feat.Dodge, Feat.Mobility, Feat.PointBlankShot, Feat.PreciseShot, Feat.RapidShot, Feat.ShotOnTheRun],
+    [
+      new SkillBonus(Skill.Acrobatics, 18),
+      new SkillBonus(Skill.Bluff, 17),
+      new SkillBonus(Skill.EscapeArtist, 12),
+      new SkillBonus(Skill.Fly, 19),
+      new SkillBonus(Skill.Intimidate, 17),
+      new SkillBonus(Skill.KnowledgePlanes, 8),
+      new SkillBonus(Skill.KknowledgeReligion, 8),
+      new SkillBonus(Skill.Perception, 16),
+      new SkillBonus(Skill.SenseMotive, 10),
+      new SkillBonus(Skill.Stealth, 15)
+    ],
+    [
+      new Attack('+1 Longsword', 15, '1d8', 8, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('+1 Longsword', 10, '1d8', 8, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('+1 Flaming Composite Longbow', 16, '1d8', 6, false, AttackType.Ranged, [DamageType.Piercing],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
+      new Attack('+1 Flaming Composite Longbow', 11, '1d8', 6, false, AttackType.Ranged, [DamageType.Piercing],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
+        new Attack('Rope', 15, null, 0, true, AttackType.Ranged, [], [new Entangle(20, 10, 2, 23)]),
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.SeeInDarkness, SpecialAbility.TrueSeeing, SpecialAbility.DamageResistanceGood5,
+    SpecialAbility.ImmuneFire, SpecialAbility.ImmunePoison, SpecialAbility.ResistAcid10, SpecialAbility.ResistCold10],
+    [
+      new SpellLikeAbility(12, 'at will', Spell.Fear, 19),
+      new SpellLikeAbility(12, 'at will', Spell.GreaterTeleport),
+      new SpellLikeAbility(12, 'at will', Spell.MinorImage, 17),
+      new SpellLikeAbility(12, 'at will', Spell.UnholyBlight, 19)
+    ]
+  ),
   new Creature(
     'hellhound',
     'Hell Hound',

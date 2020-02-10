@@ -400,6 +400,11 @@ export class SpecialAbility {
     summary: 'Can automatically pinpoint the location of any creature in contact with the ground'
   };
 
+  static TrueSeeing = {
+    description: 'True Seeing',
+    summary: 'You have the ability to see all things as they actually are'
+  };
+
   static VerminEmpathy = {
     description: 'Vermin Empathy',
     summary: 'Can communicate and command vermin as with Wild Empathy'

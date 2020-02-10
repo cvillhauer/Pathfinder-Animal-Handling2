@@ -105,16 +105,19 @@ export enum Spell {
   Doom = 'Doom',
   Fear = 'Fear',
   GhostSound = 'Ghost Sound',
+  GreaterTeleport = 'Greater Teleport',
   GustOfWind = 'Gust of Wind',
   LightningBolt = 'Lightning Bolt',
   MagicCircleAgainstEvil = 'Magic Circle Against Evil',
   Message = 'Message',
+  MinorImage = 'Minor Image',
   MirrorImage = 'Mirror Image',
   Prestidigitation = 'Prestidigitation',
   SeeInvisibility = 'See Invisibility',
   Sleep = 'Sleep',
   StinkingCloud = 'Stinking Cloud',
   Suggestion = 'Suggestion',
+  UnholyBlight = 'Unholy Blight',
   UnnervingGaze = 'Unnerving Gaze',
   WindWall = 'Wind Wall'
 }
@@ -132,6 +135,7 @@ export enum InGameCondition {
   MetalMastery = 'Metal Mastery',
   PowerAttack = 'Power Attack',
   Rage = 'Rage',
+  RapidShot = 'Rapid Shot',
   Smite = 'Smite',
   WaterMastery = 'Water Mastery'
 }

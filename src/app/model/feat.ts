@@ -159,9 +159,19 @@ export class Feat {
     summary: 'You can draw a weapon as a free action'
   };
 
+  static RapidShot = {
+    description: 'Rapid Shot',
+    summary: 'Take an additional shot during a full-attack action, all takes take a -2 penalty'
+  };
+
   static Run = {
     description: 'Run',
     summary: 'Run at 5 times your normal speed'
+  };
+
+  static ShotOnTheRun = {
+    description: 'Shot on the Run',
+    summary: 'As a full-round action, move up to your speed and make a single ranged attack at any point during your movement'
   };
 
   static SkillFocusPerception = {

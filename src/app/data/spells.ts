@@ -319,13 +319,12 @@ export const spells = [
     group: 'summonmonster',
     level: 6,
     creatureList: [
-      'bulette',
       'direbear',
       'diretiger',
       'elasmosaurus',
       'elephant',
+      'erinyes',
       'giantoctopus',
-      'hillgiant',
       'hugeairelemental',
       'hugeearthelemental',
       'hugefireelemental',
@@ -334,8 +333,11 @@ export const spells = [
       'hugemagmaelemental',
       'hugemudelemental',
       'hugewaterelemental',
+      'invisiblestalker',
+      'lillendazata',
+      'shadowdemon',
       'stegosaurus',
-      'stonegiant',
+      'succubus',
       'triceratops'
     ]
   },
