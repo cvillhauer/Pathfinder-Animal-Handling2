@@ -22,14 +22,12 @@ export class SpellService {
 
 
   getSpellsByCharacterClassAndLevel(characterClass: string, level: number): Observable<Spell[]> {
-    let spells: Observable<Spell[]>;
     const spellGroup = this.calculateSpellGroupFromClass(characterClass);
 
-    // TODO: How do I combine these two items into one returnable Observable?
-    spells = this.getShapeshiftSpellsBySpellLevel(level);
-    spells = this.getSummonSpellsBySpellGroupAndLevel(spellGroup, level);
-
-    return spells;
+    return forkJoin([this.getShapeshiftSpellsBySpellLevel(level),
+      this.getSummonSpellsBySpellGroupAndLevel(spellGroup, level)]).pipe(
+        map(spells => [...spells[0], ...spells[1]])
+      );
   }
 
   getShapeshiftSpellsBySpellLevel(level: number): Observable<ShapeshiftSpell[]> {
