@@ -230,6 +230,11 @@ export class SpecialAbility {
     summary: 'Can notice other creatures by scent and detect blood in the water'
   };
 
+  static Leap = {
+    description: 'Leap',
+    summary: 'Can attack with 4 Claws, but no Bite, as part of a Charge attack'
+  };
+
   static LightSensitivity = {
     description: 'Light Sensitivity',
     summary: 'Dazzled in areas of bright sunlight'
@@ -333,6 +338,16 @@ export class SpecialAbility {
   static ResistElectricity15 = {
     description: 'Resist Electricity 15',
     summary: 'Ignores 5 points of Electricity damage from each source'
+  };
+
+  static RockCatching = {
+    description: 'Rock Catching',
+    summary: 'Can make a Reflex save to catch a rock being hurled at it'
+  };
+
+  static SavageBite = {
+    description: 'Savage Bite',
+    summary: 'Bite attack does additional damage and has double critical threat range'
   };
 
   static Scent = {

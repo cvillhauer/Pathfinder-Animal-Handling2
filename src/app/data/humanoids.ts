@@ -81,5 +81,78 @@ export const humanoids: Creature[] = [
       new Attack('Right Javalin', 5, '1d8', 6, false, AttackType.Ranged, [DamageType.Piercing])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.SuperiorTwoWeaponFighting]
+  ),
+  new Creature(
+    'hillgiant',
+    'Hill Giant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/giant-true/giant-hill',
+    'https://i.pinimg.com/originals/c2/66/67/c26667c1c6ace74d95d7784a576d0aac.png',
+    Size.Large,
+    CreatureType.Humanoid,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    10,
+    new AbilityScores(25, 8, 19, 6, 10, 7),
+    10,
+    85,
+    new ArmorClass(21, 8, 21),
+    15,
+    24,
+    7,
+    7,
+    0,
+    new Saves(11, 2, 3),
+    [Feat.Cleave, Feat.IntimidatingProwess, Feat.MartialWeaponProficiencyGreatclub, Feat.PowerAttack, Feat.WeaponFocusGreatclub],
+    [
+      new SkillBonus(Skill.Climb, 10),
+      new SkillBonus(Skill.Intimidate, 12),
+      new SkillBonus(Skill.Perception, 6)
+    ],
+    [
+      new Attack('Greatclub', 14, '2d8', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Greatclub', 9, '2d8', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 13, '1d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 13, '1d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Rock Throw', 6, '1d8', 10, false, AttackType.Ranged, [DamageType.Bludgeoning])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.RockCatching]
+  ),
+  new Creature(
+    'stonegiant',
+    'Stone Giant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/giant-true/giant-stone',
+    'https://vignette.wikia.nocookie.net/forgottenrealms/images/0/08/Monster_Manual_5e_-_Giant%2C_Stone_-_p156.jpg/revision/latest?cb=20141112174505',
+    Size.Large,
+    CreatureType.Humanoid,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    10,
+    new AbilityScores(27, 15, 19, 10, 12, 10),
+    12,
+    102,
+    new ArmorClass(22, 11, 20),
+    18,
+    30,
+    9,
+    8,
+    0,
+    new Saves(12, 6, 7),
+    [Feat.IronWill, Feat.MartialWeaponProficiencyGreatclub, Feat.PointBlankShot, Feat.PowerAttack, Feat.PreciseShot, Feat.QuickDraw],
+    [
+      new SkillBonus(Skill.Climb, 12),
+      new SkillBonus(Skill.Intimidate, 12),
+      new SkillBonus(Skill.Perception, 12),
+      new SkillBonus(Skill.Stealth, 4),
+      new SkillBonus(Skill.Stealth, 12, 'in rocky terrain')
+    ],
+    [
+      new Attack('Greatclub', 16, '2d8', 12, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Greatclub', 11, '2d8', 12, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 16, '1d8', 8, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 16, '1d8', 8, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Rock Throw', 11, '1d8', 12, false, AttackType.Ranged, [DamageType.Bludgeoning]),
+      new Attack('Rock Throw', 6, '1d8', 12, false, AttackType.Ranged, [DamageType.Bludgeoning])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.RockCatching]
   )
 ];

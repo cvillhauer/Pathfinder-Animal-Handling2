@@ -104,6 +104,11 @@ export class Feat {
     summary: '+2 bonus to Sunder combat maneuvers'
   };
 
+  static IntimidatingProwess = {
+    description: 'Intimidating Prowess',
+    summary: 'Add your Strength modifier to Intimidate checks'
+  };
+
   static IronWill = {
     description: 'Iron Will',
     summary: '+2 bonus on Will saves'
@@ -117,6 +122,11 @@ export class Feat {
   static LightningStance = {
     description: 'Lightning Stance',
     summary: 'You get 50% concealment for 1 round when you double move'
+  };
+
+  static MartialWeaponProficiencyGreatclub = {
+    description: 'Martial Weapon Proficiency (Greatclub)',
+    summary: 'You are proficient with a Greatclub'
   };
 
   static Mobility = {
@@ -137,6 +147,16 @@ export class Feat {
   static PowerAttack = {
     description: 'Power Attack',
     summary: 'Trade melee attack bonus for extra damage'
+  };
+
+  static PreciseShot = {
+    description: 'Precise Shot',
+    summary: 'You can do ranged attacks on foes engaged in melee, without taking a penalty'
+  };
+
+  static QuickDraw = {
+    description: 'Quick Draw',
+    summary: 'You can draw a weapon as a free action'
   };
 
   static Run = {
@@ -212,6 +232,11 @@ export class Feat {
   static WeaponFocusGore = {
     description: 'Weapon Focus (Gore)',
     summary: '+1 on attack rolls with Gore attack'
+  };
+
+  static WeaponFocusGreatclub = {
+    description: 'Weapon Focus (Greatclub)',
+    summary: '+1 on attack rolls with Short Sword attack'
   };
 
   static WeaponFocusShortSword = {
