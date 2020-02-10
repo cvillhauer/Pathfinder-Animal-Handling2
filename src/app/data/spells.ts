@@ -130,6 +130,11 @@ export const spells = [
     group: 'summonnaturesally',
     level: 6,
     creatureList: [
+      'direbear',
+      'diretiger',
+      'elasmosaurus',
+      'elephant',
+      'giantoctopus',
       'hugeairelemental',
       'hugeearthelemental',
       'hugefireelemental',
@@ -138,6 +143,8 @@ export const spells = [
       'hugemagmaelemental',
       'hugemudelemental',
       'hugewaterelemental',
+      'stegosaurus',
+      'triceratops'
     ]
   },
   {
@@ -309,6 +316,11 @@ export const spells = [
     group: 'summonmonster',
     level: 6,
     creatureList: [
+      'direbear',
+      'diretiger',
+      'elasmosaurus',
+      'elephant',
+      'giantoctopus',
       'hugeairelemental',
       'hugeearthelemental',
       'hugefireelemental',
@@ -317,6 +329,8 @@ export const spells = [
       'hugemagmaelemental',
       'hugemudelemental',
       'hugewaterelemental',
+      'stegosaurus',
+      'triceratops'
     ]
   },
   {

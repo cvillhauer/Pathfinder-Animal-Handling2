@@ -74,6 +74,16 @@ export class Feat {
     summary: '+2 bonus to Bull Rush combat maneuvers'
   };
 
+  static ImprovedCriticalBite = {
+    description: 'Improved Critical (Bite)',
+    summary: 'Critical threat range is doubled with Bite attack'
+  };
+
+  static ImprovedCriticalGore = {
+    description: 'Improved Critical (Gore)',
+    summary: 'Critical threat range is doubled with Gore attack'
+  };
+
   static ImprovedCriticalSlam = {
     description: 'Improved Critical (Slam)',
     summary: 'Critical threat range is doubled with Slam attack'
@@ -197,6 +207,11 @@ export class Feat {
   static WeaponFocusGlaive = {
     description: 'Weapon Focus (Glaive)',
     summary: '+1 on attack rolls with Glaive attack'
+  };
+
+  static WeaponFocusGore = {
+    description: 'Weapon Focus (Gore)',
+    summary: '+1 on attack rolls with Gore attack'
   };
 
   static WeaponFocusShortSword = {
