@@ -210,6 +210,16 @@ export class SpecialAbility {
     summary: 'Cannot be stunned'
   };
 
+  static ImprovedTracking = {
+    description: 'Improved Tracking',
+    summary: 'Takes no penalty to Survival checks when tracking and moving at any speed'
+  };
+
+  static Incorporeal = {
+    description: 'Incorporeal',
+    summary: 'Immune to all nonmagical attack forms, and takes half damage from corporeal sources'
+  };
+
   static InfernalWound = {
     description: 'Infernal Wound',
     summary: 'Heal spells on Bleeding foes require DC 16 caster level check'
@@ -258,6 +268,11 @@ export class SpecialAbility {
   static MultiweaponMastery = {
     description: 'Multiweapon Mastery',
     summary: 'Never takes penalties on its attack rolls when fighting with multiple weapons'
+  };
+
+  static NaturalInvisiblity = {
+    description: 'Natural Invisibility',
+    summary: 'Remains invisible at all times, even when attacking'
   };
 
   static Pounce = {
@@ -360,6 +375,11 @@ export class SpecialAbility {
     summary: 'Can see perfectly in darkness of any kind'
   };
 
+  static ShadowBlend = {
+    description: 'Shadow Blend',
+    summary: 'Can disappear into the shadows as a move action'
+  };
+
   static SmiteEvil = {
     description: 'Smite Evil',
     summary: 'Adds bonus to attack rolls and damage against an evil foe'
@@ -388,6 +408,11 @@ export class SpecialAbility {
   static Stampede = {
     description: 'Stampede',
     summary: 'Trample DC increases if there are 3 or more creatures'
+  };
+
+  static SunlightPowerlessness = {
+    description: 'Sunlight Powerlessness',
+    summary: 'Utterly powerless in bright or natural light'
   };
 
   static SuperiorTwoWeaponFighting = {

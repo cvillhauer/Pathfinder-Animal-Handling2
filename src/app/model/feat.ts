@@ -4,6 +4,11 @@ export class Feat {
     summary: '+2 bonus on Perception and Sense Motive checks'
   };
 
+  static AgileManeuvers = {
+    description: 'Agile Maneuvers',
+    summary: 'Add your Dexterity bonus instead of Strength bonus to your CMB'
+  };
+
   static AwesomeBlow = {
     description: 'Awesome Blow',
     summary: 'Can perform an Awesome Blow combat maneuver as a standard action'
@@ -17,6 +22,11 @@ export class Feat {
   static Cleave = {
     description: 'Cleave',
     summary: 'Can strike two adjacent foes with a single swing'
+  };
+
+  static CombatCasting = {
+    description: 'Combat Casting',
+    summary: '+4 bonus on concentration checks while casting defensively or grappled'
   };
 
   static CombatReflexes = {
@@ -246,12 +256,17 @@ export class Feat {
 
   static WeaponFocusGreatclub = {
     description: 'Weapon Focus (Greatclub)',
-    summary: '+1 on attack rolls with Short Sword attack'
+    summary: '+1 on attack rolls with Greatclub attack'
   };
 
   static WeaponFocusShortSword = {
     description: 'Weapon Focus (Short Sword)',
     summary: '+1 on attack rolls with Short Sword attack'
+  };
+
+  static WeaponFocusSlam = {
+    description: 'Weapon Focus (Slam)',
+    summary: '+1 on attack rolls with Slam attack'
   };
 
   static WeaponFocusSpikes = {

@@ -19,6 +19,12 @@ import { Paralysis } from '../model/paralysis';
 import { Entrap } from '../model/entrap';
 import { Entangle } from '../model/entangle';
 
+const elementalTraits = [
+  SpecialAbility.ImmuneBleed, SpecialAbility.ImmuneParalysis, SpecialAbility.ImmunePoison,
+  SpecialAbility.ImmuneSleepEffects, SpecialAbility.ImmuneStunning,
+  SpecialAbility.ImmuneCritical, SpecialAbility.ImmuneFlanking, SpecialAbility.ImmuneSneakAttack
+];
+
 export const outsiders: Creature[] = [
   new Creature(
     'babau',
@@ -237,13 +243,12 @@ export const outsiders: Creature[] = [
         [], [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
       new Attack('+1 Flaming Composite Longbow', 11, '1d8', 6, false, AttackType.Ranged, [DamageType.Piercing],
         [], [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
-        new Attack('Rope', 15, null, 0, true, AttackType.Ranged, [], [new Entangle(20, 10, 2, 23)]),
+      new Attack('Rope', 15, null, 0, true, AttackType.Ranged, [], [new Entangle(20, 10, 2, 23)]),
     ],
     [SpecialAbility.Darkvision, SpecialAbility.SeeInDarkness, SpecialAbility.TrueSeeing, SpecialAbility.DamageResistanceGood5,
     SpecialAbility.ImmuneFire, SpecialAbility.ImmunePoison, SpecialAbility.ResistAcid10, SpecialAbility.ResistCold10],
     [
       new SpellLikeAbility(12, 'at will', Spell.Fear, 19),
-      new SpellLikeAbility(12, 'at will', Spell.GreaterTeleport),
       new SpellLikeAbility(12, 'at will', Spell.MinorImage, 17),
       new SpellLikeAbility(12, 'at will', Spell.UnholyBlight, 19)
     ]
@@ -327,6 +332,45 @@ export const outsiders: Creature[] = [
       new SpellLikeAbility(6, 'at will', Spell.ContinualFlame),
       new SpellLikeAbility(6, 'at will', Spell.Message)
     ]
+  ),
+  new Creature(
+    'invisiblestalker',
+    'Invisible Stalker',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/elemental/invisible-stalker',
+    'https://i.pinimg.com/originals/29/ce/6a/29ce6a9a3def01ea4b451f393bfd2d1f.png',
+    Size.Medium,
+    CreatureType.Outsider,
+    Alignment.trueNeutral,
+    new Speeds(30, 0, 30),
+    5,
+    new AbilityScores(18, 19, 22, 14, 15, 11),
+    7,
+    80,
+    new ArmorClass(20, 14, 16),
+    11,
+    25,
+    7,
+    7,
+    0,
+    new Saves(13, 11, 4),
+    [Feat.CombatReflexes, Feat.ImprovedInititive, Feat.LightningReflexes, Feat.WeaponFocusSlam],
+    [
+      new SkillBonus(Skill.Acrobatics, 14),
+      new SkillBonus(Skill.Bluff, 10),
+      new SkillBonus(Skill.Fly, 22),
+      new SkillBonus(Skill.KnowledgePlanes, 12),
+      new SkillBonus(Skill.Perception, 12),
+      new SkillBonus(Skill.SenseMotive, 12),
+      new SkillBonus(Skill.Stealth, 14),
+      new SkillBonus(Skill.Stealth, 34, 'when moving'),
+      new SkillBonus(Skill.Stealth, 54, 'when staning still'),
+      new SkillBonus(Skill.Survival, 12)
+    ],
+    [
+      new Attack('Slam', 12, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 12, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning])
+    ],
+    [...elementalTraits, SpecialAbility.Darkvision, SpecialAbility.ImprovedTracking, SpecialAbility.NaturalInvisiblity]
   ),
   new Creature(
     'kyton',
@@ -440,6 +484,56 @@ export const outsiders: Creature[] = [
     SpecialAbility.DamageResistanceGood5, SpecialAbility.DamageResistanceSilver5, SpecialAbility.ResistAcid10, SpecialAbility.ResistCold10]
   ),
   new Creature(
+    'lillendazata',
+    'Lillend Azata',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/azata/lillend',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/c/c4/Lillend.jpg/250px-Lillend.jpg',
+    Size.Large,
+    CreatureType.Outsider,
+    Alignment.chaoticGood,
+    new Speeds(30, 0, 70),
+    10,
+    new AbilityScores(20, 17, 21, 14, 16, 9),
+    7,
+    73,
+    new ArmorClass(20, 12, 17),
+    13,
+    26,
+    7,
+    7,
+    0,
+    new Saves(7, 10, 10),
+    [Feat.CombatCasting, Feat.Hover, Feat.IronWill, Feat.LightningReflexes],
+    [
+      new SkillBonus(Skill.Bluff, 14),
+      new SkillBonus(Skill.Diplomacy, 14),
+      new SkillBonus(Skill.Fly, 11),
+      new SkillBonus(Skill.KnowledgeNature, 9),
+      new SkillBonus(Skill.Perception, 13),
+      new SkillBonus(Skill.Perform, 16, '(stringed instruments)'),
+      new SkillBonus(Skill.SenseMotive, 13),
+      new SkillBonus(Skill.Survival, 14)
+    ],
+    [
+      new Attack('+1 longsword', 12, '2d6', 8, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('+1 longsword', 7, '2d6', 8, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Tail Slap', 6, '2d6', 2, false, AttackType.Melee, [DamageType.Bludgeoning], [new Grab(13), new Constrict(13, '2d6', 5)]),
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Darkvision, SpecialAbility.ImmuneElectricity, SpecialAbility.ImmunePetrification,
+    SpecialAbility.ImmunePoison, SpecialAbility.ResistCold10, SpecialAbility.ResistFire10],
+    [
+      new SpellLikeAbility(7, 'three times per day', Spell.Darkness),
+      new SpellLikeAbility(7, 'three times per day', Spell.HallucinatoryTerrain, 18),
+      new SpellLikeAbility(7, 'three times per day', Spell.Knock),
+      new SpellLikeAbility(7, 'three times per day', Spell.Light),
+      new SpellLikeAbility(7, 'once per day', Spell.CharmPerson, 15),
+      new SpellLikeAbility(7, 'once per day', Spell.SpeakWithAnimals),
+      new SpellLikeAbility(7, 'once per day', Spell.SpeakWithPlants)
+    ]
+    // TODO: Bardic Performance
+    // TODO: Spells
+  ),
+  new Creature(
     'salamander',
     'Salamander',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Salamander',
@@ -480,6 +574,106 @@ export const outsiders: Creature[] = [
         [new AdditionalDamage('1d6', 0, DamageType.Fire)]),
     ],
     [SpecialAbility.Darkvision, SpecialAbility.DamageResistanceMagic10, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold]
+  ),
+  new Creature(
+    'shadowdemon',
+    'Shadow Demon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/demon/demon-shadow',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/3/3d/Shadow_demon.jpg/250px-Shadow_demon.jpg',
+    Size.Medium,
+    CreatureType.Outsider,
+    Alignment.chaoticEvil,
+    new Speeds(0, 0, 40),
+    5,
+    new AbilityScores(0, 18, 17, 14, 14, 19),
+    7,
+    59,
+    new ArmorClass(18, 18, 14),
+    11,
+    25,
+    7,
+    7,
+    17,
+    new Saves(5, 11, 7),
+    [Feat.BlindFight, Feat.CombatReflexes, Feat.ImprovedInititive, Feat.LightningReflexes],
+    [
+      new SkillBonus(Skill.Acrobatics, 14),
+      new SkillBonus(Skill.Bluff, 14),
+      new SkillBonus(Skill.Fly, 22),
+      new SkillBonus(Skill.KnowledgeLocal, 12),
+      new SkillBonus(Skill.KnowledgePlanes, 12),
+      new SkillBonus(Skill.Perception, 20),
+      new SkillBonus(Skill.SenseMotive, 12),
+      new SkillBonus(Skill.Stealth, 14)
+    ],
+    [
+      new Attack('Claw', 11, '1d6', 0, true, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Cold)]),
+      new Attack('Claw', 11, '1d6', 0, true, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Cold)]),
+      new Attack('Bite', 11, '1d8', 0, true, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Cold)])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.Incorporeal, SpecialAbility.Pounce, SpecialAbility.Sprint, SpecialAbility.ShadowBlend,
+    SpecialAbility.DamageResistanceColdIron10, SpecialAbility.DamageResistanceGood10, SpecialAbility.ImmuneCold,
+    SpecialAbility.ImmuneElectricity, SpecialAbility.ImmunePoison, SpecialAbility.ResistAcid10, SpecialAbility.ResistFire10],
+    [
+      new SpellLikeAbility(10, 'at will', Spell.DeeperDarkness),
+      new SpellLikeAbility(10, 'at will', Spell.Fear, 18),
+      new SpellLikeAbility(10, 'at will', Spell.Telekinesis),
+      new SpellLikeAbility(10, 'three times per day', Spell.ShadowConjuration, 18),
+      new SpellLikeAbility(10, 'three times per day', Spell.ShadowEvocation, 19)
+    ]
+  ),
+  new Creature(
+    'succubus',
+    'Succubus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/demon/succubus',
+    'https://i.pinimg.com/originals/f0/76/f2/f076f2e0df5f281b92cf97a8a8f1b363.png',
+    Size.Medium,
+    CreatureType.Outsider,
+    Alignment.chaoticEvil,
+    new Speeds(30, 0, 50),
+    5,
+    new AbilityScores(13, 17, 20, 18, 14, 27),
+    8,
+    84,
+    new ArmorClass(20, 13, 17),
+    11,
+    22,
+    8,
+    7,
+    18,
+    new Saves(7, 9, 10),
+    [Feat.AgileManeuvers, Feat.CombatReflexes, Feat.IronWill, Feat.WeaponFinesse],
+    [
+      new SkillBonus(Skill.Bluff, 27),
+      new SkillBonus(Skill.Diplomacy, 19),
+      new SkillBonus(Skill.Disguise, 19),
+      new SkillBonus(Skill.EscapeArtist, 11),
+      new SkillBonus(Skill.Fly, 14),
+      new SkillBonus(Skill.Intimidate, 16),
+      new SkillBonus(Skill.KnowledgeLocal, 15),
+      new SkillBonus(Skill.Perception, 21),
+      new SkillBonus(Skill.SenseMotive, 13),
+      new SkillBonus(Skill.Stealth, 14)
+    ],
+    [
+      new Attack('Claw', 11, '1d6', 1, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 11, '1d6', 1, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Vampiric Touch', 9, '6d6', 0, true, AttackType.Melee, [DamageType.Magic]) // TODO: This allows for Spell Resistance
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.DamageResistanceColdIron10, SpecialAbility.DamageResistanceGood10,
+    SpecialAbility.ImmuneElectricity, SpecialAbility.ImmuneFire, SpecialAbility.ImmunePoison,
+    SpecialAbility.ResistAcid10, SpecialAbility.ResistCold10],
+    [
+      new SpellLikeAbility(12, 'constant', Spell.DetectGood),
+      new SpellLikeAbility(12, 'at will', Spell.CharmMonster, 22),
+      new SpellLikeAbility(12, 'at will', Spell.DetectThoughts, 20),
+      new SpellLikeAbility(12, 'at will', Spell.Suggestion, 21),
+      new SpellLikeAbility(12, 'at will', Spell.VampiricTouch),
+      new SpellLikeAbility(12, 'once per day', Spell.DominatePerson, 18)
+    ]
   ),
   new Creature(
     'xill',

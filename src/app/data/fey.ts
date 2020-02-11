@@ -83,7 +83,7 @@ export const fey: Creature[] = [
       new SkillBonus(Skill.Intimidate, 9),
       new SkillBonus(Skill.KnowledgeNature, 10),
       new SkillBonus(Skill.Perception, 18),
-      new SkillBonus(Skill.Perform, 19),
+      new SkillBonus(Skill.Perform, 19, '(wind instruments)'),
       new SkillBonus(Skill.Stealth, 17),
       new SkillBonus(Skill.Survival, 7)
     ],
