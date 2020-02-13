@@ -15,67 +15,67 @@ export class SpecialAbility {
     summary: 'Ability to use a non-visual sense to operate effectively without vision'
   };
 
-  static DamageResistance5 = {
+  static DamageReduction5 = {
     description: 'DR 5/',
     summary: 'Takes 5 less points of damage from all weapons'
   };
 
-  static DamageResistance10 = {
+  static DamageReduction10 = {
     description: 'DR 10/',
     summary: 'Takes 10 less points of damage from all weapons'
   };
 
-  static DamageResistanceColdIron2 = {
+  static DamageReductionColdIron2 = {
     description: 'DR 2/Cold Iron',
     summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceColdIron5 = {
+  static DamageReductionColdIron5 = {
     description: 'DR 5/Cold Iron',
     summary: 'Takes 5 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceColdIron10 = {
+  static DamageReductionColdIron10 = {
     description: 'DR 10/Cold Iron',
     summary: 'Takes 10 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceEvil5 = {
+  static DamageReductionEvil5 = {
     description: 'DR 5/Evil',
     summary: 'Takes 5 less points of damage from all weapons that are not Evil'
   };
 
-  static DamageResistanceEvil10 = {
+  static DamageReductionEvil10 = {
     description: 'DR 10/Evil',
     summary: 'Takes 10 less points of damage from all weapons that are not Evil'
   };
 
-  static DamageResistanceGood5 = {
+  static DamageReductionGood5 = {
     description: 'DR 5/Good',
     summary: 'Takes 5 less points of damage from all weapons that are not Good'
   };
 
-  static DamageResistanceGood10 = {
+  static DamageReductionGood10 = {
     description: 'DR 10/Good',
     summary: 'Takes 10 less points of damage from all weapons that are not Good'
   };
 
-  static DamageResistanceMagic5 = {
+  static DamageReductionMagic5 = {
     description: 'DR 5/Magic',
     summary: 'Takes 5 less points of damage from all weapons that are not Magic'
   };
 
-  static DamageResistanceMagic10 = {
+  static DamageReductionMagic10 = {
     description: 'DR 10/Magic',
     summary: 'Takes 10 less points of damage from all weapons that are not Magic'
   };
 
-  static DamageResistanceSilver5 = {
+  static DamageReductionSilver5 = {
     description: 'DR 5/Siver',
     summary: 'Takes 5 less points of damage from all weapons that are not Silver'
   };
 
-  static DamageResistanceSilver10 = {
+  static DamageReductionSilver10 = {
     description: 'DR 10/Siver',
     summary: 'Takes 10 less points of damage from all weapons that are not Silver'
   };
@@ -88,6 +88,11 @@ export class SpecialAbility {
   static Darkvision = {
     description: 'Darkvision',
     summary: 'Has the ability to see with no light source at all'
+  };
+
+  static DismantleArmor = {
+    description: 'Dismantle Armor',
+    summary: 'Can remove the target armor with two successful claw attacks'
   };
 
   static Drench = {
@@ -273,6 +278,11 @@ export class SpecialAbility {
   static NaturalInvisiblity = {
     description: 'Natural Invisibility',
     summary: 'Remains invisible at all times, even when attacking'
+  };
+
+  static PenetratingStrike = {
+    description: 'Penetrating Strike',
+    summary: 'Natural weapons are able to bypass Damage Reduction'
   };
 
   static Pounce = {

@@ -89,6 +89,11 @@ export class Feat {
     summary: 'Critical threat range is doubled with Bite attack'
   };
 
+  static ImprovedCriticalClaw = {
+    description: 'Improved Critical (Claw)',
+    summary: 'Critical threat range is doubled with Claw attack'
+  };
+
   static ImprovedCriticalGore = {
     description: 'Improved Critical (Gore)',
     summary: 'Critical threat range is doubled with Gore attack'
@@ -134,9 +139,19 @@ export class Feat {
     summary: 'You get 50% concealment for 1 round when you double move'
   };
 
+  static MartialWeaponProficiencyGreataxe = {
+    description: 'Martial Weapon Proficiency (Greataxe)',
+    summary: 'You are proficient with a Greataxe'
+  };
+
   static MartialWeaponProficiencyGreatclub = {
     description: 'Martial Weapon Proficiency (Greatclub)',
     summary: 'You are proficient with a Greatclub'
+  };
+
+  static MartialWeaponProficiencyGreatsword = {
+    description: 'Martial Weapon Proficiency (Greatsword)',
+    summary: 'You are proficient with a Greatsword'
   };
 
   static Mobility = {
@@ -167,6 +182,11 @@ export class Feat {
   static QuickDraw = {
     description: 'Quick Draw',
     summary: 'You can draw a weapon as a free action'
+  };
+
+  static QuickenSpellLikeAbility = {
+    description: 'Quicken Spell-Like Ability',
+    summary: 'You can cast a spell-like ability as a swift action without provoking an attack of opportunity'
   };
 
   static RapidShot = {
@@ -257,6 +277,11 @@ export class Feat {
   static WeaponFocusGreatclub = {
     description: 'Weapon Focus (Greatclub)',
     summary: '+1 on attack rolls with Greatclub attack'
+  };
+
+  static WeaponFocusGreatsword = {
+    description: 'Weapon Focus (Greatsword)',
+    summary: '+1 on attack rolls with Greatsword attack'
   };
 
   static WeaponFocusShortSword = {

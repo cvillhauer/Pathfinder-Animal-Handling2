@@ -149,7 +149,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 14, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Whirlwind', null, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(4, 18, 40)])
     ],
-    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugeairelemental',
@@ -185,7 +185,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 17, '2d6', 6, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Whirlwind', null, '2d6', 6, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(5, 21, 50)])
     ],
-    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greaterairelemental',
@@ -222,7 +222,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 21, '2d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Whirlwind', null, '2d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(6, 23, 60)])
     ],
-    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'elderairelemental',
@@ -259,7 +259,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 25, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Whirlwind', null, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning], [new Whirlwind(8, 27, 60)])
     ],
-    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...airElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smallearthelemental',
@@ -360,7 +360,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 14, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Slam', 14, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
-    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugeearthelemental',
@@ -395,7 +395,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 17, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Slam', 17, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
-    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greaterearthelemental',
@@ -431,7 +431,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 21, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Slam', 21, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
-    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'elderearthelemental',
@@ -467,7 +467,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 26, '2d10', 12, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Slam', 26, '2d10', 12, false, AttackType.Melee, [DamageType.Bludgeoning])
     ],
-    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...earthElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smallfireelemental',
@@ -566,7 +566,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 12, '1d8', 2, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d8', 16)]),
       new Attack('Slam', 12, '1d8', 2, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d8', 16)])
     ],
-    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugefireelemental',
@@ -601,7 +601,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 15, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d6', 18)]),
       new Attack('Slam', 15, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d6', 18)])
     ],
-    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greaterfireelemental',
@@ -637,7 +637,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 19, '2d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d8', 20)]),
       new Attack('Slam', 19, '2d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d8', 20)])
     ],
-    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'elderfireelemental',
@@ -673,7 +673,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 23, '2d8', 8, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d10', 22)]),
       new Attack('Slam', 23, '2d8', 8, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d10', 22)])
     ],
-    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...fireElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smalliceelemental',
@@ -771,7 +771,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 12, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(17)],
         [new AdditionalDamage('1d6', 0, DamageType.Cold)])
     ],
-    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugeiceelemental',
@@ -807,7 +807,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 15, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(19)],
         [new AdditionalDamage('1d8', 0, DamageType.Cold)])
     ],
-    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greatericeelemental',
@@ -844,7 +844,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 20, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(20)],
         [new AdditionalDamage('2d6', 0, DamageType.Cold)])
     ],
-    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'eldericeelemental',
@@ -881,7 +881,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 24, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning], [new NumbingCold(22)],
         [new AdditionalDamage('2d8', 0, DamageType.Cold)])
     ],
-    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...iceElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smalllightningelemental',
@@ -981,7 +981,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 13, '1d8', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [],
         [new AdditionalDamage('1d6', 0, DamageType.Electricity)])
     ],
-    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugelightningelemental',
@@ -1017,7 +1017,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 16, '2d6', 5, false, AttackType.Melee, [DamageType.Bludgeoning], [],
         [new AdditionalDamage('1d8', 0, DamageType.Electricity)])
     ],
-    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greaterlightningelemental',
@@ -1054,7 +1054,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 20, '2d8', 6, false, AttackType.Melee, [DamageType.Bludgeoning], [],
         [new AdditionalDamage('2d6', 0, DamageType.Electricity)])
     ],
-    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'elderlightningelemental',
@@ -1091,7 +1091,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 24, '2d8', 8, false, AttackType.Melee, [DamageType.Bludgeoning], [],
         [new AdditionalDamage('2d8', 0, DamageType.Electricity)])
     ],
-    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...lightningElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smallmagmaelemental',
@@ -1189,7 +1189,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 11, '1d8', 4, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d6', 14)]),
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(8)])
     ],
-    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugemagmaelemental',
@@ -1223,7 +1223,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 14, '2d6', 6, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('1d8', 16)]),
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(10)])
     ],
-    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greatermagmaelemental',
@@ -1258,7 +1258,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 18, '2d8', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('2d6', 18)]),
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(13)])
     ],
-    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'eldermagmaelemental',
@@ -1293,7 +1293,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 22, '3d6', 8, false, AttackType.Melee, [DamageType.Bludgeoning], [new Burn('3d6', 20)]),
       new Attack('Lava Puddle', null, '', 0, false, AttackType.Melee, [], [new LavaPuddle(16)])
     ],
-    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...magmaElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smallmudelemental',
@@ -1392,7 +1392,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 12, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(17, '10 minutes', 5, 10)]),
       new Attack('Slam', 12, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(17, '10 minutes', 5, 10)])
     ],
-    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugemudelemental',
@@ -1427,7 +1427,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 15, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(19, '10 minutes', 5, 15)]),
       new Attack('Slam', 15, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(19, '10 minutes', 5, 15)])
     ],
-    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greatermudelemental',
@@ -1463,7 +1463,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 20, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(20, '10 minutes', 10, 15)]),
       new Attack('Slam', 20, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(20, '10 minutes', 10, 15)])
     ],
-    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'eldermudelemental',
@@ -1499,7 +1499,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 24, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(22, '10 minutes', 10, 15)]),
       new Attack('Slam', 24, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning], [new Entrap(22, '10 minutes', 10, 15)])
     ],
-    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...mudElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'smallwaterelemental',
@@ -1605,7 +1605,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 12, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Vortex', null, '1d8', 5, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(4, 19, 40)])
     ],
-    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'hugewaterelemental',
@@ -1641,7 +1641,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 15, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Vortex', null, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(5, 22, 60)])
     ],
-    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance5]
+    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction5]
   ),
   new Creature(
     'greaterwaterelemental',
@@ -1677,7 +1677,7 @@ export const elementals: Creature[] = [
       new Attack('Slam', 20, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Vortex', null, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(6, 25, 60)])
     ],
-    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   ),
   new Creature(
     'elderwaterelemental',
@@ -1714,6 +1714,6 @@ export const elementals: Creature[] = [
       new Attack('Slam', 24, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
       new Attack('Vortex', null, '2d10', 10, false, AttackType.Melee, [DamageType.Bludgeoning], [new Vortex(8, 28, 60)])
     ],
-    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageResistance10]
+    [...waterElementalTraits, ...elementalTraits, SpecialAbility.DamageReduction10]
   )
 ];

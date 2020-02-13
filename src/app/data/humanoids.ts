@@ -10,6 +10,7 @@ import { Feat } from '../model/feat';
 import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
+import { AdditionalDamage } from '../model/additionalDamage';
 
 export const humanoids: Creature[] = [
   new Creature(
@@ -81,6 +82,84 @@ export const humanoids: Creature[] = [
       new Attack('Right Javalin', 5, '1d8', 6, false, AttackType.Ranged, [DamageType.Piercing])
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.SuperiorTwoWeaponFighting]
+  ),
+  new Creature(
+    'firegiant',
+    'Fire Giant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/giant-true/giant-fire',
+    'https://i.pinimg.com/originals/51/58/13/515813bf178a72c3793b1ceb538ed766.png',
+    Size.Large,
+    CreatureType.Humanoid,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    10,
+    new AbilityScores(31, 9, 21, 10, 14, 10),
+    15,
+    142,
+    new ArmorClass(24, 8, 24),
+    22,
+    31,
+    11,
+    10,
+    0,
+    new Saves(14, 4, 9),
+    [Feat.Cleave, Feat.GreatCleave, Feat.ImprovedOverrun, Feat.ImprovedSunder, Feat.IronWill,
+    Feat.MartialWeaponProficiencyGreatsword, Feat.PowerAttack, Feat.WeaponFocusGreatsword],
+    [
+      new SkillBonus(Skill.Climb, 14),
+      new SkillBonus(Skill.Craft, 8),
+      new SkillBonus(Skill.Intimidate, 11),
+      new SkillBonus(Skill.Perception, 14)
+    ],
+    [
+      new Attack('Greatsword', 21, '3d6', 15, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Greatsword', 16, '3d6', 15, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Greatsword', 11, '3d6', 15, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Slam', 20, '1d8', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 20, '1d8', 10, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Rock Throw', 10, '1d8', 15, false, AttackType.Ranged, [DamageType.Bludgeoning],
+        [], [new AdditionalDamage('1d6', 0, DamageType.Fire)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.ImmuneFire, SpecialAbility.VulnerableCold, SpecialAbility.RockCatching]
+  ),
+  new Creature(
+    'frostgiant',
+    'Frost Giant',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/giant-true/giant-frost',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/1/11/Eovath.jpg/250px-Eovath.jpg',
+    Size.Large,
+    CreatureType.Humanoid,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    10,
+    new AbilityScores(29, 9, 21, 10, 14, 11),
+    14,
+    133,
+    new ArmorClass(21, 8, 21),
+    20,
+    29,
+    10,
+    9,
+    0,
+    new Saves(14, 3, 6),
+    [Feat.Cleave, Feat.GreatCleave, Feat.ImprovedOverrun, Feat.ImprovedSunder,
+    Feat.MartialWeaponProficiencyGreataxe, Feat.PowerAttack, Feat.SkillFocusStealth],
+    [
+      new SkillBonus(Skill.Climb, 13),
+      new SkillBonus(Skill.Craft, 7),
+      new SkillBonus(Skill.Intimidate, 7),
+      new SkillBonus(Skill.Perception, 10),
+      new SkillBonus(Skill.Stealth, 2),
+      new SkillBonus(Skill.Stealth, 6, 'in snow')
+    ],
+    [
+      new Attack('Greataxe', 18, '3d6', 13, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Greataxe', 13, '3d6', 13, false, AttackType.Melee, [DamageType.Slashing]),
+      new Attack('Slam', 18, '1d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Slam', 18, '1d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Rock Throw', 9, '1d8', 13, false, AttackType.Ranged, [DamageType.Bludgeoning])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.ImmuneCold, SpecialAbility.VulnerableFire, SpecialAbility.RockCatching]
   ),
   new Creature(
     'hillgiant',

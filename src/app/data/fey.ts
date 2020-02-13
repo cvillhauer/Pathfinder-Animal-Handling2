@@ -47,7 +47,7 @@ export const fey: Creature[] = [
       new Attack('Dart', 2, '1d3', -1, false, AttackType.Ranged, [DamageType.Piercing])
     ],
     [
-      SpecialAbility.DamageResistanceColdIron2, SpecialAbility.Darkvision, SpecialAbility.Hatred, SpecialAbility.LightSensitivity,
+      SpecialAbility.DamageReductionColdIron2, SpecialAbility.Darkvision, SpecialAbility.Hatred, SpecialAbility.LightSensitivity,
       SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.VerminEmpathy
     ],
     [
@@ -92,7 +92,7 @@ export const fey: Creature[] = [
       new Attack('Horns', 1, '1d6', 1, false, AttackType.Melee, [DamageType.Piercing]),
       new Attack('Short Bow', 6, '1d6', 0, false, AttackType.Ranged, [DamageType.Piercing])
     ],
-    [SpecialAbility.LowLightVision, SpecialAbility.DamageResistanceColdIron5],
+    [SpecialAbility.LowLightVision, SpecialAbility.DamageReductionColdIron5],
     [
       new SpellLikeAbility(8, 'at will', Spell.CharmPerson, 15),
       new SpellLikeAbility(8, 'at will', Spell.DancingLights),

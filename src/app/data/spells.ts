@@ -156,6 +156,12 @@ export const spells = [
     group: 'summonnaturesally',
     level: 7,
     creatureList: [
+      'brachiosaurus',
+      'direcrocodile',
+      'direshark',
+      'firegiant',
+      'frostgiant',
+      'giantsquid',
       'greaterairelemental',
       'greaterearthelemental',
       'greaterfireelemental',
@@ -164,6 +170,9 @@ export const spells = [
       'greatermagmaelemental',
       'greatermudelemental',
       'greaterwaterelemental',
+      'mastadon',
+      'roc',
+      'tyrannosaurus'
     ]
   },
   {
@@ -347,6 +356,12 @@ export const spells = [
     group: 'summonmonster',
     level: 7,
     creatureList: [
+      'bebilith',
+      'bonedevil',
+      'brachiosaurus',
+      'direcrocodile',
+      'direshark',
+      'giantsquid',
       'greaterairelemental',
       'greaterearthelemental',
       'greaterfireelemental',
@@ -355,6 +370,10 @@ export const spells = [
       'greatermagmaelemental',
       'greatermudelemental',
       'greaterwaterelemental',
+      'mastadon',
+      'roc',
+      'tyrannosaurus',
+      'vrock'
     ]
   },
   {

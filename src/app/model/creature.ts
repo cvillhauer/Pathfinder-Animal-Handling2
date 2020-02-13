@@ -143,13 +143,13 @@ export class Creature {
       this.abilities.push(SpecialAbility.ResistAcid10);
       this.abilities.push(SpecialAbility.ResistCold10);
       this.abilities.push(SpecialAbility.ResistElectricity10);
-      this.abilities.push(SpecialAbility.DamageResistanceEvil5);
+      this.abilities.push(SpecialAbility.DamageReductionEvil5);
     } else if (this.hitDice >= 11) {
       this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistAcid15);
       this.abilities.push(SpecialAbility.ResistCold15);
       this.abilities.push(SpecialAbility.ResistElectricity15);
-      this.abilities.push(SpecialAbility.DamageResistanceEvil10);
+      this.abilities.push(SpecialAbility.DamageReductionEvil10);
     }
     this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
     this.abilities.sort();
@@ -171,12 +171,12 @@ export class Creature {
       this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistCold10);
       this.abilities.push(SpecialAbility.ResistFire10);
-      this.abilities.push(SpecialAbility.DamageResistanceGood5);
+      this.abilities.push(SpecialAbility.DamageReductionGood5);
     } else if (this.hitDice >= 11) {
       this.challengeRating += 1;
       this.abilities.push(SpecialAbility.ResistCold15);
       this.abilities.push(SpecialAbility.ResistFire15);
-      this.abilities.push(SpecialAbility.DamageResistanceGood10);
+      this.abilities.push(SpecialAbility.DamageReductionGood10);
     }
     this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
     this.abilities.sort();
