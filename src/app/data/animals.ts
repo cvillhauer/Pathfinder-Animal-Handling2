@@ -358,6 +358,42 @@ export const animals: Creature[] = [
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Ferocity]
   ),
   new Creature(
+    'direcrocodile',
+    'Dire Crocodile',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/crocodilians/crocodile/dire-crocodile',
+    'https://i.pinimg.com/originals/5a/7f/76/5a7f76a182a823195071d6378309cc56.png',
+    Size.Gargantuan,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 30),
+    15,
+    new AbilityScores(37, 10, 25, 1, 14, 2),
+    12,
+    138,
+    new ArmorClass(21, 6, 21),
+    26,
+    36,
+    9,
+    9,
+    0,
+    new Saves(15, 8, 8),
+    [Feat.ImprovedCriticalBite, Feat.ImprovedInititive, Feat.IronWill, Feat.Run, Feat.SkillFocusPerception, Feat.SkillFocusStealth],
+    [
+      new SkillBonus(Skill.Perception, 14),
+      new SkillBonus(Skill.Stealth, 0),
+      new SkillBonus(Skill.Stealth, 8, 'in water'),
+      new SkillBonus(Skill.Swim, 21)
+    ],
+    [
+      new Attack('Bite', 18, '3d6', 13, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing],
+        [new Grab(30), new DeathRoll(30, '3d6', 19)]),
+      new Attack('Tail Slap', 13, '4d8', 6, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Swallow Whole', 30, '3d6', 13, false, AttackType.Melee, [DamageType.Bludgeoning], [new SwallowWhole(16, 13)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Sprint]
+  ),
+  new Creature(
     'direlion',
     'Dire Lion',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dire%20Lion%20(Spotted%20Lion)',
@@ -430,6 +466,39 @@ export const animals: Creature[] = [
       )
     ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'direshark',
+    'Dire Shark',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/shark/dire-shark',
+    'https://adventureaweek.com/wp-content/uploads/2012/12/shark_dire__forrest_imel.jpg',
+    Size.Gargantuan,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 0, 60),
+    20,
+    new AbilityScores(30, 15, 17, 1, 12, 10),
+    15,
+    112,
+    new ArmorClass(23, 8, 21),
+    25,
+    37,
+    11,
+    9,
+    0,
+    new Saves(14, 13, 8),
+    [Feat.BleedingCritical, Feat.CriticalFocus, Feat.GreatFortitude, Feat.ImprovedCriticalBite,
+    Feat.ImprovedInititive, Feat.IronWill, Feat.LightningReflexes, Feat.SkillFocusPerception],
+    [
+      new SkillBonus(Skill.Perception, 25),
+      new SkillBonus(Skill.Swim, 18)
+    ],
+    [
+      new Attack('Bite', 17, '4d10', 15, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(29)]),
+      new Attack('Swallow Whole', 29, '2d6', 15, false, AttackType.Melee, [DamageType.Bludgeoning], [new SwallowWhole(17, 11)])
+    ],
+    [SpecialAbility.Blindsense, SpecialAbility.KeenScent]
   ),
   new Creature(
     'diretiger',
@@ -799,6 +868,40 @@ export const animals: Creature[] = [
     [SpecialAbility.LowLightVision, SpecialAbility.InkCloud, SpecialAbility.Jet]
   ),
   new Creature(
+    'giantsquid',
+    'Giant Squid',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/squid/giant-squid',
+    'https://i.pinimg.com/originals/fb/47/3d/fb473dafff6f0f8623573a8d72693732.png',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(0, 0, 0, 60),
+    30,
+    new AbilityScores(25, 17, 19, 2, 12, 2),
+    12,
+    102,
+    new ArmorClass(20, 11, 17),
+    18,
+    31,
+    9,
+    9,
+    0,
+    new Saves(14, 13, 5),
+    [Feat.CombatReflexes, Feat.GreatFortitude, Feat.ImprovedCriticalTentacle, Feat.ImprovedInititive,
+    Feat.LightningReflexes, Feat.Multiattack, Feat.SkillFocusPerception],
+    [
+      new SkillBonus(Skill.Perception, 22),
+      new SkillBonus(Skill.Swim, 15)
+    ],
+    [
+      new Attack('Bite', 14, '2d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Arm', 14, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Arm', 14, '1d6', 7, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Tentacles', 12, '4d6', 3, false, AttackType.Melee, [DamageType.Bludgeoning], [new Grab(22), new Constrict(22, '4d6', 10)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.InkCloud, SpecialAbility.Jet]
+  ),
+  new Creature(
     'goblindog',
     'Goblin Dog',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Goblin%20Dog',
@@ -995,6 +1098,38 @@ export const animals: Creature[] = [
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Pounce]
   ),
   new Creature(
+    'mastodon',
+    'Mastodon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/elephant/elephant-mastodon',
+    'https://i.pinimg.com/474x/2e/a5/f4/2ea5f4fc1c32874a4efe4e9032165909--elephant.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    15,
+    new AbilityScores(34, 12, 21, 2, 13, 7),
+    14,
+    133,
+    new ArmorClass(21, 9, 20),
+    24,
+    35,
+    10,
+    9,
+    0,
+    new Saves(14, 10, 7),
+    [Feat.Endurance, Feat.ImprovedBullRush, Feat.ImprovedIronWill, Feat.IronWill,
+    Feat.PowerAttack, Feat.SkillFocusPerception, Feat.WeaponFocusGore],
+    [
+      new SkillBonus(Skill.Perception, 24)
+    ],
+    [
+      new Attack('Gore', 21, '2d8', 12, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Slam', 20, '2d6', 12, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('2d8', 18, 29)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
     'monitorlizard',
     'Monitor Lizard',
     'https://aonprd.com/MonsterDisplay.aspx?ItemName=Monitor%20Lizard',
@@ -1184,6 +1319,39 @@ export const animals: Creature[] = [
       new Attack('Powerful Charge (Gore)', 8, '4d6', 12, false, AttackType.Melee, [DamageType.Piercing])
     ],
     [SpecialAbility.Scent, SpecialAbility.PowerfulCharge]
+  ),
+  new Creature(
+    'roc',
+    'Roc',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/birds/roc/',
+    'https://i.pinimg.com/originals/20/ac/ad/20acad56620669208a6e6c8ec2ecc42f.jpg',
+    Size.Gargantuan,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 80),
+    15,
+    new AbilityScores(28, 15, 17, 2, 12, 11),
+    16,
+    120,
+    new ArmorClass(22, 8, 20),
+    25,
+    37,
+    12,
+    9,
+    0,
+    new Saves(13, 14, 8),
+    [Feat.FlybyAttack, Feat.ImprovedCriticalTalon, Feat.ImprovedInititive, Feat.IronWill,
+    Feat.LightningReflexes, Feat.PowerAttack, Feat.SkillFocusPerception, Feat.WeaponFocusTalon],
+    [
+      new SkillBonus(Skill.Fly, 7),
+      new SkillBonus(Skill.Perception, 15)
+    ],
+    [
+      new Attack('Talon', 18, '2d6', 9, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing], [new Grab(29)]),
+      new Attack('Talon', 18, '2d6', 9, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing], [new Grab(29)]),
+      new Attack('Bite', 17, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ],
+    [SpecialAbility.LowLightVision]
   ),
   new Creature(
     'shark',

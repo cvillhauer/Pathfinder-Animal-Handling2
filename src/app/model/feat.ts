@@ -14,6 +14,11 @@ export class Feat {
     summary: 'Can perform an Awesome Blow combat maneuver as a standard action'
   };
 
+  static BleedingCritical = {
+    description: 'Bleeding Critical',
+    summary: 'Each critical hit causes 2d6 points of Bleed damage'
+  };
+
   static BlindFight = {
     description: 'Blind Fight',
     summary: 'Can reroll concealment miss chance'
@@ -32,6 +37,11 @@ export class Feat {
   static CombatReflexes = {
     description: 'Combat Reflexes',
     summary: 'Can make additional Attacks of Opportunity'
+  };
+
+  static CriticalFocus = {
+    description: 'Critical Focus',
+    summary: '+4 circumstance bonus on rolls to confirm critical hits'
   };
 
   static Diehard = {
@@ -104,9 +114,24 @@ export class Feat {
     summary: 'Critical threat range is doubled with Slam attack'
   };
 
+  static ImprovedCriticalTalon = {
+    description: 'Improved Critical (Talon)',
+    summary: 'Critical threat range is doubled with Talon attack'
+  };
+
+  static ImprovedCriticalTentacle = {
+    description: 'Improved Critical (Tentacle)',
+    summary: 'Critical threat range is doubled with Tentacle attack'
+  };
+
   static ImprovedInititive = {
     description: 'Improved Inititive',
     summary: '+4 bonus on initiative checks'
+  };
+
+  static ImprovedIronWill = {
+    description: 'Improved Iron Will',
+    summary: 'Once per day you may reroll a Will save'
   };
 
   static ImprovedOverrun = {
@@ -302,6 +327,11 @@ export class Feat {
   static WeaponFocusTail = {
     description: 'Weapon Focus (Tail)',
     summary: '+1 on attack rolls with Tail attack'
+  };
+
+  static WeaponFocusTalon = {
+    description: 'Weapon Focus (Talon)',
+    summary: '+1 on attack rolls with Talon attack'
   };
 
   static WindStance = {

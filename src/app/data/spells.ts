@@ -170,7 +170,7 @@ export const spells = [
       'greatermagmaelemental',
       'greatermudelemental',
       'greaterwaterelemental',
-      'mastadon',
+      'mastodon',
       'roc',
       'tyrannosaurus'
     ]
@@ -370,7 +370,7 @@ export const spells = [
       'greatermagmaelemental',
       'greatermudelemental',
       'greaterwaterelemental',
-      'mastadon',
+      'mastodon',
       'roc',
       'tyrannosaurus',
       'vrock'

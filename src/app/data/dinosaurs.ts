@@ -11,6 +11,9 @@ import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
 import { Stun } from '../model/stun';
+import { Grab } from '../model/combatManeuvers';
+import { SwallowWhole } from '../model/swallowWhole';
+import { Trample } from '../model/trample';
 
 export const dinosaurs: Creature[] = [
   new Creature(
@@ -36,6 +39,37 @@ export const dinosaurs: Creature[] = [
     [Feat.GreatFortitude, Feat.ImprovedBullRush, Feat.ImprovedOverrun, Feat.PowerAttack, Feat.WeaponFocusTail],
     [new SkillBonus(Skill.Perception, 14)],
     [new Attack('Tail', 14, '3d6', 12, false, AttackType.Melee, [DamageType.Bludgeoning], [new Stun(23)])],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'brachiosaurus',
+    'Brachiosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/brachiosaurus',
+    'https://i.pinimg.com/originals/28/a8/92/28a892bde208ccecbcbe1a846c275c51.jpg',
+    Size.Gargantuan,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    20,
+    new AbilityScores(37, 10, 21, 2, 13, 10),
+    18,
+    171,
+    new ArmorClass(18, 6, 18),
+    30,
+    40,
+    13,
+    10,
+    0,
+    new Saves(18, 11, 9),
+    [Feat.Cleave, Feat.GreatCleave, Feat.GreatFortitude, Feat.GreaterOverrun, Feat.ImprovedBullRush,
+    Feat.IronWill, Feat.PowerAttack, Feat.SkillFocusPerception, Feat.WeaponFocusTail],
+    [
+      new SkillBonus(Skill.Perception, 28)
+    ],
+    [
+      new Attack('Tail', 23, '4d6', 19, false, AttackType.Melee, [DamageType.Bludgeoning]),
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('2d6', 19, 32)])
+    ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   ),
   new Creature(
@@ -99,6 +133,38 @@ export const dinosaurs: Creature[] = [
       new SkillBonus(Skill.Perception, 11)
     ],
     [new Attack('Bite', 5, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'tyrannosaurus',
+    'Tyrannosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/tyrannosaurus',
+    'https://i.pinimg.com/474x/c1/d2/97/c1d29742b1d5922aaba3902da0717b88.jpg',
+    Size.Gargantuan,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(40),
+    20,
+    new AbilityScores(32, 13, 19, 2, 15, 10),
+    18,
+    153,
+    new ArmorClass(21, 7, 20),
+    28,
+    39,
+    13,
+    9,
+    0,
+    new Saves(15, 12, 10),
+    [Feat.BleedingCritical, Feat.CriticalFocus, Feat.Diehard, Feat.Endurance, Feat.ImprovedCriticalBite,
+    Feat.ImprovedInititive, Feat.IronWill, Feat.Run, Feat.SkillFocusPerception],
+    [
+      new SkillBonus(Skill.Perception, 37)
+    ],
+    [
+      new Attack('Bite', 20, '4d6', 22, false, AttackType.Melee,
+        [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing], [new Grab(32)]),
+      new Attack('Swallow Whole', 32, '2d8', 11, false, AttackType.Melee, [DamageType.Bludgeoning], [new SwallowWhole(17, 15)])
+    ],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
   )
 ];
