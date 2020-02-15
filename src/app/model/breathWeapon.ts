@@ -1,5 +1,5 @@
 import { IAttackEffect } from './attackeffect';
-import { Shape } from './enums';
+import { Shape, Save } from './enums';
 import { AdditionalDamage } from './additionalDamage';
 import { SavingThrow } from './savingThrow';
 
@@ -32,7 +32,9 @@ export class BreathWeapon implements IAttackEffect {
   getDetails() {
     let details: string = this.description + ': ' + this.getSummary();
     details += '\r\n' + 'Creature exhales a cone, line, or cloud of energy or other magical effects.';
-    details += '\r\n' + 'Targets can roll a ' + this.save.save + ' save to take half damage.';
+    if(this.save.save !== Save.None){
+      details += '\r\n' + 'Targets can roll a ' + this.save.save + ' save to take half damage.';
+    }
     return details;
   }
 

@@ -20,11 +20,13 @@ export class AdditionalDamage {
   getSummary() {
     let summary = '';
     if (this.damageDice) {
-      summary += this.damageDice + ' ';
+      summary += this.damageDice;
       if (this.damageBonus > 0) {
-        summary += '+' + this.damageBonus + ' ';
+        summary += ' +' + this.damageBonus;
       }
-      summary += this.damageType + ' damage';
+      if (this.damageType !== DamageType.Untyped) {
+        summary += ' ' + this.damageType + ' damage';
+      }
       summary += ', ';
     }
     this.effects.forEach(e => {

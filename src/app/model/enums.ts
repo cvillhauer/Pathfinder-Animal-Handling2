@@ -51,7 +51,8 @@ export enum Modifier {
 export enum Save {
   Fortitude = 'Fortitude',
   Reflex = 'Reflex',
-  Will = 'Will'
+  Will = 'Will',
+  None = 'None'
 }
 
 export enum AbilityEffectType {
@@ -79,7 +80,8 @@ export enum DamageType {
   Electricity = 'Electricity',
   Fire = 'Fire',
   Force = 'Force',
-  Sonic = 'Sonic'
+  Sonic = 'Sonic',
+  Untyped = 'Untyped'
 }
 
 export enum SpeedType {
@@ -95,33 +97,57 @@ export enum Spell {
   AuraOfMenace = 'Aura of Menace',
   Blur = 'Blur',
   CauseFear = 'Cause Fear',
+  CharmMonster = 'Charm Monster',
   CharmPerson = 'Charm Person',
   ContinualFlame = 'Continual Flame',
   CureSeriousWounds = 'Cure Serious Wounds',
   DancingLights = 'Dancing Lights',
   Darkness = 'Darkness',
+  DeeperDarkness = 'Deeper Darkness',
   DetectEvil = 'Detect Evil',
+  DetectGood = 'Detect Good',
+  DetectThoughts = 'Detect Thoughts',
+  DimensionalAnchor = 'Dimensional Anchor',
   DispelMagic = 'Dispel Magic',
+  DominatePerson = 'Dominate Person',
   Doom = 'Doom',
   Fear = 'Fear',
+  Fly = 'Fly',
   GhostSound = 'Ghost Sound',
   GustOfWind = 'Gust of Wind',
+  HallucinatoryTerrain = 'Hallucinatory Terrain',
+  Heroism = 'Heroism',
+  Invisibility = 'Invisibilty',
+  Knock = 'Knock',
+  Light = 'Light',
   LightningBolt = 'Lightning Bolt',
   MagicCircleAgainstEvil = 'Magic Circle Against Evil',
   Message = 'Message',
+  MajorImage = 'Major Image',
+  MinorImage = 'Minor Image',
   MirrorImage = 'Mirror Image',
   Prestidigitation = 'Prestidigitation',
   SeeInvisibility = 'See Invisibility',
+  ShadowConjuration = 'Shadow Conjuration',
+  ShadowEvocation = 'Shadow Evocation',
   Sleep = 'Sleep',
+  SpeakWithAnimals = 'Speak With Animals',
+  SpeakWithPlants = 'Speak With Plants',
   StinkingCloud = 'Stinking Cloud',
+  StunningScreech = 'Stunning Screech',
   Suggestion = 'Suggestion',
+  Telekinesis = 'Telekinesis',
+  UnholyBlight = 'Unholy Blight',
   UnnervingGaze = 'Unnerving Gaze',
+  VampiricTouch = 'Vampiric Touch',
+  WallOfIce = 'Wall of Ice',
   WindWall = 'Wind Wall'
 }
 
 export enum Shape {
   Cone10 = '10 ft Cone',
-  Line20 = '20 ft Line'
+  Line20 = '20 ft Line',
+  Radius5 = '5 ft Radius'
 }
 
 export enum InGameCondition {
@@ -132,6 +158,7 @@ export enum InGameCondition {
   MetalMastery = 'Metal Mastery',
   PowerAttack = 'Power Attack',
   Rage = 'Rage',
+  RapidShot = 'Rapid Shot',
   Smite = 'Smite',
   WaterMastery = 'Water Mastery'
 }

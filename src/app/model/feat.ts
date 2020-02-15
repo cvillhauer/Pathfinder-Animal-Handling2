@@ -4,6 +4,21 @@ export class Feat {
     summary: '+2 bonus on Perception and Sense Motive checks'
   };
 
+  static AgileManeuvers = {
+    description: 'Agile Maneuvers',
+    summary: 'Add your Dexterity bonus instead of Strength bonus to your CMB'
+  };
+
+  static AwesomeBlow = {
+    description: 'Awesome Blow',
+    summary: 'Can perform an Awesome Blow combat maneuver as a standard action'
+  };
+
+  static BleedingCritical = {
+    description: 'Bleeding Critical',
+    summary: 'Each critical hit causes 2d6 points of Bleed damage'
+  };
+
   static BlindFight = {
     description: 'Blind Fight',
     summary: 'Can reroll concealment miss chance'
@@ -14,9 +29,19 @@ export class Feat {
     summary: 'Can strike two adjacent foes with a single swing'
   };
 
+  static CombatCasting = {
+    description: 'Combat Casting',
+    summary: '+4 bonus on concentration checks while casting defensively or grappled'
+  };
+
   static CombatReflexes = {
     description: 'Combat Reflexes',
     summary: 'Can make additional Attacks of Opportunity'
+  };
+
+  static CriticalFocus = {
+    description: 'Critical Focus',
+    summary: '+4 circumstance bonus on rolls to confirm critical hits'
   };
 
   static Diehard = {
@@ -54,6 +79,11 @@ export class Feat {
     summary: 'Additional +2 bonus to Bull Rush combat maneuvers'
   };
 
+  static GreaterOverrun = {
+    description: 'Greater Overrun',
+    summary: 'Additional +2 bonus to Overrun combat maneuvers'
+  };
+
   static Hover = {
     description: 'Hover',
     summary: 'Can halt fly movement without hover checks'
@@ -64,14 +94,59 @@ export class Feat {
     summary: '+2 bonus to Bull Rush combat maneuvers'
   };
 
+  static ImprovedCriticalBite = {
+    description: 'Improved Critical (Bite)',
+    summary: 'Critical threat range is doubled with Bite attack'
+  };
+
+  static ImprovedCriticalClaw = {
+    description: 'Improved Critical (Claw)',
+    summary: 'Critical threat range is doubled with Claw attack'
+  };
+
+  static ImprovedCriticalGore = {
+    description: 'Improved Critical (Gore)',
+    summary: 'Critical threat range is doubled with Gore attack'
+  };
+
+  static ImprovedCriticalSlam = {
+    description: 'Improved Critical (Slam)',
+    summary: 'Critical threat range is doubled with Slam attack'
+  };
+
+  static ImprovedCriticalTalon = {
+    description: 'Improved Critical (Talon)',
+    summary: 'Critical threat range is doubled with Talon attack'
+  };
+
+  static ImprovedCriticalTentacle = {
+    description: 'Improved Critical (Tentacle)',
+    summary: 'Critical threat range is doubled with Tentacle attack'
+  };
+
   static ImprovedInititive = {
     description: 'Improved Inititive',
     summary: '+4 bonus on initiative checks'
   };
 
+  static ImprovedIronWill = {
+    description: 'Improved Iron Will',
+    summary: 'Once per day you may reroll a Will save'
+  };
+
   static ImprovedOverrun = {
     description: 'Improved Overrun',
     summary: '+2 bonus to Overrun combat maneuvers'
+  };
+
+  static ImprovedSunder = {
+    description: 'Improved Sunder',
+    summary: '+2 bonus to Sunder combat maneuvers'
+  };
+
+  static IntimidatingProwess = {
+    description: 'Intimidating Prowess',
+    summary: 'Add your Strength modifier to Intimidate checks'
   };
 
   static IronWill = {
@@ -82,6 +157,26 @@ export class Feat {
   static LightningReflexes = {
     description: 'Lightning Reflexes',
     summary: '+2 bonus on Reflex saves'
+  };
+
+  static LightningStance = {
+    description: 'Lightning Stance',
+    summary: 'You get 50% concealment for 1 round when you double move'
+  };
+
+  static MartialWeaponProficiencyGreataxe = {
+    description: 'Martial Weapon Proficiency (Greataxe)',
+    summary: 'You are proficient with a Greataxe'
+  };
+
+  static MartialWeaponProficiencyGreatclub = {
+    description: 'Martial Weapon Proficiency (Greatclub)',
+    summary: 'You are proficient with a Greatclub'
+  };
+
+  static MartialWeaponProficiencyGreatsword = {
+    description: 'Martial Weapon Proficiency (Greatsword)',
+    summary: 'You are proficient with a Greatsword'
   };
 
   static Mobility = {
@@ -104,9 +199,34 @@ export class Feat {
     summary: 'Trade melee attack bonus for extra damage'
   };
 
+  static PreciseShot = {
+    description: 'Precise Shot',
+    summary: 'You can do ranged attacks on foes engaged in melee, without taking a penalty'
+  };
+
+  static QuickDraw = {
+    description: 'Quick Draw',
+    summary: 'You can draw a weapon as a free action'
+  };
+
+  static QuickenSpellLikeAbility = {
+    description: 'Quicken Spell-Like Ability',
+    summary: 'You can cast a spell-like ability as a swift action without provoking an attack of opportunity'
+  };
+
+  static RapidShot = {
+    description: 'Rapid Shot',
+    summary: 'Take an additional shot during a full-attack action, all takes take a -2 penalty'
+  };
+
   static Run = {
     description: 'Run',
     summary: 'Run at 5 times your normal speed'
+  };
+
+  static ShotOnTheRun = {
+    description: 'Shot on the Run',
+    summary: 'As a full-round action, move up to your speed and make a single ranged attack at any point during your movement'
   };
 
   static SkillFocusPerception = {
@@ -144,44 +264,79 @@ export class Feat {
     summary: '+3 hit points, +1 per hit die beyond 3'
   };
 
+  static VitalStrike = {
+    description: 'Vital Strike',
+    summary: 'One of your attacks deals additional weapon damage dice'
+  };
+
   static WeaponFinesse = {
     description: 'Weapon Finesse',
     summary: 'Use Dex instead of Str on attack rolls with light weapons'
   };
 
   static WeaponFocusBite = {
-    description: 'Weapon Focus Bite',
+    description: 'Weapon Focus (Bite)',
     summary: '+1 on attack rolls with Bite attack'
   };
 
   static WeaponFocusChain = {
-    description: 'Weapon Focus Chain',
+    description: 'Weapon Focus (Chain)',
     summary: '+1 on attack rolls with Chain attack'
   };
 
   static WeaponFocusClaw = {
-    description: 'Weapon Focus Claw',
+    description: 'Weapon Focus (Claw)',
     summary: '+1 on attack rolls with Claw attack'
   };
 
   static WeaponFocusGlaive = {
-    description: 'Weapon Focus Glaive',
+    description: 'Weapon Focus (Glaive)',
     summary: '+1 on attack rolls with Glaive attack'
   };
 
+  static WeaponFocusGore = {
+    description: 'Weapon Focus (Gore)',
+    summary: '+1 on attack rolls with Gore attack'
+  };
+
+  static WeaponFocusGreatclub = {
+    description: 'Weapon Focus (Greatclub)',
+    summary: '+1 on attack rolls with Greatclub attack'
+  };
+
+  static WeaponFocusGreatsword = {
+    description: 'Weapon Focus (Greatsword)',
+    summary: '+1 on attack rolls with Greatsword attack'
+  };
+
   static WeaponFocusShortSword = {
-    description: 'Weapon Focus Short Sword',
+    description: 'Weapon Focus (Short Sword)',
     summary: '+1 on attack rolls with Short Sword attack'
   };
 
+  static WeaponFocusSlam = {
+    description: 'Weapon Focus (Slam)',
+    summary: '+1 on attack rolls with Slam attack'
+  };
+
   static WeaponFocusSpikes = {
-    description: 'Weapon Focus Spikes',
+    description: 'Weapon Focus (Spikes)',
     summary: '+1 on attack rolls with Spikes attack'
   };
 
   static WeaponFocusTail = {
-    description: 'Weapon Focus Tail',
+    description: 'Weapon Focus (Tail)',
     summary: '+1 on attack rolls with Tail attack'
+  };
+
+  static WeaponFocusTalon = {
+    description: 'Weapon Focus (Talon)',
+    summary: '+1 on attack rolls with Talon attack'
+  };
+
+  static WindStance = {
+    description: 'Wind Stance',
+    summary: 'You get 20% concealment for 1 round against ranged attacks when you move more than 5 feet'
   };
 
   description: string;
