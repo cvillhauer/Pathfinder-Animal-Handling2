@@ -65,6 +65,13 @@ export class InGameModifiersService {
           this.removeRage(affectedCreature);
         }
         break;
+      case InGameCondition.RapidShot:
+        if (applyModifier) {
+          this.applyRapidShot(affectedCreature);
+        } else {
+          this.removeRapidShot(affectedCreature);
+        }
+        break;
       case InGameCondition.Smite:
         if (applyModifier) {
           this.applySmite(affectedCreature);
@@ -86,12 +93,12 @@ export class InGameModifiersService {
   }
 
   applyCharging(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, 2, false);
+    this.applyAttackBonusIncrease(affectedCreature, 2, false, false);
     affectedCreature.armorClass.applyArmorModifier(-2);
   }
 
   removeCharging(affectedCreature: Creature) {
-    this.applyAttackBonusIncrease(affectedCreature, -2, false);
+    this.applyAttackBonusIncrease(affectedCreature, -2, false, false);
     affectedCreature.armorClass.applyArmorModifier(2);
   }
 
@@ -167,6 +174,14 @@ export class InGameModifiersService {
     affectedCreature.armorClass.applyArmorModifier(2);
   }
 
+  applyRapidShot(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, -2, false, true, false);
+  }
+
+  removeRapidShot(affectedCreature: Creature) {
+    this.applyAttackBonusIncrease(affectedCreature, 2, false, true, false);
+  }
+
   applySmite(affectedCreature: Creature) {
     const charismaBonus = affectedCreature.abilityScores.getBonus(Modifier.Charisma);
     if (charismaBonus > 0) {
@@ -202,14 +217,19 @@ export class InGameModifiersService {
   }
 
   applyAttackBonusIncrease(affectedCreature: Creature, attackBonusIncrease: number,
-                           includeCombatManeuvers: boolean = true, includeRanged: boolean = true) {
+                           includeCombatManeuvers: boolean = true, includeRanged: boolean = true, includeMelee: boolean = true) {
     if (includeCombatManeuvers) {
       affectedCreature.combatManeuverBonus += attackBonusIncrease;
       affectedCreature.combatManeuverDefense += attackBonusIncrease;
     }
     for (const attack of affectedCreature.attacks) {
-      if ((attack.attackBonus || attack.attackBonus === 0) && (attack.attackType === AttackType.Melee || includeRanged)) {
-        attack.applyAttackBonusIncrease(attackBonusIncrease);
+      if (attack.attackBonus || attack.attackBonus === 0) {
+        if (attack.attackType === AttackType.Melee && includeMelee) {
+          attack.applyAttackBonusIncrease(attackBonusIncrease);
+        }
+        if (attack.attackType === AttackType.Ranged && includeRanged) {
+          attack.applyAttackBonusIncrease(attackBonusIncrease);
+        }
       }
       if (attack.attackEffects) {
         for (const attackEffect of attack.attackEffects) {

@@ -19,6 +19,7 @@ import { Rend } from './rend';
 import { Stun } from './stun';
 import { Gnaw } from './gnaw';
 import { Paralysis } from './paralysis';
+import { Entangle } from './entangle';
 
 export class Attack {
   damageTypeDescription = '';
@@ -72,6 +73,11 @@ export class Attack {
           const entrap = ae as Entrap;
           const newEntrap = new Entrap(entrap.savingThrow.difficultyCheck, entrap.duration, entrap.hardness, entrap.hitPoints);
           return newEntrap;
+        case 'Entangle':
+          const entangle = ae as Entangle;
+          const newEntangle = new Entangle(entangle.savingThrow.difficultyCheck,
+            entangle.armorClass, entangle.hitPoints, entangle.strengthDC);
+          return newEntangle;
         case 'Gnaw':
           const gnaw = ae as Gnaw;
           return new Gnaw(gnaw.damageDice, gnaw.damageBonus);

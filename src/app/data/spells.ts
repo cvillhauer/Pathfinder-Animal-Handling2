@@ -153,7 +153,26 @@ export const spells = [
     description: 'Summon Nature\'s Ally VI',
     group: 'summonnaturesally',
     level: 6,
-    creatureList: []
+    creatureList: [
+      'bulette',
+      'direbear',
+      'diretiger',
+      'elasmosaurus',
+      'elephant',
+      'giantoctopus',
+      'hillgiant',
+      'hugeairelemental',
+      'hugeearthelemental',
+      'hugefireelemental',
+      'hugeiceelemental',
+      'hugelightningelemental',
+      'hugemagmaelemental',
+      'hugemudelemental',
+      'hugewaterelemental',
+      'stegosaurus',
+      'stonegiant',
+      'triceratops'
+    ]
   },
   {
     id: 'summonnaturesally7',
@@ -161,7 +180,25 @@ export const spells = [
     description: 'Summon Nature\'s Ally VII',
     group: 'summonnaturesally',
     level: 7,
-    creatureList: []
+    creatureList: [
+      'brachiosaurus',
+      'direcrocodile',
+      'direshark',
+      'firegiant',
+      'frostgiant',
+      'giantsquid',
+      'greaterairelemental',
+      'greaterearthelemental',
+      'greaterfireelemental',
+      'greatericeelemental',
+      'greaterlightningelemental',
+      'greatermagmaelemental',
+      'greatermudelemental',
+      'greaterwaterelemental',
+      'mastodon',
+      'roc',
+      'tyrannosaurus'
+    ]
   },
   {
     id: 'summonnaturesally8',
@@ -169,7 +206,16 @@ export const spells = [
     description: 'Summon Nature\'s Ally VIII',
     group: 'summonnaturesally',
     level: 8,
-    creatureList: []
+    creatureList: [
+      'elderairelemental',
+      'elderearthelemental',
+      'elderfireelemental',
+      'eldericeelemental',
+      'elderlightningelemental',
+      'eldermagmaelemental',
+      'eldermudelemental',
+      'elderwaterelemental',
+    ]
   },
   {
     id: 'summonnaturesally9',
@@ -314,7 +360,28 @@ export const spells = [
     description: 'Summon Monster VI',
     group: 'summonmonster',
     level: 6,
-    creatureList: []
+    creatureList: [
+      'direbear',
+      'diretiger',
+      'elasmosaurus',
+      'elephant',
+      'erinyes',
+      'giantoctopus',
+      'hugeairelemental',
+      'hugeearthelemental',
+      'hugefireelemental',
+      'hugeiceelemental',
+      'hugelightningelemental',
+      'hugemagmaelemental',
+      'hugemudelemental',
+      'hugewaterelemental',
+      'invisiblestalker',
+      'lillendazata',
+      'shadowdemon',
+      'stegosaurus',
+      'succubus',
+      'triceratops'
+    ]
   },
   {
     id: 'summonmonster7',
@@ -322,7 +389,26 @@ export const spells = [
     description: 'Summon Monster VII',
     group: 'summonmonster',
     level: 7,
-    creatureList: []
+    creatureList: [
+      'bebilith',
+      'bonedevil',
+      'brachiosaurus',
+      'direcrocodile',
+      'direshark',
+      'giantsquid',
+      'greaterairelemental',
+      'greaterearthelemental',
+      'greaterfireelemental',
+      'greatericeelemental',
+      'greaterlightningelemental',
+      'greatermagmaelemental',
+      'greatermudelemental',
+      'greaterwaterelemental',
+      'mastodon',
+      'roc',
+      'tyrannosaurus',
+      'vrock'
+    ]
   },
   {
     id: 'summonmonster8',
@@ -330,7 +416,16 @@ export const spells = [
     description: 'Summon Monster VIII',
     group: 'summonmonster',
     level: 8,
-    creatureList: []
+    creatureList: [
+      'elderairelemental',
+      'elderearthelemental',
+      'elderfireelemental',
+      'eldericeelemental',
+      'elderlightningelemental',
+      'eldermagmaelemental',
+      'eldermudelemental',
+      'elderwaterelemental',
+    ]
   },
   {
     id: 'summonmonster9',

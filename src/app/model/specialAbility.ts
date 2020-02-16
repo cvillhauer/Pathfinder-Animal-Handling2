@@ -15,62 +15,67 @@ export class SpecialAbility {
     summary: 'Ability to use a non-visual sense to operate effectively without vision'
   };
 
-  static DamageResistance5 = {
+  static DamageReduction5 = {
     description: 'DR 5/',
     summary: 'Takes 5 less points of damage from all weapons'
   };
 
-  static DamageResistanceColdIron2 = {
+  static DamageReduction10 = {
+    description: 'DR 10/',
+    summary: 'Takes 10 less points of damage from all weapons'
+  };
+
+  static DamageReductionColdIron2 = {
     description: 'DR 2/Cold Iron',
     summary: 'Takes 2 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceColdIron5 = {
+  static DamageReductionColdIron5 = {
     description: 'DR 5/Cold Iron',
     summary: 'Takes 5 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceColdIron10 = {
+  static DamageReductionColdIron10 = {
     description: 'DR 10/Cold Iron',
     summary: 'Takes 10 less points of damage from all weapons that are not Cold Iron'
   };
 
-  static DamageResistanceEvil5 = {
+  static DamageReductionEvil5 = {
     description: 'DR 5/Evil',
     summary: 'Takes 5 less points of damage from all weapons that are not Evil'
   };
 
-  static DamageResistanceEvil10 = {
+  static DamageReductionEvil10 = {
     description: 'DR 10/Evil',
     summary: 'Takes 10 less points of damage from all weapons that are not Evil'
   };
 
-  static DamageResistanceGood5 = {
+  static DamageReductionGood5 = {
     description: 'DR 5/Good',
     summary: 'Takes 5 less points of damage from all weapons that are not Good'
   };
 
-  static DamageResistanceGood10 = {
+  static DamageReductionGood10 = {
     description: 'DR 10/Good',
     summary: 'Takes 10 less points of damage from all weapons that are not Good'
   };
 
-  static DamageResistanceMagic5 = {
+  static DamageReductionMagic5 = {
     description: 'DR 5/Magic',
     summary: 'Takes 5 less points of damage from all weapons that are not Magic'
   };
 
-  static DamageResistanceMagic10 = {
+  static DamageReductionMagic10 = {
     description: 'DR 10/Magic',
     summary: 'Takes 10 less points of damage from all weapons that are not Magic'
   };
 
-  static DamageResistanceSilver5 = {
+  static DamageReductionSilver5 = {
     description: 'DR 5/Siver',
     summary: 'Takes 5 less points of damage from all weapons that are not Silver'
   };
 
-  static DamageResistanceSilver10 = {
+  static DamageReductionSilver10 = {
     description: 'DR 10/Siver',
     summary: 'Takes 10 less points of damage from all weapons that are not Silver'
   };
@@ -83,6 +88,11 @@ export class SpecialAbility {
   static Darkvision = {
     description: 'Darkvision',
     summary: 'Has the ability to see with no light source at all'
+  };
+
+  static DismantleArmor = {
+    description: 'Dismantle Armor',
+    summary: 'Can remove the target armor with two successful claw attacks'
   };
 
   static Drench = {
@@ -205,6 +215,16 @@ export class SpecialAbility {
     summary: 'Cannot be stunned'
   };
 
+  static ImprovedTracking = {
+    description: 'Improved Tracking',
+    summary: 'Takes no penalty to Survival checks when tracking and moving at any speed'
+  };
+
+  static Incorporeal = {
+    description: 'Incorporeal',
+    summary: 'Immune to all nonmagical attack forms, and takes half damage from corporeal sources'
+  };
+
   static InfernalWound = {
     description: 'Infernal Wound',
     summary: 'Heal spells on Bleeding foes require DC 16 caster level check'
@@ -223,6 +243,11 @@ export class SpecialAbility {
   static KeenScent = {
     description: 'Keen Scent',
     summary: 'Can notice other creatures by scent and detect blood in the water'
+  };
+
+  static Leap = {
+    description: 'Leap',
+    summary: 'Can attack with 4 Claws, but no Bite, as part of a Charge attack'
   };
 
   static LightSensitivity = {
@@ -248,6 +273,16 @@ export class SpecialAbility {
   static MultiweaponMastery = {
     description: 'Multiweapon Mastery',
     summary: 'Never takes penalties on its attack rolls when fighting with multiple weapons'
+  };
+
+  static NaturalInvisiblity = {
+    description: 'Natural Invisibility',
+    summary: 'Remains invisible at all times, even when attacking'
+  };
+
+  static PenetratingStrike = {
+    description: 'Penetrating Strike',
+    summary: 'Natural weapons are able to bypass Damage Reduction'
   };
 
   static Pounce = {
@@ -330,6 +365,16 @@ export class SpecialAbility {
     summary: 'Ignores 5 points of Electricity damage from each source'
   };
 
+  static RockCatching = {
+    description: 'Rock Catching',
+    summary: 'Can make a Reflex save to catch a rock being hurled at it'
+  };
+
+  static SavageBite = {
+    description: 'Savage Bite',
+    summary: 'Bite attack does additional damage and has double critical threat range'
+  };
+
   static Scent = {
     description: 'Scent',
     summary: 'Can detect creatures within 30 feet by sense of smell'
@@ -338,6 +383,11 @@ export class SpecialAbility {
   static SeeInDarkness = {
     description: 'See in Darkness',
     summary: 'Can see perfectly in darkness of any kind'
+  };
+
+  static ShadowBlend = {
+    description: 'Shadow Blend',
+    summary: 'Can disappear into the shadows as a move action'
   };
 
   static SmiteEvil = {
@@ -370,6 +420,11 @@ export class SpecialAbility {
     summary: 'Trample DC increases if there are 3 or more creatures'
   };
 
+  static SunlightPowerlessness = {
+    description: 'Sunlight Powerlessness',
+    summary: 'Utterly powerless in bright or natural light'
+  };
+
   static SuperiorTwoWeaponFighting = {
     description: 'Superior Two Weapon Fighting',
     summary: 'No penalty on attacks or damage for attacking with two weapons'
@@ -378,6 +433,11 @@ export class SpecialAbility {
   static Tremorsense = {
     description: 'Tremorsense',
     summary: 'Can automatically pinpoint the location of any creature in contact with the ground'
+  };
+
+  static TrueSeeing = {
+    description: 'True Seeing',
+    summary: 'You have the ability to see all things as they actually are'
   };
 
   static VerminEmpathy = {

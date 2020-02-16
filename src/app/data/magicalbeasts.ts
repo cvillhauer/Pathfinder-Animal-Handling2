@@ -16,6 +16,40 @@ import { Rend } from '../model/rend';
 
 export const magicalbeasts: Creature[] = [
   new Creature(
+    'bulette',
+    'Bulette',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/bulette',
+    'https://2e.aonprd.com/Images/Monsters/Bulette.png',
+    Size.Huge,
+    CreatureType.MagicalBeast,
+    Alignment.trueNeutral,
+    new Speeds(40, 0, 0, 0, 20),
+    10,
+    new AbilityScores(23, 15, 20, 2, 13, 6),
+    8,
+    84,
+    new ArmorClass(22, 10, 20),
+    16,
+    28,
+    8,
+    7,
+    0,
+    new Saves(11, 8, 5),
+    [Feat.ImprovedInititive, Feat.IronWill, Feat.SkillFocusPerception, Feat.WeaponFocusBite],
+    [
+      new SkillBonus(Skill.Acrobatics, 9),
+      new SkillBonus(Skill.Acrobatics, 17, ('Jumping')),
+      new SkillBonus(Skill.Perception, 11)
+    ],
+    [
+      new Attack('Bite', 13, '2d8', 9, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 12, '2d6', 6, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing]),
+      new Attack('Claw', 12, '2d6', 6, false, AttackType.Melee, [DamageType.Piercing, DamageType.Slashing])
+    ],
+    [SpecialAbility.Darkvision, SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Tremorsense,
+    SpecialAbility.SavageBite, SpecialAbility.Leap]
+  ),
+  new Creature(
     'girallon',
     'Girallon',
     'https://www.d20pfsrd.com/bestiary/monster-listings/magical-beasts/girallon/',
