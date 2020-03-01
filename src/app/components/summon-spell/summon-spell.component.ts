@@ -8,6 +8,7 @@ import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Morality, CreatureType } from 'src/app/model/enums';
 import { AbilityScoreService } from 'src/app/services/ability-score.service';
+import { SummonedCreature } from 'src/app/model/summonedCreature';
 
 @Component({
   selector: 'summon-spell',
@@ -67,7 +68,7 @@ export class SummonSpellComponent implements OnInit {
   }
 
   onSummon() {
-    const summonedCreatures: Creature[] = [];
+    const summonedCreatures: SummonedCreature[] = [];
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
@@ -75,7 +76,7 @@ export class SummonSpellComponent implements OnInit {
         numberOfCreatures += 1;
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
-        const newCreature = Creature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
+        const newCreature = SummonedCreature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;

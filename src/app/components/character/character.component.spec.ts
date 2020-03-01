@@ -9,13 +9,14 @@ import { SummonSpellComponent } from '../summon-spell/summon-spell.component';
 import { CreatureComponent } from '../creature/creature.component';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
-import { Creature } from 'src/app/model/creature';
+import { SummonedCreature } from 'src/app/model/summonedcreature';
 import { SpellService } from 'src/app/services/spell.service';
 import { Spell } from 'src/app/model/spell';
 import { of } from 'rxjs';
 import { Alignment } from 'src/app/model/alignment';
 import { AttackComponent } from '../attack/attack.component';
 import { InGameModifiersComponent } from '../in-game-modifiers/in-game-modifiers.component';
+import { SummonedCreatureComponent } from '../summoned-creature/summoned-creature.component';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -27,7 +28,7 @@ describe('CharacterComponent', () => {
     spellService.getSpellsByCharacterClassAndLevel.and.returnValue(of(mockSpells));
     TestBed.configureTestingModule({
       declarations: [CharacterComponent, ShapeshiftSpellComponent, SummonSpellComponent,
-        CreatureComponent, AttackComponent, InGameModifiersComponent],
+        CreatureComponent, SummonedCreatureComponent, AttackComponent, InGameModifiersComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [{ provide: SpellService, useValue: spellService }]
     })
@@ -228,7 +229,7 @@ describe('CharacterComponent', () => {
 
   it('delete should return nothing', () => {
     const char = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
-    const creature = new Creature('1', 'test');
+    const creature = new SummonedCreature('1', 'test');
     component.character = char;
     expect(component.delete(creature)).toBeUndefined();
   });

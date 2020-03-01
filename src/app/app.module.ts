@@ -13,6 +13,7 @@ import { CreatureComponent } from './components/creature/creature.component';
 import { ShapeshiftSpellComponent } from './components/shapeshift-spell/shapeshift-spell.component';
 import { SummonSpellComponent } from './components/summon-spell/summon-spell.component';
 import { InGameModifiersComponent } from './components/in-game-modifiers/in-game-modifiers.component';
+import { SummonedCreatureComponent } from './components/summoned-creature/summoned-creature.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { InGameModifiersComponent } from './components/in-game-modifiers/in-game
     CreatureComponent,
     InGameModifiersComponent,
     ShapeshiftSpellComponent,
+    SummonedCreatureComponent,
     SummonSpellComponent
   ],
   imports: [

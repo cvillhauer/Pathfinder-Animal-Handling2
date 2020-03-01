@@ -9,6 +9,7 @@ import { CreatureComponent } from './components/creature/creature.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AttackComponent } from './components/attack/attack.component';
 import { InGameModifiersComponent } from './components/in-game-modifiers/in-game-modifiers.component';
+import { SummonedCreatureComponent } from './components/summoned-creature/summoned-creature.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -20,7 +21,7 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent, AttackComponent, CharacterComponent,
-        ShapeshiftSpellComponent, SummonSpellComponent, CreatureComponent, InGameModifiersComponent
+        ShapeshiftSpellComponent, SummonSpellComponent, CreatureComponent, SummonedCreatureComponent, InGameModifiersComponent
       ],
     }).compileComponents();
   }));

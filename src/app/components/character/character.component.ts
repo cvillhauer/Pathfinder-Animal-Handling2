@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Character } from 'src/app/model/character';
 import { SpellService } from 'src/app/services/spell.service';
-import { Creature } from 'src/app/model/creature';
+import { SummonedCreature } from 'src/app/model/summonedCreature';
 
 @Component({
   selector: 'character',
@@ -27,11 +27,11 @@ export class CharacterComponent implements OnInit {
   }
 
   summon($event) {
-    const summonedCreatures: Creature[] = $event.creatures;
+    const summonedCreatures: SummonedCreature[] = $event.creatures;
     this.character.summonedCreatures.unshift(...summonedCreatures);
   }
 
-  delete(creature: Creature) {
+  delete(creature: SummonedCreature) {
     const creatureIndex = this.character.summonedCreatures.indexOf(creature);
     this.character.summonedCreatures.splice(creatureIndex, 1);
   }

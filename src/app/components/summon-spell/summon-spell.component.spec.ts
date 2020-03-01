@@ -16,6 +16,7 @@ import { of } from 'rxjs';
 import { ArmorClass } from 'src/app/model/armorClass';
 import { Speeds } from 'src/app/model/speed';
 import { Alignment } from 'src/app/model/alignment';
+import { SummonedCreature } from 'src/app/model/summonedCreature';
 
 describe('SpellComponent', () => {
   let component: SummonSpellComponent;
@@ -122,7 +123,7 @@ describe('SpellComponent', () => {
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
-    const testCreature = new Creature(
+    const testCreature = new SummonedCreature(
       'test',
       'test',
       '',
@@ -159,7 +160,7 @@ describe('SpellComponent', () => {
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
-    const testCreature = new Creature(
+    const testCreature = new SummonedCreature(
       'test',
       'test',
       '',

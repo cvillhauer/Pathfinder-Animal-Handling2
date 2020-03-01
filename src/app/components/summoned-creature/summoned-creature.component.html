@@ -3,6 +3,22 @@
     <div class="col-xs-8">
       <div class="row">
         <div class="col-xs-4">
+          <h1 *ngIf="!creature.editName" (ngModel)="creature.creatureName" (click)="creature.toggleEditCreatureName()">
+            <span>{{ creature.creatureName }}</span> &nbsp;
+            <span class="glyphicon glyphicon-pencil" style="font-size: 15px;"></span>
+          </h1>
+          <input class="form-control" *ngIf="creature.editName || !creature.creatureName"
+            [(ngModel)]="creature.creatureName" (focusout)="creature.toggleEditCreatureName()" />
+        </div>
+        <div class="col-xs-4">
+          <h3>Summoned in Round {{ creature.roundSummoned }}</h3>
+        </div>
+        <div class="col-xs-4">
+          Rounds Left: <input class="form-control" type="number" [(ngModel)]="creature.roundsLeft" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
           <h2><a target="_blank" href="{{ creature.link }}">{{ creature.description }}</a></h2>
         </div>
         <div class="col-xs-4">

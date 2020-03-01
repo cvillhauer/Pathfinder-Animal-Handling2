@@ -1,5 +1,5 @@
 import { Spell } from './spell';
-import { Creature } from './creature';
+import { SummonedCreature } from './summonedCreature';
 import { AbilityScores } from './abilityscores';
 import { Modifier } from './enums';
 import { Alignment } from './alignment';
@@ -19,7 +19,7 @@ export class Character {
 
   feats: string[];
 
-  summonedCreatures: Creature[];
+  summonedCreatures: SummonedCreature[];
 
   constructor(id: string, name: string, alignment: Alignment, characterClass: string, level: number, scores: AbilityScores) {
     this.id = id;
