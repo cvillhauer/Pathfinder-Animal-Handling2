@@ -9,7 +9,7 @@
           Hit Points: <input class="form-control" type="number" [(ngModel)]="creature.hitPoints" />
         </div>
         <div class="col-xs-4">
-          <button type="button" class="btn btn-default button-holder" *ngIf='!creature.isCharacter()' (click)="onDelete()">Delete</button>
+          <button type="button" class="btn btn-default button-holder" *ngIf="!creature.isCharacter()" (click)="onDelete()">Delete</button>
         </div>
       </div>
       <div class="row">
@@ -20,9 +20,9 @@
       </div>
       <div class="row">
         <div class="col-xs-3">
-          <h3 title='Touch: {{ creature.armorClass.touchAC }} &nbsp; Flat: {{ creature.armorClass.flatAC }}'>
+          <h3 title="Touch: {{ creature.armorClass.touchAC }} &nbsp; Flat: {{ creature.armorClass.flatAC }}">
             Armor Class: <strong>{{ creature.armorClass.armorClass }}</strong></h3>
-          <h4 *ngIf='creature.spellResistance > 0'>Spell Resistance: {{ creature.spellResistance }}</h4>
+          <h4 *ngIf="creature.spellResistance > 0">Spell Resistance: {{ creature.spellResistance }}</h4>
           <h5>Reach: {{ creature.reach }} feet</h5>
         </div>
         <div class="col-xs-3">
@@ -32,11 +32,11 @@
           <h4>{{ creature.size }} {{ creature.type }}</h4>
         </div>
         <div class="col-xs-3" style="text-align: right;">
-          <h4>Speed<span *ngIf='(creature.speed.primarySpeed.speedType != "Foot")'>
+          <h4>Speed<span *ngIf='(creature.speed.primarySpeed.speedType != "Foot")'> <!-- TODO: Fix this magic string? -->
               ({{ creature.speed.primarySpeed.speedType }})</span>:
             {{ creature.speed.primarySpeed.speedDistance }} feet</h4>
-          <ng-container *ngFor='let speed of creature.speed.speeds'>
-            <h6 *ngIf='speed.speedType != creature.speed.primarySpeed.speedType'>
+          <ng-container *ngFor="let speed of creature.speed.speeds">
+            <h6 *ngIf="speed.speedType != creature.speed.primarySpeed.speedType">
               Speed ({{ speed.speedType }}): {{ speed.speedDistance }} feet</h6>
           </ng-container>
         </div>
@@ -55,45 +55,45 @@
       <div class="row">
         <br />
         <div class="col-xs-3">
-          <h5 *ngIf='creature.abilities.length > 0'>Abilities:</h5>
+          <h5 *ngIf="creature.abilities.length > 0">Abilities:</h5>
           <ul>
-            <li *ngFor='let ability of creature.abilities' title='{{ ability.summary }}'>{{ ability.description }}</li>
+            <li *ngFor="let ability of creature.abilities" title="{{ ability.summary }}">{{ ability.description }}</li>
           </ul>
-          <h5 *ngIf='creature.feats.length > 0'>Feats:</h5>
+          <h5 *ngIf="creature.feats.length > 0">Feats:</h5>
           <ul>
-            <li *ngFor='let feat of creature.feats' title='{{ feat.summary }}'>{{ feat.description }}</li>
+            <li *ngFor="let feat of creature.feats" title="{{ feat.summary }}">{{ feat.description }}</li>
           </ul>
         </div>
         <div class="col-xs-4">
-          <h5 *ngIf='(creature.skills.length > 0)'>Skills:</h5>
+          <h5 *ngIf="(creature.skills.length > 0)">Skills:</h5>
           <ul>
-            <li *ngFor='let skill of creature.skills'>
+            <li *ngFor="let skill of creature.skills">
               {{ skill.skill.description }}
-              <span *ngIf='(skill.circumstance)'>({{ skill.circumstance }}) </span>
-              <span *ngIf='(skill.bonus >= 0)'>+</span>{{ skill.bonus }}</li>
+              <span *ngIf="(skill.circumstance)">({{ skill.circumstance }}) </span>
+              <span *ngIf="(skill.bonus >= 0)">+</span>{{ skill.bonus }}</li>
           </ul>
         </div>
         <div class="col-xs-3" style="text-align: right;">
           Strength: {{ creature.abilityScores.strength }}
-          (<span *ngIf='creature.getStrengthBonus() >= 0'>+</span>{{ creature.getStrengthBonus() }})<br />
+          (<span *ngIf="creature.getStrengthBonus() >= 0">+</span>{{ creature.getStrengthBonus() }})<br />
           Dexterity: {{ creature.abilityScores.dexterity }}
-          (<span *ngIf='creature.getDexterityBonus() >= 0'>+</span>{{ creature.getDexterityBonus() }})<br />
+          (<span *ngIf="creature.getDexterityBonus() >= 0">+</span>{{ creature.getDexterityBonus() }})<br />
           Constitution: {{ creature.abilityScores.constitution }}
-          (<span *ngIf='creature.getConstitutionBonus() >= 0'>+</span>{{ creature.getConstitutionBonus() }})<br />
+          (<span *ngIf="creature.getConstitutionBonus() >= 0">+</span>{{ creature.getConstitutionBonus() }})<br />
           Intelligence: {{ creature.abilityScores.intelligence }}
-          (<span *ngIf='creature.getIntelligenceBonus() >= 0'>+</span>{{ creature.getIntelligenceBonus() }})<br />
+          (<span *ngIf="creature.getIntelligenceBonus() >= 0">+</span>{{ creature.getIntelligenceBonus() }})<br />
           Wisdom: {{ creature.abilityScores.wisdom }}
-          (<span *ngIf='creature.getWisdomBonus() >= 0'>+</span>{{ creature.getWisdomBonus() }})<br />
+          (<span *ngIf="creature.getWisdomBonus() >= 0">+</span>{{ creature.getWisdomBonus() }})<br />
           Charisma: {{ creature.abilityScores.charisma }}
-          (<span *ngIf='creature.getCharismaBonus() >= 0'>+</span>{{ creature.getCharismaBonus() }})<br />
+          (<span *ngIf="creature.getCharismaBonus() >= 0">+</span>{{ creature.getCharismaBonus() }})<br />
         </div>
         <div class="col-xs-2" style="text-align: right;">
-          Fortitude: <span *ngIf='(creature.saves.fortitude >= 0)'>+</span>{{ creature.saves.fortitude }}<br />
-          Reflex: <span *ngIf='(creature.saves.reflex >= 0)'>+</span>{{ creature.saves.reflex }}<br />
-          Will: <span *ngIf='(creature.saves.will >= 0)'>+</span>{{ creature.saves.will }}<br />
+          Fortitude: <span *ngIf="(creature.saves.fortitude >= 0)">+</span>{{ creature.saves.fortitude }}<br />
+          Reflex: <span *ngIf="(creature.saves.reflex >= 0)">+</span>{{ creature.saves.reflex }}<br />
+          Will: <span *ngIf="(creature.saves.will >= 0)">+</span>{{ creature.saves.will }}<br />
           <br />
-          CMB: <span *ngIf='(creature.combatManeuverBonus >= 0)'>+</span>{{ creature.combatManeuverBonus }}<br />
-          CMD: <span *ngIf='(creature.combatManeuverDefense >= 0)'>+</span>{{ creature.combatManeuverDefense }}<br />
+          CMB: <span *ngIf="(creature.combatManeuverBonus >= 0)">+</span>{{ creature.combatManeuverBonus }}<br />
+          CMD: <span *ngIf="(creature.combatManeuverDefense >= 0)">+</span>{{ creature.combatManeuverDefense }}<br />
         </div>
       </div>
     </div>

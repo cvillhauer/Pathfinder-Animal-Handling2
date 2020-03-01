@@ -10,14 +10,14 @@
       <button type="button" class="btn btn-default button-holder" (click)="nextRound()">Next Round</button>
     </div>
     <div class="col-xs-2">
-      <button type="button" class="btn btn-default button-holder" *ngIf='activeCharacter' (click)="activeCharacter = undefined">Switch Characters</button>
+      <button type="button" class="btn btn-default button-holder" *ngIf="activeCharacter" (click)="activeCharacter = undefined">Switch Characters</button>
     </div>
   </div>
-  <div class="col-xs-6" *ngIf='!activeCharacter'>
+  <div class="col-xs-6" *ngIf="!activeCharacter">
     <select class="form-control" [(ngModel)]="activeCharacter">
       <option></option>
       <option *ngFor="let character of characters" [ngValue]="character">{{ character.characterName }}</option>
     </select>
   </div>
-  <character *ngIf='activeCharacter' [character]="activeCharacter" [roundCount]="roundCount"></character>
+  <character *ngIf="activeCharacter" [character]="activeCharacter" [roundCount]="roundCount"></character>
 </div>

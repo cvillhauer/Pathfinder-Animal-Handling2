@@ -1,22 +1,19 @@
 <div>
   <h4>
-    <span style='font-weight: bold'>
-      <span title='{{ attack.damageTypeDescription }}'>{{ attack.description }} &nbsp;</span>
-      <span *ngIf='attack.attackBonus != null && attack.attackBonus >= 0'>+</span>
+    <span style="font-weight: bold">
+      <span title="{{ attack.damageTypeDescription }}">{{ attack.description }} &nbsp;</span>
+      <span *ngIf="attack.attackBonus != null && attack.attackBonus >= 0">+</span>
       <span>{{ attack.attackBonus }} </span>
-      <span *ngIf='attack.touchAttack'>touch </span>
-      <span *ngIf='attack.damageDice'>{{ attack.damageDice }}</span>
-      <span *ngIf='attack.damageDice && (attack.damageBonus > 0)'>+</span>
-      <span *ngIf='attack.damageDice && (attack.damageBonus != 0)'>{{ attack.damageBonus }}</span> &nbsp;
+      <span *ngIf="attack.touchAttack">touch </span>
+      <span *ngIf="attack.damageDice">{{ attack.damageDice }}</span>
+      <span *ngIf="attack.damageDice && (attack.damageBonus > 0)">+</span>
+      <span *ngIf="attack.damageDice && (attack.damageBonus != 0)">{{ attack.damageBonus }}</span> &nbsp;
     </span>
-    <span *ngFor='let damageType of attack.damageTypes'>
-      <span *ngIf='damageType !== "Bludgeoning" && damageType !== "Slashing" && damageType !== "Piercing"'>
-        {{ damageType }} </span>
-    </span>
-    <span *ngIf='attack.additionalDamage.length > 0'>plus
-      <span *ngFor='let additionalDamage of attack.additionalDamage'>{{ additionalDamage.summary}} &nbsp;</span></span>
-    <span *ngIf='attack.attackEffects.length > 0'>
-      <span *ngFor='let attackEffect of attack.attackEffects' title='{{ attackEffect.details }}'><span
-          *ngIf='attackEffect.displayDescription'>plus</span> {{ attackEffect.summary }} &nbsp;</span></span>
+    <span>{{ getDamageTypeText() }}</span>
+    <span *ngIf="attack.additionalDamage.length > 0">plus
+      <span *ngFor="let additionalDamage of attack.additionalDamage">{{ additionalDamage.summary}} &nbsp;</span></span>
+    <span *ngIf="attack.attackEffects.length > 0">
+      <span *ngFor="let attackEffect of attack.attackEffects" title="{{ attackEffect.details }}"><span
+          *ngIf="attackEffect.displayDescription">plus</span> {{ attackEffect.summary }} &nbsp;</span></span>
   </h4>
 </div>
