@@ -1,5 +1,5 @@
 import { Creature } from './creature';
-import { Size, CreatureType } from 'src/app/model/enums';
+import { ShapeshiftOption } from './shapeshiftOption';
 
 export class Spell {
   id: string;
@@ -10,8 +10,8 @@ export class Spell {
 
 export class ShapeshiftSpell extends Spell {
   type = 'shapeshift';
-  creatureType: CreatureType;
-  sizeOptions: Size[];
+  shapeshiftOptions: ShapeshiftOption[];
+  creatures: Creature[];
   allowedAbilities: string[]; // TODO: Convert this to types/objects?
 }
 

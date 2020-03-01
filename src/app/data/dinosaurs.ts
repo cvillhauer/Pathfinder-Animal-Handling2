@@ -11,7 +11,7 @@ import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
 import { Stun } from '../model/stun';
-import { Grab } from '../model/combatManeuvers';
+import { Grab, Trip } from '../model/combatManeuvers';
 import { SwallowWhole } from '../model/swallowWhole';
 import { Trample } from '../model/trample';
 
