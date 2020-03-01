@@ -17,6 +17,7 @@ import { ArmorClass } from 'src/app/model/armorClass';
 import { Speeds } from 'src/app/model/speed';
 import { Alignment } from 'src/app/model/alignment';
 import { SummonedCreature } from 'src/app/model/summonedCreature';
+import { Feat } from 'src/app/model/feat';
 
 describe('SpellComponent', () => {
   let component: SummonSpellComponent;
@@ -53,7 +54,25 @@ describe('SpellComponent', () => {
       creatures: []
     };
     component.roundCount = 1;
-    component.castingCharacter = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.castingCharacter = new Character(
+      'test',
+      'Wizard',
+      1,
+      'test',
+      'link',
+      'image',
+      Alignment.trueNeutral,
+      new Speeds(30),
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      10,
+      new ArmorClass(10, 10, 10),
+      5,
+      15,
+      1,
+      0,
+      new Saves(5, 5, 5),
+      []
+    );
     component.selectedCreature = new Creature(
       'test',
       'test',
@@ -146,17 +165,17 @@ describe('SpellComponent', () => {
       []
     );
     testCreature.level = 1;
-    testCreature.creatureName = 'Squeaky 1',
-      testCreature.editName = false;
+    testCreature.creatureName = 'Squeaky 1';
+    testCreature.editName = false;
     testCreature.roundsLeft = 1;
     testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [testCreature]
+      id: 'test', creatures: [testCreature]
     });
   });
 
   it('onSummon should emit a creature with augmented summoning', () => {
-    component.castingCharacter.feats.push('Augmented Summoning'); // +4 to str, +4 to con, +2 HP
+    component.castingCharacter.feats.push(Feat.AugmentSummoning); // +4 to str, +4 to con, +2 HP
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
@@ -183,12 +202,12 @@ describe('SpellComponent', () => {
       []
     );
     testCreature.level = 1;
-    testCreature.creatureName = 'Squeaky 1',
-      testCreature.editName = false;
+    testCreature.creatureName = 'Squeaky 1';
+    testCreature.editName = false;
     testCreature.roundsLeft = 1;
     testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [testCreature]
+      id: 'test', creatures: [testCreature]
     });
   });
 

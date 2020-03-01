@@ -84,6 +84,10 @@ export class Creature {
     return newCreature;
   }
 
+  isCharacter() {
+    return false;
+  }
+
   isTrueNeutral() {
     if (this.alignment.sociology === Sociology.Neutral && this.alignment.morality === Morality.Neutral) {
       return true;

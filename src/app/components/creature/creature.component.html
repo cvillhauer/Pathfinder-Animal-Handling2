@@ -9,7 +9,7 @@
           Hit Points: <input class="form-control" type="number" [(ngModel)]="creature.hitPoints" />
         </div>
         <div class="col-xs-4">
-          <button type="button" class="btn btn-default button-holder" (click)="onDelete()">Delete</button>
+          <button type="button" class="btn btn-default button-holder" *ngIf='!creature.isCharacter()' (click)="onDelete()">Delete</button>
         </div>
       </div>
       <div class="row">
@@ -41,7 +41,7 @@
           </ng-container>
         </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="creature.attacks">
         <div class="col-xs-12">
           <h3>Attacks:</h3>
           <attack *ngFor="let creatureAttack of creature.attacks" [attack]="creatureAttack"></attack>
@@ -55,11 +55,11 @@
       <div class="row">
         <br />
         <div class="col-xs-3">
-          <h5 *ngIf='(creature.abilities.length > 0)'>Abilities:</h5>
+          <h5 *ngIf='creature.abilities.length > 0'>Abilities:</h5>
           <ul>
             <li *ngFor='let ability of creature.abilities' title='{{ ability.summary }}'>{{ ability.description }}</li>
           </ul>
-          <h5 *ngIf='(creature.feats).length > 0'>Feats:</h5>
+          <h5 *ngIf='creature.feats.length > 0'>Feats:</h5>
           <ul>
             <li *ngFor='let feat of creature.feats' title='{{ feat.summary }}'>{{ feat.description }}</li>
           </ul>

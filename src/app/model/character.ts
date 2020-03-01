@@ -1,37 +1,57 @@
 import { Spell } from './spell';
+import { Creature } from './creature';
 import { SummonedCreature } from './summonedCreature';
 import { AbilityScores } from './abilityscores';
-import { Modifier } from './enums';
+import { Modifier, Size, CreatureType } from './enums';
 import { Alignment } from './alignment';
+import { Speeds } from './speed';
+import { ArmorClass } from './armorClass';
+import { Saves } from './saves';
+import { Feat } from './feat';
+import { SkillBonus } from './skillbonus';
+import { Attack } from './attack';
+import { SpecialAbility } from './specialAbility';
+import { SpellLikeAbility } from './spellLikeAbility';
 
-export class Character {
-  id: string;
-  characterName: string;
-  alignment: Alignment;
-  characterClass: string;
-  characterLevel: number;
-
-  abilityScores: AbilityScores;
-
+export class Character extends Creature {
   validSpells: Spell[];
   spellLevel: number;
   spellAbilityModifier: Modifier;
-
-  feats: string[];
-
   summonedCreatures: SummonedCreature[];
 
-  constructor(id: string, name: string, alignment: Alignment, characterClass: string, level: number, scores: AbilityScores) {
-    this.id = id;
-    this.characterName = name;
-    this.alignment = alignment;
-    this.characterClass = characterClass;
-    this.characterLevel = level;
-    this.feats = [];
-    this.abilityScores = scores;
+  constructor(
+    public characterName: string,
+    public characterClass: string,
+    public characterLevel: number,
+    public id: string,
+    public link?: string,
+    public image?: string,
+    public alignment?: Alignment,
+    public speed?: Speeds,
+    public abilityScores?: AbilityScores,
+    public hitPoints?: number,
+    public armorClass?: ArmorClass,
+    public combatManeuverBonus?: number, // BAB + Str + size
+    public combatManeuverDefense?: number, // 10 + BAB + Str + Dex + size + dodge
+    public baseAttackBonus?: number,
+    public spellResistance?: number,
+    public saves?: Saves,
+    public feats: Feat[] = [],
+    public skills: SkillBonus[] = [],
+    public attacks: Attack[] = [],
+    public abilities: SpecialAbility[] = [],
+    public spellLikeAbilities: SpellLikeAbility[] = []
+  ) {
+    super(id, characterClass + ' - Level ' + characterLevel, link, image, Size.Medium, CreatureType.Humanoid, alignment, speed, 5,
+      abilityScores, characterLevel, hitPoints, armorClass, combatManeuverBonus, combatManeuverDefense,
+      baseAttackBonus, characterLevel, spellResistance, saves, feats, skills, attacks, abilities, spellLikeAbilities);
     this.calculateSpellAbilityModifier();
-    this.summonedCreatures = [];
     this.calculateSpellLevel();
+    this.summonedCreatures = [];
+  }
+
+  isCharacter() {
+    return true;
   }
 
   getAbilityScore(abilityScore: Modifier) {
