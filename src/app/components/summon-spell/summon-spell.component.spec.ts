@@ -6,7 +6,7 @@ import { SummonSpellComponent } from './summon-spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
-import { Size, CreatureType } from 'src/app/model/enums';
+import { Size, CreatureType, CharacterClass } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
 import { Saves } from 'src/app/model/saves';
 import { DiceService } from 'src/app/services/dice.service';
@@ -56,7 +56,7 @@ describe('SpellComponent', () => {
     component.roundCount = 1;
     component.castingCharacter = new Character(
       'test',
-      'Wizard',
+      CharacterClass.Wizard,
       1,
       'test',
       'link',

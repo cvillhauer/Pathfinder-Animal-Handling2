@@ -20,6 +20,7 @@ import { SummonedCreatureComponent } from '../summoned-creature/summoned-creatur
 import { Speeds } from 'src/app/model/speed';
 import { ArmorClass } from 'src/app/model/armorClass';
 import { Saves } from 'src/app/model/saves';
+import { CharacterClass } from 'src/app/model/enums';
 
 describe('CharacterComponent', () => {
   let component: CharacterComponent;
@@ -43,7 +44,7 @@ describe('CharacterComponent', () => {
     component = fixture.componentInstance;
     component.character = new Character(
       'test',
-      'Wizard',
+      CharacterClass.Wizard,
       1,
       'test',
       'link',
@@ -73,7 +74,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Bard should return 1', () => {
     component.character = new Character(
       'test',
-      'Bard',
+      CharacterClass.Bard,
       1,
       'test',
       'link',
@@ -96,7 +97,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Summoner should return 1', () => {
     component.character = new Character(
       'test',
-      'Summoner',
+      CharacterClass.Summoner,
       1,
       'test',
       'link',
@@ -119,7 +120,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Ranger should return 0', () => {
     component.character = new Character(
       'test',
-      'Ranger',
+      CharacterClass.Ranger,
       1,
       'test',
       'link',
@@ -142,7 +143,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Sorcerer should return 1', () => {
     component.character = new Character(
       'test',
-      'Sorcerer',
+      CharacterClass.Sorcerer,
       1,
       'test',
       'link',
@@ -165,7 +166,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 3 should return 2', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       3,
       'test',
       'link',
@@ -188,7 +189,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 5 should return 3', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       5,
       'test',
       'link',
@@ -211,7 +212,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 7 should return 4', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       7,
       'test',
       'link',
@@ -234,7 +235,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 9 should return 5', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       9,
       'test',
       'link',
@@ -257,7 +258,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 11 should return 6', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       11,
       'test',
       'link',
@@ -280,7 +281,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 13 should return 7', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       13,
       'test',
       'link',
@@ -303,7 +304,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 15 should return 8', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       15,
       'test',
       'link',
@@ -326,7 +327,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 17 should return 9', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       17,
       'test',
       'link',
@@ -349,7 +350,7 @@ describe('CharacterComponent', () => {
   it('calculateSpellLevel Druid 33 should return 0', () => {
     component.character = new Character(
       'test',
-      'Druid',
+      CharacterClass.Druid,
       33,
       'test',
       'link',
@@ -466,7 +467,7 @@ describe('CharacterComponent', () => {
   it('summon should return nothing', () => {
     component.character = new Character(
       'test',
-      'Wizard',
+      CharacterClass.Wizard,
       1,
       'test',
       'link',
@@ -488,7 +489,7 @@ describe('CharacterComponent', () => {
   it('delete should return nothing', () => {
     const char = new Character(
       'test',
-      'Wizard',
+      CharacterClass.Wizard,
       1,
       'test',
       'link',
@@ -512,7 +513,7 @@ describe('CharacterComponent', () => {
   it('getValidSpells should return nothing', () => {
     const char = new Character(
       'test',
-      'Wizard',
+      CharacterClass.Wizard,
       1,
       'test',
       'link',

@@ -2,7 +2,7 @@ import { Spell } from './spell';
 import { Creature } from './creature';
 import { SummonedCreature } from './summonedCreature';
 import { AbilityScores } from './abilityscores';
-import { Modifier, Size, CreatureType } from './enums';
+import { Modifier, Size, CreatureType, CharacterClass } from './enums';
 import { Alignment } from './alignment';
 import { Speeds } from './speed';
 import { ArmorClass } from './armorClass';
@@ -21,7 +21,7 @@ export class Character extends Creature {
 
   constructor(
     public characterName: string,
-    public characterClass: string,
+    public characterClass: CharacterClass,
     public characterLevel: number,
     public id: string,
     public link?: string,
@@ -76,22 +76,20 @@ export class Character extends Creature {
   calculateSpellAbilityModifier() {
     let spellAbilityModifier: Modifier;
     switch (this.characterClass) {
-      case 'Druid':
-      case 'Ranger':
-      case 'Shaman':
+      case CharacterClass.Druid:
+      case CharacterClass.Ranger:
+      case CharacterClass.Shaman:
+      case CharacterClass.Cleric:
         spellAbilityModifier = Modifier.Wisdom;
         break;
-      case 'Cleric':
-        spellAbilityModifier = Modifier.Wisdom;
-        break;
-      case 'Bard':
-      case 'Oracle':
-      case 'Sorcerer':
-      case 'Summoner':
+      case CharacterClass.Bard:
+      case CharacterClass.Oracle:
+      case CharacterClass.Sorcerer:
+      case CharacterClass.Summoner:
         spellAbilityModifier = Modifier.Charisma;
         break;
-      case 'Witch':
-      case 'Wizard':
+      case CharacterClass.Witch:
+      case CharacterClass.Wizard:
         spellAbilityModifier = Modifier.Intelligence;
         break;
       default:
@@ -116,11 +114,11 @@ export class Character extends Creature {
     const characterLevel = this.characterLevel;
     const spellAbilityScore = this.getAbilityScore(this.spellAbilityModifier);
     let spellLevel = 0;
-    if (characterClass === 'Bard' || characterClass === 'Summoner') {
+    if (characterClass === CharacterClass.Bard || characterClass === CharacterClass.Summoner) {
       spellLevel = this.calculateSpellLevelBardOrSummoner(characterLevel);
-    } else if (characterClass === 'Ranger') {
+    } else if (characterClass === CharacterClass.Ranger) {
       spellLevel = this.calculateSpellLevelRanger(characterLevel);
-    } else if (characterClass === 'Sorcerer') {
+    } else if (characterClass === CharacterClass.Sorcerer) {
       spellLevel = this.calculateSpellLevelSorcerer(characterLevel);
     } else {
       switch (characterLevel) {

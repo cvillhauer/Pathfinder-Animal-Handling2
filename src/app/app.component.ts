@@ -10,7 +10,7 @@ import { Skill } from './model/skill';
 import { SkillBonus } from './model/skillbonus';
 import { SpecialAbility } from './model/specialAbility';
 import { SpellLikeAbility } from './model/spellLikeAbility';
-import { Spell } from './model/enums';
+import { Spell, CharacterClass } from './model/enums';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.roundCount = 1;
     const nirwe: Character = new Character(
       'Aldamirnirwa',
-      'Druid',
+      CharacterClass.Druid,
       8,
       'nirwe',
       'https://www.d20pfsrd.com/classes/core-classes/druid/',
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     this.characters.push(nirwe);
     const richard: Character = new Character(
       'Richard',
-      'Wizard',
+      CharacterClass.Wizard,
       20,
       'richard',
       'https://www.d20pfsrd.com/classes/core-classes/wizard/',

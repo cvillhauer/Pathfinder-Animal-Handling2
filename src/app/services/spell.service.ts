@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 import { Spell, ShapeshiftSpell, SummonSpell } from '../model/spell';
+import { CharacterClass } from '../model/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -57,18 +58,18 @@ export class SpellService {
   calculateSpellGroupFromClass(characterClass): string {
     let spellGroup = '';
     switch (characterClass) {
-      case 'Druid':
-      case 'Ranger':
-      case 'Shaman':
+      case CharacterClass.Druid:
+      case CharacterClass.Ranger:
+      case CharacterClass.Shaman:
         spellGroup = 'summonnaturesally';
         break;
-      case 'Cleric':
-      case 'Bard':
-      case 'Oracle':
-      case 'Sorcerer':
-      case 'Summoner':
-      case 'Witch':
-      case 'Wizard':
+      case CharacterClass.Cleric:
+      case CharacterClass.Bard:
+      case CharacterClass.Oracle:
+      case CharacterClass.Sorcerer:
+      case CharacterClass.Summoner:
+      case CharacterClass.Witch:
+      case CharacterClass.Wizard:
         spellGroup = 'summonmonster';
         break;
       default:

@@ -1,3 +1,26 @@
+export enum CharacterClass {
+  Alchemist = 'Alchemist',
+  Barbarian = 'Barbarian',
+  Bard = 'Bard',
+  Cavalier = 'Cavalier',
+  Cleric = 'Cleric',
+  Druid = 'Druid',
+  Fighter = 'Fighter',
+  Gunslinger = 'Gunslinger',
+  Inquisitor = 'Inquisitor',
+  Magus = 'Magus',
+  Monk = 'Monk',
+  Oracle = 'Oracle',
+  Paladin = 'Paladin',
+  Ranger = 'Ranger',
+  Rogue = 'Rogue',
+  Shaman = 'Shaman',
+  Sorcerer = 'Sorcerer',
+  Summoner = 'Summoner',
+  Witch = 'Witch',
+  Wizard = 'Wizard'
+}
+
 export enum Sociology {
   Lawful = 'Lawful',
   Neutral = 'Neutral',
