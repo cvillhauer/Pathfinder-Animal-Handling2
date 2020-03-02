@@ -532,4 +532,194 @@ describe('CharacterComponent', () => {
     component.character = char;
     expect(component.getValidSpells()).toBeUndefined();
   });
+
+  it('compareAlignment should return 0 for lawfulGood', () => {
+    component.character.alignment = Alignment.lawfulGood;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for lawfulGood', () => {
+    component.character.alignment = Alignment.lawfulGood;
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for lawfulGood', () => {
+    component.character.alignment = Alignment.lawfulGood;
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for neutralGood', () => {
+    component.character.alignment = Alignment.neutralGood;
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for neutralGood', () => {
+    component.character.alignment = Alignment.neutralGood;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for neutralGood', () => {
+    component.character.alignment = Alignment.neutralGood;
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for chaoticGood', () => {
+    component.character.alignment = Alignment.chaoticGood;
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for chaoticGood', () => {
+    component.character.alignment = Alignment.chaoticGood;
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for chaoticGood', () => {
+    component.character.alignment = Alignment.chaoticGood;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for lawfulNeutral', () => {
+    component.character.alignment = Alignment.lawfulNeutral;
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for lawfulNeutral', () => {
+    component.character.alignment = Alignment.lawfulNeutral;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for lawfulNeutral', () => {
+    component.character.alignment = Alignment.lawfulNeutral;
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for trueNeutral', () => {
+    component.character.alignment = Alignment.trueNeutral;
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for trueNeutral', () => {
+    component.character.alignment = Alignment.trueNeutral;
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for trueNeutral', () => {
+    component.character.alignment = Alignment.trueNeutral;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for chaoticNeutral', () => {
+    component.character.alignment = Alignment.chaoticNeutral;
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for chaoticNeutral', () => {
+    component.character.alignment = Alignment.chaoticNeutral;
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for chaoticNeutral', () => {
+    component.character.alignment = Alignment.chaoticNeutral;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for lawfulEvil', () => {
+    component.character.alignment = Alignment.lawfulEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for lawfulEvil', () => {
+    component.character.alignment = Alignment.lawfulEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for lawfulEvil', () => {
+    component.character.alignment = Alignment.lawfulEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for neutralEvil', () => {
+    component.character.alignment = Alignment.neutralEvil;
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for neutralEvil', () => {
+    component.character.alignment = Alignment.neutralEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for neutralEvil', () => {
+    component.character.alignment = Alignment.neutralEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(-1);
+  });
+
+  it('compareAlignment should return 0 for chaoticEvil', () => {
+    component.character.alignment = Alignment.chaoticEvil;
+    expect(component.character.compareAlignment(Alignment.chaoticEvil)).toBe(0);
+  });
+
+  it('compareAlignment should return 1 for chaoticEvil', () => {
+    component.character.alignment = Alignment.chaoticEvil;
+    expect(component.character.compareAlignment(Alignment.chaoticNeutral)).toBe(1);
+    expect(component.character.compareAlignment(Alignment.neutralEvil)).toBe(1);
+  });
+
+  it('compareAlignment should return -1 for chaoticEvil', () => {
+    component.character.alignment = Alignment.chaoticEvil;
+    expect(component.character.compareAlignment(Alignment.lawfulGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.neutralGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.chaoticGood)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.trueNeutral)).toBe(-1);
+    expect(component.character.compareAlignment(Alignment.lawfulEvil)).toBe(-1);
+  });
+
 });

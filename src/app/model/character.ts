@@ -2,7 +2,7 @@ import { Spell } from './spell';
 import { Creature } from './creature';
 import { SummonedCreature } from './summonedCreature';
 import { AbilityScores } from './abilityscores';
-import { Modifier, Size, CreatureType, CharacterClass } from './enums';
+import { Modifier, Size, CreatureType, CharacterClass, Sociology, Morality } from './enums';
 import { Alignment } from './alignment';
 import { Speeds } from './speed';
 import { ArmorClass } from './armorClass';
@@ -102,7 +102,11 @@ export class Character extends Creature {
     // This function will return 0 if it is the exact same alignment, 1 if it is an adjacement alignment, -1 if it is an opposed alignment
     if (this.alignment.sociology === otherAlignment.sociology && this.alignment.morality === otherAlignment.morality) {
       return 0;
-    } else if (this.alignment.sociology === otherAlignment.sociology || this.alignment.morality === otherAlignment.morality) {
+    } else if (this.alignment.sociology === otherAlignment.sociology &&
+      (this.alignment.morality === Morality.Neutral || otherAlignment.morality === Morality.Neutral)) {
+      return 1;
+    } else if (this.alignment.morality === otherAlignment.morality &&
+      (this.alignment.sociology === Sociology.Neutral || otherAlignment.sociology === Sociology.Neutral)) {
       return 1;
     } else {
       return -1;
