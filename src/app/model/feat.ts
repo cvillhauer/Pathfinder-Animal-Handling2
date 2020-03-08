@@ -9,6 +9,11 @@ export class Feat {
     summary: 'Add your Dexterity bonus instead of Strength bonus to your CMB'
   };
 
+  static AugmentSummoning = {
+    description: 'Augment Summoning',
+    summary: 'Summoned creatures get +4 bonus to strength and constitution'
+  };
+
   static AwesomeBlow = {
     description: 'Awesome Blow',
     summary: 'Can perform an Awesome Blow combat maneuver as a standard action'
@@ -189,6 +194,11 @@ export class Feat {
     summary: 'Secondary attacks with natural weapons only take -2 penalty'
   };
 
+  static NatureMagic = {
+    description: 'Nature Magic',
+    summary: 'You gain Know Direction as a constant spell-like ability, and can cast another orison once per day'
+  };
+
   static PointBlankShot = {
     description: 'Point-Blank Shot',
     summary: '+1 attack and damage on targets within 30 feet'
@@ -249,6 +259,11 @@ export class Feat {
     summary: '+3 bonus on Swim checks'
   };
 
+  static SpellFocusConjuration = {
+    description: 'Spell Focus (Conjuration)',
+    summary: '+1 to the DC for all saving throws against your Conjuration spells'
+  };
+
   static SpringAttack = {
     description: 'Spring Attack',
     summary: 'Can move both before and after a single attack as a full-round action'
@@ -257,6 +272,11 @@ export class Feat {
   static Stealthy = {
     description: 'Stealthy',
     summary: '+2 bonus on Escape Artist and Stealth checks'
+  };
+
+  static SuperiorSummoning = {
+    description: 'Superior Summoning',
+    summary: 'When summoning more than one creature, add one to the total number of creatures summoned'
   };
 
   static Toughness = {

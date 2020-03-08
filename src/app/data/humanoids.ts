@@ -16,7 +16,7 @@ export const humanoids: Creature[] = [
   new Creature(
     'cyclops',
     'Cyclops',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Cyclops',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/cyclops/',
     'https://pathfinderwiki.com/mediawiki/images/thumb/9/9d/Aebos.jpg/250px-Aebos.jpg',
     Size.Large,
     CreatureType.Humanoid,
@@ -51,7 +51,7 @@ export const humanoids: Creature[] = [
   new Creature(
     'ettin',
     'Ettin',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Ettin',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/humanoids/giants/ettin/',
     'https://i.pinimg.com/originals/5f/2c/d7/5f2cd775f19838458c4ffa8eb9c09a7a.jpg',
     Size.Large,
     CreatureType.Humanoid,

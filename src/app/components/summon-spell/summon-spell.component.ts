@@ -1,27 +1,27 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { DiceService } from 'src/app/services/dice.service';
-import { Spell } from 'src/app/model/spell';
+import { SummonSpell } from 'src/app/model/spell';
 import { Creature } from 'src/app/model/creature';
 import { SpellService } from 'src/app/services/spell.service';
 import { CreatureService } from 'src/app/services/creature.service';
 import { Character } from 'src/app/model/character';
 import { Morality, CreatureType } from 'src/app/model/enums';
 import { AbilityScoreService } from 'src/app/services/ability-score.service';
+import { SummonedCreature } from 'src/app/model/summonedCreature';
+import { Feat } from 'src/app/model/feat';
 
 @Component({
-  selector: 'spell',
-  templateUrl: './spell.component.html'
+  selector: 'summon-spell',
+  templateUrl: './summon-spell.component.html'
 })
-export class SpellComponent implements OnInit {
-  @Input() spell: Spell;
+export class SummonSpellComponent implements OnInit {
+  @Input() spell: SummonSpell;
   @Input() castingCharacter: Character;
   @Input() roundCount: number;
   selectedLevel: number;
   selectedCreature: Creature;
   @Output() summon: EventEmitter<any> = new EventEmitter<any>();
-  readonly augmentSummonFeat = 'Augmented Summoning';
-  readonly superiorSummonFeat = 'Superior Summoning';
 
   constructor(
     private diceService: DiceService,
@@ -48,7 +48,7 @@ export class SpellComponent implements OnInit {
     let possibleValidCreatures = [];
     if (creatureLevel && creatureLevel <= this.spell.level) {
       const creatureListSpellId = this.spell.group + creatureLevel;
-      this.spellService.getSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
+      this.spellService.getSummonSpellCreatureListBySpellId(creatureListSpellId).subscribe(creatureList => {
         this.creatureService.getCreaturesFromCreatureList(creatureList).subscribe(creatures => {
           possibleValidCreatures = creatures;
           for (const creature of possibleValidCreatures) {
@@ -67,15 +67,15 @@ export class SpellComponent implements OnInit {
   }
 
   onSummon() {
-    const summonedCreatures: Creature[] = [];
+    const summonedCreatures: SummonedCreature[] = [];
     let numberOfCreatures = 0;
     if (this.castingCharacter && this.selectedLevel && this.selectedCreature) {
       numberOfCreatures = this.calculateNumberOfCreatures(this.spell.level, this.selectedLevel);
-      if (this.castingCharacter.feats.indexOf(this.superiorSummonFeat) >= 0 && this.spell.level > this.selectedLevel) {
+      if (this.castingCharacter.feats.indexOf(Feat.SuperiorSummoning) >= 0 && this.spell.level > this.selectedLevel) {
         numberOfCreatures += 1;
       }
       for (let i = 1; i <= numberOfCreatures; i++) {
-        const newCreature = Creature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
+        const newCreature = SummonedCreature.fromObject(JSON.parse(JSON.stringify(this.selectedCreature)));
         newCreature.level = this.selectedLevel;
         newCreature.creatureName = 'Squeaky ' + i; // TODO: Add a UI element to set this?
         newCreature.editName = false;
@@ -93,7 +93,7 @@ export class SpellComponent implements OnInit {
           }
         }
         newCreature.alignment = this.determineAlignment();
-        if (this.castingCharacter.feats.indexOf(this.augmentSummonFeat) >= 0) {
+        if (this.castingCharacter.feats.indexOf(Feat.AugmentSummoning) >= 0) {
           // AugmentSummoning increases Strength and Constitution by 4
           this.abilityScoreService.increaseStrength(newCreature, 4);
           this.abilityScoreService.increaseConstitution(newCreature, 4);

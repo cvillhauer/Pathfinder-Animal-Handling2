@@ -3,12 +3,21 @@
     <div class="col-xs-6">
       <h1>Pathfinder Animal Handling</h1>
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-2">
       <h2>Round {{ roundCount }}</h2>
     </div>
-    <div class="col-xs-3">
+    <div class="col-xs-2">
       <button type="button" class="btn btn-default button-holder" (click)="nextRound()">Next Round</button>
     </div>
+    <div class="col-xs-2">
+      <button type="button" class="btn btn-default button-holder" *ngIf="activeCharacter" (click)="activeCharacter = undefined">Switch Characters</button>
+    </div>
   </div>
-  <character [characters]="characters" [roundCount]="roundCount"></character>
+  <div class="col-xs-6" *ngIf="!activeCharacter">
+    <select class="form-control" [(ngModel)]="activeCharacter">
+      <option></option>
+      <option *ngFor="let character of characters" [ngValue]="character">{{ character.characterName }}</option>
+    </select>
+  </div>
+  <character *ngIf="activeCharacter" [character]="activeCharacter" [roundCount]="roundCount"></character>
 </div>

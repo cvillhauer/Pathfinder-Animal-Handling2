@@ -12,11 +12,6 @@ import { InGameModifier } from './inGameModifiers';
 import { SpecialAbility } from '../model/specialAbility';
 
 export class Creature {
-  level: number;
-  creatureName: string;
-  editName: boolean;
-  roundSummoned: number;
-  roundsLeft: number;
   inGameModifiers: InGameModifier[] = [new InGameModifier(InGameCondition.Grappled), new InGameModifier(InGameCondition.Charging)];
 
   constructor(
@@ -89,8 +84,8 @@ export class Creature {
     return newCreature;
   }
 
-  toggleEditCreatureName() {
-    this.editName = !this.editName;
+  isCharacter() {
+    return false;
   }
 
   isTrueNeutral() {
@@ -123,63 +118,6 @@ export class Creature {
 
   getCharismaBonus() {
     return this.abilityScores.calculateBonus(this.abilityScores.charisma);
-  }
-
-  applyCelestialTemplate() {
-    this.description = 'Celestial ' + this.description;
-    this.abilities.push(SpecialAbility.SmiteEvil);
-    if (this.abilities.indexOf(SpecialAbility.Darkvision) === -1) {
-      this.abilities.push(SpecialAbility.Darkvision);
-    }
-    this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
-    if (this.hitDice < 1) {
-      console.log('Error: Unable to calculate creature hit dice.');
-    } else if (this.hitDice <= 4) {
-      this.abilities.push(SpecialAbility.ResistAcid5);
-      this.abilities.push(SpecialAbility.ResistCold5);
-      this.abilities.push(SpecialAbility.ResistElectricity5);
-    } else if (this.hitDice <= 10) {
-      this.challengeRating += 1;
-      this.abilities.push(SpecialAbility.ResistAcid10);
-      this.abilities.push(SpecialAbility.ResistCold10);
-      this.abilities.push(SpecialAbility.ResistElectricity10);
-      this.abilities.push(SpecialAbility.DamageReductionEvil5);
-    } else if (this.hitDice >= 11) {
-      this.challengeRating += 1;
-      this.abilities.push(SpecialAbility.ResistAcid15);
-      this.abilities.push(SpecialAbility.ResistCold15);
-      this.abilities.push(SpecialAbility.ResistElectricity15);
-      this.abilities.push(SpecialAbility.DamageReductionEvil10);
-    }
-    this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
-    this.abilities.sort();
-  }
-
-  applyFiendishTemplate() {
-    this.description = 'Fiendish ' + this.description;
-    this.abilities.push(SpecialAbility.SmiteGood);
-    if (this.abilities.indexOf(SpecialAbility.Darkvision) === -1) {
-      this.abilities.push(SpecialAbility.Darkvision);
-    }
-    this.inGameModifiers.push(new InGameModifier(InGameCondition.Smite, false));
-    if (this.hitDice < 1) {
-      console.log('Error: Unable to calculate creature hit dice.');
-    } else if (this.hitDice <= 4) {
-      this.abilities.push(SpecialAbility.ResistCold5);
-      this.abilities.push(SpecialAbility.ResistFire5);
-    } else if (this.hitDice <= 10) {
-      this.challengeRating += 1;
-      this.abilities.push(SpecialAbility.ResistCold10);
-      this.abilities.push(SpecialAbility.ResistFire10);
-      this.abilities.push(SpecialAbility.DamageReductionGood5);
-    } else if (this.hitDice >= 11) {
-      this.challengeRating += 1;
-      this.abilities.push(SpecialAbility.ResistCold15);
-      this.abilities.push(SpecialAbility.ResistFire15);
-      this.abilities.push(SpecialAbility.DamageReductionGood10);
-    }
-    this.spellResistance = Math.floor(this.spellResistance + this.challengeRating + 5);
-    this.abilities.sort();
   }
 
 }

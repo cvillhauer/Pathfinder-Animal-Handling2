@@ -11,7 +11,7 @@ import { Alignment } from '../model/alignment';
 import { Skill } from '../model/skill';
 import { SpecialAbility } from '../model/specialAbility';
 import { Stun } from '../model/stun';
-import { Grab } from '../model/combatManeuvers';
+import { Grab, Trip } from '../model/combatManeuvers';
 import { SwallowWhole } from '../model/swallowWhole';
 import { Trample } from '../model/trample';
 
@@ -19,7 +19,7 @@ export const dinosaurs: Creature[] = [
   new Creature(
     'ankylosaurus',
     'Ankylosaurus',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Ankylosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/ankylosaurus/',
     'https://dreager1.files.wordpress.com/2012/04/ankylosaurus_7.jpg',
     Size.Huge,
     CreatureType.Animal,
@@ -75,7 +75,7 @@ export const dinosaurs: Creature[] = [
   new Creature(
     'deinonychus',
     'Deinonychus',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Deinonychus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/deinonychus/',
     'https://dungeonhacking.files.wordpress.com/2015/07/deinonychus_antirrhopus.gif',
     Size.Medium,
     CreatureType.Animal,
@@ -108,9 +108,39 @@ export const dinosaurs: Creature[] = [
     [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.Pounce]
   ),
   new Creature(
+    'elasmosaurus',
+    'Elasmosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/elasmosaurus',
+    'https://images.dinosaurpictures.org/Elasmosaurus_bcc2.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(20, 0, 0, 50),
+    20,
+    new AbilityScores(26, 15, 20, 2, 13, 9),
+    10,
+    105,
+    new ArmorClass(20, 11, 17),
+    17,
+    30,
+    7,
+    7,
+    0,
+    new Saves(14, 9, 6),
+    [Feat.Dodge, Feat.GreatFortitude, Feat.IronWill, Feat.Mobility, Feat.Toughness],
+    [
+      new SkillBonus(Skill.Perception, 14),
+      new SkillBonus(Skill.Swim, 16)
+    ],
+    [
+      new Attack('Bite', 13, '2d8', 12, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
     'pteranodon',
     'Pteranodon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Pteranodon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/pterosaur/pterosaur-pteranodon/',
     'https://vignette.wikia.nocookie.net/primalcarnagethegame/images/2/22/Pteranodon.png/revision/latest?cb=20170929141926',
     Size.Large,
     CreatureType.Animal,
@@ -134,6 +164,65 @@ export const dinosaurs: Creature[] = [
     ],
     [new Attack('Bite', 5, '2d6', 4, false, AttackType.Melee, [DamageType.Bludgeoning, DamageType.Piercing, DamageType.Slashing])],
     [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'stegosaurus',
+    'Stegosaurus',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/stegosaurus',
+    'https://thethesiswhisperer.files.wordpress.com/2010/11/stegosaurus.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    15,
+    new AbilityScores(27, 14, 17, 2, 13, 10),
+    12,
+    90,
+    new ArmorClass(22, 10, 20),
+    19,
+    31,
+    9,
+    7,
+    0,
+    new Saves(13, 10, 5),
+    [Feat.Cleave, Feat.GreatFortitude, Feat.ImprovedInititive, Feat.ImprovedOverrun, Feat.PowerAttack, Feat.WeaponFocusTail],
+    [
+      new SkillBonus(Skill.Perception, 16)
+    ],
+    [
+      new Attack('Tail', 16, '4d6', 12, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trip(19)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent]
+  ),
+  new Creature(
+    'triceratops',
+    'Triceratops',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/animals/dinosaur/triceratops',
+    'https://pathfinderwiki.com/mediawiki/images/thumb/4/4e/Ceratopsid.jpg/250px-Ceratopsid.jpg',
+    Size.Huge,
+    CreatureType.Animal,
+    Alignment.trueNeutral,
+    new Speeds(30),
+    15,
+    new AbilityScores(26, 9, 19, 2, 12, 7),
+    14,
+    119,
+    new ArmorClass(21, 7, 21),
+    20,
+    29,
+    10,
+    8,
+    0,
+    new Saves(15, 8, 5),
+    [Feat.GreatFortitude, Feat.ImprovedBullRush, Feat.ImprovedCriticalGore, Feat.PowerAttack,
+    Feat.Run, Feat.SkillFocusPerception, Feat.WeaponFocusGore],
+    [new SkillBonus(Skill.Perception, 24)],
+    [
+      new Attack('Gore', 17, '2d10', 12, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Powerful Charge (Gore)', 17, '4d10', 16, false, AttackType.Melee, [DamageType.Piercing]),
+      new Attack('Trample', null, '', 0, false, AttackType.Melee, [DamageType.Bludgeoning], [new Trample('1d8', 12, 25)])
+    ],
+    [SpecialAbility.LowLightVision, SpecialAbility.Scent, SpecialAbility.PowerfulCharge]
   ),
   new Creature(
     'tyrannosaurus',

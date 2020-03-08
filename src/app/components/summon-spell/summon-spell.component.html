@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="container">
+    <h4 class="col-xs-4">{{ spell?.description }}</h4>
+    <div style="display: flex; justify-content: space-around;">
+      <select class="form-control col-xs-3" [(ngModel)]="selectedLevel" (change)="levelChange()">
+        <option></option>
+        <option *ngFor="let level of spell?.levelList" [ngValue]="level">{{ level }}</option>
+      </select>
+      <select class="form-control col-xs-3" [(ngModel)]="selectedCreature">
+        <option></option>
+        <option *ngFor="let creature of spell?.creatures" [ngValue]="creature">{{ creature.description }}
+        </option>
+      </select>
+      <button type="button" class="btn btn-default col-xs-2" (click)="onSummon()">Summon</button>
+    </div>
+  </div>
+</div>

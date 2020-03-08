@@ -1,3 +1,26 @@
+export enum CharacterClass {
+  Alchemist = 'Alchemist',
+  Barbarian = 'Barbarian',
+  Bard = 'Bard',
+  Cavalier = 'Cavalier',
+  Cleric = 'Cleric',
+  Druid = 'Druid',
+  Fighter = 'Fighter',
+  Gunslinger = 'Gunslinger',
+  Inquisitor = 'Inquisitor',
+  Magus = 'Magus',
+  Monk = 'Monk',
+  Oracle = 'Oracle',
+  Paladin = 'Paladin',
+  Ranger = 'Ranger',
+  Rogue = 'Rogue',
+  Shaman = 'Shaman',
+  Sorcerer = 'Sorcerer',
+  Summoner = 'Summoner',
+  Witch = 'Witch',
+  Wizard = 'Wizard'
+}
+
 export enum Sociology {
   Lawful = 'Lawful',
   Neutral = 'Neutral',
@@ -95,11 +118,13 @@ export enum SpeedType {
 export enum Spell {
   Aid = 'Aid',
   AuraOfMenace = 'Aura of Menace',
+  BitOfLuck = 'Bit of Luck',
   Blur = 'Blur',
   CauseFear = 'Cause Fear',
   CharmMonster = 'Charm Monster',
   CharmPerson = 'Charm Person',
   ContinualFlame = 'Continual Flame',
+  CreateWater = 'Create Water',
   CureSeriousWounds = 'Cure Serious Wounds',
   DancingLights = 'Dancing Lights',
   Darkness = 'Darkness',
@@ -119,6 +144,7 @@ export enum Spell {
   Heroism = 'Heroism',
   Invisibility = 'Invisibilty',
   Knock = 'Knock',
+  KnowDirection = 'Know Direction',
   Light = 'Light',
   LightningBolt = 'Lightning Bolt',
   MagicCircleAgainstEvil = 'Magic Circle Against Evil',

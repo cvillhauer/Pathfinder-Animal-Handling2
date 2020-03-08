@@ -32,7 +32,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'babau',
     'Babau',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Babau',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/demon/babau/',
     'https://i.pinimg.com/originals/4a/ab/bc/4aabbcba981403079a6f4ce9fa4a2fb8.png',
     Size.Medium,
     CreatureType.Outsider,
@@ -80,7 +80,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'beardeddevil',
     'Bearded Devil',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Bearded%20Devil%20(Barbazu)',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/devil/bearded/',
     'https://i.pinimg.com/originals/9f/65/7c/9f657cf48cb8ebc783cb61d14731eed5.png',
     Size.Medium,
     CreatureType.Outsider,
@@ -209,7 +209,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'bralani',
     'Bralani',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Bralani',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/azata/bralani/',
     'https://i.pinimg.com/736x/0f/4b/22/0f4b2219347c28e9038df0099457d15c.jpg',
     Size.Medium,
     CreatureType.Outsider,
@@ -261,7 +261,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'dretch',
     'Dretch',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Dretch',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/demon/dretch/',
     'https://sites.google.com/site/pathfinderogc/_/rsrc/1487036773117/images/dretch-jr.png',
     Size.Small,
     CreatureType.Outsider,
@@ -350,7 +350,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'hellhound',
     'Hell Hound',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Hell%20Hound',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/hell-hound/',
     'https://i.pinimg.com/236x/0d/8c/1a/0d8c1a7fe23223efe9d45b8bb236e03e--playing-cards-roman.jpg',
     Size.Medium,
     CreatureType.Outsider,
@@ -386,7 +386,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'houndarchon',
     'Hound Archon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Hound%20Archon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/archon/hound-archon/',
     'http://fc08.deviantart.net/fs51/f/2009/298/9/6/Hound_Archon_for_Paizo_by_MichaelJaecks.jpg',
     Size.Medium,
     CreatureType.Outsider,
@@ -469,7 +469,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'kyton',
     'Kyton',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Kyton',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/kyton/kyton/',
     'https://i.pinimg.com/originals/5b/e8/b3/5be8b3511261e436bd43f4eb81d34d1e.png',
     Size.Medium,
     CreatureType.Outsider,
@@ -511,7 +511,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'lanternarchon',
     'Lantern Archon',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Lantern%20Archon',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/archon/lantern-archon/',
     'https://i.pinimg.com/originals/4f/b9/4c/4fb94c890c480f240f9af0cb49852357.png',
     Size.Small,
     CreatureType.Outsider,
@@ -552,7 +552,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'lemure',
     'Lemure',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Lemure',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/devil/lemure/',
     'https://i.pinimg.com/originals/4b/82/aa/4b82aae8c0b1bbeed9ad5da890abb744.png',
     Size.Medium,
     CreatureType.Outsider,
@@ -630,7 +630,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'salamander',
     'Salamander',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Salamander',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/salamander/',
     'https://i.pinimg.com/originals/d4/7f/eb/d47feb0ff67f29ae27e76d45f8f5e51c.png',
     Size.Medium,
     CreatureType.Outsider,
@@ -823,7 +823,7 @@ export const outsiders: Creature[] = [
   new Creature(
     'xill',
     'Xill',
-    'https://aonprd.com/MonsterDisplay.aspx?ItemName=Xill',
+    'https://www.d20pfsrd.com/bestiary/monster-listings/outsiders/xill/',
     'https://i.pinimg.com/originals/91/15/de/9115de83fadd8e8261cf2f95a8823cfb.png',
     Size.Medium,
     CreatureType.Outsider,

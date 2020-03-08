@@ -1,6 +1,233 @@
+import { ShapeshiftOption } from '../model/shapeshiftOption';
+import { Shape } from '../model/enums';
+
 export const spells = [
   {
+    id: 'beastshape1',
+    type: 'shapeshift',
+    description: 'Beast Shape I',
+    level: 3,
+    shapeshiftOptions: [ShapeshiftOption.MediumAnimal, ShapeshiftOption.SmallAnimal],
+    allowedAbilities: [
+      'climb 30 ft',
+      'fly 30 ft',
+      'swim 30 ft',
+      'darkvision 60 ft',
+      'low-light vision',
+      'scent'
+    ]
+  },
+  {
+    id: 'beastshape2',
+    type: 'shapeshift',
+    description: 'Beast Shape II',
+    level: 4,
+    shapeshiftOptions: [ShapeshiftOption.MediumAnimal, ShapeshiftOption.SmallAnimal,
+    ShapeshiftOption.LargeAnimal, ShapeshiftOption.TinyAnimal],
+    allowedAbilities: [
+      'climb 60 ft',
+      'fly 60 ft',
+      'swim 60 ft',
+      'darkvision 60 ft',
+      'low-light vision',
+      'scent',
+      'grab',
+      'pounce',
+      'trip'
+    ]
+  },
+  {
+    id: 'beastshape3',
+    type: 'shapeshift',
+    description: 'Beast Shape III',
+    level: 5,
+    shapeshiftOptions: [ShapeshiftOption.MediumAnimal, ShapeshiftOption.SmallAnimal,
+    ShapeshiftOption.LargeAnimal, ShapeshiftOption.TinyAnimal,
+    ShapeshiftOption.DiminutiveAnimal, ShapeshiftOption.HugeAnimal,
+    ShapeshiftOption.MediumMagicalBeast, ShapeshiftOption.SmallMagicalBeast],
+    allowedAbilities: [
+      'burrow 30ft',
+      'climb 90 ft',
+      'fly 90 ft',
+      'swim 90 ft',
+      'darkvision 60 ft',
+      'low-light vision',
+      'scent',
+      'grab',
+      'pounce',
+      'trip',
+      'blindsense',
+      'constrict',
+      'ferocity',
+      'jet',
+      'poison',
+      'rake',
+      'trample',
+      'web'
+    ]
+  },
+  {
+    id: 'beastshape4',
+    type: 'shapeshift',
+    description: 'Beast Shape IV',
+    level: 6,
+    shapeshiftOptions: [ShapeshiftOption.MediumAnimal, ShapeshiftOption.SmallAnimal,
+    ShapeshiftOption.LargeAnimal, ShapeshiftOption.TinyAnimal,
+    ShapeshiftOption.DiminutiveAnimal, ShapeshiftOption.HugeAnimal,
+    ShapeshiftOption.MediumMagicalBeast, ShapeshiftOption.SmallMagicalBeast,
+    ShapeshiftOption.TinyMagicalBeast, ShapeshiftOption.LargeMagicalBeast],
+    allowedAbilities: [
+      'burrow 60ft',
+      'climb 90 ft',
+      'fly 120 ft',
+      'swim 120 ft',
+      'darkvision 60 ft',
+      'low-light vision',
+      'scent',
+      'grab',
+      'pounce',
+      'trip',
+      'blindsense',
+      'constrict',
+      'ferocity',
+      'jet',
+      'poison',
+      'rake',
+      'trample',
+      'web',
+      'tremorsense',
+      'breathweapon',
+      'rend',
+      'roar',
+      'spikes',
+      'vulnerable to acid',
+      'vulnerable to cold',
+      'vulnerable to fire',
+      'vulnerable to electricity'
+    ]
+  },
+  {
+    id: 'elementalbody1',
+    type: 'shapeshift',
+    description: 'Elemental Body I',
+    level: 4,
+    shapeshiftOptions: [ShapeshiftOption.SmallElemental],
+    allowedAbilities: [
+      'air',
+      'earth',
+      'fire',
+      'water'
+    ]
+  },
+  {
+    id: 'elementalbody2',
+    type: 'shapeshift',
+    description: 'Elemental Body II',
+    level: 5,
+    shapeshiftOptions: [ShapeshiftOption.MediumElemental],
+    allowedAbilities: [
+      'air',
+      'earth',
+      'fire',
+      'water'
+    ]
+  },
+  {
+    id: 'elementalbody3',
+    type: 'shapeshift',
+    description: 'Elemental Body III',
+    level: 6,
+    shapeshiftOptions: [ShapeshiftOption.LargeElemental],
+    allowedAbilities: [
+      'air',
+      'earth',
+      'fire',
+      'water'
+    ]
+  },
+  {
+    id: 'elementalbody4',
+    type: 'shapeshift',
+    description: 'Elemental Body IV',
+    level: 7,
+    shapeshiftOptions: [ShapeshiftOption.HugeElemental],
+    allowedAbilities: [
+      'air',
+      'earth',
+      'fire',
+      'water'
+    ]
+  },
+  {
+    id: 'plantshape1',
+    type: 'shapeshift',
+    description: 'Plant Shape I',
+    level: 5,
+    shapeshiftOptions: [ShapeshiftOption.MediumPlant, ShapeshiftOption.SmallPlant],
+    allowedAbilities: [
+      'darkvision 60 ft',
+      'low-light vision',
+      'constrict',
+      'grab',
+      'poison',
+      'vulnerable to acid',
+      'vulnerable to cold',
+      'vulnerable to fire',
+      'vulnerable to electricity'
+    ]
+  },
+  {
+    id: 'plantshape2',
+    type: 'shapeshift',
+    description: 'Plant Shape II',
+    level: 6,
+    shapeshiftOptions: [ShapeshiftOption.MediumPlant, ShapeshiftOption.SmallPlant,
+    ShapeshiftOption.LargePlant],
+    allowedAbilities: [
+      'darkvision 60 ft',
+      'low-light vision',
+      'constrict',
+      'grab',
+      'poison',
+      'vulnerable to acid',
+      'vulnerable to cold',
+      'vulnerable to fire',
+      'vulnerable to electricity',
+      'resist acid',
+      'resist cold',
+      'resist fire',
+      'resist electricity'
+    ]
+  },
+  {
+    id: 'plantshape3',
+    type: 'shapeshift',
+    description: 'Plant Shape III',
+    level: 7,
+    shapeshiftOptions: [ShapeshiftOption.MediumPlant, ShapeshiftOption.SmallPlant,
+    ShapeshiftOption.LargePlant, ShapeshiftOption.HugePlant],
+    allowedAbilities: [
+      'darkvision 60 ft',
+      'low-light vision',
+      'constrict',
+      'grab',
+      'poison',
+      'trample',
+      'regeneration 5',
+      'vulnerable to acid',
+      'vulnerable to cold',
+      'vulnerable to fire',
+      'vulnerable to electricity',
+      'resist acid',
+      'resist cold',
+      'resist fire',
+      'resist electricity',
+      'damage reduction'
+    ]
+  },
+  {
     id: 'summonnaturesally1',
+    type: 'summon',
     description: 'Summon Nature\'s Ally I',
     group: 'summonnaturesally',
     level: 1,
@@ -20,6 +247,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally2',
+    type: 'summon',
     description: 'Summon Nature\'s Ally II',
     group: 'summonnaturesally',
     level: 2,
@@ -45,6 +273,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally3',
+    type: 'summon',
     description: 'Summon Nature\'s Ally III',
     group: 'summonnaturesally',
     level: 3,
@@ -67,6 +296,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally4',
+    type: 'summon',
     description: 'Summon Nature\'s Ally IV',
     group: 'summonnaturesally',
     level: 4,
@@ -101,6 +331,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally5',
+    type: 'summon',
     description: 'Summon Nature\'s Ally V',
     group: 'summonnaturesally',
     level: 5,
@@ -126,6 +357,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally6',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VI',
     group: 'summonnaturesally',
     level: 6,
@@ -152,6 +384,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally7',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VII',
     group: 'summonnaturesally',
     level: 7,
@@ -177,6 +410,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally8',
+    type: 'summon',
     description: 'Summon Nature\'s Ally VIII',
     group: 'summonnaturesally',
     level: 8,
@@ -193,6 +427,7 @@ export const spells = [
   },
   {
     id: 'summonnaturesally9',
+    type: 'summon',
     description: 'Summon Nature\'s Ally IX',
     group: 'summonnaturesally',
     level: 9,
@@ -200,6 +435,7 @@ export const spells = [
   },
   {
     id: 'summonmonster1',
+    type: 'summon',
     description: 'Summon Monster I',
     group: 'summonmonster',
     level: 1,
@@ -216,6 +452,7 @@ export const spells = [
   },
   {
     id: 'summonmonster2',
+    type: 'summon',
     description: 'Summon Monster II',
     group: 'summonmonster',
     level: 2,
@@ -243,6 +480,7 @@ export const spells = [
   },
   {
     id: 'summonmonster3',
+    type: 'summon',
     description: 'Summon Monster III',
     group: 'summonmonster',
     level: 3,
@@ -266,6 +504,7 @@ export const spells = [
   },
   {
     id: 'summonmonster4',
+    type: 'summon',
     description: 'Summon Monster IV',
     group: 'summonmonster',
     level: 4,
@@ -297,6 +536,7 @@ export const spells = [
   },
   {
     id: 'summonmonster5',
+    type: 'summon',
     description: 'Summon Monster V',
     group: 'summonmonster',
     level: 5,
@@ -324,6 +564,7 @@ export const spells = [
   },
   {
     id: 'summonmonster6',
+    type: 'summon',
     description: 'Summon Monster VI',
     group: 'summonmonster',
     level: 6,
@@ -352,6 +593,7 @@ export const spells = [
   },
   {
     id: 'summonmonster7',
+    type: 'summon',
     description: 'Summon Monster VII',
     group: 'summonmonster',
     level: 7,
@@ -378,6 +620,7 @@ export const spells = [
   },
   {
     id: 'summonmonster8',
+    type: 'summon',
     description: 'Summon Monster VIII',
     group: 'summonmonster',
     level: 8,
@@ -394,6 +637,7 @@ export const spells = [
   },
   {
     id: 'summonmonster9',
+    type: 'summon',
     description: 'Summon Monster IX',
     group: 'summonmonster',
     level: 9,

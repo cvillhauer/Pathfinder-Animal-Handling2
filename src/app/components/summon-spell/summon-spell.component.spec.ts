@@ -2,11 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { SpellComponent } from './spell.component';
+import { SummonSpellComponent } from './summon-spell.component';
 import { FormsModule } from '@angular/forms';
 import { Character } from 'src/app/model/character';
 import { AbilityScores } from 'src/app/model/abilityscores';
-import { Size, CreatureType } from 'src/app/model/enums';
+import { Size, CreatureType, CharacterClass } from 'src/app/model/enums';
 import { Creature } from 'src/app/model/creature';
 import { Saves } from 'src/app/model/saves';
 import { DiceService } from 'src/app/services/dice.service';
@@ -16,20 +16,22 @@ import { of } from 'rxjs';
 import { ArmorClass } from 'src/app/model/armorClass';
 import { Speeds } from 'src/app/model/speed';
 import { Alignment } from 'src/app/model/alignment';
+import { SummonedCreature } from 'src/app/model/summonedCreature';
+import { Feat } from 'src/app/model/feat';
 
 describe('SpellComponent', () => {
-  let component: SpellComponent;
-  let fixture: ComponentFixture<SpellComponent>;
+  let component: SummonSpellComponent;
+  let fixture: ComponentFixture<SummonSpellComponent>;
   const mockCreatureCodes: string[] = [];
   const mockCreatures: Creature[] = [];
 
   beforeEach(async(() => {
-    const spellService = jasmine.createSpyObj('SpellService', ['getSpellCreatureListBySpellId']);
-    spellService.getSpellCreatureListBySpellId.and.returnValue(of(mockCreatureCodes));
+    const spellService = jasmine.createSpyObj('SpellService', ['getSummonSpellCreatureListBySpellId']);
+    spellService.getSummonSpellCreatureListBySpellId.and.returnValue(of(mockCreatureCodes));
     const creatureService = jasmine.createSpyObj('CreatureService', ['getCreaturesFromCreatureList']);
     creatureService.getCreaturesFromCreatureList.and.returnValue(of(mockCreatures));
     TestBed.configureTestingModule({
-      declarations: [SpellComponent],
+      declarations: [SummonSpellComponent],
       imports: [RouterTestingModule, HttpClientTestingModule, FormsModule],
       providers: [DiceService,
         { provide: SpellService, useValue: spellService },
@@ -39,10 +41,11 @@ describe('SpellComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpellComponent);
+    fixture = TestBed.createComponent(SummonSpellComponent);
     component = fixture.componentInstance;
     component.spell = {
       id: 'test',
+      type: 'summon',
       description: 'test',
       group: 'test',
       level: 1,
@@ -51,7 +54,25 @@ describe('SpellComponent', () => {
       creatures: []
     };
     component.roundCount = 1;
-    component.castingCharacter = new Character('1', 'test', Alignment.trueNeutral, 'test', 1, new AbilityScores(10, 10, 10, 10, 10, 10));
+    component.castingCharacter = new Character(
+      'test',
+      CharacterClass.Wizard,
+      1,
+      'test',
+      'link',
+      'image',
+      Alignment.trueNeutral,
+      new Speeds(30),
+      new AbilityScores(10, 10, 10, 10, 10, 10),
+      10,
+      new ArmorClass(10, 10, 10),
+      5,
+      15,
+      1,
+      0,
+      new Saves(5, 5, 5),
+      []
+    );
     component.selectedCreature = new Creature(
       'test',
       'test',
@@ -121,7 +142,7 @@ describe('SpellComponent', () => {
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
-    const testCreature = new Creature(
+    const testCreature = new SummonedCreature(
       'test',
       'test',
       '',
@@ -144,21 +165,21 @@ describe('SpellComponent', () => {
       []
     );
     testCreature.level = 1;
-    testCreature.creatureName = 'Squeaky 1',
-      testCreature.editName = false;
+    testCreature.creatureName = 'Squeaky 1';
+    testCreature.editName = false;
     testCreature.roundsLeft = 1;
     testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [testCreature]
+      id: 'test', creatures: [testCreature]
     });
   });
 
   it('onSummon should emit a creature with augmented summoning', () => {
-    component.castingCharacter.feats.push('Augmented Summoning'); // +4 to str, +4 to con, +2 HP
+    component.castingCharacter.feats.push(Feat.AugmentSummoning); // +4 to str, +4 to con, +2 HP
     component.selectedLevel = 1;
     spyOn(component.summon, 'emit');
     component.onSummon();
-    const testCreature = new Creature(
+    const testCreature = new SummonedCreature(
       'test',
       'test',
       '',
@@ -181,12 +202,12 @@ describe('SpellComponent', () => {
       []
     );
     testCreature.level = 1;
-    testCreature.creatureName = 'Squeaky 1',
-      testCreature.editName = false;
+    testCreature.creatureName = 'Squeaky 1';
+    testCreature.editName = false;
     testCreature.roundsLeft = 1;
     testCreature.roundSummoned = 1;
     expect(component.summon.emit).toHaveBeenCalledWith({
-      id: '1', creatures: [testCreature]
+      id: 'test', creatures: [testCreature]
     });
   });
 
